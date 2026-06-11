@@ -1,0 +1,27 @@
+# Checklist — Page 01-02 Create Artboard Function
+
+- [ ] `packages/artboard/src/schemas.ts` created
+- [ ] `CreateArtboardInputSchema` defined with `startPoint`, `endPoint`, `name`, `id`, `minSize`
+- [ ] `name` defaults to `"Artboard"` in schema
+- [ ] `minSize` defaults to `1` in schema
+- [ ] Schema uses `finiteNumber()` from `@yourscope/shared` (not raw `z.number()`)
+- [ ] `packages/artboard/src/createArtboard.ts` created
+- [ ] Function signature uses plain types — no Zod types in signature
+- [ ] `safeParse` is used (not `.parse()`)
+- [ ] Origin computed as `{ x: Math.min(...), y: Math.min(...) }`
+- [ ] Size computed as `{ width: Math.abs(...), height: Math.abs(...) }`
+- [ ] Returns `{ success: false, reason: "invalid-input" }` on schema failure
+- [ ] Returns `{ success: false, reason: "too-small" }` when dimension < minSize
+- [ ] Returns `{ success: true, artboard: Artboard }` on success
+- [ ] `id` falls back to `crypto.randomUUID()` when not provided
+- [ ] `createdAt` is set with `Date.now()`
+- [ ] JSDoc with `@param`, `@returns`, two `@example` blocks
+- [ ] No `any` in function signature
+- [ ] `createArtboard` exported from `index.ts`
+- [ ] Test file covers all 4 drag directions
+- [ ] Test file covers `too-small` for width AND height
+- [ ] Test file covers `invalid-input` for NaN and Infinity
+- [ ] Test file covers default name, custom name, custom id, custom minSize
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty

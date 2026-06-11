@@ -1,0 +1,31 @@
+# Checklist — Page 00-03 Zod Utilities
+
+- [ ] `zod` added as `peerDependency` in `packages/shared/package.json`
+- [ ] `zod` added as `devDependency` in `packages/shared/package.json`
+- [ ] `zod` is NOT listed under `dependencies`
+- [ ] `packages/shared/src/zodUtils.ts` created
+- [ ] `nonEmptyString()` implemented and exported
+- [ ] `positiveNumber()` implemented and exported
+- [ ] `nonNegativeNumber()` implemented and exported
+- [ ] `finiteNumber()` implemented and exported
+- [ ] `uuid()` implemented and exported
+- [ ] `unixTimestampMs()` implemented and exported
+- [ ] `pointSchema()` implemented and exported
+- [ ] `latLngSchema()` implemented and exported
+- [ ] `colorHexSchema()` implemented and exported
+- [ ] `percentSchema()` implemented and exported
+- [ ] `opacitySchema()` implemented and exported
+- [ ] `boundingBoxSchema()` with min<=max refinement implemented and exported
+- [ ] `withDefault<T>()` implemented and exported
+- [ ] Every function has JSDoc with `@example`
+- [ ] `packages/shared/src/zodStructural.ts` created
+- [ ] `$AnyZodObject` exported with correct `_zod.output` field shape
+- [ ] `$AnyZodType` exported with correct `_zod.output` field shape
+- [ ] Comment in `zodStructural.ts` notes the Zod version compatibility
+- [ ] `packages/shared/src/index.ts` re-exports all new symbols
+- [ ] `packages/shared/tests/zodUtils.test.ts` created
+- [ ] Tests cover happy path for every utility
+- [ ] Tests cover rejection cases (NaN, Infinity, out-of-range, wrong format)
+- [ ] `pnpm --filter @yourscope/shared build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/shared/dist/` returns empty
+- [ ] `pnpm --filter @yourscope/shared test` — all tests pass

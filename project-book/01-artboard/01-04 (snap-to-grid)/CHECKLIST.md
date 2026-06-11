@@ -1,0 +1,23 @@
+# Checklist — Page 01-04 Snap to Grid
+
+- [ ] `snapArtboardToGrid.ts` created and exported from `index.ts`
+- [ ] Function signature uses `SnapArtboardInput` — no Zod types
+- [ ] Default `gridSize` is `8`
+- [ ] Default `mode` is `"round"`
+- [ ] `"round"` mode implemented with `Math.round`
+- [ ] `"floor"` mode implemented with `Math.floor`
+- [ ] `"ceil"` mode implemented with `Math.ceil`
+- [ ] Negative coordinates handled correctly in all 3 modes
+- [ ] `gridSize <= 0` guard returns artboard unchanged
+- [ ] Input artboard is not mutated
+- [ ] All non-geometry fields preserved (`id`, `name`, `startPoint`, `endPoint`, `createdAt`)
+- [ ] JSDoc with all 3 mode examples
+- [ ] Tests cover `"round"`, `"floor"`, `"ceil"` modes
+- [ ] Tests cover negative origin values
+- [ ] Tests cover default gridSize and custom gridSize
+- [ ] Tests cover zero-value coordinates
+- [ ] Tests cover `gridSize <= 0` defensive guard
+- [ ] Tests verify no mutation of input
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty

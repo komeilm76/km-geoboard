@@ -1,0 +1,62 @@
+{
+  "name": "km-plugins",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Typed plugin registry for km-packages \u2014 dependency resolution, conflict detection, semver checking, and lifecycle management.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-geoboard#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-geoboard/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-geoboard.git"
+  },
+  "keywords": [
+    "typescript",
+    "plugin",
+    "registry",
+    "dependency",
+    "km-packages"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "fix:prettier": "prettier \"src/**/*.{ts,json}\" --write",
+    "fix": "pnpm run fix:prettier",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "check-zod": "node ../../scripts/check-zod.mjs",
+    "publish-directly": "npm publish --access public",
+    "auto-release": "pnpm run fix:prettier && pnpm run build && pnpm run test && release-it",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
+    "vitest": "^2.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

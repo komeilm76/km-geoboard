@@ -1,0 +1,25 @@
+# Checklist — Page 07-03 Dependency Resolver
+
+- [ ] `dependencyResolver.ts` created
+- [ ] `satisfiesVersion` exported — handles `">=X.Y.Z"` correctly
+- [ ] `satisfiesVersion("1.0.0", ">=1.0.0")` → true (equal boundary)
+- [ ] `satisfiesVersion("0.9.9", ">=1.0.0")` → false
+- [ ] `satisfiesVersion` returns `false` for unsupported operators (documented)
+- [ ] `resolveDependencyOrder` exported — returns `Result<Plugin[]>`
+- [ ] `resolveDependencyOrder` implements Kahn's algorithm (topological sort)
+- [ ] `resolveDependencyOrder` returns plugins in dependency-safe order
+- [ ] `resolveDependencyOrder` detects cycles — returns `{ code: "circular-dependency" }`
+- [ ] `createPluginRegistry.register` updated to call `satisfiesVersion`
+- [ ] Version mismatch returns `{ code: "version-mismatch" }` error
+- [ ] `debugRegistry.ts` created
+- [ ] `debugRegistry` exported — returns `RegistrySnapshot`
+- [ ] `debugRegistry` maps all active registrations to snapshot format
+- [ ] All new symbols exported from `index.ts`
+- [ ] Tests: `satisfiesVersion` boundary cases
+- [ ] Tests: linear chain topological sort
+- [ ] Tests: diamond dependency topological sort
+- [ ] Tests: cycle detection
+- [ ] Tests: registry version-mismatch integration test
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/plugins build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` returns empty

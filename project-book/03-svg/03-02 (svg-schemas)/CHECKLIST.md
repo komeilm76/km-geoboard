@@ -1,0 +1,22 @@
+# Checklist — Page 03-02 SVG Zod Schemas
+
+- [ ] `packages/svg/src/schemas.ts` created
+- [ ] `SvgViewBoxSchema` exported
+- [ ] `SvgLengthSchema` exported using `finiteNumber()`
+- [ ] `SvgColorSchema` uses `z.discriminatedUnion("type", ...)` with all 5 variants
+- [ ] `SvgColorSchema` hex variant validates hex format with regex
+- [ ] `SvgColorSchema` rgb variant validates 0–255 range
+- [ ] `SvgTransformOperationSchema` uses `z.discriminatedUnion("type", ...)` with all 6 variants
+- [ ] `SvgTransformSchema` exported as array of operations
+- [ ] `SvgPresentationAttributesSchema` exported with all 16 optional fields
+- [ ] `SvgCoreAttributesSchema` exported
+- [ ] All 9 element schemas exported
+- [ ] `SvgGroupElementSchema.children` uses lazy `SvgElementSchema`
+- [ ] `SvgElementSchema` uses `z.lazy()` for recursion
+- [ ] `SvgElementSchema` has explicit `z.ZodType<SvgElement>` annotation
+- [ ] `SvgDocumentSchema` exported
+- [ ] Type-divergence guard for `SvgElement` compiles without error
+- [ ] Type-divergence guard for `SvgDocument` compiles without error
+- [ ] All schemas re-exported from `index.ts`
+- [ ] `pnpm --filter @yourscope/svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty

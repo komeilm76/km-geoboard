@@ -1,0 +1,27 @@
+# Checklist — Page 03-03 SVG Parse Functions
+
+- [ ] `fast-xml-parser` added as dependency in `packages/svg/package.json`
+- [ ] `parseSvgDocument.ts` created and exported
+- [ ] `parseSvgDocument` returns `Result<SvgDocument>`
+- [ ] `parseSvgDocument` uses pure XML parser (no `DOMParser`, no `document`)
+- [ ] `parseSvgDocument` parses `viewBox` attribute into `SvgViewBox`
+- [ ] `parseSvgDocument` parses `width` and `height` into `SvgLength`
+- [ ] `parseSvgDocument` handles nested `<g>` elements recursively
+- [ ] `parseSvgDocument` skips unsupported elements silently
+- [ ] `parseSvgDocument` returns `{ code: "invalid-xml" }` for malformed input
+- [ ] `parseColor` helper function converts attribute strings to `SvgColor`
+- [ ] `parseTransform` helper function converts attribute string to `SvgTransform`
+- [ ] `parseSvgPath.ts` created and exported
+- [ ] `parseSvgPath` handles all absolute command types (M, L, H, V, C, S, Q, T, A, Z)
+- [ ] `parseSvgPath` handles all relative command types (m, l, h, v, c, s, q, t, a, z)
+- [ ] `parseSvgPath` handles numbers separated by spaces, commas, or sign
+- [ ] `serializeSvgPath.ts` created and exported
+- [ ] `serializeSvgPath` returns a plain `string` (no `Result` wrapper — cannot fail)
+- [ ] Round-trip: `parseSvgPath(serializeSvgPath(cmds))` equals original `cmds`
+- [ ] All 3 functions exported from `index.ts`
+- [ ] No DOM globals in any file
+- [ ] `parseSvgDocument.test.ts` — rect, nested group, viewBox, unsupported element, invalid XML
+- [ ] `parseSvgPath.test.ts` — simple path, curves, arcs, round-trip
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty

@@ -1,0 +1,75 @@
+{
+  "name": "km-exports",
+  "version": "0.1.0",
+  "description": "Serialization functions that convert artboard and map content into SVG, GeoJSON, OpenLayers, PDF metadata, and raster draw instructions.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-exports#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-exports/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-exports.git"
+  },
+  "keywords": [
+    "svg",
+    "geojson",
+    "openlayers",
+    "pdf",
+    "raster",
+    "export",
+    "serialization"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "fix:prettier": "prettier --write \"src/**/*.{ts,json}\"",
+    "fix": "pnpm run fix:prettier",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "check-zod": "node ../../scripts/check-zod.mjs",
+    "publish-directly": "npm publish --access public",
+    "auto-release": "pnpm run fix:prettier && pnpm run build && pnpm run test && release-it",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "km-shared": "workspace:*",
+    "km-artboard": "workspace:*",
+    "km-geojson": "workspace:*",
+    "km-svg": "workspace:*"
+  },
+  "peerDependencies": {
+    "zod": ">=4.4.0"
+  },
+  "devDependencies": {
+    "zod": "^4.0.0",
+    "typescript": "^5.0.0",
+    "tsup": "^8.0.0",
+    "vitest": "^1.0.0",
+    "prettier": "^3.0.0",
+    "release-it": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module"
+}

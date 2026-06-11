@@ -1,0 +1,25 @@
+# Checklist — Page 06-02 Export to SVG
+
+- [ ] `filter.ts` created and exported
+- [ ] `applyExportFilter` applies `includeIds` first
+- [ ] `applyExportFilter` applies `excludeIds` second
+- [ ] `applyExportFilter` applies `includeLayers` third
+- [ ] `applyExportFilter` applies `excludeLayers` fourth
+- [ ] `applyExportFilter` applies `boundingBox` fifth
+- [ ] `applyExportFilter` returns items unchanged when `filter` is `undefined`
+- [ ] `exportToSvg.ts` created and exported
+- [ ] `exportToSvg` returns `Result<string>`
+- [ ] SVG output has correct `viewBox` from artboard
+- [ ] All 9 element types serialized to correct SVG tags
+- [ ] `SvgGroupElement` children serialized recursively inside `<g>...</g>`
+- [ ] `SvgColor` serialized correctly for all 5 variants
+- [ ] `SvgTransform` serialized to `transform` attribute
+- [ ] `"empty-export"` returned when all elements are filtered out
+- [ ] `xmlDeclaration: true` prepends `<?xml ...?>`
+- [ ] `pretty: true` adds 2-space indentation
+- [ ] Both functions exported from `index.ts`
+- [ ] `filter.test.ts` — tests all 5 filter steps independently
+- [ ] `exportToSvg.test.ts` — all 9 element types, empty-export, pretty, xmlDeclaration
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty

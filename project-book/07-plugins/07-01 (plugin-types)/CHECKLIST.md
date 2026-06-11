@@ -1,0 +1,26 @@
+# Checklist — Page 07-01 Plugin Types
+
+- [ ] `packages/plugins/src/types.ts` created — no Zod imports
+- [ ] `PluginId` exported as `string` alias with JSDoc
+- [ ] `PluginVersion` exported as `string` alias with JSDoc
+- [ ] `PluginDependency` exported with `pluginId`, `minVersion`, `optional?`
+- [ ] `PluginConflict` exported with `pluginId` and `reason`
+- [ ] `PluginDepsMap` exported as `Map<PluginId, Record<string, unknown>>`
+- [ ] `Plugin<API>` exported with generic constraint `API extends Record<string, unknown>`
+- [ ] `Plugin.setup` receives `PluginDepsMap` and returns `API`
+- [ ] `Plugin.teardown` is optional
+- [ ] `Plugin.dependencies` is optional array of `PluginDependency`
+- [ ] `Plugin.conflicts` is optional array of `PluginConflict`
+- [ ] `PluginRegistration<API>` exported with `plugin`, `api`, `status`, `error?`
+- [ ] `PluginRegistry` exported as a type with all 6 method signatures
+- [ ] `PluginRegistry.register` returns `Result<PluginRegistration<API>>`
+- [ ] `PluginRegistry.getApi` returns `API | null`
+- [ ] `RegistrySnapshot` exported with `plugins` array and `dependencyOrder`
+- [ ] JSDoc on every type and every method signature
+- [ ] All types exported from `index.ts`
+- [ ] `packages/plugins/package.json` depends on `@yourscope/shared` only
+- [ ] `packages/plugins/tsconfig.json` extends root config
+- [ ] `pnpm --filter @yourscope/plugins build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` returns empty
+- [ ] `help.md` stub created
+- [ ] `CHANGELOG.md` has `## [0.1.0]` entry

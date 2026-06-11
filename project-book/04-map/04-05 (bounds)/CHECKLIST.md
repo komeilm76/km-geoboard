@@ -1,0 +1,25 @@
+# Checklist — Page 04-05 Bounds, Scale, and Layer Utilities
+
+- [x] `bounds.ts` created — 6 functions
+- [x] `boundsFromLatLngs` exported
+- [x] `boundsCenter` exported
+- [x] `boundsContains` exported — inclusive on all edges
+- [x] `boundsIntersect` exported — inclusive on touching edges
+- [x] `boundsExpand` exported — handles negative buffer
+- [x] `boundsUnion` exported
+- [x] `scale.ts` created — 3 functions
+- [x] `zoomToScale` exported
+- [x] `scaleToZoom` exported — inverse of `zoomToScale`
+- [x] `metersPerPixel` exported — decreases with increasing zoom
+- [x] `layers.ts` created — 3 functions
+- [x] `detectLayerFormat` exported — handles all known URL patterns
+- [x] `makeGeoJsonSource` exported — returns `{ type: "geojson", data }`
+- [x] `makeXyzSource` exported — returns `{ type: "raster", tiles, tileSize }`
+- [x] All 12 functions exported from `index.ts`
+- [x] `zoomToScale` / `scaleToZoom` round-trip test
+- [x] `boundsContains` tests — inside, on edge, outside
+- [x] `boundsIntersect` tests — overlap, touching, separated
+- [x] `detectLayerFormat` tests — XYZ URL, WMS URL, `.geojson` URL, unknown
+- [x] All tests pass
+- [x] `pnpm --filter @yourscope/map build` succeeds
+- [x] `grep -rn "^import.*zod" packages/map/dist/` returns empty

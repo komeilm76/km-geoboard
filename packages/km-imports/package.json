@@ -1,0 +1,70 @@
+{
+  "name": "km-imports",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Parse raw strings and objects into typed internal structures \u2014 GeoJSON, SVG, OpenLayers, and artboard snapshots.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-imports#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-imports/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-imports.git"
+  },
+  "keywords": [
+    "import",
+    "parser",
+    "geojson",
+    "svg",
+    "openlayers",
+    "artboard",
+    "typescript",
+    "km-packages"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "check-zod": "node ../../scripts/check-zod.mjs"
+  },
+  "dependencies": {
+    "km-shared": "workspace:*",
+    "km-geojson": "workspace:*",
+    "km-svg": "workspace:*",
+    "km-artboard": "workspace:*"
+  },
+  "peerDependencies": {
+    "zod": ">=4.4.0"
+  },
+  "devDependencies": {
+    "zod": "^4.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

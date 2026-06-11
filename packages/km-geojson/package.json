@@ -1,0 +1,65 @@
+{
+  "name": "km-geojson",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "GeoJSON types and validation for RFC 7946 \u2014 parse, validate, and construct GeoJSON data.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-geojson#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-geojson/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-geojson.git"
+  },
+  "keywords": [
+    "geojson",
+    "gis",
+    "rfc7946",
+    "typescript",
+    "zod",
+    "km-packages"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "check-zod": "node ../../scripts/check-zod.mjs"
+  },
+  "dependencies": {
+    "km-shared": "workspace:*"
+  },
+  "peerDependencies": {
+    "zod": ">=4.4.0"
+  },
+  "devDependencies": {
+    "zod": "^4.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

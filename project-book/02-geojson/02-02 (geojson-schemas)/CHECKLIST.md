@@ -1,0 +1,28 @@
+# Checklist — Page 02-02 GeoJSON Zod Schemas
+
+- [ ] `packages/geojson/src/schemas.ts` created
+- [ ] `PositionSchema` — union of 2-tuple and 3-tuple
+- [ ] `BoundingBoxSchema` — validates west ≤ east and south ≤ north
+- [ ] `LinearRingSchema` — validates minimum 4 positions
+- [ ] `LinearRingSchema` — validates first === last (ring closure)
+- [ ] `GeoJsonPointSchema` exported
+- [ ] `GeoJsonMultiPointSchema` exported
+- [ ] `GeoJsonLineStringSchema` — validates minimum 2 positions
+- [ ] `GeoJsonMultiLineStringSchema` exported
+- [ ] `GeoJsonPolygonSchema` — coordinates is array of LinearRing, min 1
+- [ ] `GeoJsonMultiPolygonSchema` exported
+- [ ] `GeoJsonGeometryCollectionSchema` exported
+- [ ] `GeoJsonGeometrySchema` uses `z.lazy()` for recursion
+- [ ] `GeoJsonGeometrySchema` uses `z.discriminatedUnion("type", ...)` not `z.union()`
+- [ ] `GeoJsonGeometrySchema` has explicit type annotation `z.ZodType<GeoJsonGeometry>`
+- [ ] `GeoJsonFeatureSchema` — `geometry` is nullable
+- [ ] `GeoJsonFeatureSchema` — `properties` is nullable
+- [ ] `GeoJsonFeatureSchema` — `id` is `string | number | undefined`
+- [ ] `GeoJsonFeatureCollectionSchema` exported
+- [ ] `GeoJsonSchema` root union exported
+- [ ] Type-divergence guard for `GeoJsonGeometry` compiles without error
+- [ ] Type-divergence guard for `GeoJsonFeature` compiles without error
+- [ ] Type-divergence guard for `GeoJsonFeatureCollection` compiles without error
+- [ ] All schemas re-exported from `index.ts`
+- [ ] `pnpm --filter @yourscope/geojson build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty

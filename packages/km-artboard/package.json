@@ -1,0 +1,64 @@
+{
+  "name": "km-artboard",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pure artboard geometry \u2014 create, resize, move, snap, and query rectangular regions on a 2D canvas.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-artboard#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-artboard/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-artboard.git"
+  },
+  "keywords": [
+    "artboard",
+    "geometry",
+    "canvas",
+    "typescript",
+    "km-packages"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "check-zod": "node ../../scripts/check-zod.mjs"
+  },
+  "dependencies": {
+    "km-shared": "workspace:*"
+  },
+  "peerDependencies": {
+    "zod": ">=4.4.0"
+  },
+  "devDependencies": {
+    "zod": "^4.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

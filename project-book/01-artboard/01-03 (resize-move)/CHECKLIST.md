@@ -1,0 +1,28 @@
+# Checklist — Page 01-03 Resize and Move Functions
+
+- [ ] `resizeArtboard.ts` created and exported
+- [ ] `resizeArtboard` accepts partial `origin` and `size` overrides
+- [ ] `resizeArtboard` does not mutate `input.artboard`
+- [ ] `resizeArtboard` applies `minSize` guard (default 1)
+- [ ] `resizeArtboard` returns `{ success: false, reason: "too-small" }` on violation
+- [ ] `moveArtboard.ts` created and exported
+- [ ] `moveArtboard` returns new artboard with translated `origin`
+- [ ] `moveArtboard` does not mutate `input.artboard`
+- [ ] `moveArtboard` does not update `startPoint` / `endPoint`
+- [ ] `artboardToRect.ts` created — exports `artboardToRect` and `artboardFromRect`
+- [ ] `artboardToRect` returns `[x, y, width, height]` tuple
+- [ ] `artboardFromRect` round-trips cleanly (reverse of `artboardToRect`)
+- [ ] `artboardContainsPoint.ts` created and exported
+- [ ] `artboardContainsPoint` is inclusive on all 4 edges
+- [ ] `artboardsOverlap.ts` created and exported
+- [ ] `artboardsOverlap` returns `true` for touching edges
+- [ ] `artboardsOverlap` returns `true` when one artboard is inside another
+- [ ] All 6 functions exported from `packages/artboard/src/index.ts`
+- [ ] JSDoc with `@param`, `@returns`, `@example` on every function
+- [ ] No `any` in any signature
+- [ ] `resizeArtboard.test.ts` covers partial overrides and `too-small`
+- [ ] `moveArtboard.test.ts` covers positive, negative, and zero delta
+- [ ] `artboardGeometry.test.ts` covers round-trip, all edge cases for contains and overlap
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty

@@ -1,0 +1,58 @@
+{
+  "name": "km-shared",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Shared types and Zod utilities for km-packages \u2014 Result<T>, ResultError, and schema factory functions.",
+  "license": "MIT",
+  "author": "komeilm76",
+  "homepage": "https://github.com/komeilm76/km-geoboard#readme",
+  "bugs": {
+    "url": "https://github.com/komeilm76/km-geoboard/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komeilm76/km-geoboard.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "check-zod": "node ../../scripts/check-zod.mjs"
+  },
+  "peerDependencies": {
+    "zod": ">=4.4.0"
+  },
+  "devDependencies": {
+    "zod": "^4.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
+    "vitest": "^2.0.0"
+  },
+  "keywords": [
+    "typescript",
+    "zod",
+    "result",
+    "km-packages"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

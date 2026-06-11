@@ -1,0 +1,31 @@
+# Checklist — Page 02-03 GeoJSON Parse and Utility Functions
+
+- [ ] `parse.ts` created
+- [ ] `parseGeoJson` returns `Result<GeoJson>` using `safeParse`
+- [ ] `parseGeoJsonFeature` implemented
+- [ ] `parseGeoJsonFeatureCollection` implemented
+- [ ] All 3 parse functions use `{ code: "invalid-input", ... }` on failure
+- [ ] `guards.ts` created
+- [ ] `isGeoJsonGeometry` is a TypeScript type guard (`value is GeoJsonGeometry`)
+- [ ] `isGeoJsonGeometry` uses schema `.safeParse` internally
+- [ ] `feature.ts` created
+- [ ] `featureFromGeometry` defaults `properties` to `{}` when not provided
+- [ ] `featureFromGeometry` omits `id` when not provided
+- [ ] `collectionFromFeatures` wraps array in `{ type: "FeatureCollection", features }`
+- [ ] `geometry.ts` created
+- [ ] `getGeometryBoundingBox` handles `Point`
+- [ ] `getGeometryBoundingBox` handles `LineString`, `MultiPoint`
+- [ ] `getGeometryBoundingBox` handles `Polygon`, `MultiLineString`, `MultiPolygon`
+- [ ] `getGeometryBoundingBox` handles `GeometryCollection` (recursive)
+- [ ] `flattenGeometryCollection` returns flat array for non-collection input
+- [ ] `flattenGeometryCollection` recursively flattens nested collections
+- [ ] All 8 functions exported from `index.ts`
+- [ ] JSDoc with `@example` on every function
+- [ ] No `any` in any function signature
+- [ ] `parse.test.ts` — valid and invalid cases, ring-not-closed polygon fails
+- [ ] `geometry.test.ts` — bounding box for all geometry types, 3-level flatten
+- [ ] `feature.test.ts` — with/without properties and id
+- [ ] `guards.test.ts` — geometry passes, feature fails, plain object fails
+- [ ] All tests pass
+- [ ] `pnpm --filter @yourscope/geojson build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
