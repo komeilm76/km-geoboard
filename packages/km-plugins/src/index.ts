@@ -8,8 +8,8 @@
  *
  * @example
  * ```typescript
- * import { createPluginRegistry } from 'km-plugins';
- * import type { Plugin } from 'km-plugins';
+ * import { createPluginRegistry } from '@komeilm76/km-plugins';
+ * import type { Plugin } from '@komeilm76/km-plugins';
  *
  * type GreeterApi = { greet: (name: string) => string };
  *

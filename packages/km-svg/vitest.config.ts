@@ -4,8 +4,8 @@ import { resolve } from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      'km-geojson': resolve(__dirname, '../km-geojson/src/index.ts'),
-      'km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
+      '@komeilm76/km-geojson': resolve(__dirname, '../km-geojson/src/index.ts'),
+      '@komeilm76/km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
     },
   },
   test: {

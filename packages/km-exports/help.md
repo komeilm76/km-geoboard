@@ -7,13 +7,13 @@ Serialization functions that convert internal data structures into standard outp
 ## Installation
 
 ```bash
-npm install km-exports
+npm install @komeilm76/km-exports
 ```
 
 ## Quick Start
 
 ```ts
-import { exportToSvg } from 'km-exports';
+import { exportToSvg } from '@komeilm76/km-exports';
 
 const result = exportToSvg({
   artboard,
@@ -54,7 +54,7 @@ Applies an `ExportFilter` to an array of items.
 
 **Example:**
 ```ts
-import { applyExportFilter } from 'km-exports';
+import { applyExportFilter } from '@komeilm76/km-exports';
 
 const visible = applyExportFilter(elements, {
   includeIds: ['road-1', 'road-2'],

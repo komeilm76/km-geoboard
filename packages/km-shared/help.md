@@ -10,7 +10,7 @@ that all other packages reuse when building their schemas.
 ## Installation
 
 ```bash
-pnpm add km-shared zod
+pnpm add @komeilm76/km-shared zod
 ```
 
 Zod must be installed alongside this package (it is a peer dependency).
@@ -31,7 +31,7 @@ A discriminated union representing the outcome of a fallible operation.
 | `error` | `ResultError` | `success === false` |
 
 ```ts
-import type { Result } from 'km-shared';
+import type { Result } from '@komeilm76/km-shared';
 
 function parse(raw: unknown): Result<number> {
   const n = Number(raw);
@@ -111,7 +111,7 @@ A local structural substitute for `z.ZodTypeAny`. Same use case.
 ## Examples
 
 ```ts
-import { nonEmptyString, finiteNumber, pointSchema } from 'km-shared';
+import { nonEmptyString, finiteNumber, pointSchema } from '@komeilm76/km-shared';
 import { z } from 'zod';
 
 // Build a schema inside your package's schemas.ts

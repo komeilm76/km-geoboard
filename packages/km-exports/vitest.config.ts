@@ -4,10 +4,10 @@ import { resolve } from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      'km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
-      'km-artboard': resolve(__dirname, '../km-artboard/src/index.ts'),
-      'km-geojson': resolve(__dirname, '../km-geojson/src/index.ts'),
-      'km-svg': resolve(__dirname, '../km-svg/src/index.ts'),
+      '@komeilm76/km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
+      '@komeilm76/km-artboard': resolve(__dirname, '../km-artboard/src/index.ts'),
+      '@komeilm76/km-geojson': resolve(__dirname, '../km-geojson/src/index.ts'),
+      '@komeilm76/km-svg': resolve(__dirname, '../km-svg/src/index.ts'),
     },
   },
   test: {

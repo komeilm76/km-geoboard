@@ -6,7 +6,7 @@
  */
 
 import { z } from 'zod';
-import { finiteNumber as _finiteNumber, opacitySchema as _opacitySchema } from 'km-shared';
+import { finiteNumber as _finiteNumber, opacitySchema as _opacitySchema } from '@komeilm76/km-shared';
 
 // km-shared factories return structural $SchemaOf<T> types (IDE-safe).
 // Cast back to real Zod types here (internal only — never reaches .d.ts).

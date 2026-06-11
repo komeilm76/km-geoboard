@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { detectLayerFormat, makeGeoJsonSource, makeXyzSource } from '../src/layers';
-import type { GeoJsonFeatureCollection } from 'km-geojson';
+import type { GeoJsonFeatureCollection } from '@komeilm76/km-geojson';
 
 // ─── detectLayerFormat ────────────────────────────────────────────────────────
 

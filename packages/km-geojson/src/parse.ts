@@ -3,7 +3,7 @@
  * All functions return Result<T> and never throw.
  */
 
-import type { Result } from 'km-shared';
+import type { Result } from '@komeilm76/km-shared';
 import type {
   GeoJson,
   GeoJsonGeometry,

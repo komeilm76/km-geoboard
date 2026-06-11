@@ -5,14 +5,14 @@ Typed plugin registry for km-packages. Provides dependency resolution, conflict 
 ## Install
 
 ```bash
-npm install km-plugins
+npm install @komeilm76/km-plugins
 ```
 
 ## Quick start
 
 ```typescript
-import { createPluginRegistry } from 'km-plugins';
-import type { Plugin } from 'km-plugins';
+import { createPluginRegistry } from '@komeilm76/km-plugins';
+import type { Plugin } from '@komeilm76/km-plugins';
 
 type GreeterApi = { greet: (name: string) => string };
 
@@ -37,7 +37,7 @@ if (result.success) {
 ## Dependency resolution
 
 ```typescript
-import { resolveDependencyOrder, createPluginRegistry } from 'km-plugins';
+import { resolveDependencyOrder, createPluginRegistry } from '@komeilm76/km-plugins';
 
 // Sort plugins into safe registration order before registering them.
 const order = resolveDependencyOrder([pluginC, pluginA, pluginB]);

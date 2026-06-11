@@ -28,7 +28,7 @@ Typed internal structure (Artboard[], GeoJsonFeatureCollection, SvgDocument, ...
 ## Installation
 
 ```bash
-npm install km-imports
+npm install @komeilm76/km-imports
 ```
 
 Zod must be installed as a peer dependency:
@@ -44,7 +44,7 @@ npm install zod
 Use `importAuto` when the input format is unknown:
 
 ```ts
-import { importAuto } from 'km-imports';
+import { importAuto } from '@komeilm76/km-imports';
 
 const raw = '{"type":"FeatureCollection","features":[...]}';
 const result = importAuto(raw);
@@ -77,7 +77,7 @@ Parses any valid GeoJSON value and normalizes it into a `GeoJsonFeatureCollectio
 - Numeric `Feature.id` → string (warning emitted)
 
 ```ts
-import { importGeoJson } from 'km-imports';
+import { importGeoJson } from '@komeilm76/km-imports';
 
 const r = importGeoJson('{"type":"FeatureCollection","features":[...]}');
 if (r.success) {
@@ -106,7 +106,7 @@ are silently skipped and produce an `ImportWarning` with
 `code: "unsupported-svg-element"`.
 
 ```ts
-import { importSvg } from 'km-imports';
+import { importSvg } from '@komeilm76/km-imports';
 
 const r = importSvg('<svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80"/></svg>');
 if (r.success) {
@@ -136,7 +136,7 @@ property. This function strips that field and delegates to `importGeoJson`.
 - If `crs` is anything else → stripped, `ImportWarning` with `code: "crs-stripped"` emitted
 
 ```ts
-import { importOpenLayers } from 'km-imports';
+import { importOpenLayers } from '@komeilm76/km-imports';
 
 const r = importOpenLayers({
   type: 'FeatureCollection',
@@ -165,7 +165,7 @@ Validates the input as an array of `Artboard` objects using `ArtboardSchema`
 from `km-artboard`.
 
 ```ts
-import { importArtboardSnapshot } from 'km-imports';
+import { importArtboardSnapshot } from '@komeilm76/km-imports';
 
 const r = importArtboardSnapshot(savedSnapshotJson);
 if (r.success) {
@@ -194,7 +194,7 @@ Heuristically identifies the format of a raw input.
 | `"unknown"` | None of the above |
 
 ```ts
-import { detectImportFormat } from 'km-imports';
+import { detectImportFormat } from '@komeilm76/km-imports';
 
 detectImportFormat('<svg>...</svg>');                                // "svg"
 detectImportFormat({ type: 'FeatureCollection', features: [] });    // "geojson"
@@ -225,7 +225,7 @@ type AutoImportResult =
 ```
 
 ```ts
-import { importAuto } from 'km-imports';
+import { importAuto } from '@komeilm76/km-imports';
 
 const r = importAuto(userPastedContent);
 

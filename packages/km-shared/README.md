@@ -5,14 +5,14 @@ Shared types and Zod schema utilities for km-geoboard packages.
 ## Install
 
 ```bash
-pnpm add km-shared zod
+pnpm add @komeilm76/km-shared zod
 ```
 
 ## Quick start
 
 ```ts
-import type { Result, ResultError } from 'km-shared';
-import { nonEmptyString, finiteNumber, pointSchema } from 'km-shared';
+import type { Result, ResultError } from '@komeilm76/km-shared';
+import { nonEmptyString, finiteNumber, pointSchema } from '@komeilm76/km-shared';
 import { z } from 'zod';
 
 // Use Result<T> as your function return type

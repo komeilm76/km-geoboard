@@ -9,7 +9,7 @@ This package provides everything a map application needs before it touches a ren
 ## Installation
 
 ```bash
-npm install km-map
+npm install @komeilm76/km-map
 ```
 
 ---

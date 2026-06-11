@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-npm install km-plugins
+npm install @komeilm76/km-plugins
 ```
 
 ## Functions
@@ -22,7 +22,7 @@ Creates and returns a new, empty `PluginRegistry` instance.
 
 **Example:**
 ```typescript
-import { createPluginRegistry } from 'km-plugins';
+import { createPluginRegistry } from '@komeilm76/km-plugins';
 const registry = createPluginRegistry();
 ```
 

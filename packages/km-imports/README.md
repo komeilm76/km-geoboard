@@ -3,11 +3,11 @@
 > Parse raw strings and objects into typed internal structures — GeoJSON, SVG, OpenLayers, and artboard snapshots.
 
 ```bash
-npm install km-imports
+npm install @komeilm76/km-imports
 ```
 
 ```ts
-import { importGeoJson, detectFormat } from 'km-imports';
+import { importGeoJson, detectFormat } from '@komeilm76/km-imports';
 
 const result = importGeoJson(rawString);
 if (result.success) console.log(result.data);

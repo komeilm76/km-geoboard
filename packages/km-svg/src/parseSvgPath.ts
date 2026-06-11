@@ -5,7 +5,7 @@
  * and all SVG-spec number separators (space, comma, implicit via sign).
  */
 
-import type { Result } from 'km-shared';
+import type { Result } from '@komeilm76/km-shared';
 import type { SvgPathCommand } from './types';
 
 // ─── Tokenizer ────────────────────────────────────────────────────────────────

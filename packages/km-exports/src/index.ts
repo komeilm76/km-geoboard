@@ -9,8 +9,8 @@
  *
  * @example
  * ```typescript
- * import { exportToSvg, exportToGeoJson, exportToOpenLayers } from 'km-exports';
- * import type { SvgExportOptions, GeoJsonExportOptions } from 'km-exports';
+ * import { exportToSvg, exportToGeoJson, exportToOpenLayers } from '@komeilm76/km-exports';
+ * import type { SvgExportOptions, GeoJsonExportOptions } from '@komeilm76/km-exports';
  *
  * const svgResult = exportToSvg({ artboard, elements, pretty: true });
  * if (svgResult.success) console.log(svgResult.data); // "<svg viewBox=..."

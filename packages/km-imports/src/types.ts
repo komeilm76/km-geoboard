@@ -6,9 +6,9 @@
  * This separation ensures declaration files never carry a Zod import (see zod_hang.md).
  */
 
-import type { GeoJsonFeatureCollection } from 'km-geojson';
-import type { SvgDocument } from 'km-svg';
-import type { Artboard } from 'km-artboard';
+import type { GeoJsonFeatureCollection } from '@komeilm76/km-geojson';
+import type { SvgDocument } from '@komeilm76/km-svg';
+import type { Artboard } from '@komeilm76/km-artboard';
 
 // ─── Error & Warning ──────────────────────────────────────────────────────────
 

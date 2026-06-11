@@ -7,7 +7,7 @@
  */
 
 import type { LatLng } from './types';
-import type { GeoJsonPolygon } from 'km-geojson';
+import type { GeoJsonPolygon } from '@komeilm76/km-geojson';
 
 /** WGS84 semi-major axis radius in meters. */
 const R = 6378137;

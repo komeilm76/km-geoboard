@@ -16,7 +16,7 @@ to produce GeoJSON from SVG geometry with real-world geographic positions.
 ## Installation
 
 ```bash
-npm install km-svg km-shared km-geojson zod
+npm install @komeilm76/km-svg km-shared km-geojson zod
 ```
 
 ---
@@ -34,7 +34,7 @@ Parse an SVG XML string into a structured `SvgDocument`.
 Returns `Result<SvgDocument>`.
 
 ```ts
-import { parseSvgDocument } from 'km-svg';
+import { parseSvgDocument } from '@komeilm76/km-svg';
 
 const result = parseSvgDocument(`<svg viewBox="0 0 100 100">
   <rect x="10" y="10" width="80" height="80" fill="#ff0000"/>
@@ -58,7 +58,7 @@ Parse an SVG path `d` attribute string into an array of `SvgPathCommand` objects
 Returns `Result<SvgPathCommand[]>`.
 
 ```ts
-import { parseSvgPath } from 'km-svg';
+import { parseSvgPath } from '@komeilm76/km-svg';
 
 const result = parseSvgPath('M 10 10 L 50 50 C 60 70 80 90 100 100 Z');
 if (result.success) {
@@ -84,7 +84,7 @@ This function cannot fail — it always returns a string.
 Returns `string`.
 
 ```ts
-import { parseSvgPath, serializeSvgPath } from 'km-svg';
+import { parseSvgPath, serializeSvgPath } from '@komeilm76/km-svg';
 
 const parsed = parseSvgPath('M 0 0 L 100 100 Z');
 if (parsed.success) {
@@ -115,7 +115,7 @@ lat = north − (y - svgBounds.minY) / svgBounds.height × (north − south)
 Note: SVG `y` increases downward; latitude increases upward — so the Y axis is inverted.
 
 ```ts
-import { svgPointToGeoPosition } from 'km-svg';
+import { svgPointToGeoPosition } from '@komeilm76/km-svg';
 
 const meta = {
   svgBounds: { minX: 0, minY: 0, maxX: 100, maxY: 100 },
@@ -170,7 +170,7 @@ Elements that fail to convert are skipped with a console warning — the convers
 Returns `Result<GeoJsonFeatureCollection>`.
 
 ```ts
-import { parseSvgDocument, svgDocumentToFeatureCollection } from 'km-svg';
+import { parseSvgDocument, svgDocumentToFeatureCollection } from '@komeilm76/km-svg';
 
 const svgResult = parseSvgDocument(svgString);
 if (!svgResult.success) throw new Error(svgResult.error.message);

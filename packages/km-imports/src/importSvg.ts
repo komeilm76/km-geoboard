@@ -5,8 +5,8 @@
  * Unsupported SVG elements produce `ImportWarning` objects (not errors).
  */
 
-import { parseSvgDocument } from 'km-svg';
-import type { SvgDocument } from 'km-svg';
+import { parseSvgDocument } from '@komeilm76/km-svg';
+import type { SvgDocument } from '@komeilm76/km-svg';
 import type { ImportResult, ImportWarning } from './types';
 
 // Tags that parseSvgDocument silently skips — we detect them in the raw string

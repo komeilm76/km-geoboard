@@ -5,13 +5,13 @@
 ## Install
 
 ```bash
-npm install km-map
+npm install @komeilm76/km-map
 ```
 
 ## Quick Start
 
 ```ts
-import { latLngToMercator, haversineDistance, latLngToTile } from 'km-map';
+import { latLngToMercator, haversineDistance, latLngToTile } from '@komeilm76/km-map';
 
 const london = { lat: 51.5074, lng: -0.1276 };
 const paris  = { lat: 48.8566, lng: 2.3522 };

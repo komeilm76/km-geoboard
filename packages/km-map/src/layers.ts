@@ -7,7 +7,7 @@
  */
 
 import type { SupportedLayerFormat } from './types';
-import type { GeoJsonFeatureCollection } from 'km-geojson';
+import type { GeoJsonFeatureCollection } from '@komeilm76/km-geojson';
 
 // ─── detectLayerFormat ────────────────────────────────────────────────────────
 

@@ -10,7 +10,7 @@
 > | Node engines | **>= 18** |
 > | Output directory | **`dist/` flat** — `index.js` (ESM), `index.cjs` (CJS), `index.d.ts` / `index.d.cts` (types), built by tsup with `dts: true` |
 > | Exports map | `types` / `import` / `require` / `default` pointing at the flat `dist/` paths above, plus `"./package.json"` |
-> | Package naming | **`km-*` unscoped** |
+> | Package naming | **`@komeilm76/km-*`** (scoped, vueuse-style; `km-` is the brand prefix, folders stay `packages/km-*`) — decided 2026-06-11 |
 > | tsconfig | root `tsconfig.base.json` + per-package `extends` with `noEmit: true` (tsc is lint-only; tsup emits) |
 > | Zod | `peerDependency >= 4.4.0`; zero Zod references in any `dist/**/*.d.ts` — enforced by `pnpm -r check-zod` (`scripts/check-zod.mjs`) |
 > | Versioning | independent semver; release tooling to be selected in Phase C (changesets recommended) |

@@ -4,7 +4,7 @@ import { resolve } from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      'km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
+      '@komeilm76/km-shared': resolve(__dirname, '../km-shared/src/index.ts'),
     },
   },
   test: {

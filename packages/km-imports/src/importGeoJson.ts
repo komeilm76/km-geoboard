@@ -2,8 +2,8 @@
  * importGeoJson — parse any GeoJSON value into a normalized GeoJsonFeatureCollection.
  */
 
-import { GeoJsonSchema } from 'km-geojson';
-import type { GeoJsonFeatureCollection, GeoJsonFeature, GeoJsonGeometry } from 'km-geojson';
+import { GeoJsonSchema } from '@komeilm76/km-geojson';
+import type { GeoJsonFeatureCollection, GeoJsonFeature, GeoJsonGeometry } from '@komeilm76/km-geojson';
 import type { ImportResult, ImportWarning } from './types';
 
 // The GeoJSON schema allows nullable properties at runtime even though the

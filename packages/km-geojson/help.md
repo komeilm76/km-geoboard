@@ -14,7 +14,7 @@
 ## Installation
 
 ```bash
-npm install km-geojson zod
+npm install @komeilm76/km-geojson zod
 ```
 
 Zod must be installed separately — it is a peer dependency.
@@ -54,7 +54,7 @@ Validates and parses any top-level GeoJSON value.
 **Returns:** `Result<GeoJson>` — success with typed data, or failure with `code: "invalid-input"`.
 
 ```ts
-import { parseGeoJson } from 'km-geojson';
+import { parseGeoJson } from '@komeilm76/km-geojson';
 
 const result = parseGeoJson({ type: 'Point', coordinates: [-0.1276, 51.5074] });
 if (result.success) {
@@ -77,7 +77,7 @@ Validates and parses a GeoJSON Feature. Allows `null` geometry and `null` proper
 **Returns:** `Result<GeoJsonFeature<GeoJsonGeometry | null, ...>>` — success or failure with `code: "invalid-input"`.
 
 ```ts
-import { parseGeoJsonFeature } from 'km-geojson';
+import { parseGeoJsonFeature } from '@komeilm76/km-geojson';
 
 const result = parseGeoJsonFeature({
   type: 'Feature',
@@ -102,7 +102,7 @@ Validates and parses a GeoJSON FeatureCollection.
 **Returns:** `Result<GeoJsonFeatureCollection<...>>` — success or failure with `code: "invalid-input"`.
 
 ```ts
-import { parseGeoJsonFeatureCollection } from 'km-geojson';
+import { parseGeoJsonFeatureCollection } from '@komeilm76/km-geojson';
 
 const result = parseGeoJsonFeatureCollection({
   type: 'FeatureCollection',
@@ -128,7 +128,7 @@ Does **not** match `Feature` or `FeatureCollection` — those are not geometry o
 **Returns:** `value is GeoJsonGeometry` (boolean type guard).
 
 ```ts
-import { isGeoJsonGeometry } from 'km-geojson';
+import { isGeoJsonGeometry } from '@komeilm76/km-geojson';
 
 const value: unknown = { type: 'Point', coordinates: [0, 0] };
 if (isGeoJsonGeometry(value)) {
@@ -153,7 +153,7 @@ Handles all 7 geometry types including nested `GeometryCollection` (recursive).
 **Returns:** `[number, number, number, number]` — `[west, south, east, north]`.
 
 ```ts
-import { getGeometryBoundingBox } from 'km-geojson';
+import { getGeometryBoundingBox } from '@komeilm76/km-geojson';
 
 const bbox = getGeometryBoundingBox({
   type: 'LineString',
@@ -177,7 +177,7 @@ If the input is not a `GeometryCollection`, it is returned in a single-element a
 **Returns:** `Exclude<GeoJsonGeometry, GeoJsonGeometryCollection>[]` — flat array of primitive geometries.
 
 ```ts
-import { flattenGeometryCollection } from 'km-geojson';
+import { flattenGeometryCollection } from '@komeilm76/km-geojson';
 
 const flat = flattenGeometryCollection({
   type: 'GeometryCollection',
@@ -207,7 +207,7 @@ Wraps a geometry in a GeoJSON Feature with optional properties and id.
 **Returns:** `GeoJsonFeature`.
 
 ```ts
-import { featureFromGeometry } from 'km-geojson';
+import { featureFromGeometry } from '@komeilm76/km-geojson';
 
 const feature = featureFromGeometry(
   { type: 'Point', coordinates: [-0.1276, 51.5074] },
@@ -230,7 +230,7 @@ Wraps an array of Features in a FeatureCollection.
 **Returns:** `GeoJsonFeatureCollection`.
 
 ```ts
-import { collectionFromFeatures, featureFromGeometry } from 'km-geojson';
+import { collectionFromFeatures, featureFromGeometry } from '@komeilm76/km-geojson';
 
 const f1 = featureFromGeometry({ type: 'Point', coordinates: [0, 0] });
 const f2 = featureFromGeometry({ type: 'Point', coordinates: [1, 1] });
@@ -352,7 +352,7 @@ import {
   GeoJsonFeatureSchema,
   GeoJsonFeatureCollectionSchema,
   GeoJsonSchema,
-} from 'km-geojson';
+} from '@komeilm76/km-geojson';
 
 const result = GeoJsonSchema.safeParse(unknownData);
 ```

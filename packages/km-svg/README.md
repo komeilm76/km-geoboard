@@ -3,11 +3,11 @@
 > SVG document and path parsing, path serialization, and SVG → GeoJSON conversion.
 
 ```bash
-npm install km-svg
+npm install @komeilm76/km-svg
 ```
 
 ```ts
-import { parseSvgDocument, parseSvgPath, serializeSvgPath, svgToGeoJson } from 'km-svg';
+import { parseSvgDocument, parseSvgPath, serializeSvgPath, svgToGeoJson } from '@komeilm76/km-svg';
 
 const doc = parseSvgDocument(svgString);
 if (doc.success) {

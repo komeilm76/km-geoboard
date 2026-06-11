@@ -6,13 +6,13 @@ Parse, validate, and construct GeoJSON data in any environment.
 ## Installation
 
 ```bash
-npm install km-geojson zod
+npm install @komeilm76/km-geojson zod
 ```
 
 ## Usage
 
 ```ts
-import { parseGeoJson, featureFromGeometry, getGeometryBoundingBox } from 'km-geojson';
+import { parseGeoJson, featureFromGeometry, getGeometryBoundingBox } from '@komeilm76/km-geojson';
 
 const result = parseGeoJson({ type: 'Point', coordinates: [-0.1276, 51.5074] });
 if (result.success) {

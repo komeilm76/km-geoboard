@@ -6,8 +6,8 @@
  */
 
 import { z } from 'zod';
-import { ArtboardSchema } from 'km-artboard';
-import type { Artboard } from 'km-artboard';
+import { ArtboardSchema } from '@komeilm76/km-artboard';
+import type { Artboard } from '@komeilm76/km-artboard';
 import type { ImportResult } from './types';
 
 // Internal Zod array schema — kept inside the module, never exported.

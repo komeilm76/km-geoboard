@@ -2,15 +2,15 @@
  * SVG to GeoJSON conversion pipeline.
  */
 
-import type { Result } from "km-shared";
+import type { Result } from "@komeilm76/km-shared";
 import type {
   GeoJsonFeature,
   GeoJsonFeatureCollection,
   GeoJsonGeometry,
   LinearRing,
   Position,
-} from "km-geojson";
-import { featureFromGeometry, collectionFromFeatures } from "km-geojson";
+} from "@komeilm76/km-geojson";
+import { featureFromGeometry, collectionFromFeatures } from "@komeilm76/km-geojson";
 
 import type { SvgElement, SvgGeoMeta, SvgDocument, SvgPresentationAttributes } from "./types";
 import { parseSvgPath } from "./parseSvgPath";

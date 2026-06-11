@@ -7,7 +7,7 @@
  */
 
 import type { LatLng, TileCoord, BoundingBox } from './types';
-import type { Result } from 'km-shared';
+import type { Result } from '@komeilm76/km-shared';
 import { latLngToPixel, pixelToLatLng } from './projection';
 
 // ─── latLngToTile ─────────────────────────────────────────────────────────────

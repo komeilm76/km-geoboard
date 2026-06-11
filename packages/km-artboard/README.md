@@ -5,13 +5,13 @@ Pure artboard geometry for 2D canvas applications — create, resize, move, snap
 ## Install
 
 ```bash
-npm install km-artboard zod
+npm install @komeilm76/km-artboard zod
 ```
 
 ## Quick start
 
 ```ts
-import { createArtboard, moveArtboard, snapArtboardToGrid } from 'km-artboard';
+import { createArtboard, moveArtboard, snapArtboardToGrid } from '@komeilm76/km-artboard';
 
 // Create from two drag points
 const result = createArtboard({

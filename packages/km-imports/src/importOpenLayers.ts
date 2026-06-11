@@ -5,7 +5,7 @@
  * This function strips those fields and delegates to importGeoJson.
  */
 
-import type { GeoJsonFeatureCollection } from 'km-geojson';
+import type { GeoJsonFeatureCollection } from '@komeilm76/km-geojson';
 import type { ImportResult, ImportWarning } from './types';
 import { importGeoJson } from './importGeoJson';
 

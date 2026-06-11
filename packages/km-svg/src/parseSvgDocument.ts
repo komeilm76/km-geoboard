@@ -5,7 +5,7 @@
  */
 
 import { XMLParser } from 'fast-xml-parser';
-import type { Result } from 'km-shared';
+import type { Result } from '@komeilm76/km-shared';
 
 import type {
   SvgDocument,

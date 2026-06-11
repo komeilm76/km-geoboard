@@ -7,7 +7,7 @@ All functions are **pure** — no file I/O, no HTTP, no DOM, no canvas rendering
 ## Install
 
 ```bash
-npm install km-exports
+npm install @komeilm76/km-exports
 ```
 
 ## Quick Start
@@ -20,7 +20,7 @@ import {
   exportToPdfMeta,
   exportToRasterPlan,
   applyExportFilter,
-} from 'km-exports';
+} from '@komeilm76/km-exports';
 
 // Export to SVG
 const svgResult = exportToSvg({ artboard, elements, pretty: true });

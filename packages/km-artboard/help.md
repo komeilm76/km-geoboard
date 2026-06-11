@@ -11,7 +11,7 @@
 ## Installation
 
 ```bash
-npm install km-artboard
+npm install @komeilm76/km-artboard
 ```
 
 Zod must be available as a peer dependency:
@@ -41,7 +41,7 @@ Creates a normalized `Artboard` from two canvas points (e.g. drag start/end).
 **Output:** `CreateArtboardResult`
 
 ```ts
-import { createArtboard } from 'km-artboard';
+import { createArtboard } from '@komeilm76/km-artboard';
 
 const result = createArtboard({
   startPoint: { x: 100, y: 80 },
@@ -86,7 +86,7 @@ Returns a new artboard with partially updated origin and/or size.
 **Output:** `CreateArtboardResult`
 
 ```ts
-import { resizeArtboard } from 'km-artboard';
+import { resizeArtboard } from '@komeilm76/km-artboard';
 
 const result = resizeArtboard({
   artboard,
@@ -110,7 +110,7 @@ Translates an artboard by a delta vector. Returns a new artboard — cannot fail
 **Output:** `Artboard`
 
 ```ts
-import { moveArtboard } from 'km-artboard';
+import { moveArtboard } from '@komeilm76/km-artboard';
 
 const moved = moveArtboard({
   artboard,
@@ -128,7 +128,7 @@ Converts an artboard to a `[x, y, width, height]` tuple.
 **Output:** `[number, number, number, number]`
 
 ```ts
-import { artboardToRect } from 'km-artboard';
+import { artboardToRect } from '@komeilm76/km-artboard';
 
 const [x, y, w, h] = artboardToRect(artboard);
 ctx.fillRect(x, y, w, h);
@@ -144,7 +144,7 @@ Reverse of `artboardToRect`. Creates an artboard from a rect tuple.
 **Output:** `CreateArtboardResult`
 
 ```ts
-import { artboardFromRect, artboardToRect } from 'km-artboard';
+import { artboardFromRect, artboardToRect } from '@komeilm76/km-artboard';
 
 // Round-trip
 const rect: [number, number, number, number] = [10, 20, 300, 200];
@@ -164,7 +164,7 @@ Returns `true` if a point is inside the artboard bounds (inclusive on all edges)
 **Output:** `boolean`
 
 ```ts
-import { artboardContainsPoint } from 'km-artboard';
+import { artboardContainsPoint } from '@komeilm76/km-artboard';
 
 artboardContainsPoint(artboard, { x: 150, y: 100 }); // true
 artboardContainsPoint(artboard, { x: 0,   y: 0   }); // false (outside)
@@ -183,7 +183,7 @@ Returns `true` if two artboards share any area, including touching edges.
 **Output:** `boolean`
 
 ```ts
-import { artboardsOverlap } from 'km-artboard';
+import { artboardsOverlap } from '@komeilm76/km-artboard';
 
 artboardsOverlap(a, b); // true if they share area or touch
 // Touching edges count as overlap:
@@ -213,7 +213,7 @@ Snaps `origin` and `size` to the nearest grid line. Never fails — returns artb
 | `"ceil"` | Always towards larger values (away from origin) |
 
 ```ts
-import { snapArtboardToGrid } from 'km-artboard';
+import { snapArtboardToGrid } from '@komeilm76/km-artboard';
 
 // "round" — origin.x=7, gridSize=8 → 8
 const snapped = snapArtboardToGrid({ artboard, gridSize: 8 });

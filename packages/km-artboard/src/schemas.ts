@@ -11,7 +11,7 @@ import {
   finiteNumber as _finiteNumber,
   nonEmptyString as _nonEmptyString,
   uuid as _uuid,
-} from 'km-shared';
+} from '@komeilm76/km-shared';
 
 // km-shared factories return structural $SchemaOf<T> types (IDE-safe).
 // Cast back to real Zod types here (internal only — never reaches .d.ts)

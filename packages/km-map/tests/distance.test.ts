@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { haversineDistance, rhumbDistance, bearing, destinationPoint, polygonArea } from '../src/distance';
-import type { GeoJsonPolygon } from 'km-geojson';
+import type { GeoJsonPolygon } from '@komeilm76/km-geojson';
 
 // ─── haversineDistance ────────────────────────────────────────────────────────
 

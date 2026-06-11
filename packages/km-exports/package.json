@@ -1,16 +1,17 @@
 {
-  "name": "km-exports",
+  "name": "@komeilm76/km-exports",
   "version": "0.1.0",
   "description": "Serialization functions that convert artboard and map content into SVG, GeoJSON, OpenLayers, PDF metadata, and raster draw instructions.",
   "license": "MIT",
   "author": "komeilm76",
-  "homepage": "https://github.com/komeilm76/km-exports#readme",
+  "homepage": "https://github.com/komeilm76/km-geoboard/tree/main/packages/km-exports#readme",
   "bugs": {
-    "url": "https://github.com/komeilm76/km-exports/issues"
+    "url": "https://github.com/komeilm76/km-geoboard/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/komeilm76/km-exports.git"
+    "url": "git+https://github.com/komeilm76/km-geoboard.git",
+    "directory": "packages/km-exports"
   },
   "keywords": [
     "svg",
@@ -52,10 +53,10 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "km-shared": "workspace:*",
-    "km-artboard": "workspace:*",
-    "km-geojson": "workspace:*",
-    "km-svg": "workspace:*"
+    "@komeilm76/km-shared": "workspace:*",
+    "@komeilm76/km-artboard": "workspace:*",
+    "@komeilm76/km-geojson": "workspace:*",
+    "@komeilm76/km-svg": "workspace:*"
   },
   "peerDependencies": {
     "zod": ">=4.4.0"
@@ -71,5 +72,8 @@
   "engines": {
     "node": ">=18"
   },
-  "type": "module"
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  }
 }
