@@ -43,12 +43,12 @@ Tests verify warning generation for unsupported elements.
 
 ## Acceptance Criteria
 
-- [ ] `importSvg` returns `ImportResult<SvgDocument>`
-- [ ] Unsupported elements produce `ImportWarning` objects, not errors
-- [ ] Error code `"empty-input"` for empty string
-- [ ] Error code `"invalid-xml"` for malformed input
-- [ ] `warnings` always present
-- [ ] All tests pass, build clean
+- [x] `importSvg` returns `ImportResult<SvgDocument>`
+- [x] Unsupported elements produce `ImportWarning` objects, not errors
+- [x] Error code `"empty-input"` for empty string
+- [x] Error code `"invalid-xml"` for malformed input
+- [x] `warnings` always present
+- [x] All tests pass, build clean
 
 ---
 
@@ -94,11 +94,11 @@ CRS stripping and warning behavior tested.
 
 ## Acceptance Criteria
 
-- [ ] `importOpenLayers` strips `crs` field
-- [ ] Non-EPSG:4326 crs emits a warning
-- [ ] Standard GeoJSON (no crs field) passes through cleanly
-- [ ] All warnings merged and returned
-- [ ] All tests pass, build clean
+- [x] `importOpenLayers` strips `crs` field
+- [x] Non-EPSG:4326 crs emits a warning
+- [x] Standard GeoJSON (no crs field) passes through cleanly
+- [x] All warnings merged and returned
+- [x] All tests pass, build clean
 
 ---
 
@@ -152,11 +152,11 @@ All three functions exist, are exported, and are tested.
 
 ## Acceptance Criteria
 
-- [ ] `importArtboardSnapshot` validates against `ArtboardSchema`
-- [ ] `detectImportFormat` correctly identifies all 5 formats
-- [ ] `importAuto` dispatches to the correct importer
-- [ ] `importAuto` returns `{ format: "unknown" }` for unrecognized input
-- [ ] All tests pass, build clean
+- [x] `importArtboardSnapshot` validates against `ArtboardSchema`
+- [x] `detectImportFormat` correctly identifies all 5 formats
+- [x] `importAuto` dispatches to the correct importer
+- [x] `importAuto` returns `{ format: "unknown" }` for unrecognized input
+- [x] All tests pass, build clean
 
 ---
 
@@ -201,8 +201,8 @@ Completes `help.md`, updates `CHANGELOG.md`, and signs off the imports chapter.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` complete with all sections
-- [ ] Warnings vs Errors table included
-- [ ] All 7 error codes documented
-- [ ] Full CI suite passes
-- [ ] Zod-leak check returns empty
+- [x] `help.md` complete with all sections
+- [x] Warnings vs Errors table included
+- [x] All 7 error codes documented
+- [x] Full CI suite passes
+- [x] Zod-leak check returns empty

@@ -72,17 +72,17 @@ The package is ready to be depended on by Chapter 06.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` has all required sections (Overview, Installation, Quick Start,
+- [x] `help.md` has all required sections (Overview, Installation, Quick Start,
   Functions, Warnings vs Errors, Normalization Rules, Error Codes)
-- [ ] Every function documented with input table and code example
-- [ ] Warnings vs Errors table is complete
-- [ ] All 7 error codes are documented
-- [ ] Normalization rules are listed
-- [ ] `CHANGELOG.md` covers all items added in pages 05-01 through 05-06
-- [ ] `pnpm --filter @komeilm76/km-imports lint` — zero TypeScript errors
-- [ ] `pnpm --filter @komeilm76/km-imports test` — all tests green
-- [ ] `pnpm --filter @komeilm76/km-imports build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-imports/dist/` — returns empty
+- [x] Every function documented with input table and code example
+- [x] Warnings vs Errors table is complete
+- [x] All 7 error codes are documented
+- [x] Normalization rules are listed
+- [x] `CHANGELOG.md` covers all items added in pages 05-01 through 05-06
+- [x] `pnpm --filter @komeilm76/km-imports lint` — zero TypeScript errors
+- [x] `pnpm --filter @komeilm76/km-imports test` — all tests green
+- [x] `pnpm --filter @komeilm76/km-imports build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-imports/dist/` — returns empty
 
 ## Notes
 - After this page, Chapter 05 is complete.

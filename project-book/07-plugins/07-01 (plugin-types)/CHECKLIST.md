@@ -1,26 +1,26 @@
 # Checklist — Page 07-01 Plugin Types
 
-- [ ] `packages/km-plugins/src/types.ts` created — no Zod imports
-- [ ] `PluginId` exported as `string` alias with JSDoc
-- [ ] `PluginVersion` exported as `string` alias with JSDoc
-- [ ] `PluginDependency` exported with `pluginId`, `minVersion`, `optional?`
-- [ ] `PluginConflict` exported with `pluginId` and `reason`
-- [ ] `PluginDepsMap` exported as `Map<PluginId, Record<string, unknown>>`
-- [ ] `Plugin<API>` exported with generic constraint `API extends Record<string, unknown>`
-- [ ] `Plugin.setup` receives `PluginDepsMap` and returns `API`
-- [ ] `Plugin.teardown` is optional
-- [ ] `Plugin.dependencies` is optional array of `PluginDependency`
-- [ ] `Plugin.conflicts` is optional array of `PluginConflict`
-- [ ] `PluginRegistration<API>` exported with `plugin`, `api`, `status`, `error?`
-- [ ] `PluginRegistry` exported as a type with all 6 method signatures
-- [ ] `PluginRegistry.register` returns `Result<PluginRegistration<API>>`
-- [ ] `PluginRegistry.getApi` returns `API | null`
-- [ ] `RegistrySnapshot` exported with `plugins` array and `dependencyOrder`
-- [ ] JSDoc on every type and every method signature
-- [ ] All types exported from `index.ts`
-- [ ] `packages/km-plugins/package.json` depends on `@komeilm76/km-shared` only
-- [ ] `packages/km-plugins/tsconfig.json` extends root config
-- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty
-- [ ] `help.md` stub created
-- [ ] `CHANGELOG.md` has `## [0.1.0]` entry
+- [x] `packages/km-plugins/src/types.ts` created — no Zod imports
+- [x] `PluginId` exported as `string` alias with JSDoc
+- [x] `PluginVersion` exported as `string` alias with JSDoc
+- [x] `PluginDependency` exported with `pluginId`, `minVersion`, `optional?`
+- [x] `PluginConflict` exported with `pluginId` and `reason`
+- [x] `PluginDepsMap` exported as `Map<PluginId, Record<string, unknown>>`
+- [x] `Plugin<API>` exported with generic constraint `API extends Record<string, unknown>`
+- [x] `Plugin.setup` receives `PluginDepsMap` and returns `API`
+- [x] `Plugin.teardown` is optional
+- [x] `Plugin.dependencies` is optional array of `PluginDependency`
+- [x] `Plugin.conflicts` is optional array of `PluginConflict`
+- [x] `PluginRegistration<API>` exported with `plugin`, `api`, `status`, `error?`
+- [x] `PluginRegistry` exported as a type with all 6 method signatures
+- [x] `PluginRegistry.register` returns `Result<PluginRegistration<API>>`
+- [x] `PluginRegistry.getApi` returns `API | null`
+- [x] `RegistrySnapshot` exported with `plugins` array and `dependencyOrder`
+- [x] JSDoc on every type and every method signature
+- [x] All types exported from `index.ts`
+- [x] `packages/km-plugins/package.json` depends on `@komeilm76/km-shared` only
+- [x] `packages/km-plugins/tsconfig.json` extends root config
+- [x] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty
+- [x] `help.md` stub created
+- [x] `CHANGELOG.md` has `## [0.1.0]` entry

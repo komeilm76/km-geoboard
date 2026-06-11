@@ -1,28 +1,28 @@
 # Checklist — Page 03-01 SVG Types
 
-- [ ] `packages/km-svg/src/types.ts` created — no Zod imports
-- [ ] `SvgViewBox` exported with `minX`, `minY`, `width`, `height`
-- [ ] `SvgLengthUnit` exported with all 14 unit variants
-- [ ] `SvgLength` exported with `value: number` and `unit: SvgLengthUnit`
-- [ ] `SvgColor` exported with 5 discriminated variants on `type`
-- [ ] `SvgTransformOperation` exported with 6 discriminated variants on `type`
-- [ ] `SvgTransform` exported as `SvgTransformOperation[]`
-- [ ] `SvgPresentationAttributes` exported with all 16 optional fields
-- [ ] `SvgCoreAttributes` exported with `id?`, `className?`, `style?`, `transform?`
-- [ ] `SvgPathElement` exported with `type: "path"` and `d: string`
-- [ ] `SvgRectElement` exported with `type: "rect"`, dimensions, optional corner radii
-- [ ] `SvgCircleElement` exported
-- [ ] `SvgEllipseElement` exported
-- [ ] `SvgLineElement` exported
-- [ ] `SvgPolylineElement` exported with `points: [number, number][]`
-- [ ] `SvgPolygonElement` exported with `points: [number, number][]`
-- [ ] `SvgTextElement` exported with all optional text-style fields
-- [ ] `SvgGroupElement` exported with `children: SvgElement[]`
-- [ ] `SvgElement` union exported (all 9 element types)
-- [ ] `SvgPathCommand` exported with all path command variants
-- [ ] `SvgDocument` exported with `viewBox?`, `width?`, `height?`, `elements`
-- [ ] `SvgGeoMeta` exported with `svgBounds`, `geoBounds`, optional `crs`
-- [ ] All types re-exported from `index.ts`
-- [ ] `packages/km-svg/package.json` correct name, version, deps
-- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty
+- [x] `packages/km-svg/src/types.ts` created — no Zod imports
+- [x] `SvgViewBox` exported with `minX`, `minY`, `width`, `height`
+- [x] `SvgLengthUnit` exported with all 14 unit variants
+- [x] `SvgLength` exported with `value: number` and `unit: SvgLengthUnit`
+- [x] `SvgColor` exported with 5 discriminated variants on `type`
+- [x] `SvgTransformOperation` exported with 6 discriminated variants on `type`
+- [x] `SvgTransform` exported as `SvgTransformOperation[]`
+- [x] `SvgPresentationAttributes` exported with all 16 optional fields
+- [x] `SvgCoreAttributes` exported with `id?`, `className?`, `style?`, `transform?`
+- [x] `SvgPathElement` exported with `type: "path"` and `d: string`
+- [x] `SvgRectElement` exported with `type: "rect"`, dimensions, optional corner radii
+- [x] `SvgCircleElement` exported
+- [x] `SvgEllipseElement` exported
+- [x] `SvgLineElement` exported
+- [x] `SvgPolylineElement` exported with `points: [number, number][]`
+- [x] `SvgPolygonElement` exported with `points: [number, number][]`
+- [x] `SvgTextElement` exported with all optional text-style fields
+- [x] `SvgGroupElement` exported with `children: SvgElement[]`
+- [x] `SvgElement` union exported (all 9 element types)
+- [x] `SvgPathCommand` exported with all path command variants
+- [x] `SvgDocument` exported with `viewBox?`, `width?`, `height?`, `elements`
+- [x] `SvgGeoMeta` exported with `svgBounds`, `geoBounds`, optional `crs`
+- [x] All types re-exported from `index.ts`
+- [x] `packages/km-svg/package.json` correct name, version, deps
+- [x] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

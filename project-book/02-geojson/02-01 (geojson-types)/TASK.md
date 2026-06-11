@@ -91,17 +91,17 @@ The package skeleton is in place and builds cleanly.
 
 ## Acceptance Criteria
 
-- [ ] All 14 types exported from `types.ts`
-- [ ] `Position` is a tuple union (2-element or 3-element)
-- [ ] `LinearRing` enforces minimum 4 positions at the type level
-- [ ] `GeoJsonLineString.coordinates` enforces minimum 2 positions at the type level
-- [ ] `GeoJsonGeometryCollection.geometries` is typed as `GeoJsonGeometry[]`
-- [ ] `GeoJsonFeature` and `GeoJsonFeatureCollection` have generic type parameters
-- [ ] `geometry` field on `GeoJsonFeature` accepts `null`
-- [ ] `properties` field on `GeoJsonFeature` accepts `null`
-- [ ] JSDoc on every type including the longitude-first note on `Position`
-- [ ] Build succeeds with no TypeScript errors
-- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
+- [x] All 14 types exported from `types.ts`
+- [x] `Position` is a tuple union (2-element or 3-element)
+- [x] `LinearRing` enforces minimum 4 positions at the type level
+- [x] `GeoJsonLineString.coordinates` enforces minimum 2 positions at the type level
+- [x] `GeoJsonGeometryCollection.geometries` is typed as `GeoJsonGeometry[]`
+- [x] `GeoJsonFeature` and `GeoJsonFeatureCollection` have generic type parameters
+- [x] `geometry` field on `GeoJsonFeature` accepts `null`
+- [x] `properties` field on `GeoJsonFeature` accepts `null`
+- [x] JSDoc on every type including the longitude-first note on `Position`
+- [x] Build succeeds with no TypeScript errors
+- [x] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
 
 ## Notes
 - The **longitude-first** ordering of `Position` is a frequent source of bugs.

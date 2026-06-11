@@ -105,15 +105,15 @@ The package builds cleanly and `dist/` has zero Zod imports.
 
 ## Acceptance Criteria
 
-- [ ] All 13 utility functions are implemented and exported
-- [ ] `$AnyZodObject` is exported from `zodStructural.ts`
-- [ ] `$AnyZodType` is exported from `zodStructural.ts`
-- [ ] Both structural types are re-exported from `index.ts`
-- [ ] Zod is declared as `peerDependency` and `devDependency` (not `dependency`)
-- [ ] Build succeeds with no TypeScript errors
-- [ ] `grep -rn "^import.*zod" packages/km-shared/dist/` returns **empty**
-- [ ] All Vitest tests pass
-- [ ] Every function has a JSDoc `@example`
+- [x] All 13 utility functions are implemented and exported
+- [x] `$AnyZodObject` is exported from `zodStructural.ts`
+- [x] `$AnyZodType` is exported from `zodStructural.ts`
+- [x] Both structural types are re-exported from `index.ts`
+- [x] Zod is declared as `peerDependency` and `devDependency` (not `dependency`)
+- [x] Build succeeds with no TypeScript errors
+- [x] `grep -rn "^import.*zod" packages/km-shared/dist/` returns **empty**
+- [x] All Vitest tests pass
+- [x] Every function has a JSDoc `@example`
 
 ## Notes
 - The structural types in `zodStructural.ts` must reflect Zod v4's internal field

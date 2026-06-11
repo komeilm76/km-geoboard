@@ -83,15 +83,15 @@ All 5 export functions and the filter utility are working and documented.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` has all required sections including Round-Trip Pairs
-- [ ] Filter Application Order is documented as an ordered 5-step list
-- [ ] Raster Export Notes section explains consumer-side execution
-- [ ] All 5 error codes documented
-- [ ] `CHANGELOG.md` updated with all additions from 06-01 to 06-07
-- [ ] `pnpm --filter @komeilm76/km-exports lint` — zero TypeScript errors
-- [ ] `pnpm --filter @komeilm76/km-exports test` — all tests green
-- [ ] `pnpm --filter @komeilm76/km-exports build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` — returns empty
+- [x] `help.md` has all required sections including Round-Trip Pairs
+- [x] Filter Application Order is documented as an ordered 5-step list
+- [x] Raster Export Notes section explains consumer-side execution
+- [x] All 5 error codes documented
+- [x] `CHANGELOG.md` updated with all additions from 06-01 to 06-07
+- [x] `pnpm --filter @komeilm76/km-exports lint` — zero TypeScript errors
+- [x] `pnpm --filter @komeilm76/km-exports test` — all tests green
+- [x] `pnpm --filter @komeilm76/km-exports build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-exports/dist/` — returns empty
 
 ## Notes
 - After this page, Chapter 06 is complete. Only Chapter 07 (plugins) remains.

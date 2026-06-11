@@ -1,23 +1,23 @@
 # Checklist — Page 01-04 Snap to Grid
 
-- [ ] `snapArtboardToGrid.ts` created and exported from `index.ts`
-- [ ] Function signature uses `SnapArtboardInput` — no Zod types
-- [ ] Default `gridSize` is `8`
-- [ ] Default `mode` is `"round"`
-- [ ] `"round"` mode implemented with `Math.round`
-- [ ] `"floor"` mode implemented with `Math.floor`
-- [ ] `"ceil"` mode implemented with `Math.ceil`
-- [ ] Negative coordinates handled correctly in all 3 modes
-- [ ] `gridSize <= 0` guard returns artboard unchanged
-- [ ] Input artboard is not mutated
-- [ ] All non-geometry fields preserved (`id`, `name`, `startPoint`, `endPoint`, `createdAt`)
-- [ ] JSDoc with all 3 mode examples
-- [ ] Tests cover `"round"`, `"floor"`, `"ceil"` modes
-- [ ] Tests cover negative origin values
-- [ ] Tests cover default gridSize and custom gridSize
-- [ ] Tests cover zero-value coordinates
-- [ ] Tests cover `gridSize <= 0` defensive guard
-- [ ] Tests verify no mutation of input
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `snapArtboardToGrid.ts` created and exported from `index.ts`
+- [x] Function signature uses `SnapArtboardInput` — no Zod types
+- [x] Default `gridSize` is `8`
+- [x] Default `mode` is `"round"`
+- [x] `"round"` mode implemented with `Math.round`
+- [x] `"floor"` mode implemented with `Math.floor`
+- [x] `"ceil"` mode implemented with `Math.ceil`
+- [x] Negative coordinates handled correctly in all 3 modes
+- [x] `gridSize <= 0` guard returns artboard unchanged
+- [x] Input artboard is not mutated
+- [x] All non-geometry fields preserved (`id`, `name`, `startPoint`, `endPoint`, `createdAt`)
+- [x] JSDoc with all 3 mode examples
+- [x] Tests cover `"round"`, `"floor"`, `"ceil"` modes
+- [x] Tests cover negative origin values
+- [x] Tests cover default gridSize and custom gridSize
+- [x] Tests cover zero-value coordinates
+- [x] Tests cover `gridSize <= 0` defensive guard
+- [x] Tests verify no mutation of input
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

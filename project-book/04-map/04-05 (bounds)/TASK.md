@@ -64,12 +64,12 @@ known-value checks. `boundsIntersect` must test touching edges (counts as inters
 
 ## Acceptance Criteria
 
-- [ ] All 12 functions implemented and exported from `index.ts`
-- [ ] `boundsContains` and `boundsIntersect` are inclusive on edges
-- [ ] `metersPerPixel` decreases as zoom increases
-- [ ] `detectLayerFormat` correctly identifies all known URL patterns
-- [ ] `makeGeoJsonSource` and `makeXyzSource` return correct plain objects
-- [ ] All tests pass, build clean
+- [x] All 12 functions implemented and exported from `index.ts`
+- [x] `boundsContains` and `boundsIntersect` are inclusive on edges
+- [x] `metersPerPixel` decreases as zoom increases
+- [x] `detectLayerFormat` correctly identifies all known URL patterns
+- [x] `makeGeoJsonSource` and `makeXyzSource` return correct plain objects
+- [x] All tests pass, build clean
 
 ## Notes
 - `makeGeoJsonSource` and `makeXyzSource` return plain objects compatible with

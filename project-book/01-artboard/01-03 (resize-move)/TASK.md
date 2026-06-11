@@ -111,18 +111,18 @@ Tests exist for every function.
 
 ## Acceptance Criteria
 
-- [ ] `resizeArtboard` merges partial origin and size without mutating input
-- [ ] `resizeArtboard` applies `minSize` guard, returns `too-small` if violated
-- [ ] `moveArtboard` returns new artboard with translated origin
-- [ ] `moveArtboard` never mutates `input.artboard`
-- [ ] `artboardToRect` returns `[x, y, w, h]` tuple
-- [ ] `artboardFromRect` round-trips cleanly with `artboardToRect`
-- [ ] `artboardContainsPoint` is inclusive on all edges
-- [ ] `artboardsOverlap` returns true for touching edges
-- [ ] All 6 functions exported from `index.ts`
-- [ ] All tests pass
-- [ ] No `any` in any signature
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `resizeArtboard` merges partial origin and size without mutating input
+- [x] `resizeArtboard` applies `minSize` guard, returns `too-small` if violated
+- [x] `moveArtboard` returns new artboard with translated origin
+- [x] `moveArtboard` never mutates `input.artboard`
+- [x] `artboardToRect` returns `[x, y, w, h]` tuple
+- [x] `artboardFromRect` round-trips cleanly with `artboardToRect`
+- [x] `artboardContainsPoint` is inclusive on all edges
+- [x] `artboardsOverlap` returns true for touching edges
+- [x] All 6 functions exported from `index.ts`
+- [x] All tests pass
+- [x] No `any` in any signature
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `moveArtboard` does not update `startPoint`/`endPoint` on the artboard — those

@@ -81,15 +81,15 @@ The functions are split across focused files: `parse.ts`, `geometry.ts`,
 
 ## Acceptance Criteria
 
-- [ ] All 8 functions implemented and exported
-- [ ] `parseGeoJson` returns `Result<GeoJson>` using `safeParse`
-- [ ] `isGeoJsonGeometry` is a proper TypeScript type guard
-- [ ] `getGeometryBoundingBox` handles all 7 geometry types including `GeometryCollection`
-- [ ] `flattenGeometryCollection` handles nested geometry collections
-- [ ] `featureFromGeometry` defaults `properties` to `{}`
-- [ ] All tests pass
-- [ ] No `any` in function signatures
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All 8 functions implemented and exported
+- [x] `parseGeoJson` returns `Result<GeoJson>` using `safeParse`
+- [x] `isGeoJsonGeometry` is a proper TypeScript type guard
+- [x] `getGeometryBoundingBox` handles all 7 geometry types including `GeometryCollection`
+- [x] `flattenGeometryCollection` handles nested geometry collections
+- [x] `featureFromGeometry` defaults `properties` to `{}`
+- [x] All tests pass
+- [x] No `any` in function signatures
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `getGeometryBoundingBox` must handle `GeometryCollection` recursively.

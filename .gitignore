@@ -121,3 +121,6 @@ packages/*/tests/**/*.map
 
 # pnpm local store/cache — never commit
 .pnpm-store/
+
+# Local secrets (GitHub PAT etc.) — never commit
+.env.local

@@ -105,14 +105,14 @@ Type guards pass. Build is clean. No Zod in `dist/`.
 
 ## Acceptance Criteria
 
-- [ ] All schemas defined and exported
-- [ ] `SvgColorSchema` uses discriminated union on `"type"` field
-- [ ] `SvgTransformOperationSchema` uses discriminated union on `"type"` field
-- [ ] `SvgElementSchema` uses `z.lazy()` for recursive group children
-- [ ] `SvgElementSchema` has explicit type annotation `z.ZodType<SvgElement>`
-- [ ] `SvgGroupElementSchema.children` uses the lazy `SvgElementSchema`
-- [ ] Type-divergence guards compile without error
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All schemas defined and exported
+- [x] `SvgColorSchema` uses discriminated union on `"type"` field
+- [x] `SvgTransformOperationSchema` uses discriminated union on `"type"` field
+- [x] `SvgElementSchema` uses `z.lazy()` for recursive group children
+- [x] `SvgElementSchema` has explicit type annotation `z.ZodType<SvgElement>`
+- [x] `SvgGroupElementSchema.children` uses the lazy `SvgElementSchema`
+- [x] Type-divergence guards compile without error
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `z.discriminatedUnion` requires every member to have the discriminant key.

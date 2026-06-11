@@ -44,7 +44,8 @@ km-geoboard/
 ```
 
 Current packages: `km-shared` (foundation), `km-artboard`, `km-geojson`, `km-svg`,
-`km-map`, `km-imports`, `km-exports`, `km-plugins`.
+`km-map`, `km-imports`, `km-exports`, `km-plugins`, and `km-geoboard` (umbrella —
+re-exports all of the above under namespaces and hosts the integration test suite).
 
 ---
 

@@ -82,15 +82,15 @@ in `dist/`.
 
 ## Acceptance Criteria
 
-- [ ] All 9 types are defined and exported
-- [ ] `Artboard.id` is `string`
-- [ ] `Artboard.createdAt` is `number` (Unix ms)
-- [ ] `Artboard.origin` and `Artboard.startPoint` / `Artboard.endPoint` are `Point`
-- [ ] `CreateArtboardInput` optional fields each have `@default` JSDoc
-- [ ] `CreateArtboardResult` is a discriminated union with `reason` (not `error.code`)
-- [ ] `SnapArtboardInput.mode` has all three literal values
-- [ ] Build succeeds with no TypeScript errors
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] All 9 types are defined and exported
+- [x] `Artboard.id` is `string`
+- [x] `Artboard.createdAt` is `number` (Unix ms)
+- [x] `Artboard.origin` and `Artboard.startPoint` / `Artboard.endPoint` are `Point`
+- [x] `CreateArtboardInput` optional fields each have `@default` JSDoc
+- [x] `CreateArtboardResult` is a discriminated union with `reason` (not `error.code`)
+- [x] `SnapArtboardInput.mode` has all three literal values
+- [x] Build succeeds with no TypeScript errors
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 
 ## Notes
 - Note that `CreateArtboardResult` uses `reason` (not `error`) per the spec in

@@ -87,19 +87,19 @@ entire monorepo. Every package's Zod-leak check returns empty.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` has all required sections including Writing a Plugin tutorial
-- [ ] Quick Start shows a two-plugin end-to-end example
-- [ ] All 6 error codes documented
-- [ ] All 6 design principles documented
-- [ ] `CHANGELOG.md` updated with all additions from pages 07-01 to 07-04
-- [ ] `pnpm --filter @komeilm76/km-plugins lint` — zero errors
-- [ ] `pnpm --filter @komeilm76/km-plugins test` — all green
-- [ ] `pnpm --filter @komeilm76/km-plugins build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` — empty
-- [ ] `pnpm -r lint` — zero errors across all packages
-- [ ] `pnpm -r test` — all tests green across all packages
-- [ ] `pnpm -r build` — all packages build successfully
-- [ ] `pnpm -r check-zod` — empty output for every package
+- [x] `help.md` has all required sections including Writing a Plugin tutorial
+- [x] Quick Start shows a two-plugin end-to-end example
+- [x] All 6 error codes documented
+- [x] All 6 design principles documented
+- [x] `CHANGELOG.md` updated with all additions from pages 07-01 to 07-04
+- [x] `pnpm --filter @komeilm76/km-plugins lint` — zero errors
+- [x] `pnpm --filter @komeilm76/km-plugins test` — all green
+- [x] `pnpm --filter @komeilm76/km-plugins build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-plugins/dist/` — empty
+- [x] `pnpm -r lint` — zero errors across all packages
+- [x] `pnpm -r test` — all tests green across all packages
+- [x] `pnpm -r build` — all packages build successfully
+- [x] `pnpm -r check-zod` — empty output for every package
 
 ## Notes
 - This is the last page of the project book.

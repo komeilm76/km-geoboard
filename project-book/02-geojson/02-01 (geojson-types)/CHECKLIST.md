@@ -1,27 +1,27 @@
 # Checklist — Page 02-01 GeoJSON Types
 
-- [ ] `packages/km-geojson/src/types.ts` created — no Zod imports
-- [ ] `Position` exported as 2-element or 3-element number tuple
-- [ ] `BoundingBox` exported as 4-element or 6-element number tuple
-- [ ] `LinearRing` exported with minimum 4-element constraint
-- [ ] `GeoJsonPoint` exported with `type: "Point"` and `coordinates: Position`
-- [ ] `GeoJsonMultiPoint` exported
-- [ ] `GeoJsonLineString` exported with minimum 2-position constraint
-- [ ] `GeoJsonMultiLineString` exported
-- [ ] `GeoJsonPolygon` exported with `coordinates: LinearRing[]`
-- [ ] `GeoJsonMultiPolygon` exported
-- [ ] `GeoJsonGeometryCollection` exported with `geometries: GeoJsonGeometry[]`
-- [ ] `GeoJsonGeometry` union exported (all 7 geometry types)
-- [ ] `GeoJsonFeature<G, P>` exported with generics and nullable `geometry`/`properties`
-- [ ] `GeoJsonFeatureCollection<G, P>` exported with generics
-- [ ] `GeoJson` root union exported
-- [ ] JSDoc on every type
-- [ ] Longitude-first warning on `Position` JSDoc
-- [ ] All 14+ types exported from `index.ts`
-- [ ] `packages/km-geojson/package.json` has correct name, version, deps
-- [ ] `packages/km-geojson/tsconfig.json` extends root config
-- [ ] `packages/km-geojson/tsup.config.ts` exists
-- [ ] `pnpm --filter @komeilm76/km-geojson build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
-- [ ] `help.md` stub created
-- [ ] `CHANGELOG.md` has `## [0.1.0]` entry
+- [x] `packages/km-geojson/src/types.ts` created — no Zod imports
+- [x] `Position` exported as 2-element or 3-element number tuple
+- [x] `BoundingBox` exported as 4-element or 6-element number tuple
+- [x] `LinearRing` exported with minimum 4-element constraint
+- [x] `GeoJsonPoint` exported with `type: "Point"` and `coordinates: Position`
+- [x] `GeoJsonMultiPoint` exported
+- [x] `GeoJsonLineString` exported with minimum 2-position constraint
+- [x] `GeoJsonMultiLineString` exported
+- [x] `GeoJsonPolygon` exported with `coordinates: LinearRing[]`
+- [x] `GeoJsonMultiPolygon` exported
+- [x] `GeoJsonGeometryCollection` exported with `geometries: GeoJsonGeometry[]`
+- [x] `GeoJsonGeometry` union exported (all 7 geometry types)
+- [x] `GeoJsonFeature<G, P>` exported with generics and nullable `geometry`/`properties`
+- [x] `GeoJsonFeatureCollection<G, P>` exported with generics
+- [x] `GeoJson` root union exported
+- [x] JSDoc on every type
+- [x] Longitude-first warning on `Position` JSDoc
+- [x] All 14+ types exported from `index.ts`
+- [x] `packages/km-geojson/package.json` has correct name, version, deps
+- [x] `packages/km-geojson/tsconfig.json` extends root config
+- [x] `packages/km-geojson/tsup.config.ts` exists
+- [x] `pnpm --filter @komeilm76/km-geojson build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
+- [x] `help.md` stub created
+- [x] `CHANGELOG.md` has `## [0.1.0]` entry

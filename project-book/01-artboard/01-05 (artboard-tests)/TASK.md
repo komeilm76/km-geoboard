@@ -105,16 +105,16 @@ the `Artboard` type exactly. All tests pass. CI checks pass.
 
 ## Acceptance Criteria
 
-- [ ] `ArtboardSchema` exists in `schemas.ts` and matches the `Artboard` type
-- [ ] Type-divergence guard compiles without error
-- [ ] `ArtboardSchema` is exported from `index.ts`
-- [ ] `help.md` has all required sections (Overview, Installation, Functions, Types, Errors)
-- [ ] Every function has an input table and a code example in `help.md`
-- [ ] `CHANGELOG.md` covers all items added in pages 01-01 through 01-05
-- [ ] `pnpm --filter @komeilm76/km-artboard lint` passes (zero TypeScript errors)
-- [ ] `pnpm --filter @komeilm76/km-artboard test` passes (all tests green)
-- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `ArtboardSchema` exists in `schemas.ts` and matches the `Artboard` type
+- [x] Type-divergence guard compiles without error
+- [x] `ArtboardSchema` is exported from `index.ts`
+- [x] `help.md` has all required sections (Overview, Installation, Functions, Types, Errors)
+- [x] Every function has an input table and a code example in `help.md`
+- [x] `CHANGELOG.md` covers all items added in pages 01-01 through 01-05
+- [x] `pnpm --filter @komeilm76/km-artboard lint` passes (zero TypeScript errors)
+- [x] `pnpm --filter @komeilm76/km-artboard test` passes (all tests green)
+- [x] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 
 ## Notes
 - The type-divergence guard is a compile-time assertion, not a runtime check.

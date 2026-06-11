@@ -1,27 +1,27 @@
 # Checklist — Page 01-02 Create Artboard Function
 
-- [ ] `packages/km-artboard/src/schemas.ts` created
-- [ ] `CreateArtboardInputSchema` defined with `startPoint`, `endPoint`, `name`, `id`, `minSize`
-- [ ] `name` defaults to `"Artboard"` in schema
-- [ ] `minSize` defaults to `1` in schema
-- [ ] Schema uses `finiteNumber()` from `@komeilm76/km-shared` (not raw `z.number()`)
-- [ ] `packages/km-artboard/src/createArtboard.ts` created
-- [ ] Function signature uses plain types — no Zod types in signature
-- [ ] `safeParse` is used (not `.parse()`)
-- [ ] Origin computed as `{ x: Math.min(...), y: Math.min(...) }`
-- [ ] Size computed as `{ width: Math.abs(...), height: Math.abs(...) }`
-- [ ] Returns `{ success: false, reason: "invalid-input" }` on schema failure
-- [ ] Returns `{ success: false, reason: "too-small" }` when dimension < minSize
-- [ ] Returns `{ success: true, artboard: Artboard }` on success
-- [ ] `id` falls back to `crypto.randomUUID()` when not provided
-- [ ] `createdAt` is set with `Date.now()`
-- [ ] JSDoc with `@param`, `@returns`, two `@example` blocks
-- [ ] No `any` in function signature
-- [ ] `createArtboard` exported from `index.ts`
-- [ ] Test file covers all 4 drag directions
-- [ ] Test file covers `too-small` for width AND height
-- [ ] Test file covers `invalid-input` for NaN and Infinity
-- [ ] Test file covers default name, custom name, custom id, custom minSize
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `packages/km-artboard/src/schemas.ts` created
+- [x] `CreateArtboardInputSchema` defined with `startPoint`, `endPoint`, `name`, `id`, `minSize`
+- [x] `name` defaults to `"Artboard"` in schema
+- [x] `minSize` defaults to `1` in schema
+- [x] Schema uses `finiteNumber()` from `@komeilm76/km-shared` (not raw `z.number()`)
+- [x] `packages/km-artboard/src/createArtboard.ts` created
+- [x] Function signature uses plain types — no Zod types in signature
+- [x] `safeParse` is used (not `.parse()`)
+- [x] Origin computed as `{ x: Math.min(...), y: Math.min(...) }`
+- [x] Size computed as `{ width: Math.abs(...), height: Math.abs(...) }`
+- [x] Returns `{ success: false, reason: "invalid-input" }` on schema failure
+- [x] Returns `{ success: false, reason: "too-small" }` when dimension < minSize
+- [x] Returns `{ success: true, artboard: Artboard }` on success
+- [x] `id` falls back to `crypto.randomUUID()` when not provided
+- [x] `createdAt` is set with `Date.now()`
+- [x] JSDoc with `@param`, `@returns`, two `@example` blocks
+- [x] No `any` in function signature
+- [x] `createArtboard` exported from `index.ts`
+- [x] Test file covers all 4 drag directions
+- [x] Test file covers `too-small` for width AND height
+- [x] Test file covers `invalid-input` for NaN and Infinity
+- [x] Test file covers default name, custom name, custom id, custom minSize
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

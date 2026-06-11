@@ -1,24 +1,24 @@
 # Checklist — Page 01-01 Artboard Types
 
-- [ ] `packages/km-artboard/src/types.ts` created — no Zod imports
-- [ ] `Point` exported with `x: number` and `y: number`
-- [ ] `Size` exported with `width: number` and `height: number`
-- [ ] `Artboard` exported with all 7 fields: `id`, `name`, `origin`, `size`, `startPoint`, `endPoint`, `createdAt`
-- [ ] `Artboard.id` is `string`
-- [ ] `Artboard.createdAt` is `number`
-- [ ] Every `Artboard` field has a JSDoc comment
-- [ ] `CreateArtboardInput` exported with `startPoint`, `endPoint`, optional `name`, `id`, `minSize`
-- [ ] Optional fields have `@default` in JSDoc
-- [ ] `CreateArtboardResult` is a discriminated union with `reason: "too-small" | "invalid-input"`
-- [ ] `ResizeArtboardInput` exported
-- [ ] `MoveArtboardInput` exported with `artboard` and `delta: Point`
-- [ ] `SnapArtboardInput` exported with `mode?: "round" | "floor" | "ceil"` and `gridSize?: number`
-- [ ] `packages/km-artboard/src/index.ts` re-exports all 9 types
-- [ ] `packages/km-artboard/package.json` lists `@komeilm76/km-shared` as dependency
-- [ ] `packages/km-artboard/package.json` lists `zod` as peerDependency and devDependency
-- [ ] `packages/km-artboard/tsconfig.json` extends root config
-- [ ] `packages/km-artboard/tsup.config.ts` exists
-- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
-- [ ] `help.md` stub created
-- [ ] `CHANGELOG.md` has `## [0.1.0]` entry
+- [x] `packages/km-artboard/src/types.ts` created — no Zod imports
+- [x] `Point` exported with `x: number` and `y: number`
+- [x] `Size` exported with `width: number` and `height: number`
+- [x] `Artboard` exported with all 7 fields: `id`, `name`, `origin`, `size`, `startPoint`, `endPoint`, `createdAt`
+- [x] `Artboard.id` is `string`
+- [x] `Artboard.createdAt` is `number`
+- [x] Every `Artboard` field has a JSDoc comment
+- [x] `CreateArtboardInput` exported with `startPoint`, `endPoint`, optional `name`, `id`, `minSize`
+- [x] Optional fields have `@default` in JSDoc
+- [x] `CreateArtboardResult` is a discriminated union with `reason: "too-small" | "invalid-input"`
+- [x] `ResizeArtboardInput` exported
+- [x] `MoveArtboardInput` exported with `artboard` and `delta: Point`
+- [x] `SnapArtboardInput` exported with `mode?: "round" | "floor" | "ceil"` and `gridSize?: number`
+- [x] `packages/km-artboard/src/index.ts` re-exports all 9 types
+- [x] `packages/km-artboard/package.json` lists `@komeilm76/km-shared` as dependency
+- [x] `packages/km-artboard/package.json` lists `zod` as peerDependency and devDependency
+- [x] `packages/km-artboard/tsconfig.json` extends root config
+- [x] `packages/km-artboard/tsup.config.ts` exists
+- [x] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `help.md` stub created
+- [x] `CHANGELOG.md` has `## [0.1.0]` entry

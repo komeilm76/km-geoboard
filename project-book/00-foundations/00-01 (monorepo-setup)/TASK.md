@@ -67,12 +67,12 @@ directory ready to receive packages.
 
 ## Acceptance Criteria
 
-- [ ] `pnpm install` completes without errors
-- [ ] `pnpm -r build` runs (nothing to build yet, but the script resolves)
-- [ ] `tsconfig.base.json` has `"strict": true` and no `"DOM"` in `"lib"`
-- [ ] `pnpm-workspace.yaml` declares `packages/*`
-- [ ] `.gitignore` excludes `dist/` and `node_modules/`
-- [ ] Root `package.json` has `"private": true`
+- [x] `pnpm install` completes without errors
+- [x] `pnpm -r build` runs (nothing to build yet, but the script resolves)
+- [x] `tsconfig.base.json` has `"strict": true` and no `"DOM"` in `"lib"`
+- [x] `pnpm-workspace.yaml` declares `packages/*`
+- [x] `.gitignore` excludes `dist/` and `node_modules/`
+- [x] Root `package.json` has `"private": true`
 
 ## Notes
 - Do not add `"DOM"` to `tsconfig.base.json` — this is enforced by design.

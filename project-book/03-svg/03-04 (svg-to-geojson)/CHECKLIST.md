@@ -1,26 +1,26 @@
 # Checklist — Page 03-04 SVG to GeoJSON Conversion
 
-- [ ] `@komeilm76/km-geojson` added as dependency in `packages/km-svg/package.json`
-- [ ] `svgToGeoJson.ts` created
-- [ ] `svgPointToGeoPosition` exported — correct linear interpolation formula
-- [ ] `svgPointToGeoPosition` inverts Y axis (SVG down → lat up)
-- [ ] `svgElementToGeoJsonFeature` exported — returns `Result<GeoJsonFeature>`
-- [ ] `rect` → closed 5-point `Polygon` ring
-- [ ] `circle` → `Polygon` with 64-point approximation
-- [ ] `ellipse` → `Polygon` with 64-point approximation using `rx` and `ry`
-- [ ] `line` → `LineString` with 2 points
-- [ ] `polyline` → `LineString`
-- [ ] `polygon` → closed `Polygon` (first point appended as last)
-- [ ] `path` → `LineString` or `Polygon` based on presence of `Z` commands
-- [ ] `text` → `Point` at `[x, y]`
-- [ ] `g` (group) → `GeometryCollection` (recursive)
-- [ ] SVG presentation attributes stored in `Feature.properties`
-- [ ] `svgDocumentToFeatureCollection` exported — returns `Result<GeoJsonFeatureCollection>`
-- [ ] `svgDocumentToFeatureCollection` does not abort on single-element failure
-- [ ] All 3 functions exported from `index.ts`
-- [ ] Tests cover `svgPointToGeoPosition` for all 4 corners and center
-- [ ] Tests cover every element type conversion
-- [ ] Tests cover `svgDocumentToFeatureCollection` multi-element case
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty
+- [x] `@komeilm76/km-geojson` added as dependency in `packages/km-svg/package.json`
+- [x] `svgToGeoJson.ts` created
+- [x] `svgPointToGeoPosition` exported — correct linear interpolation formula
+- [x] `svgPointToGeoPosition` inverts Y axis (SVG down → lat up)
+- [x] `svgElementToGeoJsonFeature` exported — returns `Result<GeoJsonFeature>`
+- [x] `rect` → closed 5-point `Polygon` ring
+- [x] `circle` → `Polygon` with 64-point approximation
+- [x] `ellipse` → `Polygon` with 64-point approximation using `rx` and `ry`
+- [x] `line` → `LineString` with 2 points
+- [x] `polyline` → `LineString`
+- [x] `polygon` → closed `Polygon` (first point appended as last)
+- [x] `path` → `LineString` or `Polygon` based on presence of `Z` commands
+- [x] `text` → `Point` at `[x, y]`
+- [x] `g` (group) → `GeometryCollection` (recursive)
+- [x] SVG presentation attributes stored in `Feature.properties`
+- [x] `svgDocumentToFeatureCollection` exported — returns `Result<GeoJsonFeatureCollection>`
+- [x] `svgDocumentToFeatureCollection` does not abort on single-element failure
+- [x] All 3 functions exported from `index.ts`
+- [x] Tests cover `svgPointToGeoPosition` for all 4 corners and center
+- [x] Tests cover every element type conversion
+- [x] Tests cover `svgDocumentToFeatureCollection` multi-element case
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

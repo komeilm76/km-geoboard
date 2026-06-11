@@ -85,12 +85,12 @@ Package skeleton builds cleanly.
 
 ## Acceptance Criteria
 
-- [ ] All 8 types exported from `types.ts` — no Zod imports
-- [ ] `ExportFilter` has all 5 optional fields
-- [ ] `RasterDrawInstruction` is a discriminated union on `type`
-- [ ] `PdfMeta` has `svgContent: string` and `artboard: Artboard`
-- [ ] Every optional field has `@default` JSDoc
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All 8 types exported from `types.ts` — no Zod imports
+- [x] `ExportFilter` has all 5 optional fields
+- [x] `RasterDrawInstruction` is a discriminated union on `type`
+- [x] `PdfMeta` has `svgContent: string` and `artboard: Artboard`
+- [x] Every optional field has `@default` JSDoc
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `RasterExportPlan.quality` only applies to JPEG. The JSDoc must note this.

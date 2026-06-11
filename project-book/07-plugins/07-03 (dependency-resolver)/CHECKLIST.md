@@ -1,25 +1,25 @@
 # Checklist — Page 07-03 Dependency Resolver
 
-- [ ] `dependencyResolver.ts` created
-- [ ] `satisfiesVersion` exported — handles `">=X.Y.Z"` correctly
-- [ ] `satisfiesVersion("1.0.0", ">=1.0.0")` → true (equal boundary)
-- [ ] `satisfiesVersion("0.9.9", ">=1.0.0")` → false
-- [ ] `satisfiesVersion` returns `false` for unsupported operators (documented)
-- [ ] `resolveDependencyOrder` exported — returns `Result<Plugin[]>`
-- [ ] `resolveDependencyOrder` implements Kahn's algorithm (topological sort)
-- [ ] `resolveDependencyOrder` returns plugins in dependency-safe order
-- [ ] `resolveDependencyOrder` detects cycles — returns `{ code: "circular-dependency" }`
-- [ ] `createPluginRegistry.register` updated to call `satisfiesVersion`
-- [ ] Version mismatch returns `{ code: "version-mismatch" }` error
-- [ ] `debugRegistry.ts` created
-- [ ] `debugRegistry` exported — returns `RegistrySnapshot`
-- [ ] `debugRegistry` maps all active registrations to snapshot format
-- [ ] All new symbols exported from `index.ts`
-- [ ] Tests: `satisfiesVersion` boundary cases
-- [ ] Tests: linear chain topological sort
-- [ ] Tests: diamond dependency topological sort
-- [ ] Tests: cycle detection
-- [ ] Tests: registry version-mismatch integration test
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty
+- [x] `dependencyResolver.ts` created
+- [x] `satisfiesVersion` exported — handles `">=X.Y.Z"` correctly
+- [x] `satisfiesVersion("1.0.0", ">=1.0.0")` → true (equal boundary)
+- [x] `satisfiesVersion("0.9.9", ">=1.0.0")` → false
+- [x] `satisfiesVersion` returns `false` for unsupported operators (documented)
+- [x] `resolveDependencyOrder` exported — returns `Result<Plugin[]>`
+- [x] `resolveDependencyOrder` implements Kahn's algorithm (topological sort)
+- [x] `resolveDependencyOrder` returns plugins in dependency-safe order
+- [x] `resolveDependencyOrder` detects cycles — returns `{ code: "circular-dependency" }`
+- [x] `createPluginRegistry.register` updated to call `satisfiesVersion`
+- [x] Version mismatch returns `{ code: "version-mismatch" }` error
+- [x] `debugRegistry.ts` created
+- [x] `debugRegistry` exported — returns `RegistrySnapshot`
+- [x] `debugRegistry` maps all active registrations to snapshot format
+- [x] All new symbols exported from `index.ts`
+- [x] Tests: `satisfiesVersion` boundary cases
+- [x] Tests: linear chain topological sort
+- [x] Tests: diamond dependency topological sort
+- [x] Tests: cycle detection
+- [x] Tests: registry version-mismatch integration test
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty

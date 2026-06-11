@@ -100,14 +100,14 @@ The package skeleton builds cleanly.
 
 ## Acceptance Criteria
 
-- [ ] All types exported from `types.ts` — no Zod imports
-- [ ] `SvgColor` has all 5 variants with correct discriminant field
-- [ ] `SvgTransformOperation` has all 6 variants
-- [ ] `SvgGroupElement.children` is `SvgElement[]` (recursive)
-- [ ] `SvgPathCommand` has all path command variants
-- [ ] `SvgDocument` exports all 4 fields
-- [ ] `SvgGeoMeta` exported
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All types exported from `types.ts` — no Zod imports
+- [x] `SvgColor` has all 5 variants with correct discriminant field
+- [x] `SvgTransformOperation` has all 6 variants
+- [x] `SvgGroupElement.children` is `SvgElement[]` (recursive)
+- [x] `SvgPathCommand` has all path command variants
+- [x] `SvgDocument` exports all 4 fields
+- [x] `SvgGeoMeta` exported
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `SvgGroupElement` creates a recursive type through `SvgElement[]`. TypeScript

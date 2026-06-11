@@ -1,31 +1,31 @@
 # Checklist — Page 00-03 Zod Utilities
 
-- [ ] `zod` added as `peerDependency` in `packages/km-shared/package.json`
-- [ ] `zod` added as `devDependency` in `packages/km-shared/package.json`
-- [ ] `zod` is NOT listed under `dependencies`
-- [ ] `packages/km-shared/src/zodUtils.ts` created
-- [ ] `nonEmptyString()` implemented and exported
-- [ ] `positiveNumber()` implemented and exported
-- [ ] `nonNegativeNumber()` implemented and exported
-- [ ] `finiteNumber()` implemented and exported
-- [ ] `uuid()` implemented and exported
-- [ ] `unixTimestampMs()` implemented and exported
-- [ ] `pointSchema()` implemented and exported
-- [ ] `latLngSchema()` implemented and exported
-- [ ] `colorHexSchema()` implemented and exported
-- [ ] `percentSchema()` implemented and exported
-- [ ] `opacitySchema()` implemented and exported
-- [ ] `boundingBoxSchema()` with min<=max refinement implemented and exported
-- [ ] `withDefault<T>()` implemented and exported
-- [ ] Every function has JSDoc with `@example`
-- [ ] `packages/km-shared/src/zodStructural.ts` created
-- [ ] `$AnyZodObject` exported with correct `_zod.output` field shape
-- [ ] `$AnyZodType` exported with correct `_zod.output` field shape
-- [ ] Comment in `zodStructural.ts` notes the Zod version compatibility
-- [ ] `packages/km-shared/src/index.ts` re-exports all new symbols
-- [ ] `packages/km-shared/tests/zodUtils.test.ts` created
-- [ ] Tests cover happy path for every utility
-- [ ] Tests cover rejection cases (NaN, Infinity, out-of-range, wrong format)
-- [ ] `pnpm --filter @komeilm76/km-shared build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-shared/dist/` returns empty
-- [ ] `pnpm --filter @komeilm76/km-shared test` — all tests pass
+- [x] `zod` added as `peerDependency` in `packages/km-shared/package.json`
+- [x] `zod` added as `devDependency` in `packages/km-shared/package.json`
+- [x] `zod` is NOT listed under `dependencies`
+- [x] `packages/km-shared/src/zodUtils.ts` created
+- [x] `nonEmptyString()` implemented and exported
+- [x] `positiveNumber()` implemented and exported
+- [x] `nonNegativeNumber()` implemented and exported
+- [x] `finiteNumber()` implemented and exported
+- [x] `uuid()` implemented and exported
+- [x] `unixTimestampMs()` implemented and exported
+- [x] `pointSchema()` implemented and exported
+- [x] `latLngSchema()` implemented and exported
+- [x] `colorHexSchema()` implemented and exported
+- [x] `percentSchema()` implemented and exported
+- [x] `opacitySchema()` implemented and exported
+- [x] `boundingBoxSchema()` with min<=max refinement implemented and exported
+- [x] `withDefault<T>()` implemented and exported
+- [x] Every function has JSDoc with `@example`
+- [x] `packages/km-shared/src/zodStructural.ts` created
+- [x] `$AnyZodObject` exported with correct `_zod.output` field shape
+- [x] `$AnyZodType` exported with correct `_zod.output` field shape
+- [x] Comment in `zodStructural.ts` notes the Zod version compatibility
+- [x] `packages/km-shared/src/index.ts` re-exports all new symbols
+- [x] `packages/km-shared/tests/zodUtils.test.ts` created
+- [x] Tests cover happy path for every utility
+- [x] Tests cover rejection cases (NaN, Infinity, out-of-range, wrong format)
+- [x] `pnpm --filter @komeilm76/km-shared build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-shared/dist/` returns empty
+- [x] `pnpm --filter @komeilm76/km-shared test` — all tests pass

@@ -1,25 +1,25 @@
 # Checklist — Page 07-02 Plugin Registry
 
-- [ ] `createPluginRegistry.ts` created and exported from `index.ts`
-- [ ] Returns a `PluginRegistry` (not a class instance — a plain object from a closure)
-- [ ] `register` checks for duplicate registration (same `id`)
-- [ ] `register` checks conflicts before registering
-- [ ] `register` returns `{ code: "conflict" }` with the reason message
-- [ ] `register` checks required dependencies are registered
-- [ ] `register` returns `{ code: "missing-dependency" }` for missing required deps
-- [ ] `register` allows missing optional dependencies
-- [ ] `register` builds `PluginDepsMap` from registered APIs
-- [ ] `register` calls `plugin.setup(depsMap)` and stores result
-- [ ] `register` catches `setup` exceptions and returns `{ code: "setup-error" }`
-- [ ] `unregister` calls `plugin.teardown?.()` if defined
-- [ ] `unregister` returns `{ code: "not-found" }` for unknown id
-- [ ] `unregister` returns `{ code: "dependency-active" }` when another plugin depends on it
-- [ ] `getApi` returns `API | null`
-- [ ] `has` returns correct boolean
-- [ ] `list` returns all active registrations
-- [ ] `reset` tears down all plugins in reverse registration order
-- [ ] `reset` clears the registrations map
-- [ ] Tests cover all success and error paths
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty
+- [x] `createPluginRegistry.ts` created and exported from `index.ts`
+- [x] Returns a `PluginRegistry` (not a class instance — a plain object from a closure)
+- [x] `register` checks for duplicate registration (same `id`)
+- [x] `register` checks conflicts before registering
+- [x] `register` returns `{ code: "conflict" }` with the reason message
+- [x] `register` checks required dependencies are registered
+- [x] `register` returns `{ code: "missing-dependency" }` for missing required deps
+- [x] `register` allows missing optional dependencies
+- [x] `register` builds `PluginDepsMap` from registered APIs
+- [x] `register` calls `plugin.setup(depsMap)` and stores result
+- [x] `register` catches `setup` exceptions and returns `{ code: "setup-error" }`
+- [x] `unregister` calls `plugin.teardown?.()` if defined
+- [x] `unregister` returns `{ code: "not-found" }` for unknown id
+- [x] `unregister` returns `{ code: "dependency-active" }` when another plugin depends on it
+- [x] `getApi` returns `API | null`
+- [x] `has` returns correct boolean
+- [x] `list` returns all active registrations
+- [x] `reset` tears down all plugins in reverse registration order
+- [x] `reset` clears the registrations map
+- [x] Tests cover all success and error paths
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty

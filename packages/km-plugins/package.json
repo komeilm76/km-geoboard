@@ -47,9 +47,10 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "check-zod": "node ../../scripts/check-zod.mjs",
-    "publish-directly": "npm publish --access public",
-    "auto-release": "pnpm run fix:prettier && pnpm run build && pnpm run test && release-it",
     "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@komeilm76/km-shared": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.5.0",

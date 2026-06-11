@@ -104,14 +104,14 @@ Package skeleton builds cleanly.
 
 ## Acceptance Criteria
 
-- [ ] All 9 types exported from `types.ts`
-- [ ] `Plugin<API>` has generic constraint `API extends Record<string, unknown>`
-- [ ] `Plugin.setup` receives `PluginDepsMap` and returns `API`
-- [ ] `PluginRegistry` is a type with all 6 method signatures
-- [ ] `register` returns `Result<PluginRegistration<API>>`
-- [ ] `getApi` returns `API | null`
-- [ ] `RegistrySnapshot` type defined
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All 9 types exported from `types.ts`
+- [x] `Plugin<API>` has generic constraint `API extends Record<string, unknown>`
+- [x] `Plugin.setup` receives `PluginDepsMap` and returns `API`
+- [x] `PluginRegistry` is a type with all 6 method signatures
+- [x] `register` returns `Result<PluginRegistration<API>>`
+- [x] `getApi` returns `API | null`
+- [x] `RegistrySnapshot` type defined
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `PluginDepsMap` is typed as `Map<PluginId, Record<string, unknown>>`.

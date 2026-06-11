@@ -104,18 +104,18 @@ dependency of `@komeilm76/km-svg`.
 
 ## Acceptance Criteria
 
-- [ ] `svgPointToGeoPosition` implements the linear interpolation formula correctly
-- [ ] Y-axis is inverted (SVG y-down → lat y-up)
-- [ ] `rect` produces a closed 5-point `Polygon` ring
-- [ ] `circle` / `ellipse` approximated with 64 points
-- [ ] `line` / `polyline` produce `LineString`
-- [ ] `polygon` produces a closed `Polygon`
-- [ ] `text` produces a `Point`
-- [ ] `g` produces a `GeometryCollection`
-- [ ] SVG presentation attributes stored in `Feature.properties`
-- [ ] `svgDocumentToFeatureCollection` does not short-circuit on single-element failure
-- [ ] All tests pass
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `svgPointToGeoPosition` implements the linear interpolation formula correctly
+- [x] Y-axis is inverted (SVG y-down → lat y-up)
+- [x] `rect` produces a closed 5-point `Polygon` ring
+- [x] `circle` / `ellipse` approximated with 64 points
+- [x] `line` / `polyline` produce `LineString`
+- [x] `polygon` produces a closed `Polygon`
+- [x] `text` produces a `Point`
+- [x] `g` produces a `GeometryCollection`
+- [x] SVG presentation attributes stored in `Feature.properties`
+- [x] `svgDocumentToFeatureCollection` does not short-circuit on single-element failure
+- [x] All tests pass
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - The conversion from `path` to GeoJSON geometry is the hardest case. A minimal

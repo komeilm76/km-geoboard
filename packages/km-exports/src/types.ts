@@ -1,236 +1,103 @@
 /**
  * @file types.ts
- * All export pipeline types for km-exports.
+ * Export pipeline types for @komeilm76/km-exports.
  *
- * ── Dependency types ─────────────────────────────────────────────────────────
- * In the full monorepo these types are imported from sibling packages:
- *   Artboard          → km-artboard
- *   SvgElement (et al)→ km-svg
- *   GeoJsonFeature,
- *   GeoJsonGeometry,
- *   GeoJsonFeatureCollection → km-geojson
- *   Result<T>         → km-shared
+ * Cross-package types (Result, Artboard, SVG, GeoJSON) are imported from
+ * their canonical sibling packages and re-exported for convenience — they
+ * are no longer redefined here (see project-evaluation P1: a type lives in
+ * exactly one package).
  *
- * They are redefined here so the package is self-contained until the monorepo
- * is fully assembled. When workspace packages are available, replace these
- * re-definitions with the proper imports.
- * ─────────────────────────────────────────────────────────────────────────────
+ * Only export-specific types live in this file: ExportFilter, the option
+ * types, PdfMeta, RasterDrawInstruction, RasterExportPlan.
  */
 
-// ─── Shared: Result<T> ───────────────────────────────────────────────────────
+// ─── Shared (from @komeilm76/km-shared) ──────────────────────────────────────
 
-/** Machine-readable failure descriptor returned by all fallible functions. */
-export type ResultError = {
-  /** Machine-readable code, e.g. "empty-export", "invalid-input". */
-  code: string;
-  /** Human-readable description. */
-  message: string;
-  /** The input field that caused the failure, if known. */
-  field?: string;
-};
+export type { Result, ResultError } from '@komeilm76/km-shared';
+
+// ─── Artboard (from @komeilm76/km-artboard) ──────────────────────────────────
+
+export type { Point, Size, Artboard } from '@komeilm76/km-artboard';
+
+// ─── SVG (from @komeilm76/km-svg) ────────────────────────────────────────────
+
+export type {
+  SvgLengthUnit,
+  SvgLength,
+  SvgColor,
+  SvgTransformOperation,
+  SvgTransform,
+  SvgPresentationAttributes,
+  SvgCoreAttributes,
+  SvgPathElement,
+  SvgRectElement,
+  SvgCircleElement,
+  SvgEllipseElement,
+  SvgLineElement,
+  SvgPolylineElement,
+  SvgPolygonElement,
+  SvgTextElement,
+  SvgGroupElement,
+  SvgElement,
+  SvgViewBox,
+  SvgDocument,
+} from '@komeilm76/km-svg';
+
+// ─── GeoJSON (from @komeilm76/km-geojson) ────────────────────────────────────
+// km-geojson uses the unprefixed names Position / BoundingBox / LinearRing;
+// they are re-exported here under the GeoJson-prefixed names this package's
+// public API has always used.
+
+export type {
+  Position as GeoJsonPosition,
+  BoundingBox as GeoJsonBoundingBox,
+  LinearRing as GeoJsonLinearRing,
+  GeoJsonPoint,
+  GeoJsonMultiPoint,
+  GeoJsonLineString,
+  GeoJsonMultiLineString,
+  GeoJsonPolygon,
+  GeoJsonMultiPolygon,
+  GeoJsonGeometryCollection,
+  GeoJsonGeometry,
+} from '@komeilm76/km-geojson';
+
+import type {
+  GeoJsonFeature as CanonicalGeoJsonFeature,
+  GeoJsonFeatureCollection as CanonicalGeoJsonFeatureCollection,
+  GeoJsonGeometry as CanonicalGeoJsonGeometry,
+} from '@komeilm76/km-geojson';
+
+// Re-exports above do not bring names into local scope — import the ones the
+// option types below reference directly.
+import type { Artboard } from '@komeilm76/km-artboard';
+import type { SvgElement } from '@komeilm76/km-svg';
 
 /**
- * Discriminated-union result type.  Functions never throw — they return this.
+ * A GeoJSON Feature as handled by the export pipeline.
  *
- * @example
- * const r = exportToSvg(opts);
- * if (!r.success) { console.error(r.error.code); return; }
- * console.log(r.data); // SVG string
+ * This is the canonical `GeoJsonFeature` from `@komeilm76/km-geojson`
+ * instantiated with nullable geometry and properties — RFC 7946 allows both
+ * to be `null`, and the exporters handle that case explicitly.
  */
-export type Result<T> =
-  | { success: true; data: T }
-  | { success: false; error: ResultError };
-
-// ─── Artboard types (from km-artboard) ──────────────────────────────
-
-/** A 2-D point in canvas coordinate space. */
-export type Point = {
-  x: number;
-  y: number;
-};
-
-/** Width and height dimensions in canvas units. */
-export type Size = {
-  width: number;
-  height: number;
-};
+export type GeoJsonFeature = CanonicalGeoJsonFeature<
+  CanonicalGeoJsonGeometry | null,
+  Record<string, unknown> | null
+>;
 
 /**
- * A named rectangular region on a canvas.
- * Origin is always the top-left corner (normalised from start/end points).
+ * A GeoJSON FeatureCollection as produced by the export pipeline.
+ *
+ * Extends the canonical `GeoJsonFeatureCollection` from
+ * `@komeilm76/km-geojson` with the optional OpenLayers `crs` annotation —
+ * added by {@link exportToOpenLayers} when projection ≠ EPSG:4326. The `crs`
+ * field is export-specific (legacy GeoJSON / OpenLayers convention), which is
+ * why it lives here rather than in km-geojson.
  */
-export type Artboard = {
-  /** Unique identifier (UUID v4). */
-  id: string;
-  /** Human-readable label. */
-  name: string;
-  /** Top-left corner — always normalised. */
-  origin: Point;
-  /** Width and height in canvas units. */
-  size: Size;
-  /** The raw start point supplied by the caller. */
-  startPoint: Point;
-  /** The raw end point supplied by the caller. */
-  endPoint: Point;
-  /** Unix timestamp (ms) when the artboard was created. */
-  createdAt: number;
-};
-
-// ─── SVG types (from km-svg) ────────────────────────────────────────
-
-/** Unit for SVG length values. */
-export type SvgLengthUnit =
-  | 'px' | 'pt' | 'pc' | 'mm' | 'cm' | 'in'
-  | 'em' | 'ex' | 'rem' | 'vw' | 'vh' | '%' | '';
-
-/** A length value with an explicit unit. */
-export type SvgLength = {
-  value: number;
-  unit: SvgLengthUnit;
-};
-
-/** A colour in one of the supported SVG representations. */
-export type SvgColor =
-  | { type: 'hex';   value: string }
-  | { type: 'rgb';   r: number; g: number; b: number }
-  | { type: 'rgba';  r: number; g: number; b: number; a: number }
-  | { type: 'named'; value: string }
-  | { type: 'none' };
-
-/** A single SVG transform operation. */
-export type SvgTransformOperation =
-  | { type: 'translate'; tx: number; ty: number }
-  | { type: 'scale';     sx: number; sy: number }
-  | { type: 'rotate';    angle: number; cx?: number; cy?: number }
-  | { type: 'skewX';     angle: number }
-  | { type: 'skewY';     angle: number }
-  | { type: 'matrix';    a: number; b: number; c: number; d: number; e: number; f: number };
-
-/** Ordered list of transform operations (applied left-to-right). */
-export type SvgTransform = SvgTransformOperation[];
-
-/** Presentation attributes shared by all visible SVG elements. */
-export type SvgPresentationAttributes = {
-  fill?: SvgColor;
-  fillOpacity?: number;
-  fillRule?: 'nonzero' | 'evenodd';
-  stroke?: SvgColor;
-  strokeWidth?: SvgLength;
-  strokeOpacity?: number;
-  strokeLinecap?: 'butt' | 'round' | 'square';
-  strokeLinejoin?: 'miter' | 'round' | 'bevel' | 'arcs' | 'miter-clip';
-  strokeDasharray?: number[];
-  strokeDashoffset?: number;
-  strokeMiterlimit?: number;
-  opacity?: number;
-  display?: string;
-  visibility?: 'visible' | 'hidden' | 'collapse';
-  clipPath?: string;
-  clipRule?: 'nonzero' | 'evenodd';
-  mask?: string;
-  filter?: string;
-  pointerEvents?: string;
-};
-
-/** Core non-presentation attributes present on every SVG element. */
-export type SvgCoreAttributes = {
-  id?: string;
-  className?: string;
-  style?: string;
-  transform?: SvgTransform;
-  layer?: string;
-  'data-attrs'?: Record<string, string>;
-};
-
-export type SvgPathElement     = SvgCoreAttributes & SvgPresentationAttributes & { type: 'path';     d: string };
-export type SvgRectElement     = SvgCoreAttributes & SvgPresentationAttributes & { type: 'rect';     x: number; y: number; width: number; height: number; rx?: number; ry?: number };
-export type SvgCircleElement   = SvgCoreAttributes & SvgPresentationAttributes & { type: 'circle';   cx: number; cy: number; r: number };
-export type SvgEllipseElement  = SvgCoreAttributes & SvgPresentationAttributes & { type: 'ellipse';  cx: number; cy: number; rx: number; ry: number };
-export type SvgLineElement     = SvgCoreAttributes & SvgPresentationAttributes & { type: 'line';     x1: number; y1: number; x2: number; y2: number };
-export type SvgPolylineElement = SvgCoreAttributes & SvgPresentationAttributes & { type: 'polyline'; points: [number, number][] };
-export type SvgPolygonElement  = SvgCoreAttributes & SvgPresentationAttributes & { type: 'polygon';  points: [number, number][] };
-export type SvgTextElement     = SvgCoreAttributes & SvgPresentationAttributes & {
-  type: 'text';
-  x: number;
-  y: number;
-  content: string;
-  fontSize?: SvgLength;
-  fontFamily?: string;
-  fontWeight?: string;
-  textAnchor?: 'start' | 'middle' | 'end';
-};
-export type SvgGroupElement    = SvgCoreAttributes & SvgPresentationAttributes & { type: 'g'; children: SvgElement[] };
-
-/** Union of all SVG element types. */
-export type SvgElement =
-  | SvgPathElement
-  | SvgRectElement
-  | SvgCircleElement
-  | SvgEllipseElement
-  | SvgLineElement
-  | SvgPolylineElement
-  | SvgPolygonElement
-  | SvgTextElement
-  | SvgGroupElement;
-
-/** A viewBox descriptor extracted from an `<svg>` element. */
-export type SvgViewBox = {
-  minX: number;
-  minY: number;
-  width: number;
-  height: number;
-};
-
-/** Top-level SVG document structure. */
-export type SvgDocument = {
-  viewBox?: SvgViewBox;
-  width?: SvgLength;
-  height?: SvgLength;
-  elements: SvgElement[];
-};
-
-// ─── GeoJSON types (from km-geojson) ────────────────────────────────
-
-/** [longitude, latitude] or [longitude, latitude, altitude]. */
-export type GeoJsonPosition = [number, number] | [number, number, number];
-
-/** [west, south, east, north] bounding box. */
-export type GeoJsonBoundingBox =
-  | [number, number, number, number]
-  | [number, number, number, number, number, number];
-
-/** A closed polygon ring (at least 4 positions, first === last). */
-export type GeoJsonLinearRing = [GeoJsonPosition, GeoJsonPosition, GeoJsonPosition, GeoJsonPosition, ...GeoJsonPosition[]];
-
-export type GeoJsonPoint              = { type: 'Point';              coordinates: GeoJsonPosition;           bbox?: GeoJsonBoundingBox };
-export type GeoJsonMultiPoint         = { type: 'MultiPoint';         coordinates: GeoJsonPosition[];         bbox?: GeoJsonBoundingBox };
-export type GeoJsonLineString         = { type: 'LineString';         coordinates: [GeoJsonPosition, GeoJsonPosition, ...GeoJsonPosition[]]; bbox?: GeoJsonBoundingBox };
-export type GeoJsonMultiLineString    = { type: 'MultiLineString';    coordinates: [GeoJsonPosition, GeoJsonPosition, ...GeoJsonPosition[]][]; bbox?: GeoJsonBoundingBox };
-export type GeoJsonPolygon            = { type: 'Polygon';            coordinates: GeoJsonLinearRing[];       bbox?: GeoJsonBoundingBox };
-export type GeoJsonMultiPolygon       = { type: 'MultiPolygon';       coordinates: GeoJsonLinearRing[][];     bbox?: GeoJsonBoundingBox };
-export type GeoJsonGeometryCollection = { type: 'GeometryCollection'; geometries: GeoJsonGeometry[];         bbox?: GeoJsonBoundingBox };
-
-/** Union of all GeoJSON geometry types. */
-export type GeoJsonGeometry =
-  | GeoJsonPoint | GeoJsonMultiPoint
-  | GeoJsonLineString | GeoJsonMultiLineString
-  | GeoJsonPolygon | GeoJsonMultiPolygon
-  | GeoJsonGeometryCollection;
-
-/** A GeoJSON Feature. */
-export type GeoJsonFeature = {
-  type: 'Feature';
-  geometry: GeoJsonGeometry | null;
-  properties: Record<string, unknown> | null;
-  id?: string | number;
-  bbox?: GeoJsonBoundingBox;
-};
-
-/** A GeoJSON FeatureCollection. */
-export type GeoJsonFeatureCollection = {
-  type: 'FeatureCollection';
-  features: GeoJsonFeature[];
-  bbox?: GeoJsonBoundingBox;
+export type GeoJsonFeatureCollection = CanonicalGeoJsonFeatureCollection<
+  CanonicalGeoJsonGeometry | null,
+  Record<string, unknown> | null
+> & {
   /** OpenLayers CRS annotation — added by exportToOpenLayers when projection ≠ EPSG:4326. */
   crs?: { type: 'name'; properties: { name: string } };
 };

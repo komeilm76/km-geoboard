@@ -94,15 +94,15 @@ All 4 instruction types are generated correctly. Tests pass.
 
 ## Acceptance Criteria
 
-- [ ] `exportToRasterPlan` returns `Result<RasterExportPlan>`
-- [ ] Canvas dimensions are `artboard.size * scale` (rounded to integer)
-- [ ] All 4 instruction types produced correctly
-- [ ] Scale is applied to all coordinate values
-- [ ] Default `scale` is `1`
-- [ ] `quality: 0.92` for JPEG, `undefined` for PNG
-- [ ] `background` defaults to `"#ffffff"`
-- [ ] `"empty-export"` error when all elements filtered out
-- [ ] All tests pass, build clean
+- [x] `exportToRasterPlan` returns `Result<RasterExportPlan>`
+- [x] Canvas dimensions are `artboard.size * scale` (rounded to integer)
+- [x] All 4 instruction types produced correctly
+- [x] Scale is applied to all coordinate values
+- [x] Default `scale` is `1`
+- [x] `quality: 0.92` for JPEG, `undefined` for PNG
+- [x] `background` defaults to `"#ffffff"`
+- [x] `"empty-export"` error when all elements filtered out
+- [x] All tests pass, build clean
 
 ## Notes
 - This function does NOT import or use `HTMLCanvasElement`, `CanvasRenderingContext2D`,

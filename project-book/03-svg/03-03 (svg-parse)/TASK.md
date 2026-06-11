@@ -87,14 +87,14 @@ These are pure string → data → string transformations with no DOM dependency
 
 ## Acceptance Criteria
 
-- [ ] `parseSvgDocument` returns `SvgDocument` for valid SVG
-- [ ] `parseSvgDocument` returns `"invalid-xml"` error for malformed XML
-- [ ] Unsupported elements are silently skipped (not errors)
-- [ ] `parseSvgPath` parses all absolute and relative command types
-- [ ] `serializeSvgPath` round-trips correctly with `parseSvgPath`
-- [ ] No DOM globals (`document`, `window`, `DOMParser`) used
-- [ ] All tests pass
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `parseSvgDocument` returns `SvgDocument` for valid SVG
+- [x] `parseSvgDocument` returns `"invalid-xml"` error for malformed XML
+- [x] Unsupported elements are silently skipped (not errors)
+- [x] `parseSvgPath` parses all absolute and relative command types
+- [x] `serializeSvgPath` round-trips correctly with `parseSvgPath`
+- [x] No DOM globals (`document`, `window`, `DOMParser`) used
+- [x] All tests pass
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - The no-DOM constraint is strict. Using `new DOMParser()` would fail in Node.js

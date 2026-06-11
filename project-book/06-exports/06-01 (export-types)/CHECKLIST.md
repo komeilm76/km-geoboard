@@ -1,21 +1,21 @@
 # Checklist — Page 06-01 Export Types
 
-- [ ] `packages/km-exports/src/types.ts` created — no Zod imports
-- [ ] `ExportFilter` exported with all 5 optional fields
-- [ ] `SvgExportOptions` exported with `artboard`, `elements`, and 4 optional fields
-- [ ] Optional fields have `@default` JSDoc
-- [ ] `GeoJsonExportOptions` exported
-- [ ] `OpenLayersExportOptions` exported with `projection` defaulting to EPSG:4326
-- [ ] `PdfMeta` exported with all 7 fields (5 required + 2 optional)
-- [ ] `PdfMeta` JSDoc notes it is a plain data object (not a PDF buffer)
-- [ ] `RasterDrawInstruction` exported as 4-variant discriminated union on `type`
-- [ ] `RasterExportPlan` exported with `quality` JSDoc noting JPEG-only
-- [ ] All types re-exported from `index.ts`
-- [ ] `packages/km-exports/package.json` depends on all 4 sibling packages
-- [ ] `packages/km-exports/package.json` has `zod` as peer + dev
-- [ ] `packages/km-exports/tsconfig.json` extends root config
-- [ ] `packages/km-exports/tsup.config.ts` exists
-- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty
-- [ ] `help.md` stub created
-- [ ] `CHANGELOG.md` has `## [0.1.0]` entry
+- [x] `packages/km-exports/src/types.ts` created — no Zod imports
+- [x] `ExportFilter` exported with all 5 optional fields
+- [x] `SvgExportOptions` exported with `artboard`, `elements`, and 4 optional fields
+- [x] Optional fields have `@default` JSDoc
+- [x] `GeoJsonExportOptions` exported
+- [x] `OpenLayersExportOptions` exported with `projection` defaulting to EPSG:4326
+- [x] `PdfMeta` exported with all 7 fields (5 required + 2 optional)
+- [x] `PdfMeta` JSDoc notes it is a plain data object (not a PDF buffer)
+- [x] `RasterDrawInstruction` exported as 4-variant discriminated union on `type`
+- [x] `RasterExportPlan` exported with `quality` JSDoc noting JPEG-only
+- [x] All types re-exported from `index.ts`
+- [x] `packages/km-exports/package.json` depends on all 4 sibling packages
+- [x] `packages/km-exports/package.json` has `zod` as peer + dev
+- [x] `packages/km-exports/tsconfig.json` extends root config
+- [x] `packages/km-exports/tsup.config.ts` exists
+- [x] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty
+- [x] `help.md` stub created
+- [x] `CHANGELOG.md` has `## [0.1.0]` entry

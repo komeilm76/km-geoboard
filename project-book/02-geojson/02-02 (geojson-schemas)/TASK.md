@@ -103,16 +103,16 @@ The package builds cleanly. No Zod in `dist/`.
 
 ## Acceptance Criteria
 
-- [ ] All schemas defined and exported
-- [ ] `LinearRingSchema` validates ring closure (first === last)
-- [ ] `LinearRingSchema` validates minimum 4 positions
-- [ ] `GeoJsonLineStringSchema` validates minimum 2 positions
-- [ ] `GeoJsonGeometrySchema` uses `z.lazy()` for recursive geometry collection
-- [ ] `GeoJsonFeatureSchema` allows `null` geometry and `null` properties
-- [ ] `BoundingBoxSchema` validates west ≤ east and south ≤ north
-- [ ] Type-divergence guards compile without error
-- [ ] Build succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
+- [x] All schemas defined and exported
+- [x] `LinearRingSchema` validates ring closure (first === last)
+- [x] `LinearRingSchema` validates minimum 4 positions
+- [x] `GeoJsonLineStringSchema` validates minimum 2 positions
+- [x] `GeoJsonGeometrySchema` uses `z.lazy()` for recursive geometry collection
+- [x] `GeoJsonFeatureSchema` allows `null` geometry and `null` properties
+- [x] `BoundingBoxSchema` validates west ≤ east and south ≤ north
+- [x] Type-divergence guards compile without error
+- [x] Build succeeds
+- [x] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
 
 ## Notes
 - The `z.lazy()` pattern defers evaluation of the recursive reference. Without it,

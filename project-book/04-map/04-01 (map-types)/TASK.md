@@ -45,11 +45,11 @@ the map domain needs: `LatLng`, `MercatorPoint`, `TileCoord`, `PixelPoint`,
 
 ## Acceptance Criteria
 
-- [ ] All 6 types exported from `types.ts`
-- [ ] `LatLng` has JSDoc noting valid ranges
-- [ ] `BoundingBox` tuple is `[west, south, east, north]`
-- [ ] `SupportedLayerFormat` has all 9 variants
-- [ ] Build succeeds, Zod-leak check passes
+- [x] All 6 types exported from `types.ts`
+- [x] `LatLng` has JSDoc noting valid ranges
+- [x] `BoundingBox` tuple is `[west, south, east, north]`
+- [x] `SupportedLayerFormat` has all 9 variants
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `BoundingBox` here is `[west, south, east, north]` — the geographic convention.

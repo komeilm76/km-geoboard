@@ -6,7 +6,9 @@
 import type { ExportFilter, GeoJsonFeature, GeoJsonGeometry } from './types';
 
 // ─── Geometry bounding-box helper ────────────────────────────────────────────
-// (Would come from km-geojson in the full monorepo.)
+// Intentionally local (not km-geojson's getGeometryBoundingBox): this variant
+// returns `null` for empty geometries so the filter can keep items
+// conservatively, whereas the canonical one always returns a tuple.
 
 type Bbox4 = [number, number, number, number];
 

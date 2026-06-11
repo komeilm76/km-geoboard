@@ -1,23 +1,23 @@
 # Checklist — Page 06-06 Export to Raster Plan
 
-- [ ] `exportToRasterPlan.ts` created and exported from `index.ts`
-- [ ] Returns `Result<RasterExportPlan>`
-- [ ] No canvas or DOM APIs used (no `HTMLCanvasElement`, no `document`)
-- [ ] `canvasWidth` and `canvasHeight` = `artboard.size * scale` (rounded to integer)
-- [ ] Default `scale` is `1`
-- [ ] Default `background` is `"#ffffff"`
-- [ ] `SvgRectElement` produces `{ type: "rect" }` instruction with scaled coords
-- [ ] `SvgCircleElement` produces `{ type: "circle" }` instruction
-- [ ] `SvgPathElement` produces `{ type: "path" }` instruction
-- [ ] `SvgTextElement` produces `{ type: "text" }` instruction with `font` string
-- [ ] `SvgGroupElement` produces flattened child instructions
-- [ ] `SvgLineElement` / `SvgPolylineElement` / `SvgPolygonElement` produce `{ type: "path" }` instructions
-- [ ] Scale applied to all coordinate values
-- [ ] JPEG → `quality: 0.92`
-- [ ] PNG → `quality: undefined`
-- [ ] `"empty-export"` error when all elements filtered out
-- [ ] `applyExportFilter` used before generating instructions
-- [ ] Tests cover rect, circle, text, scale factor, jpeg/png quality, empty-export
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty
+- [x] `exportToRasterPlan.ts` created and exported from `index.ts`
+- [x] Returns `Result<RasterExportPlan>`
+- [x] No canvas or DOM APIs used (no `HTMLCanvasElement`, no `document`)
+- [x] `canvasWidth` and `canvasHeight` = `artboard.size * scale` (rounded to integer)
+- [x] Default `scale` is `1`
+- [x] Default `background` is `"#ffffff"`
+- [x] `SvgRectElement` produces `{ type: "rect" }` instruction with scaled coords
+- [x] `SvgCircleElement` produces `{ type: "circle" }` instruction
+- [x] `SvgPathElement` produces `{ type: "path" }` instruction
+- [x] `SvgTextElement` produces `{ type: "text" }` instruction with `font` string
+- [x] `SvgGroupElement` produces flattened child instructions
+- [x] `SvgLineElement` / `SvgPolylineElement` / `SvgPolygonElement` produce `{ type: "path" }` instructions
+- [x] Scale applied to all coordinate values
+- [x] JPEG → `quality: 0.92`
+- [x] PNG → `quality: undefined`
+- [x] `"empty-export"` error when all elements filtered out
+- [x] `applyExportFilter` used before generating instructions
+- [x] Tests cover rect, circle, text, scale factor, jpeg/png quality, empty-export
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

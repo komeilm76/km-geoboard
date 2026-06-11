@@ -54,12 +54,12 @@ Tests verify the projection metadata and delegation behavior.
 
 ## Acceptance Criteria
 
-- [ ] Default `projection` is `"EPSG:4326"`
-- [ ] No `crs` field when projection is EPSG:4326
-- [ ] `crs` field added when projection differs from EPSG:4326
-- [ ] Errors from `exportToGeoJson` propagated unchanged
-- [ ] Output is valid JSON
-- [ ] All tests pass, build clean
+- [x] Default `projection` is `"EPSG:4326"`
+- [x] No `crs` field when projection is EPSG:4326
+- [x] `crs` field added when projection differs from EPSG:4326
+- [x] Errors from `exportToGeoJson` propagated unchanged
+- [x] Output is valid JSON
+- [x] All tests pass, build clean
 
 ## Notes
 - Parsing and re-serializing the JSON string is a simple approach. An alternative

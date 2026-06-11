@@ -80,15 +80,15 @@ exist, are exported, and all tests pass.
 
 ## Acceptance Criteria
 
-- [ ] `applyExportFilter` applies all 5 steps in the correct order
-- [ ] `applyExportFilter` returns items unchanged when `filter` is undefined
-- [ ] `exportToSvg` produces valid SVG with correct `viewBox`
-- [ ] All 9 element types serialized correctly
-- [ ] `SvgGroupElement` children serialized recursively
-- [ ] `"empty-export"` returned when all elements are filtered out
-- [ ] `xmlDeclaration` and `pretty` options work correctly
-- [ ] All tests pass
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `applyExportFilter` applies all 5 steps in the correct order
+- [x] `applyExportFilter` returns items unchanged when `filter` is undefined
+- [x] `exportToSvg` produces valid SVG with correct `viewBox`
+- [x] All 9 element types serialized correctly
+- [x] `SvgGroupElement` children serialized recursively
+- [x] `"empty-export"` returned when all elements are filtered out
+- [x] `xmlDeclaration` and `pretty` options work correctly
+- [x] All tests pass
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `serializeElement` should be a private helper (not exported). It only needs

@@ -44,14 +44,14 @@ Tests cover all normalization cases, all error codes, and warning generation.
 
 ## Acceptance Criteria
 
-- [ ] Accepts FeatureCollection, Feature, and all 7 Geometry types
-- [ ] Normalizes all inputs to FeatureCollection
-- [ ] `properties: null` → `{}` with warning
-- [ ] Numeric `id` → string with warning
-- [ ] `"empty-input"` for null/empty
-- [ ] `"invalid-json"` for non-JSON string
-- [ ] `"schema-mismatch"` for valid JSON but invalid GeoJSON
-- [ ] All tests pass, build clean
+- [x] Accepts FeatureCollection, Feature, and all 7 Geometry types
+- [x] Normalizes all inputs to FeatureCollection
+- [x] `properties: null` → `{}` with warning
+- [x] Numeric `id` → string with warning
+- [x] `"empty-input"` for null/empty
+- [x] `"invalid-json"` for non-JSON string
+- [x] `"schema-mismatch"` for valid JSON but invalid GeoJSON
+- [x] All tests pass, build clean
 
 ## Notes
 - Warnings do not prevent success. A FeatureCollection with several normalized

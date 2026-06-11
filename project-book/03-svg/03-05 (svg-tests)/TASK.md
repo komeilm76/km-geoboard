@@ -65,13 +65,13 @@ The package is ready for use by Chapters 05 and 06.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` has all required sections
-- [ ] Element → GeoJSON mapping table included
-- [ ] All error codes documented
-- [ ] `pnpm --filter @komeilm76/km-svg lint` — zero errors
-- [ ] `pnpm --filter @komeilm76/km-svg test` — all green
-- [ ] `pnpm --filter @komeilm76/km-svg build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` — empty
+- [x] `help.md` has all required sections
+- [x] Element → GeoJSON mapping table included
+- [x] All error codes documented
+- [x] `pnpm --filter @komeilm76/km-svg lint` — zero errors
+- [x] `pnpm --filter @komeilm76/km-svg test` — all green
+- [x] `pnpm --filter @komeilm76/km-svg build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-svg/dist/` — empty
 
 ## Notes
 - After this page, Chapter 03 is complete.

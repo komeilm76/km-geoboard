@@ -82,13 +82,13 @@ The package builds cleanly and produces declaration files.
 
 ## Acceptance Criteria
 
-- [ ] `Result<T>` is exported and matches the spec in `DT-Inputs-and-Outputs.md`
-- [ ] `ResultError` has `code`, `message`, and optional `field`
-- [ ] `packages/km-shared` builds without TypeScript errors
-- [ ] `dist/` contains `.d.ts` files for both ESM and CJS
-- [ ] No Zod imports in `dist/` (trivially true — no Zod in this package)
-- [ ] `help.md` contains Overview, Types, and Examples sections
-- [ ] `CHANGELOG.md` has a `## [0.1.0]` entry
+- [x] `Result<T>` is exported and matches the spec in `DT-Inputs-and-Outputs.md`
+- [x] `ResultError` has `code`, `message`, and optional `field`
+- [x] `packages/km-shared` builds without TypeScript errors
+- [x] `dist/` contains `.d.ts` files for both ESM and CJS
+- [x] No Zod imports in `dist/` (trivially true — no Zod in this package)
+- [x] `help.md` contains Overview, Types, and Examples sections
+- [x] `CHANGELOG.md` has a `## [0.1.0]` entry
 
 ## Notes
 - `Result<T>` uses `data` on success (not `value`, not `result`) — be consistent.

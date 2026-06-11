@@ -108,13 +108,13 @@ All tests pass.
 
 ## Acceptance Criteria
 
-- [ ] `satisfiesVersion` handles `">=X.Y.Z"` ranges correctly
-- [ ] `satisfiesVersion` returns `false` for unsupported range operators
-- [ ] `resolveDependencyOrder` returns plugins in topologically valid order
-- [ ] `resolveDependencyOrder` detects cycles and returns `"circular-dependency"`
-- [ ] Registry uses `satisfiesVersion` for version checks on dependency registration
-- [ ] `debugRegistry` returns a `RegistrySnapshot` with all active plugins
-- [ ] All tests pass, build clean
+- [x] `satisfiesVersion` handles `">=X.Y.Z"` ranges correctly
+- [x] `satisfiesVersion` returns `false` for unsupported range operators
+- [x] `resolveDependencyOrder` returns plugins in topologically valid order
+- [x] `resolveDependencyOrder` detects cycles and returns `"circular-dependency"`
+- [x] Registry uses `satisfiesVersion` for version checks on dependency registration
+- [x] `debugRegistry` returns a `RegistrySnapshot` with all active plugins
+- [x] All tests pass, build clean
 
 ## Notes
 - Implementing full semver range parsing (`^`, `~`, `||`, `<`, etc.) is complex.

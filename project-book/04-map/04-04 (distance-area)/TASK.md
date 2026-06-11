@@ -67,13 +67,13 @@ the Earth's surface.
 
 ## Acceptance Criteria
 
-- [ ] `haversineDistance` returns meters, correct Haversine formula
-- [ ] `bearing` returns 0–360 degrees, 0 = north
-- [ ] `destinationPoint` is inverse of `bearing` + distance
-- [ ] `polygonArea` handles exterior ring and interior rings (holes)
-- [ ] Known-value tests pass within 1% tolerance
-- [ ] All 5 functions exported
-- [ ] All tests pass, build clean
+- [x] `haversineDistance` returns meters, correct Haversine formula
+- [x] `bearing` returns 0–360 degrees, 0 = north
+- [x] `destinationPoint` is inverse of `bearing` + distance
+- [x] `polygonArea` handles exterior ring and interior rings (holes)
+- [x] Known-value tests pass within 1% tolerance
+- [x] All 5 functions exported
+- [x] All tests pass, build clean
 
 ## Notes
 - Use `Math.atan2` not `Math.asin` in Haversine — more numerically stable.

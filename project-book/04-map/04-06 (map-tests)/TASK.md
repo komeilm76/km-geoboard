@@ -58,12 +58,12 @@ Completes `packages/km-map/help.md` with the full API reference, updates
 
 ## Acceptance Criteria
 
-- [ ] `help.md` complete with all sections
-- [ ] All 20 functions documented with examples
-- [ ] Coordinate systems section explains all 4 systems
-- [ ] `CHANGELOG.md` updated
-- [ ] Full CI suite passes
-- [ ] Zod-leak check returns empty
+- [x] `help.md` complete with all sections
+- [x] All 20 functions documented with examples
+- [x] Coordinate systems section explains all 4 systems
+- [x] `CHANGELOG.md` updated
+- [x] Full CI suite passes
+- [x] Zod-leak check returns empty
 
 ## Notes
 - After this page, Chapter 04 is complete. Chapters 05 and 06 can now depend

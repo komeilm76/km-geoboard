@@ -1,28 +1,28 @@
 # Checklist — Page 01-03 Resize and Move Functions
 
-- [ ] `resizeArtboard.ts` created and exported
-- [ ] `resizeArtboard` accepts partial `origin` and `size` overrides
-- [ ] `resizeArtboard` does not mutate `input.artboard`
-- [ ] `resizeArtboard` applies `minSize` guard (default 1)
-- [ ] `resizeArtboard` returns `{ success: false, reason: "too-small" }` on violation
-- [ ] `moveArtboard.ts` created and exported
-- [ ] `moveArtboard` returns new artboard with translated `origin`
-- [ ] `moveArtboard` does not mutate `input.artboard`
-- [ ] `moveArtboard` does not update `startPoint` / `endPoint`
-- [ ] `artboardToRect.ts` created — exports `artboardToRect` and `artboardFromRect`
-- [ ] `artboardToRect` returns `[x, y, width, height]` tuple
-- [ ] `artboardFromRect` round-trips cleanly (reverse of `artboardToRect`)
-- [ ] `artboardContainsPoint.ts` created and exported
-- [ ] `artboardContainsPoint` is inclusive on all 4 edges
-- [ ] `artboardsOverlap.ts` created and exported
-- [ ] `artboardsOverlap` returns `true` for touching edges
-- [ ] `artboardsOverlap` returns `true` when one artboard is inside another
-- [ ] All 6 functions exported from `packages/km-artboard/src/index.ts`
-- [ ] JSDoc with `@param`, `@returns`, `@example` on every function
-- [ ] No `any` in any signature
-- [ ] `resizeArtboard.test.ts` covers partial overrides and `too-small`
-- [ ] `moveArtboard.test.ts` covers positive, negative, and zero delta
-- [ ] `artboardGeometry.test.ts` covers round-trip, all edge cases for contains and overlap
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `resizeArtboard.ts` created and exported
+- [x] `resizeArtboard` accepts partial `origin` and `size` overrides
+- [x] `resizeArtboard` does not mutate `input.artboard`
+- [x] `resizeArtboard` applies `minSize` guard (default 1)
+- [x] `resizeArtboard` returns `{ success: false, reason: "too-small" }` on violation
+- [x] `moveArtboard.ts` created and exported
+- [x] `moveArtboard` returns new artboard with translated `origin`
+- [x] `moveArtboard` does not mutate `input.artboard`
+- [x] `moveArtboard` does not update `startPoint` / `endPoint`
+- [x] `artboardToRect.ts` created — exports `artboardToRect` and `artboardFromRect`
+- [x] `artboardToRect` returns `[x, y, width, height]` tuple
+- [x] `artboardFromRect` round-trips cleanly (reverse of `artboardToRect`)
+- [x] `artboardContainsPoint.ts` created and exported
+- [x] `artboardContainsPoint` is inclusive on all 4 edges
+- [x] `artboardsOverlap.ts` created and exported
+- [x] `artboardsOverlap` returns `true` for touching edges
+- [x] `artboardsOverlap` returns `true` when one artboard is inside another
+- [x] All 6 functions exported from `packages/km-artboard/src/index.ts`
+- [x] JSDoc with `@param`, `@returns`, `@example` on every function
+- [x] No `any` in any signature
+- [x] `resizeArtboard.test.ts` covers partial overrides and `too-small`
+- [x] `moveArtboard.test.ts` covers positive, negative, and zero delta
+- [x] `artboardGeometry.test.ts` covers round-trip, all edge cases for contains and overlap
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

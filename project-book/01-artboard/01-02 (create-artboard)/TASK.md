@@ -114,17 +114,17 @@ All tests pass. No Zod types appear in `dist/` declaration files.
 
 ## Acceptance Criteria
 
-- [ ] `createArtboard` returns correct `origin` for all 4 drag directions
-- [ ] `createArtboard` returns `"too-small"` when width or height < minSize
-- [ ] `createArtboard` returns `"invalid-input"` for non-finite coordinates
-- [ ] Default `name` is `"Artboard"`
-- [ ] Default `minSize` is `1`
-- [ ] Generated `id` is a valid UUID v4
-- [ ] `createdAt` is a Unix timestamp in milliseconds
-- [ ] All test cases pass
-- [ ] JSDoc present with `@param`, `@returns`, `@example`
-- [ ] No `any` in signatures
-- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
+- [x] `createArtboard` returns correct `origin` for all 4 drag directions
+- [x] `createArtboard` returns `"too-small"` when width or height < minSize
+- [x] `createArtboard` returns `"invalid-input"` for non-finite coordinates
+- [x] Default `name` is `"Artboard"`
+- [x] Default `minSize` is `1`
+- [x] Generated `id` is a valid UUID v4
+- [x] `createdAt` is a Unix timestamp in milliseconds
+- [x] All test cases pass
+- [x] JSDoc present with `@param`, `@returns`, `@example`
+- [x] No `any` in signatures
+- [x] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 
 ## Notes
 - `crypto.randomUUID()` is called inside the function body, not in the signature.

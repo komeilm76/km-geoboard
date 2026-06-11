@@ -4,34 +4,11 @@
  * No Zod imports — pure TypeScript types only.
  */
 
-// ─── Result<T> (local copy — will be sourced from km-shared once available) ──
+// ─── Result<T> (canonical — from @komeilm76/km-shared) ───────────────────────
 
-/**
- * A machine-readable error returned by operations that can fail.
- */
-export type ResultError = {
-  /** Machine-readable failure code, e.g. "conflict", "missing-dependency". */
-  code: string;
-  /** Human-readable description of what went wrong. */
-  message: string;
-  /** Which input field caused the failure, if applicable. */
-  field?: string;
-};
+import type { Result, ResultError } from '@komeilm76/km-shared';
 
-/**
- * Discriminated union result — every fallible function returns this instead of throwing.
- *
- * @example
- * const result = registry.register(plugin);
- * if (!result.success) {
- *   console.error(result.error.code);
- *   return;
- * }
- * const registration = result.data;
- */
-export type Result<T> =
-  | { success: true; data: T }
-  | { success: false; error: ResultError };
+export type { Result, ResultError };
 
 // ─── Plugin primitives ────────────────────────────────────────────────────────
 

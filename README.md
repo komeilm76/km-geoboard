@@ -10,6 +10,7 @@ All packages are published under the `@komeilm76` scope with the `km-` brand pre
 
 | Package | Purpose |
 |---|---|
+| [`@komeilm76/km-geoboard`](./packages/km-geoboard) | **Umbrella package** — all of the below under namespaces, one install; hosts the integration test suite |
 | [`@komeilm76/km-shared`](./packages/km-shared) | Result type, Zod utilities, IDE-safe structural types (foundation for all others) |
 | [`@komeilm76/km-artboard`](./packages/km-artboard) | Pure artboard geometry — create, resize, move, snap, query |
 | [`@komeilm76/km-geojson`](./packages/km-geojson) | RFC 7946 GeoJSON types, schemas, parsing, guards |

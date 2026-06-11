@@ -70,14 +70,14 @@ Round-trip invariants pass within floating-point tolerance.
 
 ## Acceptance Criteria
 
-- [ ] `latLngToMercator` and `mercatorToLatLng` are perfect round-trips
-- [ ] `latLngToPixel` and `pixelToLatLng` are perfect round-trips
-- [ ] Known values match expected outputs (origin → origin, center at zoom 0)
-- [ ] Floating-point comparisons use `toBeCloseTo` with sufficient precision
-- [ ] All 4 functions exported from `index.ts`
-- [ ] JSDoc with examples on every function
-- [ ] All tests pass
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `latLngToMercator` and `mercatorToLatLng` are perfect round-trips
+- [x] `latLngToPixel` and `pixelToLatLng` are perfect round-trips
+- [x] Known values match expected outputs (origin → origin, center at zoom 0)
+- [x] Floating-point comparisons use `toBeCloseTo` with sufficient precision
+- [x] All 4 functions exported from `index.ts`
+- [x] JSDoc with examples on every function
+- [x] All tests pass
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - The Web Mercator projection clips latitude at approximately ±85.0511 degrees.

@@ -1,31 +1,31 @@
 # Checklist — Page 02-03 GeoJSON Parse and Utility Functions
 
-- [ ] `parse.ts` created
-- [ ] `parseGeoJson` returns `Result<GeoJson>` using `safeParse`
-- [ ] `parseGeoJsonFeature` implemented
-- [ ] `parseGeoJsonFeatureCollection` implemented
-- [ ] All 3 parse functions use `{ code: "invalid-input", ... }` on failure
-- [ ] `guards.ts` created
-- [ ] `isGeoJsonGeometry` is a TypeScript type guard (`value is GeoJsonGeometry`)
-- [ ] `isGeoJsonGeometry` uses schema `.safeParse` internally
-- [ ] `feature.ts` created
-- [ ] `featureFromGeometry` defaults `properties` to `{}` when not provided
-- [ ] `featureFromGeometry` omits `id` when not provided
-- [ ] `collectionFromFeatures` wraps array in `{ type: "FeatureCollection", features }`
-- [ ] `geometry.ts` created
-- [ ] `getGeometryBoundingBox` handles `Point`
-- [ ] `getGeometryBoundingBox` handles `LineString`, `MultiPoint`
-- [ ] `getGeometryBoundingBox` handles `Polygon`, `MultiLineString`, `MultiPolygon`
-- [ ] `getGeometryBoundingBox` handles `GeometryCollection` (recursive)
-- [ ] `flattenGeometryCollection` returns flat array for non-collection input
-- [ ] `flattenGeometryCollection` recursively flattens nested collections
-- [ ] All 8 functions exported from `index.ts`
-- [ ] JSDoc with `@example` on every function
-- [ ] No `any` in any function signature
-- [ ] `parse.test.ts` — valid and invalid cases, ring-not-closed polygon fails
-- [ ] `geometry.test.ts` — bounding box for all geometry types, 3-level flatten
-- [ ] `feature.test.ts` — with/without properties and id
-- [ ] `guards.test.ts` — geometry passes, feature fails, plain object fails
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-geojson build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
+- [x] `parse.ts` created
+- [x] `parseGeoJson` returns `Result<GeoJson>` using `safeParse`
+- [x] `parseGeoJsonFeature` implemented
+- [x] `parseGeoJsonFeatureCollection` implemented
+- [x] All 3 parse functions use `{ code: "invalid-input", ... }` on failure
+- [x] `guards.ts` created
+- [x] `isGeoJsonGeometry` is a TypeScript type guard (`value is GeoJsonGeometry`)
+- [x] `isGeoJsonGeometry` uses schema `.safeParse` internally
+- [x] `feature.ts` created
+- [x] `featureFromGeometry` defaults `properties` to `{}` when not provided
+- [x] `featureFromGeometry` omits `id` when not provided
+- [x] `collectionFromFeatures` wraps array in `{ type: "FeatureCollection", features }`
+- [x] `geometry.ts` created
+- [x] `getGeometryBoundingBox` handles `Point`
+- [x] `getGeometryBoundingBox` handles `LineString`, `MultiPoint`
+- [x] `getGeometryBoundingBox` handles `Polygon`, `MultiLineString`, `MultiPolygon`
+- [x] `getGeometryBoundingBox` handles `GeometryCollection` (recursive)
+- [x] `flattenGeometryCollection` returns flat array for non-collection input
+- [x] `flattenGeometryCollection` recursively flattens nested collections
+- [x] All 8 functions exported from `index.ts`
+- [x] JSDoc with `@example` on every function
+- [x] No `any` in any function signature
+- [x] `parse.test.ts` — valid and invalid cases, ring-not-closed polygon fails
+- [x] `geometry.test.ts` — bounding box for all geometry types, 3-level flatten
+- [x] `feature.test.ts` — with/without properties and id
+- [x] `guards.test.ts` — geometry passes, feature fails, plain object fails
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-geojson build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty

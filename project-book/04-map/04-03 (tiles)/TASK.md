@@ -58,12 +58,12 @@ and `quadKeyToTile` — all tile coordinate math for the XYZ/TMS tile systems.
 
 ## Acceptance Criteria
 
-- [ ] `latLngToTile` returns integer tile coordinates
-- [ ] `tileToBounds` returns `[west, south, east, north]` in degrees
-- [ ] `tilesForBounds` returns all tiles that intersect the bounds
-- [ ] `tileToQuadKey` / `quadKeyToTile` round-trip correctly
-- [ ] `quadKeyToTile` returns error for invalid quadkey characters
-- [ ] All tests pass, build clean
+- [x] `latLngToTile` returns integer tile coordinates
+- [x] `tileToBounds` returns `[west, south, east, north]` in degrees
+- [x] `tilesForBounds` returns all tiles that intersect the bounds
+- [x] `tileToQuadKey` / `quadKeyToTile` round-trip correctly
+- [x] `quadKeyToTile` returns error for invalid quadkey characters
+- [x] All tests pass, build clean
 
 ## Notes
 - At zoom 0 there is exactly one tile covering the entire world: `{x:0, y:0, z:0}`.

@@ -80,10 +80,10 @@ builds cleanly.
 
 ## Acceptance Criteria
 
-- [ ] `ImportResult<T>` has `warnings` on both success and failure branches
-- [ ] `ImportErrorCode` has all 7 error codes
-- [ ] `AutoImportResult` covers all 5 format variants including `"unknown"`
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `ImportResult<T>` has `warnings` on both success and failure branches
+- [x] `ImportErrorCode` has all 7 error codes
+- [x] `AutoImportResult` covers all 5 format variants including `"unknown"`
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - `ImportResult<T>` is NOT the same as `Result<T>` from `@komeilm76/km-shared`.

@@ -108,16 +108,16 @@ Conflict detection is also implemented here.
 
 ## Acceptance Criteria
 
-- [ ] `createPluginRegistry` returns a `PluginRegistry`
-- [ ] Duplicate registration returns error
-- [ ] Conflict detection works correctly
-- [ ] Missing required dependency returns error
-- [ ] Missing optional dependency is allowed
-- [ ] `setup` exceptions are caught and returned as errors
-- [ ] `unregister` calls `teardown`
-- [ ] `unregister` blocked when other plugins depend on the target
-- [ ] `reset` calls `teardown` on all and clears the map
-- [ ] All tests pass, build clean
+- [x] `createPluginRegistry` returns a `PluginRegistry`
+- [x] Duplicate registration returns error
+- [x] Conflict detection works correctly
+- [x] Missing required dependency returns error
+- [x] Missing optional dependency is allowed
+- [x] `setup` exceptions are caught and returned as errors
+- [x] `unregister` calls `teardown`
+- [x] `unregister` blocked when other plugins depend on the target
+- [x] `reset` calls `teardown` on all and clears the map
+- [x] All tests pass, build clean
 
 ## Notes
 - The registry's internal `Map` uses insertion order for iteration. `reset`

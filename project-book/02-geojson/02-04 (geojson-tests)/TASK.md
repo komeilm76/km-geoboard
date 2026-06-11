@@ -67,15 +67,15 @@ The package is ready to be depended on by Chapters 03, 04, 05, and 06.
 
 ## Acceptance Criteria
 
-- [ ] `help.md` has all 6 required sections
-- [ ] Every function documented with input table and code example
-- [ ] Longitude-first coordinate warning is prominently placed
-- [ ] All 5 error codes documented in the Errors section
-- [ ] `CHANGELOG.md` lists all types, schemas, and functions
-- [ ] `pnpm --filter @komeilm76/km-geojson lint` — zero errors
-- [ ] `pnpm --filter @komeilm76/km-geojson test` — all green
-- [ ] `pnpm --filter @komeilm76/km-geojson build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` — empty
+- [x] `help.md` has all 6 required sections
+- [x] Every function documented with input table and code example
+- [x] Longitude-first coordinate warning is prominently placed
+- [x] All 5 error codes documented in the Errors section
+- [x] `CHANGELOG.md` lists all types, schemas, and functions
+- [x] `pnpm --filter @komeilm76/km-geojson lint` — zero errors
+- [x] `pnpm --filter @komeilm76/km-geojson test` — all green
+- [x] `pnpm --filter @komeilm76/km-geojson build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-geojson/dist/` — empty
 
 ## Notes
 - After this page the GeoJSON chapter is complete. Other packages will import

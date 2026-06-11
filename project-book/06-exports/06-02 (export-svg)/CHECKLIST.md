@@ -1,25 +1,25 @@
 # Checklist — Page 06-02 Export to SVG
 
-- [ ] `filter.ts` created and exported
-- [ ] `applyExportFilter` applies `includeIds` first
-- [ ] `applyExportFilter` applies `excludeIds` second
-- [ ] `applyExportFilter` applies `includeLayers` third
-- [ ] `applyExportFilter` applies `excludeLayers` fourth
-- [ ] `applyExportFilter` applies `boundingBox` fifth
-- [ ] `applyExportFilter` returns items unchanged when `filter` is `undefined`
-- [ ] `exportToSvg.ts` created and exported
-- [ ] `exportToSvg` returns `Result<string>`
-- [ ] SVG output has correct `viewBox` from artboard
-- [ ] All 9 element types serialized to correct SVG tags
-- [ ] `SvgGroupElement` children serialized recursively inside `<g>...</g>`
-- [ ] `SvgColor` serialized correctly for all 5 variants
-- [ ] `SvgTransform` serialized to `transform` attribute
-- [ ] `"empty-export"` returned when all elements are filtered out
-- [ ] `xmlDeclaration: true` prepends `<?xml ...?>`
-- [ ] `pretty: true` adds 2-space indentation
-- [ ] Both functions exported from `index.ts`
-- [ ] `filter.test.ts` — tests all 5 filter steps independently
-- [ ] `exportToSvg.test.ts` — all 9 element types, empty-export, pretty, xmlDeclaration
-- [ ] All tests pass
-- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty
+- [x] `filter.ts` created and exported
+- [x] `applyExportFilter` applies `includeIds` first
+- [x] `applyExportFilter` applies `excludeIds` second
+- [x] `applyExportFilter` applies `includeLayers` third
+- [x] `applyExportFilter` applies `excludeLayers` fourth
+- [x] `applyExportFilter` applies `boundingBox` fifth
+- [x] `applyExportFilter` returns items unchanged when `filter` is `undefined`
+- [x] `exportToSvg.ts` created and exported
+- [x] `exportToSvg` returns `Result<string>`
+- [x] SVG output has correct `viewBox` from artboard
+- [x] All 9 element types serialized to correct SVG tags
+- [x] `SvgGroupElement` children serialized recursively inside `<g>...</g>`
+- [x] `SvgColor` serialized correctly for all 5 variants
+- [x] `SvgTransform` serialized to `transform` attribute
+- [x] `"empty-export"` returned when all elements are filtered out
+- [x] `xmlDeclaration: true` prepends `<?xml ...?>`
+- [x] `pretty: true` adds 2-space indentation
+- [x] Both functions exported from `index.ts`
+- [x] `filter.test.ts` — tests all 5 filter steps independently
+- [x] `exportToSvg.test.ts` — all 9 element types, empty-export, pretty, xmlDeclaration
+- [x] All tests pass
+- [x] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

@@ -61,14 +61,14 @@ Tests pass for filtering, bbox computation, and pretty-printing.
 
 ## Acceptance Criteria
 
-- [ ] `exportToGeoJson` returns `Result<string>` where string is valid JSON
-- [ ] Output parses back to a `GeoJsonFeatureCollection`
-- [ ] `includeBbox: true` attaches a correct `bbox` to the collection
-- [ ] `pretty: true` uses `JSON.stringify` with indent 2
-- [ ] Filter is applied before bbox computation
-- [ ] `"empty-export"` when all features filtered out
-- [ ] Null-geometry features are handled without errors
-- [ ] All tests pass, build clean
+- [x] `exportToGeoJson` returns `Result<string>` where string is valid JSON
+- [x] Output parses back to a `GeoJsonFeatureCollection`
+- [x] `includeBbox: true` attaches a correct `bbox` to the collection
+- [x] `pretty: true` uses `JSON.stringify` with indent 2
+- [x] Filter is applied before bbox computation
+- [x] `"empty-export"` when all features filtered out
+- [x] Null-geometry features are handled without errors
+- [x] All tests pass, build clean
 
 ## Notes
 - The bbox computation is a union of all feature geometry bounding boxes.

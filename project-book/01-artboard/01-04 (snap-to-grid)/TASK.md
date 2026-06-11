@@ -76,18 +76,18 @@ handled. Tests pass.
 
 ## Acceptance Criteria
 
-- [ ] `snapArtboardToGrid` is a pure function (no mutation)
-- [ ] Default `gridSize` is `8`
-- [ ] Default `mode` is `"round"`
-- [ ] `"round"` mode snaps to nearest grid line
-- [ ] `"floor"` mode always snaps towards smaller values
-- [ ] `"ceil"` mode always snaps towards larger values
-- [ ] Negative coordinates snap correctly in all modes
-- [ ] `gridSize <= 0` is handled safely (returns artboard unchanged)
-- [ ] All non-geometry fields (`id`, `name`, `createdAt`) are preserved unchanged
-- [ ] JSDoc documents all three modes with examples
-- [ ] All tests pass
-- [ ] Build succeeds, Zod-leak check passes
+- [x] `snapArtboardToGrid` is a pure function (no mutation)
+- [x] Default `gridSize` is `8`
+- [x] Default `mode` is `"round"`
+- [x] `"round"` mode snaps to nearest grid line
+- [x] `"floor"` mode always snaps towards smaller values
+- [x] `"ceil"` mode always snaps towards larger values
+- [x] Negative coordinates snap correctly in all modes
+- [x] `gridSize <= 0` is handled safely (returns artboard unchanged)
+- [x] All non-geometry fields (`id`, `name`, `createdAt`) are preserved unchanged
+- [x] JSDoc documents all three modes with examples
+- [x] All tests pass
+- [x] Build succeeds, Zod-leak check passes
 
 ## Notes
 - Snapping does not revalidate against `minSize` — the result may produce a

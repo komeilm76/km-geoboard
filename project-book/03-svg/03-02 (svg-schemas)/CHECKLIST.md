@@ -1,22 +1,22 @@
 # Checklist — Page 03-02 SVG Zod Schemas
 
-- [ ] `packages/km-svg/src/schemas.ts` created
-- [ ] `SvgViewBoxSchema` exported
-- [ ] `SvgLengthSchema` exported using `finiteNumber()`
-- [ ] `SvgColorSchema` uses `z.discriminatedUnion("type", ...)` with all 5 variants
-- [ ] `SvgColorSchema` hex variant validates hex format with regex
-- [ ] `SvgColorSchema` rgb variant validates 0–255 range
-- [ ] `SvgTransformOperationSchema` uses `z.discriminatedUnion("type", ...)` with all 6 variants
-- [ ] `SvgTransformSchema` exported as array of operations
-- [ ] `SvgPresentationAttributesSchema` exported with all 16 optional fields
-- [ ] `SvgCoreAttributesSchema` exported
-- [ ] All 9 element schemas exported
-- [ ] `SvgGroupElementSchema.children` uses lazy `SvgElementSchema`
-- [ ] `SvgElementSchema` uses `z.lazy()` for recursion
-- [ ] `SvgElementSchema` has explicit `z.ZodType<SvgElement>` annotation
-- [ ] `SvgDocumentSchema` exported
-- [ ] Type-divergence guard for `SvgElement` compiles without error
-- [ ] Type-divergence guard for `SvgDocument` compiles without error
-- [ ] All schemas re-exported from `index.ts`
-- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty
+- [x] `packages/km-svg/src/schemas.ts` created
+- [x] `SvgViewBoxSchema` exported
+- [x] `SvgLengthSchema` exported using `finiteNumber()`
+- [x] `SvgColorSchema` uses `z.discriminatedUnion("type", ...)` with all 5 variants
+- [x] `SvgColorSchema` hex variant validates hex format with regex
+- [x] `SvgColorSchema` rgb variant validates 0–255 range
+- [x] `SvgTransformOperationSchema` uses `z.discriminatedUnion("type", ...)` with all 6 variants
+- [x] `SvgTransformSchema` exported as array of operations
+- [x] `SvgPresentationAttributesSchema` exported with all 16 optional fields
+- [x] `SvgCoreAttributesSchema` exported
+- [x] All 9 element schemas exported
+- [x] `SvgGroupElementSchema.children` uses lazy `SvgElementSchema`
+- [x] `SvgElementSchema` uses `z.lazy()` for recursion
+- [x] `SvgElementSchema` has explicit `z.ZodType<SvgElement>` annotation
+- [x] `SvgDocumentSchema` exported
+- [x] Type-divergence guard for `SvgElement` compiles without error
+- [x] Type-divergence guard for `SvgDocument` compiles without error
+- [x] All schemas re-exported from `index.ts`
+- [x] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty
