@@ -188,7 +188,7 @@ type GeoJson =
 
 ## Zod Schemas
 
-All schemas are in `packages/geojson/src/schemas.ts`.
+All schemas are in `packages/km-geojson/src/schemas.ts`.
 
 Key schemas:
 

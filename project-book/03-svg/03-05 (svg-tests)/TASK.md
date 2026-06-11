@@ -5,7 +5,7 @@ Completes the SVG package: writes the full `help.md`, ensures all error codes
 are documented, updates `CHANGELOG.md`, and runs the full CI checklist.
 
 ## Target
-`packages/svg/help.md` is complete. All tests pass. CI passes.
+`packages/km-svg/help.md` is complete. All tests pass. CI passes.
 The package is ready for use by Chapters 05 and 06.
 
 ## Dependencies
@@ -19,17 +19,17 @@ The package is ready for use by Chapters 05 and 06.
 
 | File | Purpose |
 |---|---|
-| `packages/svg/help.md` | Complete API documentation |
-| `packages/svg/CHANGELOG.md` | Updated |
+| `packages/km-svg/help.md` | Complete API documentation |
+| `packages/km-svg/CHANGELOG.md` | Updated |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/svg/help.md`:
+1. Write `packages/km-svg/help.md`:
 
    **Overview** — "SVG content as structured data. Parse SVG XML into typed
    element trees, manipulate paths, and convert SVG geometry to GeoJSON."
 
-   **Installation** — `npm install @yourscope/svg`.
+   **Installation** — `npm install @komeilm76/km-svg`.
 
    **Functions**:
    - `parseSvgDocument(svgString)` — input, output, example.
@@ -53,14 +53,14 @@ The package is ready for use by Chapters 05 and 06.
    | `invalid-input` | Schema validation failed |
    | `unsupported-svg-element` | Element type cannot be converted |
 
-2. Update `packages/svg/CHANGELOG.md`.
+2. Update `packages/km-svg/CHANGELOG.md`.
 
 3. Run full CI suite:
    ```bash
-   pnpm --filter @yourscope/svg lint
-   pnpm --filter @yourscope/svg test
-   pnpm --filter @yourscope/svg build
-   grep -rn "^import.*zod" packages/svg/dist/
+   pnpm --filter @komeilm76/km-svg lint
+   pnpm --filter @komeilm76/km-svg test
+   pnpm --filter @komeilm76/km-svg build
+   grep -rn "^import.*zod" packages/km-svg/dist/
    ```
 
 ## Acceptance Criteria
@@ -68,11 +68,11 @@ The package is ready for use by Chapters 05 and 06.
 - [ ] `help.md` has all required sections
 - [ ] Element → GeoJSON mapping table included
 - [ ] All error codes documented
-- [ ] `pnpm --filter @yourscope/svg lint` — zero errors
-- [ ] `pnpm --filter @yourscope/svg test` — all green
-- [ ] `pnpm --filter @yourscope/svg build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` — empty
+- [ ] `pnpm --filter @komeilm76/km-svg lint` — zero errors
+- [ ] `pnpm --filter @komeilm76/km-svg test` — all green
+- [ ] `pnpm --filter @komeilm76/km-svg build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` — empty
 
 ## Notes
 - After this page, Chapter 03 is complete.
-  Chapters 05 and 06 can now depend on `@yourscope/svg`.
+  Chapters 05 and 06 can now depend on `@komeilm76/km-svg`.

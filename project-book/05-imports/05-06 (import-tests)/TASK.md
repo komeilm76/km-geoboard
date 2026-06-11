@@ -6,7 +6,7 @@ and runs the full CI checklist. This is the sign-off page for the entire imports
 chapter.
 
 ## Target
-`packages/imports/help.md` is complete. All tests pass. CI passes.
+`packages/km-imports/help.md` is complete. All tests pass. CI passes.
 The package is ready to be depended on by Chapter 06.
 
 ## Dependencies
@@ -20,19 +20,19 @@ The package is ready to be depended on by Chapter 06.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/help.md` | Complete API documentation |
-| `packages/imports/CHANGELOG.md` | Updated with all 05-xx additions |
+| `packages/km-imports/help.md` | Complete API documentation |
+| `packages/km-imports/CHANGELOG.md` | Updated with all 05-xx additions |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/imports/help.md`:
+1. Write `packages/km-imports/help.md`:
 
    **Overview** — "Parse raw strings and objects into typed internal structures.
    Supports GeoJSON, SVG, OpenLayers, and artboard snapshots. Every importer
    returns `ImportResult<T>` — a success with optional warnings or a failure
    with a structured error code."
 
-   **Installation** — `npm install @yourscope/imports`.
+   **Installation** — `npm install @komeilm76/km-imports`.
 
    **Quick Start** — show `importAuto` in one code block so a reader can see
    the end-to-end flow immediately.
@@ -59,15 +59,15 @@ The package is ready to be depended on by Chapter 06.
    `empty-input`, `invalid-json`, `invalid-xml`, `unknown-format`,
    `schema-mismatch`, `unsupported-geometry-type`, `unsupported-svg-element`.
 
-2. Update `packages/imports/CHANGELOG.md`:
+2. Update `packages/km-imports/CHANGELOG.md`:
    Under `## [0.1.0]`, list every function and type added.
 
 3. Run the full CI suite:
    ```bash
-   pnpm --filter @yourscope/imports lint
-   pnpm --filter @yourscope/imports test
-   pnpm --filter @yourscope/imports build
-   grep -rn "^import.*zod" packages/imports/dist/
+   pnpm --filter @komeilm76/km-imports lint
+   pnpm --filter @komeilm76/km-imports test
+   pnpm --filter @komeilm76/km-imports build
+   grep -rn "^import.*zod" packages/km-imports/dist/
    ```
 
 ## Acceptance Criteria
@@ -79,14 +79,14 @@ The package is ready to be depended on by Chapter 06.
 - [ ] All 7 error codes are documented
 - [ ] Normalization rules are listed
 - [ ] `CHANGELOG.md` covers all items added in pages 05-01 through 05-06
-- [ ] `pnpm --filter @yourscope/imports lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/imports test` — all tests green
-- [ ] `pnpm --filter @yourscope/imports build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/imports/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-imports lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-imports test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-imports build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-imports/dist/` — returns empty
 
 ## Notes
 - After this page, Chapter 05 is complete.
-- `@yourscope/exports` (Chapter 06) does not depend on `@yourscope/imports`.
+- `@komeilm76/km-exports` (Chapter 06) does not depend on `@komeilm76/km-imports`.
   They are sibling packages — both depend on the domain packages but not on
   each other.
 - Verify the public `index.ts` exports the correct set of functions and types

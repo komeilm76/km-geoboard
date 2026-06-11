@@ -1,11 +1,11 @@
 # Checklist — Page 01-02 Create Artboard Function
 
-- [ ] `packages/artboard/src/schemas.ts` created
+- [ ] `packages/km-artboard/src/schemas.ts` created
 - [ ] `CreateArtboardInputSchema` defined with `startPoint`, `endPoint`, `name`, `id`, `minSize`
 - [ ] `name` defaults to `"Artboard"` in schema
 - [ ] `minSize` defaults to `1` in schema
-- [ ] Schema uses `finiteNumber()` from `@yourscope/shared` (not raw `z.number()`)
-- [ ] `packages/artboard/src/createArtboard.ts` created
+- [ ] Schema uses `finiteNumber()` from `@komeilm76/km-shared` (not raw `z.number()`)
+- [ ] `packages/km-artboard/src/createArtboard.ts` created
 - [ ] Function signature uses plain types — no Zod types in signature
 - [ ] `safeParse` is used (not `.parse()`)
 - [ ] Origin computed as `{ x: Math.min(...), y: Math.min(...) }`
@@ -23,5 +23,5 @@
 - [ ] Test file covers `invalid-input` for NaN and Infinity
 - [ ] Test file covers default name, custom name, custom id, custom minSize
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

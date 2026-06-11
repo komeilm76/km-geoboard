@@ -12,7 +12,7 @@
 - [ ] `help.md` has Types section with field tables for `Artboard`, `Point`, `Size`
 - [ ] `help.md` has Errors section with `"too-small"` and `"invalid-input"`
 - [ ] `CHANGELOG.md` updated with all additions
-- [ ] `pnpm --filter @yourscope/artboard lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/artboard test` — all tests green
-- [ ] `pnpm --filter @yourscope/artboard build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-artboard lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-artboard test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-artboard build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` — returns empty

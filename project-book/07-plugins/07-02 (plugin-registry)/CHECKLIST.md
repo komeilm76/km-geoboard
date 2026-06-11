@@ -21,5 +21,5 @@
 - [ ] `reset` clears the registrations map
 - [ ] Tests cover all success and error paths
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty

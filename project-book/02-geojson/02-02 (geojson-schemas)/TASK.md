@@ -1,13 +1,13 @@
 # Page 02-02 — GeoJSON Zod Schemas
 
 ## Summary
-Creates `packages/geojson/src/schemas.ts` — Zod v4 schemas for every GeoJSON
+Creates `packages/km-geojson/src/schemas.ts` — Zod v4 schemas for every GeoJSON
 type. The geometry collection schema must use `z.lazy()` to handle the recursive
 `GeoJsonGeometry` reference. Every schema must include the RFC 7946 validation
 rules: minimum positions, ring closure, bounding-box ordering.
 
 ## Target
-`packages/geojson/src/schemas.ts` exports all schemas.
+`packages/km-geojson/src/schemas.ts` exports all schemas.
 Type-divergence guards confirm every schema matches its hand-written type.
 The package builds cleanly. No Zod in `dist/`.
 
@@ -24,13 +24,13 @@ The package builds cleanly. No Zod in `dist/`.
 
 | File | Purpose |
 |---|---|
-| `packages/geojson/src/schemas.ts` | All GeoJSON Zod schemas |
-| `packages/geojson/src/index.ts` | Updated to re-export schemas |
+| `packages/km-geojson/src/schemas.ts` | All GeoJSON Zod schemas |
+| `packages/km-geojson/src/index.ts` | Updated to re-export schemas |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/geojson/src/schemas.ts`.
-   Import `z` from `'zod'` and utilities from `@yourscope/shared`.
+1. Create `packages/km-geojson/src/schemas.ts`.
+   Import `z` from `'zod'` and utilities from `@komeilm76/km-shared`.
 
 2. Define `PositionSchema`:
    ```ts
@@ -112,7 +112,7 @@ The package builds cleanly. No Zod in `dist/`.
 - [ ] `BoundingBoxSchema` validates west ≤ east and south ≤ north
 - [ ] Type-divergence guards compile without error
 - [ ] Build succeeds
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
 
 ## Notes
 - The `z.lazy()` pattern defers evaluation of the recursive reference. Without it,

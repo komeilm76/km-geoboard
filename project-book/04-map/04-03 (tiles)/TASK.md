@@ -5,7 +5,7 @@ Implements `latLngToTile`, `tileToBounds`, `tilesForBounds`, `tileToQuadKey`,
 and `quadKeyToTile` — all tile coordinate math for the XYZ/TMS tile systems.
 
 ## Target
-`packages/map/src/tiles.ts` exports all 5 tile functions with tests.
+`packages/km-map/src/tiles.ts` exports all 5 tile functions with tests.
 
 ## Dependencies
 - Page 04-02 (projection) — `latLngToPixel` is reused internally
@@ -17,12 +17,12 @@ and `quadKeyToTile` — all tile coordinate math for the XYZ/TMS tile systems.
 
 | File | Purpose |
 |---|---|
-| `packages/map/src/tiles.ts` | All 5 tile functions |
-| `packages/map/tests/tiles.test.ts` | Tests |
+| `packages/km-map/src/tiles.ts` | All 5 tile functions |
+| `packages/km-map/tests/tiles.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/map/src/tiles.ts`.
+1. Create `packages/km-map/src/tiles.ts`.
 
 2. Implement `latLngToTile(latLng: LatLng, zoom: number): TileCoord`:
    - Use `latLngToPixel` and divide by 256 to get tile coordinates.

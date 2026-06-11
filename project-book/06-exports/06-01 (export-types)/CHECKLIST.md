@@ -1,6 +1,6 @@
 # Checklist — Page 06-01 Export Types
 
-- [ ] `packages/exports/src/types.ts` created — no Zod imports
+- [ ] `packages/km-exports/src/types.ts` created — no Zod imports
 - [ ] `ExportFilter` exported with all 5 optional fields
 - [ ] `SvgExportOptions` exported with `artboard`, `elements`, and 4 optional fields
 - [ ] Optional fields have `@default` JSDoc
@@ -11,11 +11,11 @@
 - [ ] `RasterDrawInstruction` exported as 4-variant discriminated union on `type`
 - [ ] `RasterExportPlan` exported with `quality` JSDoc noting JPEG-only
 - [ ] All types re-exported from `index.ts`
-- [ ] `packages/exports/package.json` depends on all 4 sibling packages
-- [ ] `packages/exports/package.json` has `zod` as peer + dev
-- [ ] `packages/exports/tsconfig.json` extends root config
-- [ ] `packages/exports/tsup.config.ts` exists
-- [ ] `pnpm --filter @yourscope/exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty
+- [ ] `packages/km-exports/package.json` depends on all 4 sibling packages
+- [ ] `packages/km-exports/package.json` has `zod` as peer + dev
+- [ ] `packages/km-exports/tsconfig.json` extends root config
+- [ ] `packages/km-exports/tsup.config.ts` exists
+- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty
 - [ ] `help.md` stub created
 - [ ] `CHANGELOG.md` has `## [0.1.0]` entry

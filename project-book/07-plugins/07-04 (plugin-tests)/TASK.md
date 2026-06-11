@@ -7,7 +7,7 @@ reference and a worked end-to-end plugin authoring example, updates
 the entire project book.
 
 ## Target
-`packages/plugins/help.md` is complete. All tests pass. CI passes across the
+`packages/km-plugins/help.md` is complete. All tests pass. CI passes across the
 entire monorepo. Every package's Zod-leak check returns empty.
 
 ## Dependencies
@@ -21,18 +21,18 @@ entire monorepo. Every package's Zod-leak check returns empty.
 
 | File | Purpose |
 |---|---|
-| `packages/plugins/help.md` | Complete API documentation |
-| `packages/plugins/CHANGELOG.md` | Updated with all 07-xx additions |
+| `packages/km-plugins/help.md` | Complete API documentation |
+| `packages/km-plugins/CHANGELOG.md` | Updated with all 07-xx additions |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/plugins/help.md`:
+1. Write `packages/km-plugins/help.md`:
 
    **Overview** — "A lightweight plugin system for modular extensibility.
    Plugins declare dependencies, expose typed APIs, and are managed by a central
    registry that resolves dependency order and detects conflicts and cycles."
 
-   **Installation** — `npm install @yourscope/plugins`.
+   **Installation** — `npm install @komeilm76/km-plugins`.
 
    **Quick Start** — a complete two-plugin example showing:
    - Define Plugin A with no dependencies.
@@ -66,14 +66,14 @@ entire monorepo. Every package's Zod-leak check returns empty.
    **Design Principles** — reproduce the 6 principles from `DT-Plugins.md`
    (explicit, fail-early, no cycles, pure logic, versioned, isolated).
 
-2. Update `packages/plugins/CHANGELOG.md`.
+2. Update `packages/km-plugins/CHANGELOG.md`.
 
 3. Run the full CI suite for the plugins package:
    ```bash
-   pnpm --filter @yourscope/plugins lint
-   pnpm --filter @yourscope/plugins test
-   pnpm --filter @yourscope/plugins build
-   grep -rn "^import.*zod" packages/plugins/dist/
+   pnpm --filter @komeilm76/km-plugins lint
+   pnpm --filter @komeilm76/km-plugins test
+   pnpm --filter @komeilm76/km-plugins build
+   grep -rn "^import.*zod" packages/km-plugins/dist/
    ```
 
 4. Run the **entire monorepo** CI suite:
@@ -92,10 +92,10 @@ entire monorepo. Every package's Zod-leak check returns empty.
 - [ ] All 6 error codes documented
 - [ ] All 6 design principles documented
 - [ ] `CHANGELOG.md` updated with all additions from pages 07-01 to 07-04
-- [ ] `pnpm --filter @yourscope/plugins lint` — zero errors
-- [ ] `pnpm --filter @yourscope/plugins test` — all green
-- [ ] `pnpm --filter @yourscope/plugins build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` — empty
+- [ ] `pnpm --filter @komeilm76/km-plugins lint` — zero errors
+- [ ] `pnpm --filter @komeilm76/km-plugins test` — all green
+- [ ] `pnpm --filter @komeilm76/km-plugins build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` — empty
 - [ ] `pnpm -r lint` — zero errors across all packages
 - [ ] `pnpm -r test` — all tests green across all packages
 - [ ] `pnpm -r build` — all packages build successfully

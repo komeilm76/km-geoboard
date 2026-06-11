@@ -13,5 +13,5 @@
 - [x] Known value: zoom 0 center → pixel `{ x: 128, y: 128 }`
 - [x] Tests use `toBeCloseTo` for floating-point comparisons
 - [x] All tests pass
-- [x] `pnpm --filter @yourscope/map build` succeeds
-- [x] `grep -rn "^import.*zod" packages/map/dist/` returns empty
+- [x] `pnpm --filter @komeilm76/km-map build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-map/dist/` returns empty

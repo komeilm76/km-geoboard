@@ -14,5 +14,5 @@
 - [ ] Output parses back to valid `GeoJsonFeatureCollection`
 - [ ] Tests: single feature, multiple features, with/without bbox, pretty, filter, empty
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

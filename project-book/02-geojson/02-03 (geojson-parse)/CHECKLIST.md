@@ -27,5 +27,5 @@
 - [ ] `feature.test.ts` — with/without properties and id
 - [ ] `guards.test.ts` — geometry passes, feature fails, plain object fails
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/geojson build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-geojson build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty

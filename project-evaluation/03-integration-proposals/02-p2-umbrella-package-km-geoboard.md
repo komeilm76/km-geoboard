@@ -1,10 +1,10 @@
-# P2. An umbrella package: `km-geoboard`
+# P2. An umbrella package: `@komeilm76/km-geoboard`
 
 Add `packages/km-geoboard` — a thin meta-package that depends on all eight and re-exports
 their public surfaces under namespaces:
 
 ```ts
-import { artboard, geojson, svg, map, imports, exports, plugins } from 'km-geoboard';
+import { artboard, geojson, svg, map, imports, exports, plugins } from '@komeilm76/km-geoboard';
 ```
 
 Why: one install for app consumers, one obvious entry point for docs and demos, the

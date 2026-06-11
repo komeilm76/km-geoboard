@@ -11,10 +11,10 @@
 - [ ] `help.md` has Error Codes section with all 6 codes
 - [ ] `help.md` has Design Principles section with all 6 principles
 - [ ] `CHANGELOG.md` updated with all additions from pages 07-01 to 07-04
-- [ ] `pnpm --filter @yourscope/plugins lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/plugins test` — all tests green
-- [ ] `pnpm --filter @yourscope/plugins build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-plugins lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-plugins test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-plugins build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` — returns empty
 
 ## Full Monorepo Sign-Off
 
@@ -25,14 +25,14 @@
 
 ## Per-Package Final Verification
 
-- [ ] `@yourscope/shared` — `grep` clean, tests pass
-- [ ] `@yourscope/artboard` — `grep` clean, tests pass
-- [ ] `@yourscope/geojson` — `grep` clean, tests pass
-- [ ] `@yourscope/svg` — `grep` clean, tests pass
-- [ ] `@yourscope/map` — `grep` clean, tests pass
-- [ ] `@yourscope/imports` — `grep` clean, tests pass
-- [ ] `@yourscope/exports` — `grep` clean, tests pass
-- [ ] `@yourscope/plugins` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-shared` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-artboard` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-geojson` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-svg` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-map` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-imports` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-exports` — `grep` clean, tests pass
+- [ ] `@komeilm76/km-plugins` — `grep` clean, tests pass
 
 ## Pre-Publish Checklist (per package)
 

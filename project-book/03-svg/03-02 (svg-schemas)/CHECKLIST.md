@@ -1,6 +1,6 @@
 # Checklist — Page 03-02 SVG Zod Schemas
 
-- [ ] `packages/svg/src/schemas.ts` created
+- [ ] `packages/km-svg/src/schemas.ts` created
 - [ ] `SvgViewBoxSchema` exported
 - [ ] `SvgLengthSchema` exported using `finiteNumber()`
 - [ ] `SvgColorSchema` uses `z.discriminatedUnion("type", ...)` with all 5 variants
@@ -18,5 +18,5 @@
 - [ ] Type-divergence guard for `SvgElement` compiles without error
 - [ ] Type-divergence guard for `SvgDocument` compiles without error
 - [ ] All schemas re-exported from `index.ts`
-- [ ] `pnpm --filter @yourscope/svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

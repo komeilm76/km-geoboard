@@ -19,12 +19,12 @@ Three new files: `bounds.ts`, `scale.ts`, and `layers.ts`, all tested.
 
 | File | Purpose |
 |---|---|
-| `packages/map/src/bounds.ts` | 6 bounding-box functions |
-| `packages/map/src/scale.ts` | 3 scale/zoom functions |
-| `packages/map/src/layers.ts` | 3 layer format helpers |
-| `packages/map/tests/bounds.test.ts` | Tests |
-| `packages/map/tests/scale.test.ts` | Tests |
-| `packages/map/tests/layers.test.ts` | Tests |
+| `packages/km-map/src/bounds.ts` | 6 bounding-box functions |
+| `packages/km-map/src/scale.ts` | 3 scale/zoom functions |
+| `packages/km-map/src/layers.ts` | 3 layer format helpers |
+| `packages/km-map/tests/bounds.test.ts` | Tests |
+| `packages/km-map/tests/scale.test.ts` | Tests |
+| `packages/km-map/tests/layers.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 

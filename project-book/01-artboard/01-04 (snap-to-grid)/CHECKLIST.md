@@ -19,5 +19,5 @@
 - [ ] Tests cover `gridSize <= 0` defensive guard
 - [ ] Tests verify no mutation of input
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

@@ -1,13 +1,13 @@
 # Page 06-01 — Export Types
 
 ## Summary
-Creates the `@yourscope/exports` package and defines every type the export
+Creates the `@komeilm76/km-exports` package and defines every type the export
 pipeline needs: `ExportFilter`, `SvgExportOptions`, `GeoJsonExportOptions`,
 `OpenLayersExportOptions`, `PdfMeta`, `RasterDrawInstruction`, and
 `RasterExportPlan`. No logic — types only.
 
 ## Target
-`packages/exports/src/types.ts` exports all export pipeline types.
+`packages/km-exports/src/types.ts` exports all export pipeline types.
 Package skeleton builds cleanly.
 
 ## Dependencies
@@ -24,18 +24,18 @@ Package skeleton builds cleanly.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/types.ts` | All export pipeline types |
-| `packages/exports/src/index.ts` | Public re-exports |
-| `packages/exports/package.json` | Package manifest |
-| `packages/exports/tsconfig.json` | Extends root config |
-| `packages/exports/tsup.config.ts` | Build config |
-| `packages/exports/help.md` | Documentation stub |
-| `packages/exports/CHANGELOG.md` | Version history |
-| `packages/exports/README.md` | npm display page |
+| `packages/km-exports/src/types.ts` | All export pipeline types |
+| `packages/km-exports/src/index.ts` | Public re-exports |
+| `packages/km-exports/package.json` | Package manifest |
+| `packages/km-exports/tsconfig.json` | Extends root config |
+| `packages/km-exports/tsup.config.ts` | Build config |
+| `packages/km-exports/help.md` | Documentation stub |
+| `packages/km-exports/CHANGELOG.md` | Version history |
+| `packages/km-exports/README.md` | npm display page |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/exports/src/types.ts`. No Zod imports.
+1. Create `packages/km-exports/src/types.ts`. No Zod imports.
 
 2. Define `ExportFilter` with all 5 optional fields from `DT-Exports.md`:
    `includeIds?`, `excludeIds?`, `includeLayers?`, `excludeLayers?`, `boundingBox?`.
@@ -74,10 +74,10 @@ Package skeleton builds cleanly.
 
 9. Export all types from `index.ts`.
 
-10. Create `packages/exports/package.json`:
-    - `"name": "@yourscope/exports"`, `"version": "0.1.0"`.
-    - Dependencies: `@yourscope/shared`, `@yourscope/artboard`,
-      `@yourscope/geojson`, `@yourscope/svg`.
+10. Create `packages/km-exports/package.json`:
+    - `"name": "@komeilm76/km-exports"`, `"version": "0.1.0"`.
+    - Dependencies: `@komeilm76/km-shared`, `@komeilm76/km-artboard`,
+      `@komeilm76/km-geojson`, `@komeilm76/km-svg`.
     - `zod` as peer + dev.
     - `check-zod` script.
 

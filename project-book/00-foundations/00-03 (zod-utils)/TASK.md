@@ -2,19 +2,19 @@
 
 ## Summary
 Adds Zod v4 and creates the two files that every other package will import
-from `@yourscope/shared`: `zodUtils.ts` (reusable schema factory functions)
+from `@komeilm76/km-shared`: `zodUtils.ts` (reusable schema factory functions)
 and `zodStructural.ts` (the two structural types that prevent IDE freezes when
 Zod types would otherwise appear in `.d.ts` files).
 
 ## Target
-`packages/shared/src/zodUtils.ts` exports all standard schema utilities.
-`packages/shared/src/zodStructural.ts` exports `$AnyZodObject` and `$AnyZodType`.
-Both are re-exported from `packages/shared/src/index.ts`.
+`packages/km-shared/src/zodUtils.ts` exports all standard schema utilities.
+`packages/km-shared/src/zodStructural.ts` exports `$AnyZodObject` and `$AnyZodType`.
+Both are re-exported from `packages/km-shared/src/index.ts`.
 The package builds cleanly and `dist/` has zero Zod imports.
 
 ## Dependencies
 - Page 00-01 (monorepo-setup)
-- Page 00-02 (shared-types) — `packages/shared` already exists and builds
+- Page 00-02 (shared-types) — `packages/km-shared` already exists and builds
 
 ## Inputs
 - `DT-Zod.md` — full schema utility function specs, structural type definitions,
@@ -26,22 +26,22 @@ The package builds cleanly and `dist/` has zero Zod imports.
 
 | File | Purpose |
 |---|---|
-| `packages/shared/src/zodUtils.ts` | Schema factory functions: `finiteNumber`, `uuid`, `pointSchema`, etc. |
-| `packages/shared/src/zodStructural.ts` | `$AnyZodObject`, `$AnyZodType` — structural Zod substitutes |
-| `packages/shared/src/index.ts` | Updated to re-export all new symbols |
-| `packages/shared/package.json` | Updated to add `zod` as `peerDependency` + `devDependency` |
-| `packages/shared/tests/zodUtils.test.ts` | Vitest tests for every utility function |
+| `packages/km-shared/src/zodUtils.ts` | Schema factory functions: `finiteNumber`, `uuid`, `pointSchema`, etc. |
+| `packages/km-shared/src/zodStructural.ts` | `$AnyZodObject`, `$AnyZodType` — structural Zod substitutes |
+| `packages/km-shared/src/index.ts` | Updated to re-export all new symbols |
+| `packages/km-shared/package.json` | Updated to add `zod` as `peerDependency` + `devDependency` |
+| `packages/km-shared/tests/zodUtils.test.ts` | Vitest tests for every utility function |
 
 ## Step-by-Step Instructions
 
-1. Add Zod to `packages/shared/package.json`:
+1. Add Zod to `packages/km-shared/package.json`:
    ```json
    "peerDependencies": { "zod": ">=4.4.0" },
    "devDependencies": { "zod": "^4.4.0" }
    ```
    Then run `pnpm install` at the root to install it.
 
-2. Create `packages/shared/src/zodUtils.ts`.
+2. Create `packages/km-shared/src/zodUtils.ts`.
    Implement every utility function listed in `DT-Zod.md` §"Standard Schema Utilities":
    - `nonEmptyString()` → `z.string().trim().min(1)`
    - `positiveNumber()` → `z.number().positive()`
@@ -58,7 +58,7 @@ The package builds cleanly and `dist/` has zero Zod imports.
    - `withDefault<T>(schema, value)` → `schema.default(value)`
    Each function must have a JSDoc comment with `@example`.
 
-3. Create `packages/shared/src/zodStructural.ts`:
+3. Create `packages/km-shared/src/zodStructural.ts`:
    ```ts
    /**
     * Local structural substitute for z.ZodObject<any>.
@@ -82,14 +82,14 @@ The package builds cleanly and `dist/` has zero Zod imports.
    };
    ```
 
-4. Update `packages/shared/src/index.ts` to re-export from both new files:
+4. Update `packages/km-shared/src/index.ts` to re-export from both new files:
    ```ts
    export type { Result, ResultError } from "./types";
    export * from "./zodUtils";
    export type { $AnyZodObject, $AnyZodType } from "./zodStructural";
    ```
 
-5. Create `packages/shared/tests/zodUtils.test.ts`.
+5. Create `packages/km-shared/tests/zodUtils.test.ts`.
    Write Vitest tests for every utility:
    - `finiteNumber()` — accepts `0`, `-1.5`, rejects `NaN`, `Infinity`, `-Infinity`.
    - `nonEmptyString()` — accepts `"hello"`, rejects `""`, `"   "`.
@@ -99,9 +99,9 @@ The package builds cleanly and `dist/` has zero Zod imports.
    - `boundingBoxSchema()` — accepts `[0,0,1,1]`, rejects `[1,0,0,1]` (minX > maxX).
    - `opacitySchema()` — accepts `0`, `1`, `0.5`, rejects `-0.1`, `1.1`.
 
-6. Run `pnpm --filter @yourscope/shared build`.
-7. Run `grep -rn "^import.*zod" packages/shared/dist/`. **Must return empty.**
-8. Run `pnpm --filter @yourscope/shared test`. All tests must pass.
+6. Run `pnpm --filter @komeilm76/km-shared build`.
+7. Run `grep -rn "^import.*zod" packages/km-shared/dist/`. **Must return empty.**
+8. Run `pnpm --filter @komeilm76/km-shared test`. All tests must pass.
 
 ## Acceptance Criteria
 
@@ -111,7 +111,7 @@ The package builds cleanly and `dist/` has zero Zod imports.
 - [ ] Both structural types are re-exported from `index.ts`
 - [ ] Zod is declared as `peerDependency` and `devDependency` (not `dependency`)
 - [ ] Build succeeds with no TypeScript errors
-- [ ] `grep -rn "^import.*zod" packages/shared/dist/` returns **empty**
+- [ ] `grep -rn "^import.*zod" packages/km-shared/dist/` returns **empty**
 - [ ] All Vitest tests pass
 - [ ] Every function has a JSDoc `@example`
 

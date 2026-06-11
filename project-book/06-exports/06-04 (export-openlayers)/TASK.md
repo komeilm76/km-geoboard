@@ -6,7 +6,7 @@ string, optionally including projection metadata. Delegates to `exportToGeoJson`
 for the core serialization and adds the OpenLayers-specific envelope.
 
 ## Target
-`packages/exports/src/exportToOpenLayers.ts` exports `exportToOpenLayers`.
+`packages/km-exports/src/exportToOpenLayers.ts` exports `exportToOpenLayers`.
 Tests verify the projection metadata and delegation behavior.
 
 ## Dependencies
@@ -19,12 +19,12 @@ Tests verify the projection metadata and delegation behavior.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/exportToOpenLayers.ts` | `exportToOpenLayers` implementation |
-| `packages/exports/tests/exportToOpenLayers.test.ts` | Tests |
+| `packages/km-exports/src/exportToOpenLayers.ts` | `exportToOpenLayers` implementation |
+| `packages/km-exports/tests/exportToOpenLayers.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/exports/src/exportToOpenLayers.ts`.
+1. Create `packages/km-exports/src/exportToOpenLayers.ts`.
 2. Function: `exportToOpenLayers(options: OpenLayersExportOptions): Result<string>`.
 3. Destructure with defaults:
    ```ts

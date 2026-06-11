@@ -7,7 +7,7 @@
 - [x] `help.md` has Types section
 - [x] `help.md` has Errors section for `quadKeyToTile`
 - [x] `CHANGELOG.md` updated with all additions
-- [x] `pnpm --filter @yourscope/map lint` — zero errors
-- [x] `pnpm --filter @yourscope/map test` — all green
-- [x] `pnpm --filter @yourscope/map build` — succeeds
-- [x] `grep -rn "^import.*zod" packages/map/dist/` — returns empty
+- [x] `pnpm --filter @komeilm76/km-map lint` — zero errors
+- [x] `pnpm --filter @komeilm76/km-map test` — all green
+- [x] `pnpm --filter @komeilm76/km-map build` — succeeds
+- [x] `grep -rn "^import.*zod" packages/km-map/dist/` — returns empty

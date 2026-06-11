@@ -8,5 +8,5 @@
 | Template leftovers at root | `src/core.ts`, `tests/core.test.ts`, root `tsup.config.ts`, `.release-it.json` belong to the single-package template, not the monorepo |
 | Missing files | No `LICENSE` in any package (all whitelist it in `files`); no `README.md` in `km-imports`, `km-svg` |
 | No version control / CI | No `.git`, no `.github/`, no CI workflow — the CI checklist in `DT-Logics.md` has nothing to run on |
-| Folder naming inconsistency | `packages/exports/` is the only folder without the `km-` prefix |
+| Folder naming inconsistency | `packages/km-exports/` is the only folder without the `km-` prefix |
 | `exports` package is an island | It re-declares Artboard/SVG/GeoJSON types locally ("Would come from @yourscope/geojson in the full monorepo") instead of importing siblings |

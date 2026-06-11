@@ -1,7 +1,7 @@
 # A. Blockers (the project is not operational until these are done)
 
 ### A1. `exports` package placeholder identity
-- Rename folder `packages/exports` → `packages/km-exports`.
+- Rename folder `packages/km-exports` → `packages/km-exports`.
 - In its `package.json`: `"name": "km-exports"`, dependencies `@yourscope/shared|artboard|geojson|svg` → `km-shared|km-artboard|km-geojson|km-svg` (`workspace:*`).
 - Replace `@yourscope/…` references in source comments and `index.ts` examples.
 - **This alone unblocks `pnpm install` for the whole workspace.**

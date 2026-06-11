@@ -11,5 +11,5 @@
 - [ ] `pretty` option works (passed through to `exportToGeoJson`)
 - [ ] Tests: EPSG:4326 (no crs), EPSG:3857 (with crs), empty-export error
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

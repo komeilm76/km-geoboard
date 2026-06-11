@@ -19,5 +19,5 @@
 - [ ] `applyExportFilter` used before generating instructions
 - [ ] Tests cover rect, circle, text, scale factor, jpeg/png quality, empty-export
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

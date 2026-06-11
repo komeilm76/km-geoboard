@@ -7,7 +7,7 @@ execute against a canvas API to produce a PNG or JPEG image. This function never
 touches a canvas itself.
 
 ## Target
-`packages/exports/src/exportToRasterPlan.ts` exports `exportToRasterPlan`.
+`packages/km-exports/src/exportToRasterPlan.ts` exports `exportToRasterPlan`.
 All 4 instruction types are generated correctly. Tests pass.
 
 ## Dependencies
@@ -22,12 +22,12 @@ All 4 instruction types are generated correctly. Tests pass.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/exportToRasterPlan.ts` | `exportToRasterPlan` implementation |
-| `packages/exports/tests/exportToRasterPlan.test.ts` | Tests |
+| `packages/km-exports/src/exportToRasterPlan.ts` | `exportToRasterPlan` implementation |
+| `packages/km-exports/tests/exportToRasterPlan.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/exports/src/exportToRasterPlan.ts`.
+1. Create `packages/km-exports/src/exportToRasterPlan.ts`.
 
 2. Function signature:
    ```ts

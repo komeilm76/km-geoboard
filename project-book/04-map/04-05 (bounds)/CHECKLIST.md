@@ -21,5 +21,5 @@
 - [x] `boundsIntersect` tests — overlap, touching, separated
 - [x] `detectLayerFormat` tests — XYZ URL, WMS URL, `.geojson` URL, unknown
 - [x] All tests pass
-- [x] `pnpm --filter @yourscope/map build` succeeds
-- [x] `grep -rn "^import.*zod" packages/map/dist/` returns empty
+- [x] `pnpm --filter @komeilm76/km-map build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-map/dist/` returns empty

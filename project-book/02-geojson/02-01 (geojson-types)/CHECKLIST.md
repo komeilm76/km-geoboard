@@ -1,6 +1,6 @@
 # Checklist — Page 02-01 GeoJSON Types
 
-- [ ] `packages/geojson/src/types.ts` created — no Zod imports
+- [ ] `packages/km-geojson/src/types.ts` created — no Zod imports
 - [ ] `Position` exported as 2-element or 3-element number tuple
 - [ ] `BoundingBox` exported as 4-element or 6-element number tuple
 - [ ] `LinearRing` exported with minimum 4-element constraint
@@ -18,10 +18,10 @@
 - [ ] JSDoc on every type
 - [ ] Longitude-first warning on `Position` JSDoc
 - [ ] All 14+ types exported from `index.ts`
-- [ ] `packages/geojson/package.json` has correct name, version, deps
-- [ ] `packages/geojson/tsconfig.json` extends root config
-- [ ] `packages/geojson/tsup.config.ts` exists
-- [ ] `pnpm --filter @yourscope/geojson build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
+- [ ] `packages/km-geojson/package.json` has correct name, version, deps
+- [ ] `packages/km-geojson/tsconfig.json` extends root config
+- [ ] `packages/km-geojson/tsup.config.ts` exists
+- [ ] `pnpm --filter @komeilm76/km-geojson build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
 - [ ] `help.md` stub created
 - [ ] `CHANGELOG.md` has `## [0.1.0]` entry

@@ -1,5 +1,11 @@
 # Project Book
 
+> **Naming note (2026-06-11):** all packages are published under the `@komeilm76` npm
+> scope with the `km-` brand prefix: `import { … } from '@komeilm76/km-artboard'`.
+> Folder names keep `packages/km-*`. Any remaining short reference (`km-svg`) means
+> the scoped package. Normative source: `PACKAGE_STANDARDS.md` decision table.
+
+
 > Step-by-step implementation guide for the full monorepo.  
 > Complete every page in order and the project is done.
 
@@ -128,7 +134,7 @@ Suggested GitHub workflow:
 
 ## Conventions Used in This Book
 
-- `@yourscope` is a placeholder. Replace with your actual npm scope.
+- Packages are published as `@komeilm76/km-<name>` (decided 2026-06-11; see the normative table in `PACKAGE_STANDARDS.md`). Short names like `km-geojson` in this book refer to the same packages — folders stay `packages/km-*`.
 - All paths are relative to the monorepo root.
 - `Result<T>` always means `{ success: true; data: T } | { success: false; error: ResultError }`.
 - "Pure function" means: no side effects, no mutations, deterministic output.

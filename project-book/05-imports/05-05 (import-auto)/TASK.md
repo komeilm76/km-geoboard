@@ -11,7 +11,7 @@ See full specification in `05-03 (import-svg)/TASK.md` §"Page 05-05".
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/importArtboardSnapshot.ts` | Validates artboard JSON arrays |
-| `packages/imports/src/detectImportFormat.ts` | Heuristic format detection |
-| `packages/imports/src/importAuto.ts` | Unified entry point |
-| `packages/imports/tests/importAuto.test.ts` | Tests |
+| `packages/km-imports/src/importArtboardSnapshot.ts` | Validates artboard JSON arrays |
+| `packages/km-imports/src/detectImportFormat.ts` | Heuristic format detection |
+| `packages/km-imports/src/importAuto.ts` | Unified entry point |
+| `packages/km-imports/tests/importAuto.test.ts` | Tests |

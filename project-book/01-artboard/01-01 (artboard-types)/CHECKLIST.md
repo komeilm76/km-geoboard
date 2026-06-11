@@ -1,6 +1,6 @@
 # Checklist — Page 01-01 Artboard Types
 
-- [ ] `packages/artboard/src/types.ts` created — no Zod imports
+- [ ] `packages/km-artboard/src/types.ts` created — no Zod imports
 - [ ] `Point` exported with `x: number` and `y: number`
 - [ ] `Size` exported with `width: number` and `height: number`
 - [ ] `Artboard` exported with all 7 fields: `id`, `name`, `origin`, `size`, `startPoint`, `endPoint`, `createdAt`
@@ -13,12 +13,12 @@
 - [ ] `ResizeArtboardInput` exported
 - [ ] `MoveArtboardInput` exported with `artboard` and `delta: Point`
 - [ ] `SnapArtboardInput` exported with `mode?: "round" | "floor" | "ceil"` and `gridSize?: number`
-- [ ] `packages/artboard/src/index.ts` re-exports all 9 types
-- [ ] `packages/artboard/package.json` lists `@yourscope/shared` as dependency
-- [ ] `packages/artboard/package.json` lists `zod` as peerDependency and devDependency
-- [ ] `packages/artboard/tsconfig.json` extends root config
-- [ ] `packages/artboard/tsup.config.ts` exists
-- [ ] `pnpm --filter @yourscope/artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `packages/km-artboard/src/index.ts` re-exports all 9 types
+- [ ] `packages/km-artboard/package.json` lists `@komeilm76/km-shared` as dependency
+- [ ] `packages/km-artboard/package.json` lists `zod` as peerDependency and devDependency
+- [ ] `packages/km-artboard/tsconfig.json` extends root config
+- [ ] `packages/km-artboard/tsup.config.ts` exists
+- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 - [ ] `help.md` stub created
 - [ ] `CHANGELOG.md` has `## [0.1.0]` entry

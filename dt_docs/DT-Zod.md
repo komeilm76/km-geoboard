@@ -42,7 +42,7 @@ Each package has a dedicated `schemas.ts` file.
 Schemas are **never** placed in `types.ts` — types and schemas are always separate files.
 
 ```
-packages/artboard/src/
+packages/km-artboard/src/
   types.ts      ← TypeScript types only (no Zod imports)
   schemas.ts    ← Zod schemas only
   index.ts      ← Public re-exports
@@ -98,7 +98,7 @@ or inside internal helpers that are not part of the public API.
 
 ## Standard Schema Utilities
 
-These utility functions are defined once in `packages/shared/src/zodUtils.ts` and reused across all packages.
+These utility functions are defined once in `packages/km-shared/src/zodUtils.ts` and reused across all packages.
 
 ---
 
@@ -327,7 +327,7 @@ If they do, every consumer's IDE will freeze on import (see `zod_hang.md` in the
 
 ### The Two Local Structural Types
 
-Define these once in `packages/shared/src/zodStructural.ts`:
+Define these once in `packages/km-shared/src/zodStructural.ts`:
 
 ```ts
 /**

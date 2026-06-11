@@ -171,10 +171,10 @@ Figma plugins run inside a sandboxed environment with access to:
 - An `<iframe>` UI with postMessage communication
 
 This project's packages can be used **inside a Figma plugin** as utilities:
-- `@yourscope/artboard` — compute frame geometries
-- `@yourscope/geojson` — export frame layouts as GeoJSON
-- `@yourscope/svg` — parse exported SVG into typed data
-- `@yourscope/map` — project geographic coordinates onto a frame
+- `@komeilm76/km-artboard` — compute frame geometries
+- `@komeilm76/km-geojson` — export frame layouts as GeoJSON
+- `@komeilm76/km-svg` — parse exported SVG into typed data
+- `@komeilm76/km-map` — project geographic coordinates onto a frame
 
 All packages work in the browser (Figma plugin sandbox is a browser environment).
 

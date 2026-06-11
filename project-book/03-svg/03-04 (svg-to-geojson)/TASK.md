@@ -6,13 +6,13 @@ Implements `svgPointToGeoPosition`, `svgElementToGeoJsonFeature`, and
 to real-world geographic positions and converts SVG shapes into GeoJSON features.
 
 ## Target
-`packages/svg/src/svgToGeoJson.ts` exports all three conversion functions.
-Tests pass for all SVG element types. `@yourscope/geojson` is added as a
-dependency of `@yourscope/svg`.
+`packages/km-svg/src/svgToGeoJson.ts` exports all three conversion functions.
+Tests pass for all SVG element types. `@komeilm76/km-geojson` is added as a
+dependency of `@komeilm76/km-svg`.
 
 ## Dependencies
 - Page 02-03 (geojson-parse) — `GeoJsonFeature`, `GeoJsonFeatureCollection`,
-  `featureFromGeometry`, `collectionFromFeatures` from `@yourscope/geojson`.
+  `featureFromGeometry`, `collectionFromFeatures` from `@komeilm76/km-geojson`.
 - Page 03-03 (svg-parse) — `parseSvgPath` for path element conversion.
 
 ## Inputs
@@ -24,15 +24,15 @@ dependency of `@yourscope/svg`.
 
 | File | Purpose |
 |---|---|
-| `packages/svg/src/svgToGeoJson.ts` | All 3 conversion functions |
-| `packages/svg/tests/svgToGeoJson.test.ts` | Tests |
-| `packages/svg/package.json` | Updated to depend on `@yourscope/geojson` |
+| `packages/km-svg/src/svgToGeoJson.ts` | All 3 conversion functions |
+| `packages/km-svg/tests/svgToGeoJson.test.ts` | Tests |
+| `packages/km-svg/package.json` | Updated to depend on `@komeilm76/km-geojson` |
 
 ## Step-by-Step Instructions
 
-1. Add `@yourscope/geojson` as a dependency in `packages/svg/package.json`.
+1. Add `@komeilm76/km-geojson` as a dependency in `packages/km-svg/package.json`.
 
-2. Create `packages/svg/src/svgToGeoJson.ts`.
+2. Create `packages/km-svg/src/svgToGeoJson.ts`.
 
 3. Implement `svgPointToGeoPosition(point: [number, number], meta: SvgGeoMeta): [number, number]`:
    ```ts

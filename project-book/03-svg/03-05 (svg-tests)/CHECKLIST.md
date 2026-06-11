@@ -7,7 +7,7 @@
 - [ ] `help.md` has SVG Element → GeoJSON Mapping table
 - [ ] `help.md` has Errors section with all 3 error codes
 - [ ] `CHANGELOG.md` updated with all additions
-- [ ] `pnpm --filter @yourscope/svg lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/svg test` — all tests green
-- [ ] `pnpm --filter @yourscope/svg build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-svg lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-svg test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-svg build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` — returns empty

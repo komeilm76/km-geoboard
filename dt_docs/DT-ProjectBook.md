@@ -163,7 +163,7 @@ Implements the `createArtboard` function — the core function that takes two ca
 points and produces a normalized Artboard object.
 
 ## Target
-`packages/artboard/src/createArtboard.ts` exists and exports `createArtboard`.
+`packages/km-artboard/src/createArtboard.ts` exists and exports `createArtboard`.
 
 ## Dependencies
 - Page 00-01 (monorepo-setup) — workspace must be initialized
@@ -179,14 +179,14 @@ points and produces a normalized Artboard object.
 ## Outputs
 | File | Purpose |
 |---|---|
-| `packages/artboard/src/createArtboard.ts` | Function implementation |
-| `packages/artboard/src/schemas.ts` | CreateArtboardInputSchema (add to existing) |
-| `packages/artboard/tests/createArtboard.test.ts` | Vitest tests |
+| `packages/km-artboard/src/createArtboard.ts` | Function implementation |
+| `packages/km-artboard/src/schemas.ts` | CreateArtboardInputSchema (add to existing) |
+| `packages/km-artboard/tests/createArtboard.test.ts` | Vitest tests |
 
 ## Step-by-Step Instructions
 
-1. Open `packages/artboard/src/createArtboard.ts` (create if not exists).
-2. Import `Result` from `@yourscope/shared`.
+1. Open `packages/km-artboard/src/createArtboard.ts` (create if not exists).
+2. Import `Result` from `@komeilm76/km-shared`.
 3. Import `Artboard`, `CreateArtboardInput` from `./types`.
 4. Import `CreateArtboardInputSchema` from `./schemas`.
 5. Implement `createArtboard(input)`:
@@ -198,7 +198,7 @@ points and produces a normalized Artboard object.
    f. Generate ID with `crypto.randomUUID()`.
    g. Return `{ success: true, data: Artboard }`.
 6. Add JSDoc with @param, @returns, @example.
-7. Export from `packages/artboard/src/index.ts`.
+7. Export from `packages/km-artboard/src/index.ts`.
 
 ## Acceptance Criteria
 - [ ] Function returns correct origin for all 4 drag directions

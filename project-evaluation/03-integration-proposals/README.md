@@ -8,7 +8,7 @@ them one coherent, consumable product.
 | # | Section |
 |---|---|
 | 01 | [P1. Canonical dependency graph (enforce what DT-Flexibility promises)](./01-p1-canonical-dependency-graph.md) |
-| 02 | [P2. An umbrella package: `km-geoboard`](./02-p2-umbrella-package-km-geoboard.md) |
+| 02 | [P2. An umbrella package: `@komeilm76/km-geoboard`](./02-p2-umbrella-package-km-geoboard.md) |
 | 03 | [P3. Integration test suite (the missing connective tissue)](./03-p3-integration-test-suite.md) |
 | 04 | [P4. Single normative standard + a conformance script](./04-p4-single-normative-standard.md) |
 | 05 | [P5. CI/CD pipeline (GitHub Actions)](./05-p5-ci-cd-pipeline.md) |

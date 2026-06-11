@@ -6,7 +6,7 @@ round-trip pairs are documented, updates `CHANGELOG.md`, and runs the full
 CI checklist. This is the sign-off page for the entire exports chapter.
 
 ## Target
-`packages/exports/help.md` is complete. All tests pass. CI passes.
+`packages/km-exports/help.md` is complete. All tests pass. CI passes.
 All 5 export functions and the filter utility are working and documented.
 
 ## Dependencies
@@ -21,12 +21,12 @@ All 5 export functions and the filter utility are working and documented.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/help.md` | Complete API documentation |
-| `packages/exports/CHANGELOG.md` | Updated with all 06-xx additions |
+| `packages/km-exports/help.md` | Complete API documentation |
+| `packages/km-exports/CHANGELOG.md` | Updated with all 06-xx additions |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/exports/help.md`:
+1. Write `packages/km-exports/help.md`:
 
    **Overview** — "Serialization functions that convert internal data structures
    into standard output formats: SVG, GeoJSON, OpenLayers JSON, PDF metadata,
@@ -34,7 +34,7 @@ All 5 export functions and the filter utility are working and documented.
    return strings or structured objects. No file writes, no HTTP requests, no
    canvas rendering."
 
-   **Installation** — `npm install @yourscope/exports`.
+   **Installation** — `npm install @komeilm76/km-exports`.
 
    **Quick Start** — a code block showing `exportToSvg` end-to-end.
 
@@ -71,14 +71,14 @@ All 5 export functions and the filter utility are working and documented.
    Include a code example showing how a consumer would execute the plan with
    `CanvasRenderingContext2D`.
 
-2. Update `packages/exports/CHANGELOG.md`.
+2. Update `packages/km-exports/CHANGELOG.md`.
 
 3. Run the full CI suite:
    ```bash
-   pnpm --filter @yourscope/exports lint
-   pnpm --filter @yourscope/exports test
-   pnpm --filter @yourscope/exports build
-   grep -rn "^import.*zod" packages/exports/dist/
+   pnpm --filter @komeilm76/km-exports lint
+   pnpm --filter @komeilm76/km-exports test
+   pnpm --filter @komeilm76/km-exports build
+   grep -rn "^import.*zod" packages/km-exports/dist/
    ```
 
 ## Acceptance Criteria
@@ -88,14 +88,14 @@ All 5 export functions and the filter utility are working and documented.
 - [ ] Raster Export Notes section explains consumer-side execution
 - [ ] All 5 error codes documented
 - [ ] `CHANGELOG.md` updated with all additions from 06-01 to 06-07
-- [ ] `pnpm --filter @yourscope/exports lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/exports test` — all tests green
-- [ ] `pnpm --filter @yourscope/exports build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-exports test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-exports build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` — returns empty
 
 ## Notes
 - After this page, Chapter 06 is complete. Only Chapter 07 (plugins) remains.
-- Verify that `packages/exports/src/index.ts` exports all public symbols:
+- Verify that `packages/km-exports/src/index.ts` exports all public symbols:
   `applyExportFilter`, `exportToSvg`, `exportToGeoJson`, `exportToOpenLayers`,
   `exportToPdfMeta`, `exportToRasterPlan`, and all types from `types.ts`.
 - The consumer canvas example in `help.md` is the only place in the entire

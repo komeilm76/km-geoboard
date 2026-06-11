@@ -17,12 +17,12 @@
 - [ ] `artboardsOverlap.ts` created and exported
 - [ ] `artboardsOverlap` returns `true` for touching edges
 - [ ] `artboardsOverlap` returns `true` when one artboard is inside another
-- [ ] All 6 functions exported from `packages/artboard/src/index.ts`
+- [ ] All 6 functions exported from `packages/km-artboard/src/index.ts`
 - [ ] JSDoc with `@param`, `@returns`, `@example` on every function
 - [ ] No `any` in any signature
 - [ ] `resizeArtboard.test.ts` covers partial overrides and `too-small`
 - [ ] `moveArtboard.test.ts` covers positive, negative, and zero delta
 - [ ] `artboardGeometry.test.ts` covers round-trip, all edge cases for contains and overlap
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty

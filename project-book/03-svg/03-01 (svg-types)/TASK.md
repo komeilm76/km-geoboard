@@ -1,13 +1,13 @@
 # Page 03-01 — SVG Types
 
 ## Summary
-Creates the `@yourscope/svg` package skeleton and defines every TypeScript type
+Creates the `@komeilm76/km-svg` package skeleton and defines every TypeScript type
 for SVG content: `SvgViewBox`, `SvgLength`, `SvgColor`, `SvgTransform`,
 `SvgPresentationAttributes`, `SvgCoreAttributes`, all element types, `SvgElement`
 union, and `SvgDocument`. No Zod, no parsing logic — types only.
 
 ## Target
-`packages/svg/src/types.ts` exports all SVG types.
+`packages/km-svg/src/types.ts` exports all SVG types.
 The package skeleton builds cleanly.
 
 ## Dependencies
@@ -21,18 +21,18 @@ The package skeleton builds cleanly.
 
 | File | Purpose |
 |---|---|
-| `packages/svg/src/types.ts` | All SVG TypeScript types |
-| `packages/svg/src/index.ts` | Public re-exports |
-| `packages/svg/package.json` | Package manifest |
-| `packages/svg/tsconfig.json` | Extends root config |
-| `packages/svg/tsup.config.ts` | Build config |
-| `packages/svg/help.md` | Documentation stub |
-| `packages/svg/CHANGELOG.md` | Version history |
-| `packages/svg/README.md` | npm display page |
+| `packages/km-svg/src/types.ts` | All SVG TypeScript types |
+| `packages/km-svg/src/index.ts` | Public re-exports |
+| `packages/km-svg/package.json` | Package manifest |
+| `packages/km-svg/tsconfig.json` | Extends root config |
+| `packages/km-svg/tsup.config.ts` | Build config |
+| `packages/km-svg/help.md` | Documentation stub |
+| `packages/km-svg/CHANGELOG.md` | Version history |
+| `packages/km-svg/README.md` | npm display page |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/svg/src/types.ts`. No Zod imports.
+1. Create `packages/km-svg/src/types.ts`. No Zod imports.
 
 2. Define `SvgViewBox`:
    `{ minX: number; minY: number; width: number; height: number }`.

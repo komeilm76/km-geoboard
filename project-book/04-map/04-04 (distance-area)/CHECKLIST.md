@@ -16,5 +16,5 @@
 - [x] Test: `polygonArea` known square near equator
 - [x] Tests use appropriate tolerance (`toBeCloseTo` or percentage check)
 - [x] All tests pass
-- [x] `pnpm --filter @yourscope/map build` succeeds
-- [x] `grep -rn "^import.*zod" packages/map/dist/` returns empty
+- [x] `pnpm --filter @komeilm76/km-map build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-map/dist/` returns empty

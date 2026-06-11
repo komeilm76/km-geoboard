@@ -1,11 +1,11 @@
 # Page 04-06 — Map Package Finalization
 
 ## Summary
-Completes `packages/map/help.md` with the full API reference, updates
+Completes `packages/km-map/help.md` with the full API reference, updates
 `CHANGELOG.md`, and runs the CI suite to sign off the map chapter.
 
 ## Target
-`packages/map/help.md` complete. All tests pass. CI passes.
+`packages/km-map/help.md` complete. All tests pass. CI passes.
 
 ## Dependencies
 - Page 04-05 (bounds)
@@ -18,12 +18,12 @@ Completes `packages/map/help.md` with the full API reference, updates
 
 | File | Purpose |
 |---|---|
-| `packages/map/help.md` | Complete API documentation |
-| `packages/map/CHANGELOG.md` | Updated |
+| `packages/km-map/help.md` | Complete API documentation |
+| `packages/km-map/CHANGELOG.md` | Updated |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/map/help.md`:
+1. Write `packages/km-map/help.md`:
 
    **Overview** — "Pure coordinate math and geographic utilities. No map renderer
    required. Works in Node.js, browser, and edge runtimes."
@@ -50,10 +50,10 @@ Completes `packages/map/help.md` with the full API reference, updates
 
 3. Run full CI:
    ```bash
-   pnpm --filter @yourscope/map lint
-   pnpm --filter @yourscope/map test
-   pnpm --filter @yourscope/map build
-   grep -rn "^import.*zod" packages/map/dist/
+   pnpm --filter @komeilm76/km-map lint
+   pnpm --filter @komeilm76/km-map test
+   pnpm --filter @komeilm76/km-map build
+   grep -rn "^import.*zod" packages/km-map/dist/
    ```
 
 ## Acceptance Criteria
@@ -67,4 +67,4 @@ Completes `packages/map/help.md` with the full API reference, updates
 
 ## Notes
 - After this page, Chapter 04 is complete. Chapters 05 and 06 can now depend
-  on `@yourscope/map`.
+  on `@komeilm76/km-map`.

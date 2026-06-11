@@ -1,6 +1,6 @@
 # Checklist — Page 03-01 SVG Types
 
-- [ ] `packages/svg/src/types.ts` created — no Zod imports
+- [ ] `packages/km-svg/src/types.ts` created — no Zod imports
 - [ ] `SvgViewBox` exported with `minX`, `minY`, `width`, `height`
 - [ ] `SvgLengthUnit` exported with all 14 unit variants
 - [ ] `SvgLength` exported with `value: number` and `unit: SvgLengthUnit`
@@ -23,6 +23,6 @@
 - [ ] `SvgDocument` exported with `viewBox?`, `width?`, `height?`, `elements`
 - [ ] `SvgGeoMeta` exported with `svgBounds`, `geoBounds`, optional `crs`
 - [ ] All types re-exported from `index.ts`
-- [ ] `packages/svg/package.json` correct name, version, deps
-- [ ] `pnpm --filter @yourscope/svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty
+- [ ] `packages/km-svg/package.json` correct name, version, deps
+- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

@@ -7,7 +7,7 @@ and implements all 6 methods of the `PluginRegistry` interface. Dependency
 resolution and cycle detection are handled in the next page.
 
 ## Target
-`packages/plugins/src/createPluginRegistry.ts` exports `createPluginRegistry`.
+`packages/km-plugins/src/createPluginRegistry.ts` exports `createPluginRegistry`.
 Basic registration (no dependencies, no conflicts) is fully working and tested.
 Conflict detection is also implemented here.
 
@@ -22,12 +22,12 @@ Conflict detection is also implemented here.
 
 | File | Purpose |
 |---|---|
-| `packages/plugins/src/createPluginRegistry.ts` | Registry implementation |
-| `packages/plugins/tests/createPluginRegistry.test.ts` | Tests |
+| `packages/km-plugins/src/createPluginRegistry.ts` | Registry implementation |
+| `packages/km-plugins/tests/createPluginRegistry.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/plugins/src/createPluginRegistry.ts`.
+1. Create `packages/km-plugins/src/createPluginRegistry.ts`.
 
 2. The factory function returns a closure over a private `Map`:
    ```ts

@@ -4,10 +4,10 @@
 Implements `latLngToMercator`, `mercatorToLatLng`, `latLngToPixel`, and
 `pixelToLatLng` — the four coordinate-system conversion functions.
 Each forward function has a paired reverse. All are pure math with no external
-dependencies beyond `@yourscope/shared`.
+dependencies beyond `@komeilm76/km-shared`.
 
 ## Target
-`packages/map/src/projection.ts` exports all 4 functions with tests.
+`packages/km-map/src/projection.ts` exports all 4 functions with tests.
 Round-trip invariants pass within floating-point tolerance.
 
 ## Dependencies
@@ -20,12 +20,12 @@ Round-trip invariants pass within floating-point tolerance.
 
 | File | Purpose |
 |---|---|
-| `packages/map/src/projection.ts` | All 4 projection functions |
-| `packages/map/tests/projection.test.ts` | Round-trip and known-value tests |
+| `packages/km-map/src/projection.ts` | All 4 projection functions |
+| `packages/km-map/tests/projection.test.ts` | Round-trip and known-value tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/map/src/projection.ts`.
+1. Create `packages/km-map/src/projection.ts`.
 
 2. Implement `latLngToMercator(latLng: LatLng): MercatorPoint`:
    ```ts
@@ -58,7 +58,7 @@ Round-trip invariants pass within floating-point tolerance.
 5. Implement `pixelToLatLng(pixel: PixelPoint, zoom: number): LatLng` — reverse.
 
 6. Add JSDoc with `@param`, `@returns`, `@example` to all 4 functions.
-7. Export all 4 from `packages/map/src/index.ts`.
+7. Export all 4 from `packages/km-map/src/index.ts`.
 
 8. Write `tests/projection.test.ts`:
    - `latLngToMercator` / `mercatorToLatLng` round-trip for several points

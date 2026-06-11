@@ -7,8 +7,8 @@ matching schema), adds a schema for `Artboard` itself, and runs the full
 test suite and CI checks to confirm the package is ready.
 
 ## Target
-`packages/artboard/help.md` is complete with all function and type docs.
-`packages/artboard/src/schemas.ts` has an `ArtboardSchema` that matches
+`packages/km-artboard/help.md` is complete with all function and type docs.
+`packages/km-artboard/src/schemas.ts` has an `ArtboardSchema` that matches
 the `Artboard` type exactly. All tests pass. CI checks pass.
 
 ## Dependencies
@@ -23,15 +23,15 @@ the `Artboard` type exactly. All tests pass. CI checks pass.
 
 | File | Purpose |
 |---|---|
-| `packages/artboard/src/schemas.ts` | Updated with `ArtboardSchema` and type-check assertion |
-| `packages/artboard/help.md` | Complete API documentation |
+| `packages/km-artboard/src/schemas.ts` | Updated with `ArtboardSchema` and type-check assertion |
+| `packages/km-artboard/help.md` | Complete API documentation |
 
 ## Step-by-Step Instructions
 
-1. Open `packages/artboard/src/schemas.ts` and add `ArtboardSchema`:
+1. Open `packages/km-artboard/src/schemas.ts` and add `ArtboardSchema`:
    ```ts
    import { z } from "zod";
-   import { finiteNumber, uuid, nonEmptyString, unixTimestampMs } from "@yourscope/shared";
+   import { finiteNumber, uuid, nonEmptyString, unixTimestampMs } from "@komeilm76/km-shared";
 
    const PointSchema = z.object({
      x: finiteNumber(),
@@ -69,14 +69,14 @@ the `Artboard` type exactly. All tests pass. CI checks pass.
    void _assertArtboard;
    ```
 
-3. Export `ArtboardSchema` from `packages/artboard/src/index.ts`.
+3. Export `ArtboardSchema` from `packages/km-artboard/src/index.ts`.
    (Schemas are exported when consumers may need to validate artboard data.)
 
-4. Write `packages/artboard/help.md` with all required sections:
+4. Write `packages/km-artboard/help.md` with all required sections:
 
    **Overview** — what the artboard package does, when to use it.
 
-   **Installation** — `npm install @yourscope/artboard`.
+   **Installation** — `npm install @komeilm76/km-artboard`.
 
    **Functions** — one subsection per function:
    - `createArtboard` — input table, output description, example.
@@ -92,14 +92,14 @@ the `Artboard` type exactly. All tests pass. CI checks pass.
 
    **Errors** — table with `reason` values `"too-small"` and `"invalid-input"`.
 
-5. Update `packages/artboard/CHANGELOG.md` with all additions under `## [0.1.0]`.
+5. Update `packages/km-artboard/CHANGELOG.md` with all additions under `## [0.1.0]`.
 
 6. Run the full suite:
    ```bash
-   pnpm --filter @yourscope/artboard lint
-   pnpm --filter @yourscope/artboard test
-   pnpm --filter @yourscope/artboard build
-   grep -rn "^import.*zod" packages/artboard/dist/
+   pnpm --filter @komeilm76/km-artboard lint
+   pnpm --filter @komeilm76/km-artboard test
+   pnpm --filter @komeilm76/km-artboard build
+   grep -rn "^import.*zod" packages/km-artboard/dist/
    ```
    All must pass / return empty.
 
@@ -111,10 +111,10 @@ the `Artboard` type exactly. All tests pass. CI checks pass.
 - [ ] `help.md` has all required sections (Overview, Installation, Functions, Types, Errors)
 - [ ] Every function has an input table and a code example in `help.md`
 - [ ] `CHANGELOG.md` covers all items added in pages 01-01 through 01-05
-- [ ] `pnpm --filter @yourscope/artboard lint` passes (zero TypeScript errors)
-- [ ] `pnpm --filter @yourscope/artboard test` passes (all tests green)
-- [ ] `pnpm --filter @yourscope/artboard build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-artboard lint` passes (zero TypeScript errors)
+- [ ] `pnpm --filter @komeilm76/km-artboard test` passes (all tests green)
+- [ ] `pnpm --filter @komeilm76/km-artboard build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 
 ## Notes
 - The type-divergence guard is a compile-time assertion, not a runtime check.

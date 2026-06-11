@@ -23,14 +23,14 @@ The functions are split across focused files: `parse.ts`, `geometry.ts`,
 
 | File | Purpose |
 |---|---|
-| `packages/geojson/src/parse.ts` | `parseGeoJson`, `parseGeoJsonFeature`, `parseGeoJsonFeatureCollection` |
-| `packages/geojson/src/geometry.ts` | `getGeometryBoundingBox`, `flattenGeometryCollection` |
-| `packages/geojson/src/feature.ts` | `featureFromGeometry`, `collectionFromFeatures` |
-| `packages/geojson/src/guards.ts` | `isGeoJsonGeometry` |
-| `packages/geojson/tests/parse.test.ts` | Parse tests |
-| `packages/geojson/tests/geometry.test.ts` | Geometry utility tests |
-| `packages/geojson/tests/feature.test.ts` | Feature utility tests |
-| `packages/geojson/tests/guards.test.ts` | Type guard tests |
+| `packages/km-geojson/src/parse.ts` | `parseGeoJson`, `parseGeoJsonFeature`, `parseGeoJsonFeatureCollection` |
+| `packages/km-geojson/src/geometry.ts` | `getGeometryBoundingBox`, `flattenGeometryCollection` |
+| `packages/km-geojson/src/feature.ts` | `featureFromGeometry`, `collectionFromFeatures` |
+| `packages/km-geojson/src/guards.ts` | `isGeoJsonGeometry` |
+| `packages/km-geojson/tests/parse.test.ts` | Parse tests |
+| `packages/km-geojson/tests/geometry.test.ts` | Geometry utility tests |
+| `packages/km-geojson/tests/feature.test.ts` | Feature utility tests |
+| `packages/km-geojson/tests/guards.test.ts` | Type guard tests |
 
 ## Step-by-Step Instructions
 
@@ -69,7 +69,7 @@ The functions are split across focused files: `parse.ts`, `geometry.ts`,
    If it is, recursively flatten all children.
 
 ### Export and test
-10. Export all 8 functions from `packages/geojson/src/index.ts`.
+10. Export all 8 functions from `packages/km-geojson/src/index.ts`.
 11. Write tests:
     - `parse.test.ts`: valid Point, valid FeatureCollection, invalid JSON,
       null geometry feature, ring-not-closed polygon (must fail).

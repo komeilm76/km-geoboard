@@ -15,5 +15,5 @@
 - [x] Tests: `tileToQuadKey` / `quadKeyToTile` round-trip
 - [x] Tests: `quadKeyToTile` error on invalid input
 - [x] All tests pass
-- [x] `pnpm --filter @yourscope/map build` succeeds
-- [x] `grep -rn "^import.*zod" packages/map/dist/` returns empty
+- [x] `pnpm --filter @komeilm76/km-map build` succeeds
+- [x] `grep -rn "^import.*zod" packages/km-map/dist/` returns empty

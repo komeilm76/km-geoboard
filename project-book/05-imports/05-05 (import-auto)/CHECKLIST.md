@@ -16,5 +16,5 @@
 - [ ] Tests cover all 5 detection cases
 - [ ] `importAuto.test.ts` covers all 5 dispatch paths
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/imports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/imports/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-imports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-imports/dist/` returns empty

@@ -8,6 +8,6 @@ on: push/PR
   job release (manual/tag): changesets publish to npm
 ```
 
-Plus a second workflow that consumes the built `km-shared` in a scratch TypeScript project
+Plus a second workflow that consumes the built `@komeilm76/km-shared` in a scratch TypeScript project
 and runs `tsc --noEmit` with a time budget — an automated regression test for the IDE-hang
 problem itself (this is the check `zod_hang.md` §8 describes, automated).

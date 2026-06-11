@@ -1,13 +1,13 @@
 # Page 02-01 — GeoJSON Types
 
 ## Summary
-Creates the `@yourscope/geojson` package and defines every TypeScript type
+Creates the `@komeilm76/km-geojson` package and defines every TypeScript type
 from RFC 7946: all geometry types, `Feature`, `FeatureCollection`, and the
 helper types `Position`, `BoundingBox`, and `LinearRing`. No Zod schemas yet —
 types only.
 
 ## Target
-`packages/geojson/src/types.ts` exports all 14 GeoJSON types.
+`packages/km-geojson/src/types.ts` exports all 14 GeoJSON types.
 The package skeleton is in place and builds cleanly.
 
 ## Dependencies
@@ -22,18 +22,18 @@ The package skeleton is in place and builds cleanly.
 
 | File | Purpose |
 |---|---|
-| `packages/geojson/src/types.ts` | All GeoJSON TypeScript types |
-| `packages/geojson/src/index.ts` | Public re-exports |
-| `packages/geojson/package.json` | Package manifest |
-| `packages/geojson/tsconfig.json` | Extends root config |
-| `packages/geojson/tsup.config.ts` | Build config |
-| `packages/geojson/help.md` | Documentation stub |
-| `packages/geojson/CHANGELOG.md` | Version history |
-| `packages/geojson/README.md` | npm display page |
+| `packages/km-geojson/src/types.ts` | All GeoJSON TypeScript types |
+| `packages/km-geojson/src/index.ts` | Public re-exports |
+| `packages/km-geojson/package.json` | Package manifest |
+| `packages/km-geojson/tsconfig.json` | Extends root config |
+| `packages/km-geojson/tsup.config.ts` | Build config |
+| `packages/km-geojson/help.md` | Documentation stub |
+| `packages/km-geojson/CHANGELOG.md` | Version history |
+| `packages/km-geojson/README.md` | npm display page |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/geojson/src/types.ts`. No Zod imports — types only.
+1. Create `packages/km-geojson/src/types.ts`. No Zod imports — types only.
 
 2. Define in order:
    ```ts
@@ -77,17 +77,17 @@ The package skeleton is in place and builds cleanly.
 8. Add JSDoc to every type explaining its RFC 7946 role. Include the critical
    coordinate-order note on `Position`: "longitude first, latitude second."
 
-9. Create `packages/geojson/src/index.ts` exporting all 14 types.
+9. Create `packages/km-geojson/src/index.ts` exporting all 14 types.
 
-10. Create `packages/geojson/package.json`:
-    - `"name": "@yourscope/geojson"`, `"version": "0.1.0"`.
-    - Dependency on `@yourscope/shared`.
+10. Create `packages/km-geojson/package.json`:
+    - `"name": "@komeilm76/km-geojson"`, `"version": "0.1.0"`.
+    - Dependency on `@komeilm76/km-shared`.
     - `zod` as peerDependency and devDependency.
     - `check-zod` script.
 
 11. Create `tsconfig.json`, `tsup.config.ts`, `help.md` stub, `CHANGELOG.md`, `README.md`.
 
-12. Run `pnpm --filter @yourscope/geojson build`. Confirm success and empty Zod check.
+12. Run `pnpm --filter @komeilm76/km-geojson build`. Confirm success and empty Zod check.
 
 ## Acceptance Criteria
 
@@ -101,7 +101,7 @@ The package skeleton is in place and builds cleanly.
 - [ ] `properties` field on `GeoJsonFeature` accepts `null`
 - [ ] JSDoc on every type including the longitude-first note on `Position`
 - [ ] Build succeeds with no TypeScript errors
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty
 
 ## Notes
 - The **longitude-first** ordering of `Position` is a frequent source of bugs.

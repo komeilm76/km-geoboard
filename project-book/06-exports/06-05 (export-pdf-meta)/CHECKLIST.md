@@ -14,5 +14,5 @@
 - [ ] Tests: A4 portrait, A4 landscape, custom page size, svgContent present
 - [ ] Tests: title/author preserved, exportToSvg error propagated
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/exports build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` returns empty

@@ -6,13 +6,13 @@ three functions that handle reading and writing SVG content as structured data.
 These are pure string → data → string transformations with no DOM dependency.
 
 ## Target
-`packages/svg/src/parseSvgDocument.ts`, `parseSvgPath.ts`, and
+`packages/km-svg/src/parseSvgDocument.ts`, `parseSvgPath.ts`, and
 `serializeSvgPath.ts` all exist, are exported, and pass their tests.
 
 ## Dependencies
 - Page 03-02 (svg-schemas)
-- Page 02-01 (geojson-types) — `@yourscope/geojson` is not a dep yet, but
-  `@yourscope/shared` `Result<T>` is needed.
+- Page 02-01 (geojson-types) — `@komeilm76/km-geojson` is not a dep yet, but
+  `@komeilm76/km-shared` `Result<T>` is needed.
 
 ## Inputs
 - `DT-SVG.md` — full specs for `parseSvgDocument`, `parseSvgPath`,
@@ -22,22 +22,22 @@ These are pure string → data → string transformations with no DOM dependency
 
 | File | Purpose |
 |---|---|
-| `packages/svg/src/parseSvgDocument.ts` | SVG XML string → `SvgDocument` |
-| `packages/svg/src/parseSvgPath.ts` | Path `d` string → `SvgPathCommand[]` |
-| `packages/svg/src/serializeSvgPath.ts` | `SvgPathCommand[]` → path `d` string |
-| `packages/svg/tests/parseSvgDocument.test.ts` | Tests |
-| `packages/svg/tests/parseSvgPath.test.ts` | Tests |
+| `packages/km-svg/src/parseSvgDocument.ts` | SVG XML string → `SvgDocument` |
+| `packages/km-svg/src/parseSvgPath.ts` | Path `d` string → `SvgPathCommand[]` |
+| `packages/km-svg/src/serializeSvgPath.ts` | `SvgPathCommand[]` → path `d` string |
+| `packages/km-svg/tests/parseSvgDocument.test.ts` | Tests |
+| `packages/km-svg/tests/parseSvgPath.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
 ### `parseSvgDocument`
-1. Create `packages/svg/src/parseSvgDocument.ts`.
+1. Create `packages/km-svg/src/parseSvgDocument.ts`.
 2. Function: `parseSvgDocument(svgString: string): Result<SvgDocument>`.
 3. Use the browser-compatible `DOMParser` API — but since this package has no
    DOM dependency, use a **pure XML parser library** instead.
    Install `fast-xml-parser` as a dependency:
    ```bash
-   pnpm --filter @yourscope/svg add fast-xml-parser
+   pnpm --filter @komeilm76/km-svg add fast-xml-parser
    ```
 4. Parse the SVG XML string into a JSON representation.
 5. Walk the parsed tree and convert each node into the correct `SvgElement`
@@ -55,7 +55,7 @@ These are pure string → data → string transformations with no DOM dependency
    `{ success: false, error: { code: "invalid-xml", ... } }`.
 
 ### `parseSvgPath`
-10. Create `packages/svg/src/parseSvgPath.ts`.
+10. Create `packages/km-svg/src/parseSvgPath.ts`.
 11. Function: `parseSvgPath(d: string): Result<SvgPathCommand[]>`.
 12. Implement a hand-written tokenizer for SVG path data:
     - Split on command letters (M, m, L, l, H, h, V, v, C, c, S, s, Q, q, T, t, A, a, Z, z).
@@ -64,7 +64,7 @@ These are pure string → data → string transformations with no DOM dependency
 13. Handle both absolute and relative command variants.
 
 ### `serializeSvgPath`
-14. Create `packages/svg/src/serializeSvgPath.ts`.
+14. Create `packages/km-svg/src/serializeSvgPath.ts`.
 15. Function: `serializeSvgPath(commands: SvgPathCommand[]): string`.
     This function cannot fail — it returns a plain string.
 16. For each command, format as `"CMD arg1,arg2,..."` and join with `" "`.

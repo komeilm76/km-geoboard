@@ -1,17 +1,17 @@
 # Page 05-03 — Import SVG
 
 ## Summary
-Implements `importSvg` — wraps `parseSvgDocument` from `@yourscope/svg` in the
+Implements `importSvg` — wraps `parseSvgDocument` from `@komeilm76/km-svg` in the
 `ImportResult` interface and translates error codes. Unsupported SVG elements
 produce warnings, not errors.
 
 ## Target
-`packages/imports/src/importSvg.ts` exports `importSvg`.
+`packages/km-imports/src/importSvg.ts` exports `importSvg`.
 Tests verify warning generation for unsupported elements.
 
 ## Dependencies
 - Page 05-01 (import-types)
-- Page 03-03 (svg-parse) — `parseSvgDocument` from `@yourscope/svg`
+- Page 03-03 (svg-parse) — `parseSvgDocument` from `@komeilm76/km-svg`
 
 ## Inputs
 - `DT-Imports.md` — `importSvg` spec, warning vs error distinction.
@@ -21,15 +21,15 @@ Tests verify warning generation for unsupported elements.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/importSvg.ts` | `importSvg` implementation |
-| `packages/imports/tests/importSvg.test.ts` | Tests |
+| `packages/km-imports/src/importSvg.ts` | `importSvg` implementation |
+| `packages/km-imports/tests/importSvg.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/imports/src/importSvg.ts`.
+1. Create `packages/km-imports/src/importSvg.ts`.
 2. Function: `importSvg(svgString: string): ImportResult<SvgDocument>`.
 3. Guard: if `svgString` is empty, return `"empty-input"` error.
-4. Call `parseSvgDocument(svgString)` from `@yourscope/svg`.
+4. Call `parseSvgDocument(svgString)` from `@komeilm76/km-svg`.
 5. On `parseSvgDocument` failure: map `"invalid-xml"` to the import error.
 6. On success: collect any warnings about skipped elements from the parse result
    and translate them into `ImportWarning` objects with `code: "unsupported-svg-element"`.
@@ -60,7 +60,7 @@ standard `GeoJsonFeatureCollection`. Strips the `crs` field and emits a warning
 if it differs from EPSG:4326.
 
 ## Target
-`packages/imports/src/importOpenLayers.ts` exports `importOpenLayers`.
+`packages/km-imports/src/importOpenLayers.ts` exports `importOpenLayers`.
 CRS stripping and warning behavior tested.
 
 ## Dependencies
@@ -73,12 +73,12 @@ CRS stripping and warning behavior tested.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/importOpenLayers.ts` | `importOpenLayers` implementation |
-| `packages/imports/tests/importOpenLayers.test.ts` | Tests |
+| `packages/km-imports/src/importOpenLayers.ts` | `importOpenLayers` implementation |
+| `packages/km-imports/tests/importOpenLayers.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/imports/src/importOpenLayers.ts`.
+1. Create `packages/km-imports/src/importOpenLayers.ts`.
 2. Function: `importOpenLayers(raw: string | unknown): ImportResult<GeoJsonFeatureCollection>`.
 3. Parse the raw input (JSON string or object).
 4. Extract and strip the `crs` field if present.
@@ -121,15 +121,15 @@ All three functions exist, are exported, and are tested.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/importArtboardSnapshot.ts` | `importArtboardSnapshot` |
-| `packages/imports/src/detectImportFormat.ts` | `detectImportFormat` |
-| `packages/imports/src/importAuto.ts` | `importAuto` |
-| `packages/imports/tests/importAuto.test.ts` | Tests |
+| `packages/km-imports/src/importArtboardSnapshot.ts` | `importArtboardSnapshot` |
+| `packages/km-imports/src/detectImportFormat.ts` | `detectImportFormat` |
+| `packages/km-imports/src/importAuto.ts` | `importAuto` |
+| `packages/km-imports/tests/importAuto.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
 ### `importArtboardSnapshot`
-1. Import `ArtboardSchema` from `@yourscope/artboard`.
+1. Import `ArtboardSchema` from `@komeilm76/km-artboard`.
 2. Validate raw input against `z.array(ArtboardSchema).safeParse(parsed)`.
 3. Return `ImportResult<Artboard[]>`.
 
@@ -166,7 +166,7 @@ All three functions exist, are exported, and are tested.
 Completes `help.md`, updates `CHANGELOG.md`, and signs off the imports chapter.
 
 ## Target
-`packages/imports/help.md` complete. CI passes.
+`packages/km-imports/help.md` complete. CI passes.
 
 ## Dependencies
 - Page 05-05
@@ -175,12 +175,12 @@ Completes `help.md`, updates `CHANGELOG.md`, and signs off the imports chapter.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/help.md` | Complete API documentation |
-| `packages/imports/CHANGELOG.md` | Updated |
+| `packages/km-imports/help.md` | Complete API documentation |
+| `packages/km-imports/CHANGELOG.md` | Updated |
 
 ## Step-by-Step Instructions
 
-1. Write `packages/imports/help.md`:
+1. Write `packages/km-imports/help.md`:
 
    **Overview** — "Parse raw strings and objects into typed internal structures.
    Supports GeoJSON, SVG, OpenLayers, and artboard snapshots."
@@ -197,7 +197,7 @@ Completes `help.md`, updates `CHANGELOG.md`, and signs off the imports chapter.
 
    **Error Codes** — all 7 codes with descriptions.
 
-2. Run full CI for `@yourscope/imports`.
+2. Run full CI for `@komeilm76/km-imports`.
 
 ## Acceptance Criteria
 

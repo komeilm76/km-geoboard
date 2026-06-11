@@ -6,8 +6,8 @@ and `polygonArea` — geographic math functions for measuring and navigating
 the Earth's surface.
 
 ## Target
-`packages/map/src/distance.ts` exports all 5 functions with tests.
-`polygonArea` uses `GeoJsonPolygon` from `@yourscope/geojson`.
+`packages/km-map/src/distance.ts` exports all 5 functions with tests.
+`polygonArea` uses `GeoJsonPolygon` from `@komeilm76/km-geojson`.
 
 ## Dependencies
 - Page 04-01 (map-types)
@@ -20,12 +20,12 @@ the Earth's surface.
 
 | File | Purpose |
 |---|---|
-| `packages/map/src/distance.ts` | All 5 distance/bearing/area functions |
-| `packages/map/tests/distance.test.ts` | Tests with known geographic values |
+| `packages/km-map/src/distance.ts` | All 5 distance/bearing/area functions |
+| `packages/km-map/tests/distance.test.ts` | Tests with known geographic values |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/map/src/distance.ts`.
+1. Create `packages/km-map/src/distance.ts`.
    Define a module-level constant: `const R = 6378137;` (WGS84 radius in meters).
 
 2. Implement `haversineDistance(from: LatLng, to: LatLng): number`:

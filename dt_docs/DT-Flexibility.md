@@ -42,7 +42,7 @@ If a consumer wants to connect a package to a canvas, that is their responsibili
 └── README.md
 ```
 
-Each package is independently publishable to npm as `@yourscope/<name>`.
+Each package is independently publishable to npm as `@komeilm76/km-<name>`.
 
 ---
 
@@ -71,7 +71,7 @@ packages/<name>/
 
 ```json
 {
-  "name": "@yourscope/artboard",
+  "name": "@komeilm76/km-artboard",
   "version": "0.1.0",
   "type": "module",
   "exports": {

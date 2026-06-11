@@ -6,8 +6,8 @@ and produces a normalized `Artboard` object. Also creates `schemas.ts` with the
 Zod input schema, which validates all incoming data before any computation runs.
 
 ## Target
-`packages/artboard/src/createArtboard.ts` exports `createArtboard`.
-`packages/artboard/src/schemas.ts` exports `CreateArtboardInputSchema`.
+`packages/km-artboard/src/createArtboard.ts` exports `createArtboard`.
+`packages/km-artboard/src/schemas.ts` exports `CreateArtboardInputSchema`.
 All tests pass. No Zod types appear in `dist/` declaration files.
 
 ## Dependencies
@@ -25,18 +25,18 @@ All tests pass. No Zod types appear in `dist/` declaration files.
 
 | File | Purpose |
 |---|---|
-| `packages/artboard/src/schemas.ts` | `CreateArtboardInputSchema` (Zod v4) |
-| `packages/artboard/src/createArtboard.ts` | Function implementation |
-| `packages/artboard/tests/createArtboard.test.ts` | Vitest tests |
+| `packages/km-artboard/src/schemas.ts` | `CreateArtboardInputSchema` (Zod v4) |
+| `packages/km-artboard/src/createArtboard.ts` | Function implementation |
+| `packages/km-artboard/tests/createArtboard.test.ts` | Vitest tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/artboard/src/schemas.ts`.
-   Import `z` from `'zod'` and the utility functions from `@yourscope/shared`.
+1. Create `packages/km-artboard/src/schemas.ts`.
+   Import `z` from `'zod'` and the utility functions from `@komeilm76/km-shared`.
    Define `CreateArtboardInputSchema`:
    ```ts
    import { z } from "zod";
-   import { finiteNumber, nonEmptyString, uuid } from "@yourscope/shared";
+   import { finiteNumber, nonEmptyString, uuid } from "@komeilm76/km-shared";
 
    export const CreateArtboardInputSchema = z.object({
      startPoint: z.object({ x: finiteNumber(), y: finiteNumber() }),
@@ -47,7 +47,7 @@ All tests pass. No Zod types appear in `dist/` declaration files.
    });
    ```
 
-2. Create `packages/artboard/src/createArtboard.ts`.
+2. Create `packages/km-artboard/src/createArtboard.ts`.
 3. Import `CreateArtboardInput`, `CreateArtboardResult`, `Artboard` from `./types`.
 4. Import `CreateArtboardInputSchema` from `./schemas`.
    **Do not import Zod types in the function signature.**
@@ -88,9 +88,9 @@ All tests pass. No Zod types appear in `dist/` declaration files.
       ```
 6. Add full JSDoc with `@param`, `@returns`, and two `@example` blocks
    (one normal drag, one reverse drag).
-7. Export `createArtboard` from `packages/artboard/src/index.ts`.
+7. Export `createArtboard` from `packages/km-artboard/src/index.ts`.
 
-8. Create `packages/artboard/tests/createArtboard.test.ts`.
+8. Create `packages/km-artboard/tests/createArtboard.test.ts`.
    Write tests covering:
    - Normal drag (top-left → bottom-right): verify `origin` and `size`.
    - Reverse drag (bottom-right → top-left): verify `origin` is normalized.
@@ -108,9 +108,9 @@ All tests pass. No Zod types appear in `dist/` declaration files.
    - `minSize` defaults to `1`.
    - Custom `minSize` is respected.
 
-9. Run `pnpm --filter @yourscope/artboard test`.
-10. Run `pnpm --filter @yourscope/artboard build`.
-11. Run `grep -rn "^import.*zod" packages/artboard/dist/`. Must be empty.
+9. Run `pnpm --filter @komeilm76/km-artboard test`.
+10. Run `pnpm --filter @komeilm76/km-artboard build`.
+11. Run `grep -rn "^import.*zod" packages/km-artboard/dist/`. Must be empty.
 
 ## Acceptance Criteria
 
@@ -124,7 +124,7 @@ All tests pass. No Zod types appear in `dist/` declaration files.
 - [ ] All test cases pass
 - [ ] JSDoc present with `@param`, `@returns`, `@example`
 - [ ] No `any` in signatures
-- [ ] `grep -rn "^import.*zod" packages/artboard/dist/` returns empty
+- [ ] `grep -rn "^import.*zod" packages/km-artboard/dist/` returns empty
 
 ## Notes
 - `crypto.randomUUID()` is called inside the function body, not in the signature.

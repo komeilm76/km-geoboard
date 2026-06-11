@@ -1,6 +1,6 @@
 # Checklist — Page 07-01 Plugin Types
 
-- [ ] `packages/plugins/src/types.ts` created — no Zod imports
+- [ ] `packages/km-plugins/src/types.ts` created — no Zod imports
 - [ ] `PluginId` exported as `string` alias with JSDoc
 - [ ] `PluginVersion` exported as `string` alias with JSDoc
 - [ ] `PluginDependency` exported with `pluginId`, `minVersion`, `optional?`
@@ -18,9 +18,9 @@
 - [ ] `RegistrySnapshot` exported with `plugins` array and `dependencyOrder`
 - [ ] JSDoc on every type and every method signature
 - [ ] All types exported from `index.ts`
-- [ ] `packages/plugins/package.json` depends on `@yourscope/shared` only
-- [ ] `packages/plugins/tsconfig.json` extends root config
-- [ ] `pnpm --filter @yourscope/plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` returns empty
+- [ ] `packages/km-plugins/package.json` depends on `@komeilm76/km-shared` only
+- [ ] `packages/km-plugins/tsconfig.json` extends root config
+- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty
 - [ ] `help.md` stub created
 - [ ] `CHANGELOG.md` has `## [0.1.0]` entry

@@ -1,13 +1,13 @@
 # Page 03-02 — SVG Zod Schemas
 
 ## Summary
-Creates `packages/svg/src/schemas.ts` — Zod v4 schemas for all SVG types.
+Creates `packages/km-svg/src/schemas.ts` — Zod v4 schemas for all SVG types.
 `SvgGroupElement` contains `children: SvgElement[]`, so the element schemas
 require a `z.lazy()` recursive reference. Type-divergence guards confirm
 every schema matches its hand-written type.
 
 ## Target
-`packages/svg/src/schemas.ts` exports all SVG schemas.
+`packages/km-svg/src/schemas.ts` exports all SVG schemas.
 Type guards pass. Build is clean. No Zod in `dist/`.
 
 ## Dependencies
@@ -22,12 +22,12 @@ Type guards pass. Build is clean. No Zod in `dist/`.
 
 | File | Purpose |
 |---|---|
-| `packages/svg/src/schemas.ts` | All SVG Zod schemas |
-| `packages/svg/src/index.ts` | Updated to re-export schemas |
+| `packages/km-svg/src/schemas.ts` | All SVG Zod schemas |
+| `packages/km-svg/src/index.ts` | Updated to re-export schemas |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/svg/src/schemas.ts`.
+1. Create `packages/km-svg/src/schemas.ts`.
 
 2. Define `SvgViewBoxSchema`:
    Four finite numbers: `minX`, `minY`, `width`, `height`.

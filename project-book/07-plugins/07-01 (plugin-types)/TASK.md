@@ -1,13 +1,13 @@
 # Page 07-01 — Plugin Types
 
 ## Summary
-Creates the `@yourscope/plugins` package and defines every type the plugin
+Creates the `@komeilm76/km-plugins` package and defines every type the plugin
 system needs: `PluginId`, `PluginVersion`, `PluginDependency`, `PluginConflict`,
 `Plugin<API>`, `PluginDepsMap`, `PluginRegistration<API>`, `PluginRegistry`,
 and `RegistrySnapshot`. No implementation — types only.
 
 ## Target
-`packages/plugins/src/types.ts` exports all plugin types.
+`packages/km-plugins/src/types.ts` exports all plugin types.
 Package skeleton builds cleanly.
 
 ## Dependencies
@@ -21,18 +21,18 @@ Package skeleton builds cleanly.
 
 | File | Purpose |
 |---|---|
-| `packages/plugins/src/types.ts` | All plugin TypeScript types |
-| `packages/plugins/src/index.ts` | Public re-exports |
-| `packages/plugins/package.json` | Package manifest |
-| `packages/plugins/tsconfig.json` | Extends root config |
-| `packages/plugins/tsup.config.ts` | Build config |
-| `packages/plugins/help.md` | Documentation stub |
-| `packages/plugins/CHANGELOG.md` | Version history |
-| `packages/plugins/README.md` | npm display page |
+| `packages/km-plugins/src/types.ts` | All plugin TypeScript types |
+| `packages/km-plugins/src/index.ts` | Public re-exports |
+| `packages/km-plugins/package.json` | Package manifest |
+| `packages/km-plugins/tsconfig.json` | Extends root config |
+| `packages/km-plugins/tsup.config.ts` | Build config |
+| `packages/km-plugins/help.md` | Documentation stub |
+| `packages/km-plugins/CHANGELOG.md` | Version history |
+| `packages/km-plugins/README.md` | npm display page |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/plugins/src/types.ts`. No Zod imports.
+1. Create `packages/km-plugins/src/types.ts`. No Zod imports.
 
 2. Define primitive type aliases with JSDoc:
    ```ts
@@ -94,9 +94,9 @@ Package skeleton builds cleanly.
 
 10. Export all types from `index.ts`.
 
-11. Create `packages/plugins/package.json`:
-    - `"name": "@yourscope/plugins"`, `"version": "0.1.0"`.
-    - Dependency: `@yourscope/shared` only.
+11. Create `packages/km-plugins/package.json`:
+    - `"name": "@komeilm76/km-plugins"`, `"version": "0.1.0"`.
+    - Dependency: `@komeilm76/km-shared` only.
     - `zod` as peer + dev.
     - `check-zod` script.
 

@@ -7,7 +7,7 @@ normalized `GeoJsonFeatureCollection`. Handles the three GeoJSON root types
 FeatureCollection.
 
 ## Target
-`packages/imports/src/importGeoJson.ts` exports `importGeoJson`.
+`packages/km-imports/src/importGeoJson.ts` exports `importGeoJson`.
 Tests cover all normalization cases, all error codes, and warning generation.
 
 ## Dependencies
@@ -22,12 +22,12 @@ Tests cover all normalization cases, all error codes, and warning generation.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/importGeoJson.ts` | `importGeoJson` implementation |
-| `packages/imports/tests/importGeoJson.test.ts` | Tests |
+| `packages/km-imports/src/importGeoJson.ts` | `importGeoJson` implementation |
+| `packages/km-imports/tests/importGeoJson.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/imports/src/importGeoJson.ts`.
+1. Create `packages/km-imports/src/importGeoJson.ts`.
 2. Function: `importGeoJson(raw: string | unknown): ImportResult<GeoJsonFeatureCollection>`.
 3. If `raw` is `null`, `undefined`, or an empty string, return `"empty-input"` error.
 4. If `raw` is a string, attempt `JSON.parse`. On failure, return `"invalid-json"` error.

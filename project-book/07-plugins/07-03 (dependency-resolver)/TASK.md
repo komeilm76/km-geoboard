@@ -7,9 +7,9 @@ registration order. Also implements `satisfiesVersion` for semver range checking
 and `debugRegistry` for snapshot logging.
 
 ## Target
-`packages/plugins/src/dependencyResolver.ts` exports `resolveDependencyOrder`
+`packages/km-plugins/src/dependencyResolver.ts` exports `resolveDependencyOrder`
 and `satisfiesVersion`.
-`packages/plugins/src/debugRegistry.ts` exports `debugRegistry`.
+`packages/km-plugins/src/debugRegistry.ts` exports `debugRegistry`.
 The registry is updated to use version checking.
 All tests pass.
 
@@ -24,9 +24,9 @@ All tests pass.
 
 | File | Purpose |
 |---|---|
-| `packages/plugins/src/dependencyResolver.ts` | `resolveDependencyOrder`, `satisfiesVersion` |
-| `packages/plugins/src/debugRegistry.ts` | `debugRegistry` |
-| `packages/plugins/tests/dependencyResolver.test.ts` | Tests |
+| `packages/km-plugins/src/dependencyResolver.ts` | `resolveDependencyOrder`, `satisfiesVersion` |
+| `packages/km-plugins/src/debugRegistry.ts` | `debugRegistry` |
+| `packages/km-plugins/tests/dependencyResolver.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 

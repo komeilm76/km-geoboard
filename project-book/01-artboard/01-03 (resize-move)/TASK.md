@@ -9,7 +9,7 @@ return new objects without mutating inputs.
 
 ## Target
 Six new source files exist, each exporting one function.
-All are exported from `packages/artboard/src/index.ts`.
+All are exported from `packages/km-artboard/src/index.ts`.
 Tests exist for every function.
 
 ## Dependencies
@@ -26,19 +26,19 @@ Tests exist for every function.
 
 | File | Purpose |
 |---|---|
-| `packages/artboard/src/resizeArtboard.ts` | `resizeArtboard` implementation |
-| `packages/artboard/src/moveArtboard.ts` | `moveArtboard` implementation |
-| `packages/artboard/src/artboardToRect.ts` | `artboardToRect` + `artboardFromRect` |
-| `packages/artboard/src/artboardContainsPoint.ts` | `artboardContainsPoint` |
-| `packages/artboard/src/artboardsOverlap.ts` | `artboardsOverlap` |
-| `packages/artboard/tests/resizeArtboard.test.ts` | Tests |
-| `packages/artboard/tests/moveArtboard.test.ts` | Tests |
-| `packages/artboard/tests/artboardGeometry.test.ts` | Tests for rect, contains, overlap |
+| `packages/km-artboard/src/resizeArtboard.ts` | `resizeArtboard` implementation |
+| `packages/km-artboard/src/moveArtboard.ts` | `moveArtboard` implementation |
+| `packages/km-artboard/src/artboardToRect.ts` | `artboardToRect` + `artboardFromRect` |
+| `packages/km-artboard/src/artboardContainsPoint.ts` | `artboardContainsPoint` |
+| `packages/km-artboard/src/artboardsOverlap.ts` | `artboardsOverlap` |
+| `packages/km-artboard/tests/resizeArtboard.test.ts` | Tests |
+| `packages/km-artboard/tests/moveArtboard.test.ts` | Tests |
+| `packages/km-artboard/tests/artboardGeometry.test.ts` | Tests for rect, contains, overlap |
 
 ## Step-by-Step Instructions
 
 ### `resizeArtboard`
-1. Create `packages/artboard/src/resizeArtboard.ts`.
+1. Create `packages/km-artboard/src/resizeArtboard.ts`.
 2. Function signature: `resizeArtboard(input: ResizeArtboardInput): CreateArtboardResult`.
 3. Merge `input.origin` into `artboard.origin` using spread (partial override).
 4. Merge `input.size` into `artboard.size` using spread.
@@ -48,7 +48,7 @@ Tests exist for every function.
 8. Add JSDoc.
 
 ### `moveArtboard`
-1. Create `packages/artboard/src/moveArtboard.ts`.
+1. Create `packages/km-artboard/src/moveArtboard.ts`.
 2. Function signature: `moveArtboard(input: MoveArtboardInput): Artboard`.
    (This function cannot fail — any delta is valid.)
 3. Return:
@@ -64,7 +64,7 @@ Tests exist for every function.
 4. Add JSDoc with `@example`.
 
 ### `artboardToRect` and `artboardFromRect`
-1. Create `packages/artboard/src/artboardToRect.ts`.
+1. Create `packages/km-artboard/src/artboardToRect.ts`.
 2. `artboardToRect(artboard: Artboard): [number, number, number, number]`
    Returns `[origin.x, origin.y, size.width, size.height]`.
 3. `artboardFromRect(rect, options?)` — calls `createArtboard` with
@@ -74,7 +74,7 @@ Tests exist for every function.
 5. Add JSDoc to both, including the `@example` round-trip.
 
 ### `artboardContainsPoint`
-1. Create `packages/artboard/src/artboardContainsPoint.ts`.
+1. Create `packages/km-artboard/src/artboardContainsPoint.ts`.
 2. Function: `artboardContainsPoint(artboard: Artboard, point: Point): boolean`
 3. Return true when:
    ```
@@ -86,7 +86,7 @@ Tests exist for every function.
    (inclusive on all edges per spec).
 
 ### `artboardsOverlap`
-1. Create `packages/artboard/src/artboardsOverlap.ts`.
+1. Create `packages/km-artboard/src/artboardsOverlap.ts`.
 2. Function: `artboardsOverlap(a: Artboard, b: Artboard): boolean`
 3. Two rectangles overlap when they are NOT separated on either axis:
    ```ts
@@ -99,7 +99,7 @@ Tests exist for every function.
    ```
 
 ### Export and test
-4. Add all 6 exports to `packages/artboard/src/index.ts`.
+4. Add all 6 exports to `packages/km-artboard/src/index.ts`.
 5. Write tests for each function covering:
    - `resizeArtboard`: partial origin override, partial size override, `too-small` guard.
    - `moveArtboard`: positive delta, negative delta, zero delta (returns equal artboard).

@@ -7,7 +7,7 @@ artboard dimensions to PDF point units and generates an SVG string scaled to
 the page size.
 
 ## Target
-`packages/exports/src/exportToPdfMeta.ts` exports `exportToPdfMeta`.
+`packages/km-exports/src/exportToPdfMeta.ts` exports `exportToPdfMeta`.
 Tests verify page-size conversion, orientation handling, and SVG scaling.
 
 ## Dependencies
@@ -20,12 +20,12 @@ Tests verify page-size conversion, orientation handling, and SVG scaling.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/exportToPdfMeta.ts` | `exportToPdfMeta` implementation |
-| `packages/exports/tests/exportToPdfMeta.test.ts` | Tests |
+| `packages/km-exports/src/exportToPdfMeta.ts` | `exportToPdfMeta` implementation |
+| `packages/km-exports/tests/exportToPdfMeta.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/exports/src/exportToPdfMeta.ts`.
+1. Create `packages/km-exports/src/exportToPdfMeta.ts`.
 
 2. Define page size constants (in points, 1 pt = 1/72 inch):
    ```ts

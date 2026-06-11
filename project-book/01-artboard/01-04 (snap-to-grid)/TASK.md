@@ -6,7 +6,7 @@ to the nearest grid line. Supports three snapping modes: `"round"` (nearest),
 `"floor"` (towards origin), and `"ceil"` (away from origin).
 
 ## Target
-`packages/artboard/src/snapArtboardToGrid.ts` exists and exports
+`packages/km-artboard/src/snapArtboardToGrid.ts` exists and exports
 `snapArtboardToGrid`. All edge cases (zero grid, negative coordinates) are
 handled. Tests pass.
 
@@ -22,12 +22,12 @@ handled. Tests pass.
 
 | File | Purpose |
 |---|---|
-| `packages/artboard/src/snapArtboardToGrid.ts` | Function implementation |
-| `packages/artboard/tests/snapArtboardToGrid.test.ts` | Vitest tests |
+| `packages/km-artboard/src/snapArtboardToGrid.ts` | Function implementation |
+| `packages/km-artboard/tests/snapArtboardToGrid.test.ts` | Vitest tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/artboard/src/snapArtboardToGrid.ts`.
+1. Create `packages/km-artboard/src/snapArtboardToGrid.ts`.
 2. Function signature: `snapArtboardToGrid(input: SnapArtboardInput): Artboard`.
    (This function cannot fail — snapping is always valid.)
 3. Destructure with defaults:
@@ -56,9 +56,9 @@ handled. Tests pass.
    };
    ```
 8. Add JSDoc with all three mode examples.
-9. Export from `packages/artboard/src/index.ts`.
+9. Export from `packages/km-artboard/src/index.ts`.
 
-10. Create `packages/artboard/tests/snapArtboardToGrid.test.ts`.
+10. Create `packages/km-artboard/tests/snapArtboardToGrid.test.ts`.
     Write tests covering:
     - `"round"` mode: value exactly at midpoint snaps up (0.5 * gridSize).
     - `"round"` mode: value below midpoint snaps down.
@@ -72,7 +72,7 @@ handled. Tests pass.
     - Snapping does not mutate the input artboard.
     - All other artboard fields (`id`, `name`, `createdAt`, etc.) are preserved.
 
-11. Run `pnpm --filter @yourscope/artboard test` and build.
+11. Run `pnpm --filter @komeilm76/km-artboard test` and build.
 
 ## Acceptance Criteria
 

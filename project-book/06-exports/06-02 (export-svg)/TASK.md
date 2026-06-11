@@ -7,7 +7,7 @@ The filter pipeline is also implemented here as a shared utility used by all
 export functions.
 
 ## Target
-`packages/exports/src/exportToSvg.ts` and `packages/exports/src/filter.ts`
+`packages/km-exports/src/exportToSvg.ts` and `packages/km-exports/src/filter.ts`
 exist, are exported, and all tests pass.
 
 ## Dependencies
@@ -22,15 +22,15 @@ exist, are exported, and all tests pass.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/filter.ts` | `applyExportFilter` — shared filter utility |
-| `packages/exports/src/exportToSvg.ts` | `exportToSvg` implementation |
-| `packages/exports/tests/filter.test.ts` | Filter utility tests |
-| `packages/exports/tests/exportToSvg.test.ts` | SVG export tests |
+| `packages/km-exports/src/filter.ts` | `applyExportFilter` — shared filter utility |
+| `packages/km-exports/src/exportToSvg.ts` | `exportToSvg` implementation |
+| `packages/km-exports/tests/filter.test.ts` | Filter utility tests |
+| `packages/km-exports/tests/exportToSvg.test.ts` | SVG export tests |
 
 ## Step-by-Step Instructions
 
 ### `filter.ts`
-1. Create `packages/exports/src/filter.ts`.
+1. Create `packages/km-exports/src/filter.ts`.
 2. Implement `applyExportFilter<T extends { id?: string }>(items: T[], filter?: ExportFilter): T[]`.
    Apply filters in the exact order specified in `DT-Exports.md`:
    1. If `includeIds` is set and non-empty, keep only items whose `id` is in the set.
@@ -43,7 +43,7 @@ exist, are exported, and all tests pass.
 4. Export `applyExportFilter` from `index.ts`.
 
 ### `exportToSvg`
-5. Create `packages/exports/src/exportToSvg.ts`.
+5. Create `packages/km-exports/src/exportToSvg.ts`.
 6. Function: `exportToSvg(options: SvgExportOptions): Result<string>`.
 7. Destructure options with defaults:
    ```ts

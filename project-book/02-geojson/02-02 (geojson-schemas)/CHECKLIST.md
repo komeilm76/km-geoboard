@@ -1,6 +1,6 @@
 # Checklist — Page 02-02 GeoJSON Zod Schemas
 
-- [ ] `packages/geojson/src/schemas.ts` created
+- [ ] `packages/km-geojson/src/schemas.ts` created
 - [ ] `PositionSchema` — union of 2-tuple and 3-tuple
 - [ ] `BoundingBoxSchema` — validates west ≤ east and south ≤ north
 - [ ] `LinearRingSchema` — validates minimum 4 positions
@@ -24,5 +24,5 @@
 - [ ] Type-divergence guard for `GeoJsonFeature` compiles without error
 - [ ] Type-divergence guard for `GeoJsonFeatureCollection` compiles without error
 - [ ] All schemas re-exported from `index.ts`
-- [ ] `pnpm --filter @yourscope/geojson build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-geojson build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` returns empty

@@ -112,7 +112,7 @@ pnpm coverage    # coverage report
 Tests live alongside source files in a `tests/` directory per package:
 
 ```
-packages/artboard/
+packages/km-artboard/
   src/
     createArtboard.ts
   tests/

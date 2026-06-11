@@ -1,12 +1,12 @@
 # Page 05-01 — Import Types
 
 ## Summary
-Creates the `@yourscope/imports` package and defines every type the import
+Creates the `@komeilm76/km-imports` package and defines every type the import
 pipeline needs: `ImportResult<T>`, `ImportError`, `ImportWarning`,
 `ImportErrorCode`, `DetectedFormat`, and `AutoImportResult`.
 
 ## Target
-`packages/imports/src/types.ts` exports all import types. Package skeleton
+`packages/km-imports/src/types.ts` exports all import types. Package skeleton
 builds cleanly.
 
 ## Dependencies
@@ -22,17 +22,17 @@ builds cleanly.
 
 | File | Purpose |
 |---|---|
-| `packages/imports/src/types.ts` | All import pipeline types |
-| `packages/imports/src/index.ts` | Re-exports |
-| `packages/imports/package.json` | Manifest with all 3 package deps |
-| `packages/imports/tsconfig.json` | Extends root |
-| `packages/imports/tsup.config.ts` | Build config |
-| `packages/imports/help.md` | Stub |
-| `packages/imports/CHANGELOG.md` | Version history |
+| `packages/km-imports/src/types.ts` | All import pipeline types |
+| `packages/km-imports/src/index.ts` | Re-exports |
+| `packages/km-imports/package.json` | Manifest with all 3 package deps |
+| `packages/km-imports/tsconfig.json` | Extends root |
+| `packages/km-imports/tsup.config.ts` | Build config |
+| `packages/km-imports/help.md` | Stub |
+| `packages/km-imports/CHANGELOG.md` | Version history |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/imports/src/types.ts`.
+1. Create `packages/km-imports/src/types.ts`.
 
 2. Define `ImportError`:
    ```ts
@@ -72,8 +72,8 @@ builds cleanly.
 
 8. Export all types from `index.ts`.
 
-9. Create `packages/imports/package.json` with dependencies:
-   `@yourscope/shared`, `@yourscope/geojson`, `@yourscope/svg`, `@yourscope/artboard`.
+9. Create `packages/km-imports/package.json` with dependencies:
+   `@komeilm76/km-shared`, `@komeilm76/km-geojson`, `@komeilm76/km-svg`, `@komeilm76/km-artboard`.
    Add `zod` as peer + dev.
 
 10. Create all other package files. Build.
@@ -86,6 +86,6 @@ builds cleanly.
 - [ ] Build succeeds, Zod-leak check passes
 
 ## Notes
-- `ImportResult<T>` is NOT the same as `Result<T>` from `@yourscope/shared`.
+- `ImportResult<T>` is NOT the same as `Result<T>` from `@komeilm76/km-shared`.
   It adds `warnings: ImportWarning[]` to both branches. Use `ImportResult<T>`
   in all importer function signatures, not the generic `Result<T>`.

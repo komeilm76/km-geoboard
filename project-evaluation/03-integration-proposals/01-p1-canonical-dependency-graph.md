@@ -14,7 +14,7 @@ Target state — every arrow is a real `workspace:*` dependency, no duplicated t
 ```
 
 Concrete actions:
-1. `km-exports` (renamed from `exports`): delete its locally re-declared Artboard / SVG /
+1. `@komeilm76/km-exports` (renamed from `exports`): delete its locally re-declared Artboard / SVG /
    GeoJSON / Result types and import them from siblings. Keep only export-specific types
    (`ExportFilter`, `PdfMeta`, `RasterExportPlan`, option types) locally.
 2. Add a type-identity CI check: the `_TypeCheck` pattern from `DT-Zod.md` §Schema

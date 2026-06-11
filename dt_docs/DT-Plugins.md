@@ -279,7 +279,7 @@ If `com.project.renderer.canvas2d` is already registered when this plugin is reg
 ## Example: Writing a Plugin
 
 ```ts
-import { createPluginRegistry, Plugin } from "@yourscope/plugins";
+import { createPluginRegistry, Plugin } from "@komeilm76/km-plugins";
 
 // Plugin A — provides a coordinate converter
 type CoordConverterApi = {

@@ -1,6 +1,12 @@
 # km-geoboard — Project Evaluation & Forward Plan
 
-> Written 2026-06-11. Based on a full read of `dt_docs/`, `project-book/`, `zod_hang.md`,
+> Written 2026-06-11.
+>
+> **Update history:** Phase A completed the same day (see status appendix in
+> `05-roadmap-next-stage/01-phase-a-stabilize.md`). Packages were subsequently renamed
+> to the `@komeilm76/km-*` npm scope; chapters 01–02 describe the **pre-fix historical
+> state** (including the old `@yourscope/*` placeholders) and are kept as a record —
+> do not "re-fix" anything they list. Forward-looking chapters (03–06) use current names. Based on a full read of `dt_docs/`, `project-book/`, `zod_hang.md`,
 > `PACKAGE_STANDARDS.md`, and a hands-on audit of `packages/` (install, build, and test
 > were actually executed — every claim in these documents is verified, not assumed).
 

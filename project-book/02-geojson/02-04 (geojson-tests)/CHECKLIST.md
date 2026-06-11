@@ -8,7 +8,7 @@
 - [ ] `help.md` has Errors section with all 5 error codes
 - [ ] `help.md` has Coordinate System section with longitude-first warning
 - [ ] `CHANGELOG.md` updated with all additions
-- [ ] `pnpm --filter @yourscope/geojson lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/geojson test` — all tests green
-- [ ] `pnpm --filter @yourscope/geojson build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/geojson/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-geojson lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-geojson test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-geojson build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-geojson/dist/` — returns empty

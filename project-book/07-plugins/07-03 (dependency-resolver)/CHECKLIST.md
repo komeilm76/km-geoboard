@@ -21,5 +21,5 @@
 - [ ] Tests: cycle detection
 - [ ] Tests: registry version-mismatch integration test
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/plugins build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/plugins/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-plugins build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-plugins/dist/` returns empty

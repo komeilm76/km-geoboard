@@ -1,6 +1,6 @@
 # Checklist — Page 03-03 SVG Parse Functions
 
-- [ ] `fast-xml-parser` added as dependency in `packages/svg/package.json`
+- [ ] `fast-xml-parser` added as dependency in `packages/km-svg/package.json`
 - [ ] `parseSvgDocument.ts` created and exported
 - [ ] `parseSvgDocument` returns `Result<SvgDocument>`
 - [ ] `parseSvgDocument` uses pure XML parser (no `DOMParser`, no `document`)
@@ -23,5 +23,5 @@
 - [ ] `parseSvgDocument.test.ts` — rect, nested group, viewBox, unsupported element, invalid XML
 - [ ] `parseSvgPath.test.ts` — simple path, curves, arcs, round-trip
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

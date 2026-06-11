@@ -41,6 +41,10 @@ Notable implementation decisions:
 - `-0` normalized in `snapArtboardToGrid`; km-map test constants re-derived
   (R = 6378137) with relative tolerances.
 
+**Post-Phase-A update (same day):** all packages renamed to the `@komeilm76/km-*`
+npm scope (vueuse-style; `km-` is the brand prefix, folders unchanged). Repo now lives
+at github.com/komeilm76/km-geoboard with Changesets + CI/release workflows.
+
 **Next stage: Phase B — Integrate** (`02-phase-b-integrate.md`), starting with
 de-islanding `km-exports` (replace its locally duplicated sibling types with real
 imports from km-artboard/km-geojson/km-svg).

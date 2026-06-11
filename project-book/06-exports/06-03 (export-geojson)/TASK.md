@@ -6,12 +6,12 @@ into a GeoJSON `FeatureCollection` string. Applies the export filter and
 optionally computes a root `bbox`.
 
 ## Target
-`packages/exports/src/exportToGeoJson.ts` exports `exportToGeoJson`.
+`packages/km-exports/src/exportToGeoJson.ts` exports `exportToGeoJson`.
 Tests pass for filtering, bbox computation, and pretty-printing.
 
 ## Dependencies
 - Page 06-02 (export-svg) — `applyExportFilter` is already available
-- Page 02-03 (geojson-parse) — `getGeometryBoundingBox` from `@yourscope/geojson`
+- Page 02-03 (geojson-parse) — `getGeometryBoundingBox` from `@komeilm76/km-geojson`
 
 ## Inputs
 - `DT-Exports.md` — `exportToGeoJson` spec, `GeoJsonExportOptions`.
@@ -21,12 +21,12 @@ Tests pass for filtering, bbox computation, and pretty-printing.
 
 | File | Purpose |
 |---|---|
-| `packages/exports/src/exportToGeoJson.ts` | `exportToGeoJson` implementation |
-| `packages/exports/tests/exportToGeoJson.test.ts` | Tests |
+| `packages/km-exports/src/exportToGeoJson.ts` | `exportToGeoJson` implementation |
+| `packages/km-exports/tests/exportToGeoJson.test.ts` | Tests |
 
 ## Step-by-Step Instructions
 
-1. Create `packages/exports/src/exportToGeoJson.ts`.
+1. Create `packages/km-exports/src/exportToGeoJson.ts`.
 2. Function: `exportToGeoJson(options: GeoJsonExportOptions): Result<string>`.
 3. Destructure with defaults:
    ```ts
@@ -43,7 +43,7 @@ Tests pass for filtering, bbox computation, and pretty-printing.
    ```
 7. If `includeBbox` is true, compute the bounding box by collecting all
    geometry bounding boxes across all features and taking the union.
-   Use `getGeometryBoundingBox` from `@yourscope/geojson` for each feature's geometry.
+   Use `getGeometryBoundingBox` from `@komeilm76/km-geojson` for each feature's geometry.
    Skip features with `null` geometry.
    Attach the result as `collection.bbox`.
 8. Serialize: `JSON.stringify(collection, null, pretty ? 2 : 0)`.

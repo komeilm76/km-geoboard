@@ -1,6 +1,6 @@
 # Checklist — Page 03-04 SVG to GeoJSON Conversion
 
-- [ ] `@yourscope/geojson` added as dependency in `packages/svg/package.json`
+- [ ] `@komeilm76/km-geojson` added as dependency in `packages/km-svg/package.json`
 - [ ] `svgToGeoJson.ts` created
 - [ ] `svgPointToGeoPosition` exported — correct linear interpolation formula
 - [ ] `svgPointToGeoPosition` inverts Y axis (SVG down → lat up)
@@ -22,5 +22,5 @@
 - [ ] Tests cover every element type conversion
 - [ ] Tests cover `svgDocumentToFeatureCollection` multi-element case
 - [ ] All tests pass
-- [ ] `pnpm --filter @yourscope/svg build` succeeds
-- [ ] `grep -rn "^import.*zod" packages/svg/dist/` returns empty
+- [ ] `pnpm --filter @komeilm76/km-svg build` succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-svg/dist/` returns empty

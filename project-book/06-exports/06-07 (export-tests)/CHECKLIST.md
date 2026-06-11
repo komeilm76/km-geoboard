@@ -10,9 +10,9 @@
 - [ ] `help.md` has Error Codes section with all 5 codes
 - [ ] `help.md` has Raster Export Notes section with consumer canvas example
 - [ ] `CHANGELOG.md` updated with all additions from pages 06-01 to 06-07
-- [ ] All 6 functions exported from `packages/exports/src/index.ts`
+- [ ] All 6 functions exported from `packages/km-exports/src/index.ts`
 - [ ] All types from `types.ts` exported from `index.ts`
-- [ ] `pnpm --filter @yourscope/exports lint` — zero TypeScript errors
-- [ ] `pnpm --filter @yourscope/exports test` — all tests green
-- [ ] `pnpm --filter @yourscope/exports build` — succeeds
-- [ ] `grep -rn "^import.*zod" packages/exports/dist/` — returns empty
+- [ ] `pnpm --filter @komeilm76/km-exports lint` — zero TypeScript errors
+- [ ] `pnpm --filter @komeilm76/km-exports test` — all tests green
+- [ ] `pnpm --filter @komeilm76/km-exports build` — succeeds
+- [ ] `grep -rn "^import.*zod" packages/km-exports/dist/` — returns empty
