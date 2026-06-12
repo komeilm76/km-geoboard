@@ -15,7 +15,7 @@ if (result.success) console.log(result.data);
 
 All importers return the shared `Result<T>` union from `km-shared` — no exceptions thrown at boundaries.
 
-See `help.md` for the full API and the project-book chapter `05-imports` for design rationale.
+See `help.md` for the full API and the .planning/archives/sprint-1/project-book chapter `05-imports` for design rationale.
 
 ## License
 

@@ -3,7 +3,7 @@
  *
  * These types mirror the internal shape of Zod v4.4.x objects without
  * importing from 'zod'. Using them as generic constraints in exported
- * function signatures prevents the IDE hang described in zod_hang.md.
+ * function signatures prevents the IDE hang described in .planning/zod_hang.md.
  *
  * NEVER replace these with `z.ZodObject<any>` or `z.ZodTypeAny` in exported
  * signatures. Inside function bodies, cast freely:

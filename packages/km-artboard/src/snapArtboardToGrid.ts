@@ -54,7 +54,7 @@ export function snapArtboardToGrid(input: SnapArtboardInput): Artboard {
     }
     // Normalize -0 to +0 — -0 fails Object.is comparisons and serializes
     // inconsistently (e.g. JSON.stringify(-0) === "0" but String(-0) === "0"
-    // while Object.is distinguishes them). See project-evaluation 02 §B.
+    // while Object.is distinguishes them). See .planning/archives/sprint-1/project-evaluation 02 §B.
     return snapped === 0 ? 0 : snapped;
   }
 

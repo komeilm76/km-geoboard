@@ -2,7 +2,7 @@
  * Zod v4 schemas for all SVG types.
  *
  * Exported constants use SchemaOf<T> (a local structural type) so generated
- * .d.ts files never carry `import { z } from 'zod'`. See zod_hang.md Rules 1,3,6.
+ * .d.ts files never carry `import { z } from 'zod'`. See .planning/zod_hang.md Rules 1,3,6.
  */
 
 import { z } from 'zod';

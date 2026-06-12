@@ -3,7 +3,7 @@
  *
  * Exported constants are annotated with local structural types so that
  * generated .d.ts files never carry `import { z } from 'zod'`.
- * See zod_hang.md RULE 1, RULE 3, RULE 6.
+ * See .planning/zod_hang.md RULE 1, RULE 3, RULE 6.
  */
 
 import { z } from 'zod';

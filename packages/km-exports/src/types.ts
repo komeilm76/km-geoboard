@@ -4,7 +4,7 @@
  *
  * Cross-package types (Result, Artboard, SVG, GeoJSON) are imported from
  * their canonical sibling packages and re-exported for convenience — they
- * are no longer redefined here (see project-evaluation P1: a type lives in
+ * are no longer redefined here (see .planning/archives/sprint-1/project-evaluation P1: a type lives in
  * exactly one package).
  *
  * Only export-specific types live in this file: ExportFilter, the option

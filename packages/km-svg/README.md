@@ -17,7 +17,7 @@ if (doc.success) {
 
 All parsers return the shared `Result<T>` union from `km-shared` — no exceptions thrown at boundaries.
 
-See `help.md` for the full API and the project-book chapter `03-svg` for design rationale.
+See `help.md` for the full API and the .planning/archives/sprint-1/project-book chapter `03-svg` for design rationale.
 
 ## License
 

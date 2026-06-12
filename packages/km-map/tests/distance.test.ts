@@ -13,7 +13,7 @@ describe('haversineDistance', () => {
   it('London → Paris is approximately 343,934 m (within 0.5%)', () => {
     // Reference: spherical haversine with WGS84 semi-major axis R = 6378137 m
     // (matches src/distance.ts). Independently derived: 343,933.6 m.
-    // Bounds are relative (±0.5%) per project-evaluation 02 §B.
+    // Bounds are relative (±0.5%) per .planning/archives/sprint-1/project-evaluation 02 §B.
     const expected = 343_934;
     const dist = haversineDistance(
       { lat: 51.5074, lng: -0.1276 },

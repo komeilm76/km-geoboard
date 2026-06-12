@@ -180,7 +180,7 @@ export function boundingBoxSchema(): $SchemaOf<[number, number, number, number]>
  * Wraps any schema with a default value.
  * Equivalent to `schema.default(value)` but makes the default explicit at the
  * call site and is safe to use in exported function signatures (uses structural
- * types — see zod_hang.md).
+ * types — see .planning/zod_hang.md).
  *
  * @param schema - Any Zod schema (uses structural `$AnyZodType` constraint).
  * @param value  - The default value. Must match the schema's output type.

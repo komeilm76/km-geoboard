@@ -3,7 +3,7 @@
  *
  * This file contains ONLY type definitions — no Zod imports, no runtime code.
  * Zod schemas live in `schemas.ts`. This separation ensures declaration files
- * never carry a Zod import (see zod_hang.md).
+ * never carry a Zod import (see .planning/zod_hang.md).
  */
 
 // ─── Primitives ───────────────────────────────────────────────────────────────

@@ -22,7 +22,7 @@ All packages are published under the `@komeilm76` scope with the `km-` brand pre
 
 ## Toolchain
 
-pnpm + Node >= 18 only. See the decision table in [`PACKAGE_STANDARDS.md`](./PACKAGE_STANDARDS.md).
+pnpm + Node >= 18 only. See the decision table in [`PACKAGE_STANDARDS.md`](./.planning/PACKAGE_STANDARDS.md).
 
 ```bash
 pnpm install        # install the workspace
@@ -32,12 +32,17 @@ pnpm -r lint        # type-check only (tsc --noEmit)
 pnpm -r check-zod   # verify no Zod leaks into declaration files
 ```
 
-## Design documents
+## Planning & design documents
 
-- `dt_docs/` — per-domain design specs (DT-Artboard, DT-Zod, …)
-- `project-book/` — chaptered implementation book
-- `project-evaluation/` — audit, gaps, integration proposals, roadmap
+All planning, design docs, and work tracking live in [`.planning/`](./.planning/README.md)
+— **read `.planning/README.md` before working on this repo.** It contains:
+
+- `tasks.md`, `backlog.md`, `issues.md`, `targets.md` — status-tracked work items
+- `rules.md`, `checklists.md`, `hints.md` — how to work here
+- `PACKAGE_STANDARDS.md` — normative package standards
 - `zod_hang.md` — why Zod types must never reach published `.d.ts` files
+- `assigned_sources/` — inbox: drop new specs/notes/tasks here for the next session
+- `archives/` — completed work by sprint (project-book, dt_docs, project-evaluation), read-only
 
 ## License
 

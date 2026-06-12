@@ -16,4 +16,4 @@ De-island km-exports and km-plugins (Phase B, P1 canonical dependency graph).
   copy — it imports and re-exports them from `@komeilm76/km-shared` (new
   workspace dependency).
 - Removed leftover `release-it` scripts/devDependency from km-exports and
-  km-plugins; devDependencies aligned with PACKAGE_STANDARDS.md §2.
+  km-plugins; devDependencies aligned with .planning/PACKAGE_STANDARDS.md §2.

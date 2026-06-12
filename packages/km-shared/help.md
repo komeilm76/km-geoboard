@@ -101,7 +101,7 @@ Wraps any schema with a default value.
 
 ### `$AnyZodObject`
 A local structural substitute for `z.ZodObject<any>`. Use as a generic constraint
-in exported function signatures to prevent IDE hangs. See `zod_hang.md` for details.
+in exported function signatures to prevent IDE hangs. See `.planning/zod_hang.md` for details.
 
 ### `$AnyZodType`
 A local structural substitute for `z.ZodTypeAny`. Same use case.

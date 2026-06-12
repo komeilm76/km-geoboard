@@ -3,7 +3,7 @@
  *
  * This file contains ONLY type definitions — no Zod imports, no runtime code.
  * Zod schemas live in the individual importer files.
- * This separation ensures declaration files never carry a Zod import (see zod_hang.md).
+ * This separation ensures declaration files never carry a Zod import (see .planning/zod_hang.md).
  */
 
 import type { GeoJsonFeatureCollection } from '@komeilm76/km-geojson';
