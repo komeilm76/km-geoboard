@@ -60,11 +60,12 @@
     "zod": ">=4.4.0"
   },
   "devDependencies": {
-    "zod": "^4.4.0",
-    "typescript": "~5.9.2",
+    "@vitest/coverage-v8": "^2.0.0",
+    "prettier": "^3.0.0",
     "tsup": "^8.5.0",
+    "typescript": "~5.9.2",
     "vitest": "^2.0.0",
-    "prettier": "^3.0.0"
+    "zod": "^4.4.0"
   },
   "engines": {
     "node": ">=18"

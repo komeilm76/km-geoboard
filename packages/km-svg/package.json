@@ -2,7 +2,7 @@
   "name": "@komeilm76/km-svg",
   "version": "0.1.0",
   "type": "module",
-  "description": "SVG content as structured data \u2014 parse SVG XML into typed element trees, manipulate paths, and convert SVG geometry to GeoJSON.",
+  "description": "SVG content as structured data — parse SVG XML into typed element trees, manipulate paths, and convert SVG geometry to GeoJSON.",
   "license": "MIT",
   "author": "komeilm76",
   "homepage": "https://github.com/komeilm76/km-geoboard/tree/main/packages/km-svg#readme",
@@ -57,10 +57,11 @@
     "zod": ">=4.4.0"
   },
   "devDependencies": {
-    "zod": "^4.4.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "tsup": "^8.5.0",
     "typescript": "~5.9.2",
-    "vitest": "^2.0.0"
+    "vitest": "^2.0.0",
+    "zod": "^4.4.0"
   },
   "engines": {
     "node": ">=18"

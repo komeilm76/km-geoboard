@@ -2,7 +2,7 @@
   "name": "@komeilm76/km-plugins",
   "version": "0.1.0",
   "type": "module",
-  "description": "Typed plugin registry for km-packages \u2014 dependency resolution, conflict detection, semver checking, and lifecycle management.",
+  "description": "Typed plugin registry for km-packages — dependency resolution, conflict detection, semver checking, and lifecycle management.",
   "license": "MIT",
   "author": "komeilm76",
   "homepage": "https://github.com/komeilm76/km-geoboard/tree/main/packages/km-plugins#readme",
@@ -53,10 +53,11 @@
     "@komeilm76/km-shared": "workspace:*"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^2.0.0",
+    "prettier": "^3.0.0",
     "tsup": "^8.5.0",
     "typescript": "~5.9.2",
-    "vitest": "^2.0.0",
-    "prettier": "^3.0.0"
+    "vitest": "^2.0.0"
   },
   "engines": {
     "node": ">=18"

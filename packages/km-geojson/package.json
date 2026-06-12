@@ -2,7 +2,7 @@
   "name": "@komeilm76/km-geojson",
   "version": "0.1.0",
   "type": "module",
-  "description": "GeoJSON types and validation for RFC 7946 \u2014 parse, validate, and construct GeoJSON data.",
+  "description": "GeoJSON types and validation for RFC 7946 — parse, validate, and construct GeoJSON data.",
   "license": "MIT",
   "author": "komeilm76",
   "homepage": "https://github.com/komeilm76/km-geoboard/tree/main/packages/km-geojson#readme",
@@ -55,10 +55,11 @@
     "zod": ">=4.4.0"
   },
   "devDependencies": {
-    "zod": "^4.4.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "tsup": "^8.5.0",
     "typescript": "~5.9.2",
-    "vitest": "^2.0.0"
+    "vitest": "^2.0.0",
+    "zod": "^4.4.0"
   },
   "engines": {
     "node": ">=18"
