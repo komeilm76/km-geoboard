@@ -7,8 +7,8 @@
 | ID | Task | Status | Notes |
 |---|---|---|---|
 | T-007 | Verify Phase B on Windows is fully reflected on `main` (lockfile fresh, CI green on GitHub Actions) | ⏳ | Commit b8074de pushed 2026-06-12; confirm Actions run is green |
-| T-015 | Windows: `pnpm install` (lockfile gained `@vitest/coverage-v8` in all 10 package.jsons), run `pnpm -r test:coverage` + `node scripts/smoke-consumer.mjs` once locally, commit + push, confirm CI green | ⏳ | CI now enforces coverage + smoke; `--frozen-lockfile` FAILS until lockfile is refreshed |
-| T-009 | First npm publish of all packages at 0.x via Changesets | 🧊 | Blocked by I-001 (NPM_TOKEN secret) |
+| T-015 | Confirm CI green on GitHub Actions for commits f4f6bb7 + 128def1 (coverage + consumer-smoke jobs), then Windows `pnpm install` to sync local node_modules | ⏳ | Lockfile already refreshed + pushed from sandbox; merges with T-007 |
+| T-009 | First npm publish: merge the open "chore(release): version packages" PR → release.yml publishes all 9 (geoboard 0.2.0, exports/plugins 0.1.1, rest 0.1.0) | 🔄 | NPM_TOKEN set 2026-06-12; verify CI green on main first |
 | T-010 | CHANGELOG entries for everything shipped | 🔄 | All 9 CHANGELOGs have real 0.1.0 entries; pending: `pnpm changeset version` consumes 2 changesets at release |
 
 ## Done
