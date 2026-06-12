@@ -6,7 +6,7 @@ Source: project-evaluation ch. 04 (archived → `archives/sprint-1/project-evalu
 |---|---|---|---|
 | G1 | Stability — v0.2 (workspace green, standards consolidated) | ✅ | 2026-06-11, Phase A |
 | G2 | Integration — v0.3 (de-islanded, umbrella package, integration suite) | ✅ | 2026-06-12, Phase B |
-| G3 | Operationalization — v0.5 (CI blocking, published to npm, coverage bars) | 🔄 | Phase C partially done (CI exists; publish + coverage pending) |
+| G3 | Operationalization — v0.5 (CI blocking, published to npm, coverage bars) | ✅ | 2026-06-12: coverage bars 9/9, consumer-smoke gate, all 9 published to npm via release.yml |
 | G4 | Adoption — v1.0 (API freeze + 3 downstream consumers) | ⏳ | Phase D |
 
 ## Success metrics

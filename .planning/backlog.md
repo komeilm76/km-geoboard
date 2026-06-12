@@ -7,8 +7,8 @@
 | ID | Item | Status | Notes |
 |---|---|---|---|
 | B-001 | Coverage thresholds + raise weak tests | ✅ | 2026-06-12 via T-013 |
-| B-002 | First npm publish (all packages, 0.x) | 🧊 | → T-009; needs NPM_TOKEN; verify all 9 npm names first (R-5) |
-| B-003 | CHANGELOG entries | ⏳ | → T-010 |
+| B-002 | First npm publish (all packages, 0.x) | ✅ | 2026-06-12 via T-009 |
+| B-003 | CHANGELOG entries | ✅ | 2026-06-12 via T-010 |
 | B-004 | Branch protection on `main` | ⏳ | GitHub settings, manual |
 
 ## Phase D — Adopt & extend
