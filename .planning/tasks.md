@@ -6,13 +6,14 @@
 
 | ID | Task | Status | Notes |
 |---|---|---|---|
-| T-007 | Verify Phase B on Windows is fully reflected on `main` (lockfile fresh, CI green on GitHub Actions) | ⏳ | Commit b8074de pushed 2026-06-12; confirm Actions run is green |
-| T-015 | Confirm CI green on GitHub Actions for commits f4f6bb7 + 128def1 (coverage + consumer-smoke jobs), then Windows `pnpm install` to sync local node_modules | ⏳ | Lockfile already refreshed + pushed from sandbox; merges with T-007 |
+| T-015 | Windows `pnpm install` to sync local node_modules | 🧊 | Blocked on Komeil (local machine). CI half done: ci.yml badge on main = passing, verified 2026-06-12 (covers f4f6bb7 + 128def1 + b8074de → T-007 folded in, ✅) |
 
 ## Done
 
 | ID | Task | Status | Date |
 |---|---|---|---|
+| T-017 | Expand all 9 package READMEs (API tables, types, examples, error codes, cross-links); examples type-checked against src; changeset `readme-docs-expansion` added | ✅ | 2026-06-12 |
+| T-007 | Verify Phase B fully reflected on `main` — CI badge passing on main, verified 2026-06-12 | ✅ | 2026-06-12 |
 | T-001 | Phase A — Stabilize (workspace green: build, 549/549 tests, check-zod, lint) | ✅ | 2026-06-11 |
 | T-002 | Git init + GitHub repo `komeilm76/km-geoboard`, v0.1.0 tag | ✅ | 2026-06-11 |
 | T-003 | Phase B — Integrate (de-island exports/plugins, umbrella `km-geoboard`, 6 integration suites) | ✅ | 2026-06-12 |
