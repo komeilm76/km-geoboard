@@ -1,5 +1,27 @@
 # Changelog — km-exports
 
+## 0.1.1
+
+### Patch Changes
+
+- b8074de: De-island km-exports and km-plugins (Phase B, P1 canonical dependency graph).
+
+  - `km-exports/src/types.ts` no longer redefines Artboard, SVG, GeoJSON, and
+    Result types locally — they are imported from `@komeilm76/km-shared`,
+    `@komeilm76/km-artboard`, `@komeilm76/km-svg`, and `@komeilm76/km-geojson`
+    and re-exported under the same public names (GeoJson-prefixed aliases for
+    Position/BoundingBox/LinearRing). Only export-specific types remain local.
+  - `GeoJsonFeatureCollection` in km-exports is now the canonical type extended
+    with the export-specific OpenLayers `crs` annotation.
+  - `km-plugins/src/types.ts` no longer carries a local `Result`/`ResultError`
+    copy — it imports and re-exports them from `@komeilm76/km-shared` (new
+    workspace dependency).
+  - Removed leftover `release-it` scripts/devDependency from km-exports and
+    km-plugins; devDependencies aligned with .planning/PACKAGE_STANDARDS.md §2.
+
+- Updated dependencies [a2398e3]
+  - @komeilm76/km-artboard@0.1.1
+
 All user-visible changes are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
@@ -8,6 +30,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [0.1.0] — Initial release
 
 ### Added (06-01 — Export Types)
+
 - `ExportFilter` type with 5 optional fields: `includeIds`, `excludeIds`, `includeLayers`, `excludeLayers`, `boundingBox`.
 - `SvgExportOptions` type with `artboard`, `elements`, `filter`, `inlineAssets`, `xmlDeclaration`, `pretty` fields.
 - `GeoJsonExportOptions` type with `features`, `filter`, `includeBbox`, `pretty` fields.
@@ -18,6 +41,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - All dependency types (`Artboard`, `SvgElement` variants, `GeoJsonFeature`, `Result<T>`) defined locally for standalone use.
 
 ### Added (06-02 — Export to SVG)
+
 - `applyExportFilter` — shared filter utility applying 5 steps in fixed order.
   - Conservative behaviour: items without `id` / `layer` / geometry pass through.
 - `exportToSvg` — serializes artboard + `SvgElement[]` to an SVG XML string.
@@ -30,6 +54,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Returns `{ success: false, error: { code: "empty-export" } }` when filter leaves no elements.
 
 ### Added (06-03 — Export to GeoJSON)
+
 - `exportToGeoJson` — serializes `GeoJsonFeature[]` to a FeatureCollection JSON string.
   - `includeBbox` computes union bounding box across all feature geometries.
   - Omits `bbox` entirely when all features have `null` geometry.
@@ -37,12 +62,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Returns `empty-export` error when filter leaves no features.
 
 ### Added (06-04 — Export to OpenLayers)
+
 - `exportToOpenLayers` — wraps `exportToGeoJson` with OpenLayers-specific `crs` annotation.
   - `crs` field omitted for `EPSG:4326` (the GeoJSON default).
   - `crs` field added for any other projection: `{ type: "name", properties: { name: "<CRS>" } }`.
   - Errors from `exportToGeoJson` propagated unchanged.
 
 ### Added (06-05 — Export to PDF Meta)
+
 - `exportToPdfMeta` — produces a `PdfMeta` descriptor for consumer PDF generation.
   - Page size constants: `A4`, `A3`, `Letter`, `Legal` (in PDF points).
   - Supports custom `{ width, height }` page size.
@@ -52,6 +79,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Propagates `exportToSvg` errors.
 
 ### Added (06-06 — Export to Raster Plan)
+
 - `exportToRasterPlan` — converts artboard content to a `RasterExportPlan`.
   - Canvas dimensions: `Math.round(artboard.size.* * scale)`.
   - Default `scale` is `1`; supports fractional and retina scales.
@@ -64,6 +92,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Zero DOM dependency — no `HTMLCanvasElement` or canvas API used.
 
 ### Added (06-07 — Package Finalization)
+
 - `help.md` — complete API documentation with round-trip pairs, filter order, error codes, and raster consumer canvas example.
 - `CHANGELOG.md` — this file.
 - `README.md` — npm display page.

@@ -1,5 +1,26 @@
 # @komeilm76/km-geoboard
 
+## 0.2.0
+
+### Minor Changes
+
+- b8074de: New umbrella package `@komeilm76/km-geoboard` (Phase B, P2): re-exports the
+  public surface of all eight packages under namespaces (`shared`, `artboard`,
+  `geojson`, `svg`, `map`, `imports`, `exports`, `plugins`) so app consumers
+  need a single install. Also hosts the cross-package integration test suite
+  (P3): SVG → GeoJSON → export round-trips, import/export deep-equal cycles,
+  artboard snapshot round-trip, tile math round-trips, `importAuto` routing,
+  and a plugin-wrapped importer.
+
+### Patch Changes
+
+- Updated dependencies [b8074de]
+- Updated dependencies [a2398e3]
+  - @komeilm76/km-exports@0.1.1
+  - @komeilm76/km-plugins@0.1.1
+  - @komeilm76/km-artboard@0.1.1
+  - @komeilm76/km-imports@0.1.1
+
 ## 0.1.0
 
 Initial release — umbrella package re-exporting all eight km-geoboard packages
