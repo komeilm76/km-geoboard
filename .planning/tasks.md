@@ -7,6 +7,13 @@
 | ID | Task | Status | Notes |
 |---|---|---|---|
 | T-015 | Windows `pnpm install` to sync local node_modules | 🧊 | Blocked on Komeil (local machine). CI half done: ci.yml badge on main = passing, verified 2026-06-12 (covers f4f6bb7 + 128def1 + b8074de → T-007 folded in, ✅) |
+| T-018 | R-1 Zod canary: CI job compiling `$SchemaOf`/structural types against latest zod | ⏳ | Rule 9. New `canary-zod` job in ci.yml (non-blocking, `continue-on-error`): install `zod@latest` in a temp fixture, `tsc --noEmit` km-shared `zodStructural.ts` + one downstream `schemas.ts` against it. Closes R-1 mitigation gap. ~2 h |
+| T-019 | R-2 standards conformance script `scripts/check-standards.mjs` + CI wiring | ⏳ | Rule 9. Verify every package against PACKAGE_STANDARDS table: exports map shape, flat dist (index.js/cjs/d.ts), tsconfig `noEmit:true`, zod peerDep `>=4.4 <5`, `files` field, publishConfig.access. Add `pnpm -r check-standards` or root script + ci.yml step. Closes R-2 mitigation gap. ~3 h |
+| T-021 | First format importer shipped AS a plugin: WKT (F-001 + F-005 start) | ⏳ | Smallest format; one module + `importAuto` registry entry + plugin wrapper via km-plugins; `ImportResult` warnings for unsupported WKT variants; tests + coverage bars + changeset (minor km-imports). Validates the formats-as-plugins pattern before KML/GPX/TopoJSON. 4–8 h (one chapter) |
+| T-022 | Docs site bootstrap (B-010): TypeDoc API + 5 pages with live examples | ⏳ | v0.5 metric: 5 docs pages w/ live examples. TypeDoc → markdown for all 9 packages; Astro or Nextra shell under `apps/docs`; Sandpack (or Stackblitz embed) for the 5 example pages: artboard quick start, SVG→GeoJSON, tile math, import/export round-trip, plugin registry. Deploy GitHub Pages via workflow. 8–12 h |
+| T-023 | Playground app under `apps/` (B-011) | ⏳ | After T-022. Vite app: draw artboards, import file (importAuto), view GeoJSON output, export buttons (SVG/GeoJSON/PDF-meta). Consumes published packages — also serves as downstream consumer #1 for G4. 6–10 h |
+| T-020 | Branch protection on `main` (B-004) | 🧊 | Manual GitHub settings (Komeil): require ci.yml checks (verify + consumer-smoke) before merge, no force-push. Settings → Branches → Add rule |
+| T-024 | Ship pending docs-patch release (changeset `readme-docs-expansion`) | ⏳ | Wait for changesets release PR on GitHub → review bumps (all 9 patch) → merge → release.yml publishes. Expanded READMEs reach npm package pages |
 
 ## Done
 

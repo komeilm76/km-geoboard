@@ -6,11 +6,11 @@
 
 | ID | Feature | Status | Notes |
 |---|---|---|---|
-| F-001 | Format importers: KML / GPX / TopoJSON / WKT / shapefile (read) | ⏳ | `importAuto` + `ImportResult` warning model designed for this; each format = one module + registry entry |
+| F-001 | Format importers: KML / GPX / TopoJSON / WKT / shapefile (read) | 🔄 | WKT promoted → tasks.md T-021; `importAuto` + `ImportResult` warning model designed for this; each format = one module + registry entry |
 | F-002 | Figma REST adapter (`km-figma`) | ⏳ | Archived `DT-Figma.md` already maps Figma node JSON → project types; mostly transcription |
 | F-003 | Map-engine adapters: `km-adapter-openlayers` / `-maplibre` / `-leaflet` | ⏳ | Thin layers; engines are peer deps of adapter packages only (rule 8) |
 | F-004 | Raster-plan executor reference impl (node-canvas / OffscreenCanvas → PNG) | ⏳ | km-exports already emits renderer-agnostic plans |
-| F-005 | Plugin ecosystem activation — ship F-001 importers *as plugins* | ⏳ | Registry + semver resolver built and tested but has no real plugins |
+| F-005 | Plugin ecosystem activation — ship F-001 importers *as plugins* | 🔄 | Pattern validated by T-021; Registry + semver resolver built and tested but has no real plugins |
 
 **Sequencing (evaluation recommendation):** formats-as-plugins first (small, widen the user funnel), adapters second (remove the "how do I see it on a map?" barrier), defer Tier 3 until downloads/users indicate pull.
 
