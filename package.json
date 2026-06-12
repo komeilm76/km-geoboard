@@ -2,7 +2,7 @@
   "name": "km-geoboard",
   "version": "0.1.0",
   "private": true,
-  "description": "Monorepo root — artboard, GeoJSON, SVG, and map utilities for km-packages.",
+  "description": "Monorepo root \u2014 artboard, GeoJSON, SVG, and map utilities for km-packages.",
   "workspaces": [
     "packages/*"
   ],
@@ -15,7 +15,9 @@
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only",
     "release": "pnpm -r build && pnpm -r test && pnpm -r check-zod && changeset publish",
-    "test:coverage": "pnpm -r test:coverage"
+    "test:coverage": "pnpm -r test:coverage",
+    "check-standards": "node scripts/check-standards.mjs",
+    "canary-zod": "node scripts/canary-zod.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.0",

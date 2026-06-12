@@ -39,6 +39,9 @@ jobs:
       - name: Zod leak gate
         run: pnpm -r check-zod
 
+      - name: Standards conformance gate
+        run: node scripts/check-standards.mjs
+
   consumer-smoke:
     runs-on: ubuntu-latest
     steps:
@@ -61,3 +64,19 @@ jobs:
 
       - name: Consumer smoke test (tarball install, ESM+CJS+types, Zod-leak gate)
         run: node scripts/smoke-consumer.mjs
+
+  # R-1 canary (non-blocking): do the structural types in km-shared still
+  # compile against zod@latest? A red run here is an early warning that a new
+  # Zod release changed `_zod` internals — not a broken build.
+  canary-zod:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Compile structural types against zod@latest
+        run: node scripts/canary-zod.mjs

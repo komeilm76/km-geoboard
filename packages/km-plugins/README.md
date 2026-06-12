@@ -7,12 +7,12 @@ Works in Node.js ≥ 18, browsers, and edge runtimes.
 ## Install
 
 ```bash
-npm install @komeilm76/km-plugins zod
+npm install @komeilm76/km-plugins
 # or
-pnpm add @komeilm76/km-plugins zod
+pnpm add @komeilm76/km-plugins
 ```
 
-> `zod` (≥ 4.4.0) is a peer dependency — install it alongside.
+> No peer dependencies — this package is pure TypeScript (zod is not used here).
 
 ## Quick start
 

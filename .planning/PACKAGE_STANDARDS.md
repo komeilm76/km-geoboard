@@ -92,6 +92,8 @@ Rules:
 - Workspace siblings are referenced as `workspace:*`; pnpm rewrites them to real
   versions at publish time.
 - Zod is **always** a peerDependency, never a dependency (see `zod_hang.md` RULE 6).
+  Packages with zero zod imports (e.g. `km-plugins`) may omit zod entirely.
+- This section is CI-enforced by `scripts/check-standards.mjs` (rule 9; runs in ci.yml `verify`).
 - Never add `bun`-anything to scripts.
 
 ---
