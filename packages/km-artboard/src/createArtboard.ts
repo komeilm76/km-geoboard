@@ -34,6 +34,22 @@ import { CreateArtboardInputSchema } from './schemas';
  * // result.artboard.origin → { x: 100, y: 80 }  ← always top-left
  * // result.artboard.size   → { width: 300, height: 240 }
  */
+/**
+ * UUID v4 generator that works on every supported runtime.
+ * Uses the WebCrypto global when present (Node >= 19, browsers, workers);
+ * Node 18 has no global `crypto`, so a Math.random-based RFC 4122 v4
+ * fallback is used there (non-cryptographic randomness is acceptable for
+ * artboard ids).
+ */
+function randomUUID(): string {
+  const c = (globalThis as { crypto?: { randomUUID?: () => string } }).crypto;
+  if (c && typeof c.randomUUID === 'function') return c.randomUUID();
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (ch) => {
+    const r = (Math.random() * 16) | 0;
+    return (ch === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
+
 export function createArtboard(input: CreateArtboardInput): CreateArtboardResult {
   const parsed = CreateArtboardInputSchema.safeParse(input);
 
@@ -58,7 +74,7 @@ export function createArtboard(input: CreateArtboardInput): CreateArtboardResult
   }
 
   const artboard: Artboard = {
-    id: id ?? crypto.randomUUID(),
+    id: id ?? randomUUID(),
     name,
     origin,
     size,
