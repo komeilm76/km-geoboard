@@ -39,7 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build packages (needed for TypeDoc entry-point resolution)
-        run: pnpm -r build
+        run: pnpm --filter './packages/*' build
 
       - name: Generate API docs via TypeDoc
         run: node_modules/.bin/typedoc
