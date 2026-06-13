@@ -28,7 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm -r build
+        run: pnpm --filter "./packages/*" build
 
       - name: Type-check
         run: pnpm -r lint
@@ -60,7 +60,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm -r build
+        run: pnpm --filter "./packages/*" build
 
       - name: Consumer smoke test (tarball install, ESM+CJS+types, Zod-leak gate)
         run: node scripts/smoke-consumer.mjs
