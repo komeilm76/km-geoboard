@@ -1,10 +1,19 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- 31dd255: docs: expanded READMEs for all packages — full API tables (functions, signatures, options, error codes), type references, runnable examples (all type-checked against source), error-handling guidance, and cross-package links. npm users now get complete usage docs without leaving the package page.
+- Updated dependencies [31dd255]
+  - @komeilm76/km-shared@0.1.1
+
 ## [0.1.0] — 2026-06-11
 
 ### Added
 
 **Types (`src/types.ts`)**
+
 - `Position` — 2-element or 3-element coordinate tuple (longitude first)
 - `BoundingBox` — 4-element or 6-element bounding box tuple
 - `LinearRing` — closed ring with minimum 4 positions
@@ -21,6 +30,7 @@
 - `GeoJson` — root union type
 
 **Schemas (`src/schemas.ts`)**
+
 - `PositionSchema` — validates 2-tuple and 3-tuple coordinate positions
 - `BoundingBoxSchema` — validates 4/6-tuple with west ≤ east and south ≤ north
 - `LinearRingSchema` — validates minimum 4 positions and ring closure (first === last)
@@ -37,17 +47,21 @@
 - `GeoJsonSchema` — root union schema
 
 **Functions (`src/parse.ts`)**
+
 - `parseGeoJson(raw)` — validates and parses any GeoJSON value
 - `parseGeoJsonFeature(raw)` — validates and parses a Feature
 - `parseGeoJsonFeatureCollection(raw)` — validates and parses a FeatureCollection
 
 **Functions (`src/guards.ts`)**
+
 - `isGeoJsonGeometry(value)` — TypeScript type guard for geometry objects
 
 **Functions (`src/feature.ts`)**
+
 - `featureFromGeometry(geometry, properties?, id?)` — wraps geometry in a Feature
 - `collectionFromFeatures(features)` — wraps array in a FeatureCollection
 
 **Functions (`src/geometry.ts`)**
+
 - `getGeometryBoundingBox(geometry)` — computes [west, south, east, north] bounding box
 - `flattenGeometryCollection(geometry)` — recursively flattens GeometryCollections

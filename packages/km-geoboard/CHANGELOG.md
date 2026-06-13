@@ -1,5 +1,21 @@
 # @komeilm76/km-geoboard
 
+## 0.2.1
+
+### Patch Changes
+
+- 31dd255: docs: expanded READMEs for all packages — full API tables (functions, signatures, options, error codes), type references, runnable examples (all type-checked against source), error-handling guidance, and cross-package links. npm users now get complete usage docs without leaving the package page.
+- Updated dependencies [31dd255]
+- Updated dependencies [4e2c5c0]
+  - @komeilm76/km-shared@0.1.1
+  - @komeilm76/km-artboard@0.1.2
+  - @komeilm76/km-geojson@0.1.1
+  - @komeilm76/km-svg@0.1.1
+  - @komeilm76/km-map@0.1.1
+  - @komeilm76/km-imports@0.2.0
+  - @komeilm76/km-exports@0.1.2
+  - @komeilm76/km-plugins@0.1.2
+
 ## 0.2.0
 
 ### Minor Changes
