@@ -168,6 +168,9 @@ importers:
       '@komeilm76/km-geojson':
         specifier: workspace:*
         version: link:../km-geojson
+      '@komeilm76/km-plugins':
+        specifier: workspace:*
+        version: link:../km-plugins
       '@komeilm76/km-shared':
         specifier: workspace:*
         version: link:../km-shared

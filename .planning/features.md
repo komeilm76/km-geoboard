@@ -10,7 +10,7 @@
 | F-002 | Figma REST adapter (`km-figma`) | ⏳ | Archived `DT-Figma.md` already maps Figma node JSON → project types; mostly transcription |
 | F-003 | Map-engine adapters: `km-adapter-openlayers` / `-maplibre` / `-leaflet` | ⏳ | Thin layers; engines are peer deps of adapter packages only (rule 8) |
 | F-004 | Raster-plan executor reference impl (node-canvas / OffscreenCanvas → PNG) | ⏳ | km-exports already emits renderer-agnostic plans |
-| F-005 | Plugin ecosystem activation — ship F-001 importers *as plugins* | 🔄 | Pattern validated by T-021; Registry + semver resolver built and tested but has no real plugins |
+| F-005 | Plugin ecosystem activation — ship F-001 importers *as plugins* | 🔄 | WKT plugin shipped (T-021 ✅ 2026-06-13); KML/GPX/TopoJSON remain; pattern validated |
 
 **Sequencing (evaluation recommendation):** formats-as-plugins first (small, widen the user funnel), adapters second (remove the "how do I see it on a map?" barrier), defer Tier 3 until downloads/users indicate pull.
 

@@ -2,7 +2,7 @@
   "name": "@komeilm76/km-imports",
   "version": "0.1.1",
   "type": "module",
-  "description": "Parse raw strings and objects into typed internal structures — GeoJSON, SVG, OpenLayers, and artboard snapshots.",
+  "description": "Parse raw strings and objects into typed internal structures \u2014 GeoJSON, SVG, OpenLayers, and artboard snapshots.",
   "license": "MIT",
   "author": "komeilm76",
   "homepage": "https://github.com/komeilm76/km-geoboard/tree/main/packages/km-imports#readme",
@@ -22,7 +22,8 @@
     "openlayers",
     "artboard",
     "typescript",
-    "km-packages"
+    "km-packages",
+    "wkt"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -54,7 +55,8 @@
     "@komeilm76/km-shared": "workspace:*",
     "@komeilm76/km-geojson": "workspace:*",
     "@komeilm76/km-svg": "workspace:*",
-    "@komeilm76/km-artboard": "workspace:*"
+    "@komeilm76/km-artboard": "workspace:*",
+    "@komeilm76/km-plugins": "workspace:*"
   },
   "peerDependencies": {
     "zod": ">=4.4.0"

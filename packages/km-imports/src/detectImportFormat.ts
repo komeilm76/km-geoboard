@@ -4,6 +4,16 @@
 
 import type { DetectedFormat } from './types';
 
+// ─── WKT keyword pattern ──────────────────────────────────────────────────────
+
+/**
+ * Matches strings that begin with a WKT geometry keyword (case-insensitive),
+ * followed by optional dimension modifiers (Z / M / ZM) and then whitespace or '('.
+ * Used by detectImportFormat to recognise WKT before falling through to JSON.
+ */
+const WKT_PREFIX_RE =
+  /^(GEOMETRYCOLLECTION|MULTILINESTRING|MULTIPOLYGON|MULTIPOINT|LINESTRING|POLYGON|POINT)(\s+(ZM|Z|M))?[\s(]/i;
+
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
@@ -11,10 +21,11 @@ import type { DetectedFormat } from './types';
  *
  * Detection logic (in priority order):
  * 1. String starting with `"<"` and containing `"svg"` (case-insensitive) → `"svg"`
- * 2. Object with `type: "FeatureCollection"` and a top-level `"crs"` field → `"openlayers"`
- * 3. Object with `type: "FeatureCollection"` or `type: "Feature"` (no crs) → `"geojson"`
- * 4. Array of objects each having `origin` and `size` → `"artboard-snapshot"`
- * 5. Otherwise → `"unknown"`
+ * 2. String whose first token is a WKT geometry keyword → `"wkt"`
+ * 3. Object with `type: "FeatureCollection"` and a top-level `"crs"` field → `"openlayers"`
+ * 4. Object with `type: "FeatureCollection"` or `type: "Feature"` (no crs) → `"geojson"`
+ * 5. Array of objects each having `origin` and `size` → `"artboard-snapshot"`
+ * 6. Otherwise → `"unknown"`
  *
  * @param raw - Raw string or object.
  * @returns DetectedFormat
@@ -27,6 +38,11 @@ export function detectImportFormat(raw: string | unknown): DetectedFormat {
     // SVG: starts with '<' and contains 'svg' somewhere
     if (trimmed.startsWith('<') && /svg/i.test(trimmed)) {
       return 'svg';
+    }
+
+    // WKT: first token is a recognised geometry keyword
+    if (WKT_PREFIX_RE.test(trimmed)) {
+      return 'wkt';
     }
 
     // Try to parse as JSON and re-run detection

@@ -8,6 +8,7 @@ import { importGeoJson } from './importGeoJson';
 import { importSvg } from './importSvg';
 import { importOpenLayers } from './importOpenLayers';
 import { importArtboardSnapshot } from './importArtboardSnapshot';
+import { importWkt } from './importWkt';
 
 // ─── Public API ───────────────────────────────────────────────────────────────
 
@@ -29,6 +30,9 @@ export function importAuto(raw: string | unknown): AutoImportResult {
       const svgString = typeof raw === 'string' ? raw : String(raw);
       return { format: 'svg', result: importSvg(svgString) };
     }
+
+    case 'wkt':
+      return { format: 'wkt', result: importWkt(raw) };
 
     case 'openlayers':
       return { format: 'openlayers', result: importOpenLayers(raw) };

@@ -19,6 +19,7 @@ export type ImportErrorCode =
   | 'empty-input'
   | 'invalid-json'
   | 'invalid-xml'
+  | 'invalid-wkt'
   | 'unknown-format'
   | 'schema-mismatch'
   | 'unsupported-geometry-type'
@@ -66,6 +67,7 @@ export type ImportResult<T> =
 export type DetectedFormat =
   | 'geojson'
   | 'svg'
+  | 'wkt'
   | 'openlayers'
   | 'artboard-snapshot'
   | 'unknown';
@@ -81,6 +83,7 @@ export type DetectedFormat =
 export type AutoImportResult =
   | { format: 'geojson';           result: ImportResult<GeoJsonFeatureCollection> }
   | { format: 'svg';               result: ImportResult<SvgDocument> }
+  | { format: 'wkt';               result: ImportResult<GeoJsonFeatureCollection> }
   | { format: 'openlayers';        result: ImportResult<GeoJsonFeatureCollection> }
   | { format: 'artboard-snapshot'; result: ImportResult<Artboard[]> }
   | { format: 'unknown';           result: { success: false; error: ImportError } };
