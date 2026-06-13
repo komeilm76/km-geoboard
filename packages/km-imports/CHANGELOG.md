@@ -1,5 +1,27 @@
 # Changelog — km-imports
 
+## 0.3.0
+
+### Minor Changes
+
+- b3fd5fc: feat(wkt): ship WKT importer as a km-plugins plugin (F-001 + F-005)
+
+  - `importWkt` is now exported from the public index (was internal only)
+  - `detectImportFormat` recognises WKT strings (`POINT`, `LINESTRING`, `POLYGON`, `MULTIPOINT`, `MULTILINESTRING`, `MULTIPOLYGON`, `GEOMETRYCOLLECTION` prefixes, case-insensitive, with optional Z/M/ZM modifiers)
+  - `importAuto` dispatches `format: "wkt"` to `importWkt`; `AutoImportResult` and `DetectedFormat` types include the new `"wkt"` branch
+  - `ImportErrorCode` now includes `"invalid-wkt"`
+  - New `wktImporterPlugin: Plugin<WktImporterApi>` and `WKT_IMPORTER_PLUGIN_ID` constant exported from the package — validates the formats-as-plugins pattern for future KML/GPX/TopoJSON importers
+
+### Patch Changes
+
+- b3fd5fc: docs: expanded READMEs for all packages — full API tables (functions, signatures, options, error codes), type references, runnable examples (all type-checked against source), error-handling guidance, and cross-package links. npm users now get complete usage docs without leaving the package page.
+- Updated dependencies [b3fd5fc]
+  - @komeilm76/km-shared@0.1.2
+  - @komeilm76/km-artboard@0.1.3
+  - @komeilm76/km-geojson@0.1.2
+  - @komeilm76/km-svg@0.1.2
+  - @komeilm76/km-plugins@0.1.3
+
 ## 0.2.0
 
 ### Minor Changes
