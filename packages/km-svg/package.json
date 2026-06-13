@@ -1,6 +1,6 @@
 {
   "name": "@komeilm76/km-svg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "SVG content as structured data — parse SVG XML into typed element trees, manipulate paths, and convert SVG geometry to GeoJSON.",
   "license": "MIT",
