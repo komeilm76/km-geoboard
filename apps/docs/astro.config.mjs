@@ -10,11 +10,6 @@ export default defineConfig({
     starlight({
       title: 'km-geoboard',
       description: 'Artboard, GeoJSON, SVG, map, import/export, and plugin utilities for TypeScript.',
-      logo: {
-        light: './public/logo-light.svg',
-        dark: './public/logo-dark.svg',
-        replacesTitle: false,
-      },
       social: {
         github: 'https://github.com/komeilm76/km-geoboard',
       },
