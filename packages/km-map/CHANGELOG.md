@@ -1,10 +1,20 @@
 # Changelog — km-map
 
+## 0.1.1
+
+### Patch Changes
+
+- 31dd255: docs: expanded READMEs for all packages — full API tables (functions, signatures, options, error codes), type references, runnable examples (all type-checked against source), error-handling guidance, and cross-package links. npm users now get complete usage docs without leaving the package page.
+- Updated dependencies [31dd255]
+  - @komeilm76/km-shared@0.1.1
+  - @komeilm76/km-geojson@0.1.1
+
 ## [0.1.0] - 2026-06-11
 
 ### Added
 
 **Types** (`src/types.ts`)
+
 - `LatLng` — WGS84 geographic coordinate with JSDoc noting valid ranges
 - `MercatorPoint` — Web Mercator (EPSG:3857) coordinate in meters
 - `TileCoord` — XYZ slippy-map tile coordinate
@@ -13,12 +23,14 @@
 - `SupportedLayerFormat` — 9-variant string literal union for layer format types
 
 **Projections** (`src/projection.ts`)
+
 - `latLngToMercator` — WGS84 → Web Mercator (EPSG:3857)
 - `mercatorToLatLng` — Web Mercator → WGS84 (exact inverse)
 - `latLngToPixel` — WGS84 → global pixel coordinates at a zoom level
 - `pixelToLatLng` — pixel coordinates → WGS84 (exact inverse)
 
 **Tiles** (`src/tiles.ts`)
+
 - `latLngToTile` — geographic coordinate → XYZ tile at a zoom level
 - `tileToBounds` — XYZ tile → geographic bounding box
 - `tilesForBounds` — enumerate all tiles covering a bounding box
@@ -26,6 +38,7 @@
 - `quadKeyToTile` — Bing Maps quadkey → XYZ tile (`Result<TileCoord>`)
 
 **Distance & Area** (`src/distance.ts`)
+
 - `haversineDistance` — great-circle distance (meters) via Haversine formula
 - `rhumbDistance` — constant-bearing (rhumb-line) distance in meters
 - `bearing` — initial bearing in degrees (0–360, 0 = north)
@@ -33,6 +46,7 @@
 - `polygonArea` — area of a GeoJSON Polygon in square meters (handles holes)
 
 **Bounds** (`src/bounds.ts`)
+
 - `boundsFromLatLngs` — minimum bounding box from an array of coordinates
 - `boundsCenter` — geographic center of a bounding box
 - `boundsContains` — point-in-bounds test (inclusive on edges)
@@ -41,11 +55,13 @@
 - `boundsUnion` — smallest box containing two bounding boxes
 
 **Scale** (`src/scale.ts`)
+
 - `zoomToScale` — zoom level → scale denominator at equator (96 DPI)
 - `scaleToZoom` — scale denominator → zoom level (exact inverse)
 - `metersPerPixel` — ground resolution in meters/pixel at a zoom and latitude
 
 **Layers** (`src/layers.ts`)
+
 - `detectLayerFormat` — heuristic URL/string → `SupportedLayerFormat | "unknown"`
 - `makeGeoJsonSource` — MapLibre-compatible GeoJSON source object
 - `makeXyzSource` — MapLibre-compatible raster XYZ source object

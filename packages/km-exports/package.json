@@ -1,6 +1,6 @@
 {
   "name": "@komeilm76/km-exports",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Serialization functions that convert artboard and map content into SVG, GeoJSON, OpenLayers, PDF metadata, and raster draw instructions.",
   "license": "MIT",
   "author": "komeilm76",

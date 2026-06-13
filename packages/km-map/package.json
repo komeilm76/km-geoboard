@@ -1,6 +1,6 @@
 {
   "name": "@komeilm76/km-map",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Pure coordinate math and geographic utilities — projections, tiles, distance, bounds, and layer helpers. No map renderer required.",
   "license": "MIT",
