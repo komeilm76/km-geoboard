@@ -1,0 +1,40 @@
+---
+title: km-geoboard
+description: Artboard, GeoJSON, SVG, map, import/export, and plugin utilities for TypeScript.
+template: splash
+hero:
+  tagline: Pure, composable geo-utilities for TypeScript — no DOM, no map engine required.
+  actions:
+    - text: Quick start
+      link: /km-geoboard/examples/artboard/
+      icon: right-arrow
+      variant: primary
+    - text: GitHub
+      link: https://github.com/komeilm76/km-geoboard
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What's in the box
+
+<CardGrid>
+  <Card title="km-artboard" icon="pencil">
+    Create, move, resize, and snap rectangular artboards. Pure geometry — no events, no mutations.
+  </Card>
+  <Card title="km-geojson" icon="document">
+    RFC 7946 types, Zod validators, and constructors for GeoJSON data.
+  </Card>
+  <Card title="km-svg" icon="setting">
+    Parse SVG XML into typed element trees and convert paths to GeoJSON.
+  </Card>
+  <Card title="km-map" icon="magnifier">
+    Projections, tile math, distance, bounds — pure coordinate utilities.
+  </Card>
+  <Card title="km-imports / km-exports" icon="open-book">
+    Round-trip pipeline: GeoJSON ↔ SVG ↔ OpenLayers snapshots ↔ PDF metadata.
+  </Card>
+  <Card title="km-plugins" icon="puzzle">
+    Typed plugin registry with dependency resolution, conflict detection, and semver checks.
+  </Card>
+</CardGrid>

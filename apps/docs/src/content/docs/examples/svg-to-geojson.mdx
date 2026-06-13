@@ -1,0 +1,73 @@
+---
+title: SVG → GeoJSON
+description: Parse SVG markup and convert geometry to GeoJSON with km-svg.
+---
+
+import { LiveExample } from '../../../components/LiveExample';
+
+`@komeilm76/km-svg` turns SVG XML strings into typed element trees, then converts path geometry into GeoJSON features — no browser, no canvas, no DOM required.
+
+## Live example
+
+<LiveExample
+  client:only="react"
+  title="SVG → GeoJSON"
+  code={`import { parseSvg, svgToGeoJSON } from '@komeilm76/km-svg';
+
+const svg = \`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect id="bbox" x="10" y="10" width="180" height="180" />
+  <circle id="center" cx="100" cy="100" r="40" />
+  <path id="arrow" d="M 10 100 L 190 100 M 170 80 L 190 100 L 170 120" />
+</svg>\`;
+
+// Step 1: parse into typed element tree
+const parsed = parseSvg(svg);
+if (!parsed.success) {
+  console.error('Parse failed:', parsed.reason);
+  process.exit(1);
+}
+
+console.log('Elements found:', parsed.elements.length);
+parsed.elements.forEach(el => {
+  console.log(' -', el.type, el.id ?? '(no id)');
+});
+
+// Step 2: convert to GeoJSON FeatureCollection
+const geoResult = svgToGeoJSON(parsed.elements, {
+  // Map SVG px → geographic degrees (illustrative scale)
+  scale: { x: 0.01, y: -0.01 },
+  origin: { x: -1, y: 51 }, // lon/lat origin (London area)
+});
+
+if (geoResult.success) {
+  const { featureCollection } = geoResult;
+  console.log('\\nGeoJSON features:', featureCollection.features.length);
+  featureCollection.features.forEach(f => {
+    console.log(' -', f.geometry.type, JSON.stringify(f.properties));
+  });
+} else {
+  console.error('GeoJSON conversion failed:', geoResult.reason);
+}
+`}
+/>
+
+## How it works
+
+1. **`parseSvg`** lexes the SVG string into a `ParsedSvg` object containing a flat array of typed elements (`SvgRect`, `SvgCircle`, `SvgPath`, `SvgLine`, …). Every element carries its raw attributes and a normalized bounding box.
+
+2. **`svgToGeoJSON`** maps each SVG element to the closest GeoJSON geometry:
+   - `rect` → `Polygon` (four corners)
+   - `circle` → `Polygon` (approximated with N-gon)
+   - `path` → `LineString` or `MultiLineString` (M/L/Z commands parsed)
+   - `line` → `LineString`
+
+3. A **coordinate transform** option lets you provide a scale and origin to map SVG pixel space to geographic coordinates.
+
+## API summary
+
+| Symbol | Kind | Notes |
+|---|---|---|
+| `parseSvg(xml)` | Function | Returns `ParseSvgResult` |
+| `svgToGeoJSON(elements, opts?)` | Function | Returns `SvgToGeoJSONResult` |
+| `SvgElement` | Type union | `SvgRect \| SvgCircle \| SvgPath \| SvgLine \| SvgGroup \| SvgText` |
+| `ParsedSvg` | Type | `{ elements, viewBox, width, height }` |

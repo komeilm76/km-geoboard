@@ -1,0 +1,17 @@
+/* km-geoboard docs — custom overrides */
+:root {
+  --sl-color-accent-low: #0a3622;
+  --sl-color-accent:     #16a34a;
+  --sl-color-accent-high: #bbf7d0;
+}
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #052e16;
+  --sl-color-accent:     #4ade80;
+  --sl-color-accent-high: #166534;
+}
+.sandpack-wrapper {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--sl-color-hairline);
+}

@@ -1,0 +1,79 @@
+---
+title: Tile math
+description: Slippy-map tile calculations, projections, and distance with km-map.
+---
+
+import { LiveExample } from '../../../components/LiveExample';
+
+`@komeilm76/km-map` is a pure math library for web-map computations — no map renderer required. It covers Web Mercator tile indices, coordinate projections, great-circle distance, and bounding-box helpers.
+
+## Live example
+
+<LiveExample
+  client:only="react"
+  title="Tile math"
+  code={`import {
+  lngLatToTile,
+  tileToLngLat,
+  lngLatToPixel,
+  pixelToLngLat,
+  haversineDistance,
+  boundsContains,
+  tilesInBounds,
+} from '@komeilm76/km-map';
+
+const ZOOM = 10;
+const LONDON = { lng: -0.1276, lat: 51.5074 };
+const PARIS  = { lng:  2.3522, lat: 48.8566 };
+
+// 1. lng/lat → tile XY
+const tile = lngLatToTile(LONDON, ZOOM);
+console.log(\`London tile z\${ZOOM}:\`, tile);
+
+// 2. tile XY back to lng/lat (top-left corner of tile)
+const corner = tileToLngLat(tile, ZOOM);
+console.log('Tile top-left corner:', corner);
+
+// 3. lng/lat → pixel (256px tiles)
+const px = lngLatToPixel(LONDON, ZOOM);
+console.log('London pixel:', { x: Math.round(px.x), y: Math.round(px.y) });
+
+// 4. Pixel back to lng/lat
+const recovered = pixelToLngLat(px, ZOOM);
+console.log('Recovered lng/lat:', {
+  lng: +recovered.lng.toFixed(4),
+  lat: +recovered.lat.toFixed(4),
+});
+
+// 5. Great-circle distance (metres)
+const dist = haversineDistance(LONDON, PARIS);
+console.log(\`London → Paris: \${Math.round(dist / 1000)} km\`);
+
+// 6. Count tiles covering a bounding box
+const bounds = { west: -0.5, south: 51.3, east: 0.3, north: 51.7 };
+const tiles = tilesInBounds(bounds, ZOOM);
+console.log(\`Tiles covering London area at z\${ZOOM}:\`, tiles.length);
+
+// 7. Containment check
+const inside = boundsContains(bounds, LONDON);
+console.log('London inside bounds?', inside);
+`}
+/>
+
+## Coordinate systems
+
+All functions work in **WGS84 / EPSG:4326** degrees. Tile XY follows the [OSM / Google Maps convention](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames) (origin top-left, Y increases downward).
+
+## API summary
+
+| Function | Returns | Notes |
+|---|---|---|
+| `lngLatToTile(lngLat, zoom)` | `TileXY` | Floor to integer tile indices |
+| `tileToLngLat(tile, zoom)` | `LngLat` | Top-left corner of tile |
+| `lngLatToPixel(lngLat, zoom)` | `Point` | Global pixel (256 px tiles) |
+| `pixelToLngLat(pixel, zoom)` | `LngLat` | Inverse of above |
+| `haversineDistance(a, b)` | `number` | Metres, WGS84 sphere |
+| `tilesInBounds(bounds, zoom)` | `TileXY[]` | All tiles intersecting bbox |
+| `boundsContains(bounds, point)` | `boolean` | Inclusive containment |
+| `projectMercator(lngLat)` | `Point` | Web Mercator (EPSG:3857) metres |
+| `unprojectMercator(point)` | `LngLat` | Inverse Mercator |

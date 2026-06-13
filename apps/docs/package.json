@@ -1,0 +1,29 @@
+{
+  "name": "km-geoboard-docs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "km-geoboard documentation site (Astro Starlight)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "generate-api": "typedoc"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.32.0",
+    "astro": "^5.0.0",
+    "@astrojs/react": "^4.0.0",
+    "@types/react": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@codesandbox/sandpack-react": "^2.18.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.27.0",
+    "typedoc-plugin-markdown": "^4.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

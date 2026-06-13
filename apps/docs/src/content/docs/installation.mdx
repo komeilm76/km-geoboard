@@ -1,0 +1,66 @@
+---
+title: Installation
+description: Install the km-geoboard packages from npm.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Requirements
+
+- **Node.js** ≥ 18  
+- **pnpm** (recommended), npm, or yarn  
+- **zod** ≥ 4.4.0 (peer dependency — install alongside any km-* package)
+
+## Install the umbrella package
+
+<Tabs>
+  <TabItem label="pnpm">
+    ```sh
+    pnpm add @komeilm76/km-geoboard zod
+    ```
+  </TabItem>
+  <TabItem label="npm">
+    ```sh
+    npm install @komeilm76/km-geoboard zod
+    ```
+  </TabItem>
+  <TabItem label="yarn">
+    ```sh
+    yarn add @komeilm76/km-geoboard zod
+    ```
+  </TabItem>
+</Tabs>
+
+`@komeilm76/km-geoboard` re-exports everything from all nine packages, so you only need one install for most projects.
+
+## Install individual packages
+
+If you only need a subset of the suite, each package is independently publishable:
+
+| Package | What it does |
+|---|---|
+| `@komeilm76/km-artboard` | Artboard geometry |
+| `@komeilm76/km-geojson` | GeoJSON types + validation |
+| `@komeilm76/km-svg` | SVG parse + GeoJSON conversion |
+| `@komeilm76/km-map` | Projections, tiles, distance |
+| `@komeilm76/km-imports` | Parse raw inputs into typed structures |
+| `@komeilm76/km-exports` | Serialize to SVG / GeoJSON / PDF-meta |
+| `@komeilm76/km-plugins` | Plugin registry |
+| `@komeilm76/km-shared` | Shared `Result<T>` type |
+
+```sh
+pnpm add @komeilm76/km-artboard zod
+```
+
+## TypeScript
+
+The packages ship `.d.ts` declaration files alongside ESM and CJS output. No `@types/*` package is required. Minimum TypeScript version: **5.0**.
+
+```json title="tsconfig.json (minimum)"
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "strict": true
+  }
+}
+```

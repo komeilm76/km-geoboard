@@ -1,0 +1,35 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "packages/km-shared",
+    "packages/km-artboard",
+    "packages/km-geojson",
+    "packages/km-svg",
+    "packages/km-map",
+    "packages/km-imports",
+    "packages/km-exports",
+    "packages/km-plugins",
+    "packages/km-geoboard"
+  ],
+  "out": "apps/docs/src/content/docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "githubPages": false,
+  "hideGenerator": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "disableSources": false,
+  "sourceLinkTemplate": "https://github.com/komeilm76/km-geoboard/blob/main/{path}#L{line}",
+  "navigation": {
+    "includeCategories": false,
+    "includeGroups": false
+  },
+  "flattenOutputFiles": false,
+  "markdownExtensions": {
+    "indexFilename": "index",
+    "entryFileName": "index",
+    "modulesFileName": "index"
+  }
+}

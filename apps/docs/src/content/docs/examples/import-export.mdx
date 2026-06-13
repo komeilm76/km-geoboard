@@ -1,0 +1,110 @@
+---
+title: Import / export round-trip
+description: Parse raw formats and serialize back with km-imports and km-exports.
+---
+
+import { LiveExample } from '../../../components/LiveExample';
+
+`@komeilm76/km-imports` turns raw strings and objects into typed internal structures. `@komeilm76/km-exports` serializes them back out. Together they form a round-trip pipeline.
+
+## Live example
+
+<LiveExample
+  client:only="react"
+  title="Import / export round-trip"
+  code={`import { importGeoJSON, importAuto } from '@komeilm76/km-imports';
+import { exportGeoJSON, exportSvg, exportPdfMeta } from '@komeilm76/km-exports';
+
+// ── 1. Import GeoJSON ──────────────────────────────────────────────────────
+const raw = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [-0.1276, 51.5074] },
+      properties: { name: 'London' },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: [[-0.1276, 51.5074], [2.3522, 48.8566]],
+      },
+      properties: { name: 'London → Paris' },
+    },
+  ],
+};
+
+const imported = importGeoJSON(raw);
+if (!imported.success) {
+  console.error('Import failed:', imported.reason);
+  process.exit(1);
+}
+
+console.log('Imported features:', imported.featureCollection.features.length);
+
+// ── 2. Auto-detect format ──────────────────────────────────────────────────
+const wkt = 'POINT (-0.1276 51.5074)';
+const auto = importAuto(wkt);
+console.log('Auto-detected format:', auto.success ? auto.format : auto.reason);
+
+// ── 3. Export back to GeoJSON string ──────────────────────────────────────
+const geojsonOut = exportGeoJSON(imported.featureCollection);
+if (geojsonOut.success) {
+  console.log('\\nGeoJSON output (first 120 chars):');
+  console.log(geojsonOut.geojson.slice(0, 120) + '…');
+}
+
+// ── 4. Export as SVG ──────────────────────────────────────────────────────
+const svgOut = exportSvg(imported.featureCollection, {
+  width: 400, height: 300,
+  project: 'mercator',
+});
+if (svgOut.success) {
+  console.log('\\nSVG output (first 120 chars):');
+  console.log(svgOut.svg.slice(0, 120) + '…');
+}
+
+// ── 5. Export PDF metadata ────────────────────────────────────────────────
+const pdfMeta = exportPdfMeta(imported.featureCollection);
+if (pdfMeta.success) {
+  console.log('\\nPDF metadata keys:', Object.keys(pdfMeta.metadata).join(', '));
+}
+`}
+/>
+
+## Pipeline overview
+
+```
+raw string / object
+       │
+  importGeoJSON()   importSvg()   importAuto()   importOL()
+       │
+  FeatureCollection (typed, validated)
+       │
+  exportGeoJSON()   exportSvg()   exportPdfMeta()   exportOL()
+       │
+  serialized output
+```
+
+`importAuto` probes the input and delegates to the appropriate importer — useful when the format is unknown at call time.
+
+## API summary
+
+### km-imports
+
+| Function | Input | Output |
+|---|---|---|
+| `importGeoJSON(raw)` | Unknown object | `ImportGeoJSONResult` |
+| `importSvg(xml)` | SVG string | `ImportSvgResult` |
+| `importAuto(raw)` | Any | `ImportAutoResult` (includes detected `format`) |
+| `importOL(snapshot)` | OL layer snapshot | `ImportOLResult` |
+
+### km-exports
+
+| Function | Input | Output |
+|---|---|---|
+| `exportGeoJSON(fc)` | FeatureCollection | `ExportGeoJSONResult` |
+| `exportSvg(fc, opts)` | FeatureCollection | `ExportSvgResult` |
+| `exportPdfMeta(fc)` | FeatureCollection | `ExportPdfMetaResult` |
+| `exportOL(fc)` | FeatureCollection | `ExportOLResult` |
