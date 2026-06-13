@@ -42,8 +42,12 @@ jobs:
         run: pnpm --filter './packages/*' build
 
       - name: Generate API docs via TypeDoc
-        run: node_modules/.bin/typedoc
-        # Outputs markdown into apps/docs/src/content/docs/api/
+        run: |
+          npm install -g typedoc@^0.28.0 typedoc-plugin-markdown@^4.12.0
+          typedoc
+        # Installs compatible versions globally (ephemeral in CI) since lockfile
+        # resolves typedoc@0.27.9 + typedoc-plugin-markdown@4.12.0 which are
+        # incompatible (plugin 4.12 needs typedoc 0.28).
 
       - name: Build Astro docs site
         working-directory: apps/docs
