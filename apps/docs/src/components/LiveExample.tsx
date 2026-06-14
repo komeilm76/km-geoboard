@@ -26,13 +26,12 @@ export function LiveExample({ code, dependencies = {}, title }: LiveExampleProps
       )}
       <Sandpack
         theme="auto"
-        template="vanilla-ts"
+        template="node"
         files={{
           '/index.ts': { code, active: true },
         }}
         customSetup={{
           dependencies: defaultDeps,
-          entry: '/index.ts',
         }}
         options={{
           showLineNumbers: true,
