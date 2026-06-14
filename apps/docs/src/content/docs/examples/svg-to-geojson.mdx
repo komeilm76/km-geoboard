@@ -15,39 +15,61 @@ import { LiveExample } from '../../../components/LiveExample';
   code={`import { svg } from '@komeilm76/km-geoboard';
 
 // ── 1. Parse an SVG document ──────────────────────────────────────────────
-const svgDoc = svg.parseSvgDocument('<svg viewBox="0 0 200 100"><rect x="10" y="10" width="80" height="60"/><circle cx="150" cy="50" r="30"/></svg>');
-console.log('Elements found:', svgDoc.elements.length);
-svgDoc.elements.forEach(el => console.log(' -', el.type, JSON.stringify(el.attributes)));
+const result = svg.parseSvgDocument(
+  '<svg viewBox="0 0 200 100">' +
+  '<rect x="10" y="10" width="80" height="60"/>' +
+  '<circle cx="150" cy="50" r="30"/>' +
+  '</svg>'
+);
+if (!result.success) throw new Error(JSON.stringify(result.error));
+const doc = result.data;
+console.log('Elements found:', doc.elements.length);
+doc.elements.forEach(el => console.log(' -', el.type));
 
-// ── 2. Convert individual SVG element to GeoJSON ──────────────────────────
-const rectEl = svgDoc.elements[0];
-const feature = svg.svgElementToGeoJSON(rectEl, { scale: 1 });
-console.log('GeoJSON type:', feature.type, feature.geometry.type);
+// ── 2. Convert the whole document to a GeoJSON FeatureCollection ──────────
+// SvgGeoMeta maps SVG pixel space → geographic coordinates
+const meta = {
+  svgBounds: { minX: 0, minY: 0, maxX: 200, maxY: 100 },
+  geoBounds: [-10, -5, 10, 5],  // [west, south, east, north] in degrees
+};
+const fc = svg.svgDocumentToFeatureCollection(doc, meta);
+if (fc.success) {
+  console.log('FeatureCollection features:', fc.data.features.length);
+  fc.data.features.forEach((f, i) =>
+    console.log(' [' + i + ']', f.geometry.type)
+  );
+}
 
-// ── 3. Convert whole SVG doc to GeoJSON FeatureCollection ─────────────────
-const fc = svg.svgToGeoJSON(svgDoc, { scale: 1 });
-console.log('FeatureCollection features:', fc.features.length);
-fc.features.forEach((f, i) => console.log(' [' + i + ']', f.geometry.type));
+// ── 3. Convert a single SVG element to a GeoJSON Feature ─────────────────
+const firstEl = doc.elements[0];
+if (firstEl) {
+  const feat = svg.svgElementToGeoJsonFeature(firstEl, meta);
+  if (feat.success) {
+    console.log('First element → GeoJSON:', feat.data.geometry.type);
+    console.log('Coordinates[0]:', JSON.stringify(feat.data.geometry.coordinates[0]));
+  }
+}
 `}
 />
 
 ## How it works
 
-1. **`parseSvg`** lexes the SVG string into a `ParsedSvg` object containing a flat array of typed elements (`SvgRect`, `SvgCircle`, `SvgPath`, `SvgLine`, …). Every element carries its raw attributes and a normalized bounding box.
+1. **`parseSvgDocument`** lexes the SVG string into a `Result<SvgDocument>` containing a flat array of typed elements (`SvgRectElement`, `SvgCircleElement`, `SvgPathElement`, …). Check `result.success` before accessing `result.data`.
 
-2. **`svgToGeoJSON`** maps each SVG element to the closest GeoJSON geometry:
+2. **`svgDocumentToFeatureCollection`** maps each SVG element to the closest GeoJSON geometry:
    - `rect` → `Polygon` (four corners)
-   - `circle` → `Polygon` (approximated with N-gon)
-   - `path` → `LineString` or `MultiLineString` (M/L/Z commands parsed)
-   - `line` → `LineString`
+   - `circle` / `ellipse` → `Polygon` (N-gon approximation)
+   - `path` → `LineString` or `Polygon` (Z-closed paths become polygons)
+   - `line` / `polyline` → `LineString`
 
-3. A **coordinate transform** option lets you provide a scale and origin to map SVG pixel space to geographic coordinates.
+3. **`SvgGeoMeta`** defines the coordinate mapping: `svgBounds` is the pixel bounding box of the SVG canvas; `geoBounds` is the geographic `[west, south, east, north]` extent it maps to.
 
 ## API summary
 
 | Symbol | Kind | Notes |
 |---|---|---|
-| `parseSvg(xml)` | Function | Returns `ParseSvgResult` |
-| `svgToGeoJSON(elements, opts?)` | Function | Returns `SvgToGeoJSONResult` |
-| `SvgElement` | Type union | `SvgRect \| SvgCircle \| SvgPath \| SvgLine \| SvgGroup \| SvgText` |
-| `ParsedSvg` | Type | `{ elements, viewBox, width, height }` |
+| `parseSvgDocument(xml)` | Function | Returns `Result<SvgDocument>` |
+| `svgDocumentToFeatureCollection(doc, meta)` | Function | Returns `Result<GeoJsonFeatureCollection>` |
+| `svgElementToGeoJsonFeature(element, meta)` | Function | Returns `Result<GeoJsonFeature>` |
+| `SvgDocument` | Type | `{ elements, viewBox, width, height }` |
+| `SvgGeoMeta` | Type | `{ svgBounds, geoBounds, crs? }` |

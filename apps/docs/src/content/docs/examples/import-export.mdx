@@ -12,9 +12,10 @@ import { LiveExample } from '../../../components/LiveExample';
 <LiveExample
   client:only="react"
   title="Import / export round-trip"
-  code={`import { imports, exports } from '@komeilm76/km-geoboard';
+  code={`import { imports, exports as ex } from '@komeilm76/km-geoboard';
 
 // ── 1. Import GeoJSON ─────────────────────────────────────────────────────
+// importGeoJson accepts a parsed object or a JSON string
 const raw = {
   type: 'FeatureCollection',
   features: [
@@ -31,32 +32,30 @@ const raw = {
   ],
 };
 
-const result = imports.importGeoJSON(raw);
-console.log('importGeoJSON ok:', result.success);
+const result = imports.importGeoJson(raw);
+console.log('importGeoJson ok:', result.success);
 if (result.success) {
   console.log('Features imported:', result.data.features.length);
+  if (result.warnings.length) {
+    console.log('Warnings:', result.warnings.map(w => w.code).join(', '));
+  }
 }
 
 // ── 2. importAuto (auto-detect format) ───────────────────────────────────
-const autoResult = imports.importAuto(raw);
-console.log('importAuto format:', autoResult.success ? autoResult.format : autoResult.reason);
+// Returns { format, result } — format is the detected type string
+const auto = imports.importAuto(raw);
+console.log('Detected format:', auto.format);
+console.log('importAuto ok:', auto.result.success);
 
-// ── 3. Round-trip: export back to GeoJSON ─────────────────────────────────
+// ── 3. Round-trip: export back to GeoJSON string ─────────────────────────
+// exportToGeoJson takes { features: GeoJsonFeature[], pretty? }
 if (result.success) {
-  const exported = exports.exportGeoJSON(result.data);
-  console.log('exportGeoJSON type:', exported.type, '| features:', exported.features.length);
-}
-
-// ── 4. Export SVG ─────────────────────────────────────────────────────────
-if (result.success) {
-  const svgOut = exports.exportSvg(result.data, { width: 800, height: 600 });
-  console.log('exportSvg starts with <svg:', svgOut.startsWith('<svg'));
-}
-
-// ── 5. PDF metadata ───────────────────────────────────────────────────────
-if (result.success) {
-  const pdfMeta = exports.exportPdfMeta(result.data, { title: 'Berlin map' });
-  console.log('PDF meta title:', pdfMeta.title, '| features:', pdfMeta.featureCount);
+  const exported = ex.exportToGeoJson({ features: result.data.features, pretty: true });
+  if (exported.success) {
+    const parsed = JSON.parse(exported.data);
+    console.log('Re-exported type:', parsed.type, '| features:', parsed.features.length);
+    console.log('First feature geometry:', parsed.features[0].geometry.type);
+  }
 }
 `}
 />
@@ -66,16 +65,16 @@ if (result.success) {
 ```
 raw string / object
        │
-  importGeoJSON()   importSvg()   importAuto()   importOL()
+  importGeoJson()   importSvg()   importAuto()   importWkt()
        │
-  FeatureCollection (typed, validated)
+  { success, data: GeoJsonFeatureCollection, warnings }
        │
-  exportGeoJSON()   exportSvg()   exportPdfMeta()   exportOL()
+  exportToGeoJson({ features })   exportToSvg({ artboard, elements })
        │
-  serialized output
+  { success, data: string }   (serialized output)
 ```
 
-`importAuto` probes the input and delegates to the appropriate importer — useful when the format is unknown at call time.
+`importAuto` probes the input and delegates to the appropriate importer — useful when the format is unknown at call time. Its result carries a `format` discriminant (`"geojson"`, `"svg"`, `"wkt"`, etc.).
 
 ## API summary
 
@@ -83,16 +82,15 @@ raw string / object
 
 | Function | Input | Output |
 |---|---|---|
-| `importGeoJSON(raw)` | Unknown object | `ImportGeoJSONResult` |
-| `importSvg(xml)` | SVG string | `ImportSvgResult` |
-| `importAuto(raw)` | Any | `ImportAutoResult` (includes detected `format`) |
-| `importOL(snapshot)` | OL layer snapshot | `ImportOLResult` |
+| `importGeoJson(raw)` | Unknown object or string | `ImportResult<GeoJsonFeatureCollection>` |
+| `importSvg(xml)` | SVG string | `ImportResult<SvgDocument>` |
+| `importWkt(wkt)` | WKT string | `ImportResult<GeoJsonFeatureCollection>` |
+| `importAuto(raw)` | Any | `AutoImportResult` — includes detected `format` |
 
 ### km-exports
 
 | Function | Input | Output |
 |---|---|---|
-| `exportGeoJSON(fc)` | FeatureCollection | `ExportGeoJSONResult` |
-| `exportSvg(fc, opts)` | FeatureCollection | `ExportSvgResult` |
-| `exportPdfMeta(fc)` | FeatureCollection | `ExportPdfMetaResult` |
-| `exportOL(fc)` | FeatureCollection | `ExportOLResult` |
+| `exportToGeoJson(options)` | `{ features, filter?, pretty? }` | `Result<string>` — GeoJSON string |
+| `exportToSvg(options)` | `{ artboard, elements, ... }` | `Result<string>` — SVG string |
+| `exportToPdfMeta(options)` | `{ artboard, elements, ... }` | `Result<PdfMeta>` |
