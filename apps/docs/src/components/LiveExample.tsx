@@ -17,6 +17,13 @@ export function LiveExample({ code, dependencies = {}, title }: LiveExampleProps
     ...dependencies,
   };
 
+  const pkgJson = JSON.stringify(
+    { name: 'live-example', version: '1.0.0', type: 'module',
+      scripts: { start: 'node index.js' },
+      dependencies: defaultDeps },
+    null, 2
+  );
+
   return (
     <div className="sandpack-wrapper">
       {title && (
@@ -28,10 +35,8 @@ export function LiveExample({ code, dependencies = {}, title }: LiveExampleProps
         theme="auto"
         template="node"
         files={{
-          '/index.ts': { code, active: true },
-        }}
-        customSetup={{
-          dependencies: defaultDeps,
+          '/index.js': { code, active: true },
+          '/package.json': { code: pkgJson, hidden: true },
         }}
         options={{
           showLineNumbers: true,
