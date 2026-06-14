@@ -12,63 +12,51 @@ import { LiveExample } from '../../../components/LiveExample';
 <LiveExample
   client:only="react"
   title="Import / export round-trip"
-  code={`import { importGeoJSON, importAuto } from '@komeilm76/km-imports';
-import { exportGeoJSON, exportSvg, exportPdfMeta } from '@komeilm76/km-exports';
+  code={`import { imports, exports } from '@komeilm76/km-geoboard';
 
-// ── 1. Import GeoJSON ──────────────────────────────────────────────────────
+// ── 1. Import GeoJSON ─────────────────────────────────────────────────────
 const raw = {
   type: 'FeatureCollection',
   features: [
     {
       type: 'Feature',
-      geometry: { type: 'Point', coordinates: [-0.1276, 51.5074] },
-      properties: { name: 'London' },
+      geometry: { type: 'Point', coordinates: [13.405, 52.52] },
+      properties: { name: 'Berlin' },
     },
     {
       type: 'Feature',
-      geometry: {
-        type: 'LineString',
-        coordinates: [[-0.1276, 51.5074], [2.3522, 48.8566]],
-      },
-      properties: { name: 'London → Paris' },
+      geometry: { type: 'LineString', coordinates: [[0,0],[1,1],[2,0]] },
+      properties: { label: 'Triangle edge' },
     },
   ],
 };
 
-const imported = importGeoJSON(raw);
-if (!imported.success) {
-  console.error('Import failed:', imported.reason);
-  process.exit(1);
+const result = imports.importGeoJSON(raw);
+console.log('importGeoJSON ok:', result.success);
+if (result.success) {
+  console.log('Features imported:', result.data.features.length);
 }
 
-console.log('Imported features:', imported.featureCollection.features.length);
+// ── 2. importAuto (auto-detect format) ───────────────────────────────────
+const autoResult = imports.importAuto(raw);
+console.log('importAuto format:', autoResult.success ? autoResult.format : autoResult.reason);
 
-// ── 2. Auto-detect format ──────────────────────────────────────────────────
-const wkt = 'POINT (-0.1276 51.5074)';
-const auto = importAuto(wkt);
-console.log('Auto-detected format:', auto.success ? auto.format : auto.reason);
-
-// ── 3. Export back to GeoJSON string ──────────────────────────────────────
-const geojsonOut = exportGeoJSON(imported.featureCollection);
-if (geojsonOut.success) {
-  console.log('\\nGeoJSON output (first 120 chars):');
-  console.log(geojsonOut.geojson.slice(0, 120) + '…');
+// ── 3. Round-trip: export back to GeoJSON ─────────────────────────────────
+if (result.success) {
+  const exported = exports.exportGeoJSON(result.data);
+  console.log('exportGeoJSON type:', exported.type, '| features:', exported.features.length);
 }
 
-// ── 4. Export as SVG ──────────────────────────────────────────────────────
-const svgOut = exportSvg(imported.featureCollection, {
-  width: 400, height: 300,
-  project: 'mercator',
-});
-if (svgOut.success) {
-  console.log('\\nSVG output (first 120 chars):');
-  console.log(svgOut.svg.slice(0, 120) + '…');
+// ── 4. Export SVG ─────────────────────────────────────────────────────────
+if (result.success) {
+  const svgOut = exports.exportSvg(result.data, { width: 800, height: 600 });
+  console.log('exportSvg starts with <svg:', svgOut.startsWith('<svg'));
 }
 
-// ── 5. Export PDF metadata ────────────────────────────────────────────────
-const pdfMeta = exportPdfMeta(imported.featureCollection);
-if (pdfMeta.success) {
-  console.log('\\nPDF metadata keys:', Object.keys(pdfMeta.metadata).join(', '));
+// ── 5. PDF metadata ───────────────────────────────────────────────────────
+if (result.success) {
+  const pdfMeta = exports.exportPdfMeta(result.data, { title: 'Berlin map' });
+  console.log('PDF meta title:', pdfMeta.title, '| features:', pdfMeta.featureCount);
 }
 `}
 />

@@ -14,52 +14,42 @@ Edit the code below and the output panel updates instantly.
 <LiveExample
   client:only="react"
   title="Artboard quick start"
-  code={`import {
-  createArtboard,
-  moveArtboard,
-  resizeArtboard,
-  snapArtboardToGrid,
-  artboardContainsPoint,
-  artboardsOverlap,
-} from '@komeilm76/km-artboard';
+  code={`import { artboard } from '@komeilm76/km-geoboard';
 
-// 1. Create from drag start/end points
-const result = createArtboard({
-  startPoint: { x: 100, y: 80 },
-  endPoint:   { x: 400, y: 320 },
-  name: 'Frame 1',
+// ── 1. Create an artboard ─────────────────────────────────────────────────
+const board = artboard.createArtboard({
+  startPoint: { x: 0, y: 0 },
+  endPoint: { x: 800, y: 600 },
+  name: 'Main canvas',
 });
+console.log('Created:', board.name, board.width + 'x' + board.height);
 
-if (!result.success) {
-  console.error('Failed:', result.reason);
-  process.exit(1);
-}
+// ── 2. Move it ────────────────────────────────────────────────────────────
+const moved = artboard.moveArtboard(board, { x: 50, y: 50 });
+console.log('Moved to:', moved.startPoint.x, moved.startPoint.y);
 
-const { artboard } = result;
-console.log('Created:', artboard.name, artboard.origin, artboard.size);
+// ── 3. Resize it ──────────────────────────────────────────────────────────
+const resized = artboard.resizeArtboard(moved, 1200, 900);
+console.log('Resized to:', resized.width + 'x' + resized.height);
 
-// 2. Move by a delta vector
-const moved = moveArtboard({ artboard, delta: { x: 50, y: -10 } });
-console.log('Moved origin:', moved.origin);
+// ── 4. Snap to grid ───────────────────────────────────────────────────────
+const snapped = artboard.snapArtboardToGrid(resized, 100);
+console.log('Snapped start:', snapped.startPoint.x, snapped.startPoint.y);
 
-// 3. Partial resize (only width changes)
-const resized = resizeArtboard({ artboard: moved, size: { width: 500 } });
-if (resized.success) {
-  // 4. Snap to 8 px grid
-  const snapped = snapArtboardToGrid({ artboard: resized.artboard, gridSize: 8, mode: 'round' });
-  console.log('Snapped size:', snapped.size);
+// ── 5. Point containment ──────────────────────────────────────────────────
+const inside = artboard.artboardContainsPoint(snapped, { x: 400, y: 300 });
+const outside = artboard.artboardContainsPoint(snapped, { x: 5, y: 5 });
+console.log('Point (400,300) inside:', inside);
+console.log('Point (5,5) inside:', outside);
 
-  // 5. Point containment test
-  const inside = artboardContainsPoint({ artboard: snapped, point: { x: 200, y: 200 } });
-  console.log('Point inside?', inside);
-}
-
-// 6. Overlap detection
-const other = createArtboard({ startPoint: { x: 350, y: 200 }, endPoint: { x: 600, y: 400 }, name: 'Frame 2' });
-if (other.success) {
-  const overlap = artboardsOverlap({ a: artboard, b: other.artboard });
-  console.log('Overlaps?', overlap);
-}
+// ── 6. Overlap detection ─────────────────────────────────────────────────
+const other = artboard.createArtboard({
+  startPoint: { x: 700, y: 500 },
+  endPoint: { x: 1400, y: 1000 },
+  name: 'Overlay',
+});
+const overlap = artboard.artboardsOverlap(snapped, other);
+console.log('Boards overlap:', overlap);
 `}
 />
 

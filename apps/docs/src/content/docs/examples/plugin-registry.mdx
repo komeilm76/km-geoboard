@@ -12,17 +12,10 @@ import { LiveExample } from '../../../components/LiveExample';
 <LiveExample
   client:only="react"
   title="Plugin registry"
-  code={`import {
-  createRegistry,
-  registerPlugin,
-  activatePlugin,
-  deactivatePlugin,
-  resolveOrder,
-  listPlugins,
-} from '@komeilm76/km-plugins';
+  code={`import { plugins } from '@komeilm76/km-geoboard';
 
 // ── 1. Create a fresh registry ────────────────────────────────────────────
-const registry = createRegistry();
+const registry = plugins.createRegistry();
 
 // ── 2. Define and register plugins ───────────────────────────────────────
 const corePlugin = {
@@ -46,33 +39,30 @@ const gpxPlugin = {
   dependencies: [{ id: 'core', range: '>=1.0.0' }],
 };
 
-const r1 = registerPlugin(registry, corePlugin);
-const r2 = registerPlugin(registry, wktPlugin);
-const r3 = registerPlugin(registry, gpxPlugin);
+const r1 = plugins.registerPlugin(registry, corePlugin);
+const r2 = plugins.registerPlugin(registry, wktPlugin);
+const r3 = plugins.registerPlugin(registry, gpxPlugin);
 console.log('Registered:', [r1, r2, r3].map(r => r.success ? r.plugin.id : r.reason).join(', '));
 
-// ── 3. Resolve activation order (dependency sort) ─────────────────────────
-const order = resolveOrder(registry, ['wkt-importer', 'gpx-importer']);
+// ── 3. Resolve activation order ───────────────────────────────────────────
+const order = plugins.resolveOrder(registry, ['wkt-importer', 'gpx-importer']);
 if (order.success) {
   console.log('Activation order:', order.ids.join(' → '));
 }
 
 // ── 4. Activate plugins ───────────────────────────────────────────────────
 for (const id of (order.success ? order.ids : [])) {
-  const act = activatePlugin(registry, id);
-  console.log(\`Activate \${id}:\`, act.success ? 'OK' : act.reason);
+  const act = plugins.activatePlugin(registry, id);
+  console.log('Activate ' + id + ':', act.success ? 'OK' : act.reason);
 }
 
 // ── 5. List registry state ────────────────────────────────────────────────
-const all = listPlugins(registry);
-all.forEach(p => {
-  console.log(\` \${p.active ? '✓' : '○'} \${p.id}@\${p.version}\`);
-});
+const all = plugins.listPlugins(registry);
+all.forEach(p => console.log(' ' + (p.active ? '✓' : '○') + ' ' + p.id + '@' + p.version));
 
-// ── 6. Deactivate one plugin ──────────────────────────────────────────────
-const deact = deactivatePlugin(registry, 'wkt-importer');
+// ── 6. Deactivate ─────────────────────────────────────────────────────────
+const deact = plugins.deactivatePlugin(registry, 'wkt-importer');
 console.log('Deactivate wkt-importer:', deact.success ? 'OK' : deact.reason);
-console.log('Active after deactivation:', listPlugins(registry).filter(p => p.active).map(p => p.id));
 `}
 />
 

@@ -12,51 +12,36 @@ import { LiveExample } from '../../../components/LiveExample';
 <LiveExample
   client:only="react"
   title="Tile math"
-  code={`import {
-  lngLatToTile,
-  tileToLngLat,
-  lngLatToPixel,
-  pixelToLngLat,
-  haversineDistance,
-  boundsContains,
-  tilesInBounds,
-} from '@komeilm76/km-map';
+  code={`import { map } from '@komeilm76/km-geoboard';
 
-const ZOOM = 10;
-const LONDON = { lng: -0.1276, lat: 51.5074 };
-const PARIS  = { lng:  2.3522, lat: 48.8566 };
+// ── 1. Lat/lng → tile coordinates (zoom 10) ───────────────────────────────
+const tile = map.lngLatToTile(13.405, 52.52, 10); // Berlin
+console.log('Berlin tile z10:', tile);
 
-// 1. lng/lat → tile XY
-const tile = lngLatToTile(LONDON, ZOOM);
-console.log(\`London tile z\${ZOOM}:\`, tile);
+// ── 2. Tile → centre lat/lng ──────────────────────────────────────────────
+const centre = map.tileToLngLat(tile.x, tile.y, 10);
+console.log('Tile centre:', centre);
 
-// 2. tile XY back to lng/lat (top-left corner of tile)
-const corner = tileToLngLat(tile, ZOOM);
-console.log('Tile top-left corner:', corner);
+// ── 3. Lat/lng → pixel within tile ───────────────────────────────────────
+const px = map.lngLatToPixel(13.405, 52.52, 10);
+console.log('Pixel (global):', px);
 
-// 3. lng/lat → pixel (256px tiles)
-const px = lngLatToPixel(LONDON, ZOOM);
-console.log('London pixel:', { x: Math.round(px.x), y: Math.round(px.y) });
+// ── 4. Haversine distance ─────────────────────────────────────────────────
+const dist = map.haversineDistance(
+  { lng: 13.405, lat: 52.52 },   // Berlin
+  { lng: 2.349, lat: 48.864 },   // Paris
+);
+console.log('Berlin → Paris (km):', (dist / 1000).toFixed(1));
 
-// 4. Pixel back to lng/lat
-const recovered = pixelToLngLat(px, ZOOM);
-console.log('Recovered lng/lat:', {
-  lng: +recovered.lng.toFixed(4),
-  lat: +recovered.lat.toFixed(4),
-});
+// ── 5. Tiles in bounding box ──────────────────────────────────────────────
+const bbox = { west: 13.3, south: 52.4, east: 13.6, north: 52.6 };
+const tiles = map.tilesInBounds(bbox, 12);
+console.log('Tiles in Berlin bbox z12:', tiles.length);
 
-// 5. Great-circle distance (metres)
-const dist = haversineDistance(LONDON, PARIS);
-console.log(\`London → Paris: \${Math.round(dist / 1000)} km\`);
-
-// 6. Count tiles covering a bounding box
-const bounds = { west: -0.5, south: 51.3, east: 0.3, north: 51.7 };
-const tiles = tilesInBounds(bounds, ZOOM);
-console.log(\`Tiles covering London area at z\${ZOOM}:\`, tiles.length);
-
-// 7. Containment check
-const inside = boundsContains(bounds, LONDON);
-console.log('London inside bounds?', inside);
+// ── 6. Bounds containment ────────────────────────────────────────────────
+const inside = map.boundsContains(bbox, { lng: 13.405, lat: 52.52 });
+const outside = map.boundsContains(bbox, { lng: 2.349, lat: 48.864 });
+console.log('Berlin in bbox:', inside, '| Paris in bbox:', outside);
 `}
 />
 

@@ -12,42 +12,22 @@ import { LiveExample } from '../../../components/LiveExample';
 <LiveExample
   client:only="react"
   title="SVG → GeoJSON"
-  code={`import { parseSvg, svgToGeoJSON } from '@komeilm76/km-svg';
+  code={`import { svg } from '@komeilm76/km-geoboard';
 
-const svg = \`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect id="bbox" x="10" y="10" width="180" height="180" />
-  <circle id="center" cx="100" cy="100" r="40" />
-  <path id="arrow" d="M 10 100 L 190 100 M 170 80 L 190 100 L 170 120" />
-</svg>\`;
+// ── 1. Parse an SVG document ──────────────────────────────────────────────
+const svgDoc = svg.parseSvgDocument('<svg viewBox="0 0 200 100"><rect x="10" y="10" width="80" height="60"/><circle cx="150" cy="50" r="30"/></svg>');
+console.log('Elements found:', svgDoc.elements.length);
+svgDoc.elements.forEach(el => console.log(' -', el.type, JSON.stringify(el.attributes)));
 
-// Step 1: parse into typed element tree
-const parsed = parseSvg(svg);
-if (!parsed.success) {
-  console.error('Parse failed:', parsed.reason);
-  process.exit(1);
-}
+// ── 2. Convert individual SVG element to GeoJSON ──────────────────────────
+const rectEl = svgDoc.elements[0];
+const feature = svg.svgElementToGeoJSON(rectEl, { scale: 1 });
+console.log('GeoJSON type:', feature.type, feature.geometry.type);
 
-console.log('Elements found:', parsed.elements.length);
-parsed.elements.forEach(el => {
-  console.log(' -', el.type, el.id ?? '(no id)');
-});
-
-// Step 2: convert to GeoJSON FeatureCollection
-const geoResult = svgToGeoJSON(parsed.elements, {
-  // Map SVG px → geographic degrees (illustrative scale)
-  scale: { x: 0.01, y: -0.01 },
-  origin: { x: -1, y: 51 }, // lon/lat origin (London area)
-});
-
-if (geoResult.success) {
-  const { featureCollection } = geoResult;
-  console.log('\\nGeoJSON features:', featureCollection.features.length);
-  featureCollection.features.forEach(f => {
-    console.log(' -', f.geometry.type, JSON.stringify(f.properties));
-  });
-} else {
-  console.error('GeoJSON conversion failed:', geoResult.reason);
-}
+// ── 3. Convert whole SVG doc to GeoJSON FeatureCollection ─────────────────
+const fc = svg.svgToGeoJSON(svgDoc, { scale: 1 });
+console.log('FeatureCollection features:', fc.features.length);
+fc.features.forEach((f, i) => console.log(' [' + i + ']', f.geometry.type));
 `}
 />
 
