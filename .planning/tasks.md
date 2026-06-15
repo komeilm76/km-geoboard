@@ -7,13 +7,13 @@
 | ID | Task | Status | Notes |
 |---|---|---|---|
 | T-015 | Windows `pnpm install` to sync local node_modules | 🧊 | Blocked on Komeil (local machine). CI half done: ci.yml badge on main = passing, verified 2026-06-12 (covers f4f6bb7 + 128def1 + b8074de → T-007 folded in, ✅) |
-| T-020 | Branch protection on `main` (B-004) | 🧊 | Manual GitHub settings (Komeil): require ci.yml checks (verify + consumer-smoke) before merge, no force-push. Settings → Branches → Add rule |
 | T-024 | Clean up stale changesets / abort duplicate release PR #3 (was: "ship docs-patch release") | ⏳ | ⚠️ The docs-patch release ALREADY SHIPPED — npm + CHANGELOGs show 0.2.1 (geoboard), 0.2.0 (imports, WKT minor), 0.1.2/0.1.1 (rest) live via 31dd255/4e2c5c0. The 2 changeset files were never consumed, so changesets bot opened duplicate release PR #3 proposing double-bumps (geoboard 0.2.2, imports 0.3.0). DO NOT MERGE PR #3. Next session: (1) close PR #3, (2) `git rm .changeset/readme-docs-expansion.md .changeset/wkt-importer-plugin.md` on main + push, (3) discard mount's uncommitted version-revert. See I-004 |
 
 ## Done
 
 | ID | Task | Status | Date |
 |---|---|---|---|
+| T-020 | Branch protection on `main` (B-004): `protect-main` ruleset ACTIVE — required status checks (`verify (18/20/22)` + `consumer-smoke`), require PR before merge (0 approvals), block force pushes, restrict deletions. Direct pushes to `main` now go via branch+PR | ✅ | 2026-06-15 |
 | T-023 | Playground app under `apps/` (B-011): Vite+React+TS — ArtboardCanvas (SVG click-drag), ImportPanel (importAuto + file drop), GeoJsonViewer, ExportPanel (GeoJSON/SVG/meta); workspace:* dep on km-geoboard. (Lockfile regen + CI fix → I-003) | ✅ | 2026-06-15 |
 | T-022 | Docs site bootstrap (B-010): TypeDoc API (markdown, all 9 packages) + Astro shell under `apps/docs` + 5 example pages w/ live examples (artboard quick start, SVG→GeoJSON, tile math, import/export round-trip, plugin registry); GitHub Pages deploy workflow. v0.5 metric met | ✅ | 2026-06-14 |
 | T-021 | First format importer shipped AS a plugin: WKT (F-001 + F-005 start) | ✅ | 2026-06-13 |
