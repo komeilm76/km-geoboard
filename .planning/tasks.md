@@ -7,15 +7,15 @@
 | ID | Task | Status | Notes |
 |---|---|---|---|
 | T-015 | Windows `pnpm install` to sync local node_modules | 🧊 | Blocked on Komeil (local machine). CI half done: ci.yml badge on main = passing, verified 2026-06-12 (covers f4f6bb7 + 128def1 + b8074de → T-007 folded in, ✅) |
-| T-022 | Docs site bootstrap (B-010): TypeDoc API + 5 pages with live examples | ✅ | v0.5 metric: 5 docs pages w/ live examples. TypeDoc → markdown for all 9 packages; Astro or Nextra shell under `apps/docs`; Sandpack (or Stackblitz embed) for the 5 example pages: artboard quick start, SVG→GeoJSON, tile math, import/export round-trip, plugin registry. Deploy GitHub Pages via workflow. 8–12 h |
-| T-023 | Playground app under `apps/` (B-011) | ✅ | Committed 2026-06-15. Vite+React+TS app: ArtboardCanvas (SVG click-drag), ImportPanel (importAuto + file drop), GeoJsonViewer, ExportPanel (GeoJSON/SVG/meta). Workspace:* dep on km-geoboard. |
 | T-020 | Branch protection on `main` (B-004) | 🧊 | Manual GitHub settings (Komeil): require ci.yml checks (verify + consumer-smoke) before merge, no force-push. Settings → Branches → Add rule |
-| T-024 | Ship pending docs-patch release (changeset `readme-docs-expansion`) | ⏳ | Wait for changesets release PR on GitHub → review bumps (all 9 patch) → merge → release.yml publishes. Expanded READMEs reach npm package pages |
+| T-024 | Clean up stale changesets / abort duplicate release PR #3 (was: "ship docs-patch release") | ⏳ | ⚠️ The docs-patch release ALREADY SHIPPED — npm + CHANGELOGs show 0.2.1 (geoboard), 0.2.0 (imports, WKT minor), 0.1.2/0.1.1 (rest) live via 31dd255/4e2c5c0. The 2 changeset files were never consumed, so changesets bot opened duplicate release PR #3 proposing double-bumps (geoboard 0.2.2, imports 0.3.0). DO NOT MERGE PR #3. Next session: (1) close PR #3, (2) `git rm .changeset/readme-docs-expansion.md .changeset/wkt-importer-plugin.md` on main + push, (3) discard mount's uncommitted version-revert. See I-004 |
 
 ## Done
 
 | ID | Task | Status | Date |
 |---|---|---|---|
+| T-023 | Playground app under `apps/` (B-011): Vite+React+TS — ArtboardCanvas (SVG click-drag), ImportPanel (importAuto + file drop), GeoJsonViewer, ExportPanel (GeoJSON/SVG/meta); workspace:* dep on km-geoboard. (Lockfile regen + CI fix → I-003) | ✅ | 2026-06-15 |
+| T-022 | Docs site bootstrap (B-010): TypeDoc API (markdown, all 9 packages) + Astro shell under `apps/docs` + 5 example pages w/ live examples (artboard quick start, SVG→GeoJSON, tile math, import/export round-trip, plugin registry); GitHub Pages deploy workflow. v0.5 metric met | ✅ | 2026-06-14 |
 | T-021 | First format importer shipped AS a plugin: WKT (F-001 + F-005 start) | ✅ | 2026-06-13 |
 | T-018 | Zod canary: `scripts/canary-zod.mjs` + non-blocking `canary-zod` ci.yml job (zod@latest + typescript@latest in temp fixture; PASS in sandbox). R-1 mitigation done | ✅ | 2026-06-12 |
 | T-019 | `scripts/check-standards.mjs` (naming, exports map, files, engines, publishConfig, repository, scripts, zod placement conditional on usage, workspace protocol, tsconfig shape, required files, coverage thresholds) + ci.yml gate + root scripts. Found+fixed real drift: km-plugins README wrongly told users to install zod. R-2 mitigation done | ✅ | 2026-06-12 |
