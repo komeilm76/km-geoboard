@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { imports } from '@komeilm76/km-geoboard';
-import type { GeoJsonFeatureCollection } from '@komeilm76/km-geoboard';
+import type { geojson as Geo } from '@komeilm76/km-geoboard';
 
 interface ImportPanelProps {
-  onImport: (fc: GeoJsonFeatureCollection, format: string) => void;
+  onImport: (fc: Geo.GeoJsonFeatureCollection, format: string) => void;
 }
 
 const SAMPLE_GEOJSON = JSON.stringify({
@@ -30,11 +30,19 @@ export function ImportPanel({ onImport }: ImportPanelProps) {
   const run = (raw: string) => {
     if (!raw.trim()) return;
     const auto = imports.importAuto(raw);
-    if (auto.result.success) {
-      setStatus({ ok: true, msg: `Imported as ${auto.format} — ${auto.result.data.features.length} features` });
-      onImport(auto.result.data, auto.format);
+    // geojson / wkt / openlayers all resolve to a GeoJSON FeatureCollection.
+    if (auto.format === 'geojson' || auto.format === 'wkt' || auto.format === 'openlayers') {
+      const result = auto.result;
+      if (result.success) {
+        setStatus({ ok: true, msg: `Imported as ${auto.format} — ${result.data.features.length} features` });
+        onImport(result.data, auto.format);
+      } else {
+        setStatus({ ok: false, msg: result.error.message });
+      }
+    } else if (!auto.result.success) {
+      setStatus({ ok: false, msg: auto.result.error.message });
     } else {
-      setStatus({ ok: false, msg: auto.result.error ?? 'Import failed' });
+      setStatus({ ok: false, msg: `Detected ${auto.format} — the viewer only displays GeoJSON feature collections` });
     }
   };
 

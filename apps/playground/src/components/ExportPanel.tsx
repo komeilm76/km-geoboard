@@ -1,9 +1,9 @@
 import { exports as ex } from '@komeilm76/km-geoboard';
-import type { GeoJsonFeatureCollection, Artboard } from '@komeilm76/km-geoboard';
+import type { geojson as Geo, artboard as Art } from '@komeilm76/km-geoboard';
 
 interface ExportPanelProps {
-  geojson: GeoJsonFeatureCollection | null;
-  boards: Artboard[];
+  geojson: Geo.GeoJsonFeatureCollection | null;
+  boards: Art.Artboard[];
 }
 
 function download(content: string, filename: string, mime: string) {
@@ -29,8 +29,8 @@ export function ExportPanel({ geojson, boards }: ExportPanelProps) {
     const meta = boards.map(b => ({
       id: b.id,
       name: b.name,
-      x: b.position.x,
-      y: b.position.y,
+      x: b.origin.x,
+      y: b.origin.y,
       width: b.size.width,
       height: b.size.height,
     }));
@@ -39,11 +39,11 @@ export function ExportPanel({ geojson, boards }: ExportPanelProps) {
 
   const exportSvg = () => {
     if (boards.length === 0) return;
-    const maxX = Math.max(...boards.map(b => b.position.x + b.size.width));
-    const maxY = Math.max(...boards.map(b => b.position.y + b.size.height));
+    const maxX = Math.max(...boards.map(b => b.origin.x + b.size.width));
+    const maxY = Math.max(...boards.map(b => b.origin.y + b.size.height));
     const rects = boards.map(b =>
-      `  <rect x="${b.position.x}" y="${b.position.y}" width="${b.size.width}" height="${b.size.height}" fill="none" stroke="#6366f1" stroke-width="1" rx="2"/>\n` +
-      `  <text x="${b.position.x + 6}" y="${b.position.y + 16}" font-size="11" fill="#6366f1">${b.name}</text>`
+      `  <rect x="${b.origin.x}" y="${b.origin.y}" width="${b.size.width}" height="${b.size.height}" fill="none" stroke="#6366f1" stroke-width="1" rx="2"/>\n` +
+      `  <text x="${b.origin.x + 6}" y="${b.origin.y + 16}" font-size="11" fill="#6366f1">${b.name}</text>`
     ).join('\n');
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxX + 20} ${maxY + 20}">\n${rects}\n</svg>`;
     download(svg, 'artboards.svg', 'image/svg+xml');

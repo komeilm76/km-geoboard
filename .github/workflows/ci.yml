@@ -28,6 +28,9 @@ jobs:
       - name: Build
         run: pnpm --filter "./packages/*" build
 
+      - name: Build playground app (catch app-level type regressions)
+        run: pnpm --filter "@komeilm76/playground" build
+
       - name: Type-check
         run: pnpm -r lint
 

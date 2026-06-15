@@ -5,6 +5,7 @@
 | ID | Issue | Status | Notes |
 |---|---|---|---|
 | I-004 | Stale changesets on `main`: `readme-docs-expansion.md` + `wkt-importer-plugin.md` were NOT deleted after the 0.2.1 release shipped (their content is already in CHANGELOGs/npm via 31dd255 + 4e2c5c0). The changesets bot therefore opened a DUPLICATE release PR #3 (`changeset-release/main`, "version packages") proposing double-bumps for already-published content: km-geoboard 0.2.2, km-imports 0.3.0 (minor again), rest +patch. Also the mount has an uncommitted, now-wrong revert downgrading package.json to 0.2.0/0.1.1 + deleting the 0.2.1 CHANGELOG entries. | 🔄 | Fix in T-024: close PR #3 WITHOUT merging; `git rm` the 2 stale changesets on main; DISCARD the local version-revert (npm is already at 0.2.1) |
+| I-005 | Playground (T-023) shipped with broken source: imported a FLAT km-geoboard API (`Artboard`, `GeoJsonFeatureCollection`) that doesn't exist — the umbrella exports only namespaces (`artboard`, `geojson`, …); also used `b.position` (real field is `b.origin`) and mishandled `importAuto`'s format-discriminated union + `ImportError` object. CI `verify` builds only `packages/*`, so it surfaced ONLY in `release.yml` (`pnpm -r build`), turning Release red. | ✅ | 2026-06-15 | Namespaced type imports (`geojson as Geo` / `artboard as Art`), `origin`, union-narrowing + `.error.message`; release now builds `./packages/*` only (private apps can't block publish); CI `verify` builds the playground to catch app regressions at PR time. tsc --noEmit clean. PR `fix-playground-build` |
 
 ## Closed
 
