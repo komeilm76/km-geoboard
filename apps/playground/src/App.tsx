@@ -3,13 +3,13 @@ import { ArtboardCanvas } from './components/ArtboardCanvas';
 import { ImportPanel } from './components/ImportPanel';
 import { GeoJsonViewer } from './components/GeoJsonViewer';
 import { ExportPanel } from './components/ExportPanel';
-import type { GeoJsonFeatureCollection, Artboard } from '@komeilm76/km-geoboard';
+import type { geojson as Geo, artboard as Art } from '@komeilm76/km-geoboard';
 
 type Tab = 'canvas' | 'import' | 'geojson';
 
 export default function App() {
-  const [boards, setBoards] = useState<Artboard[]>([]);
-  const [geojson, setGeojson] = useState<GeoJsonFeatureCollection | null>(null);
+  const [boards, setBoards] = useState<Art.Artboard[]>([]);
+  const [geojson, setGeojson] = useState<Geo.GeoJsonFeatureCollection | null>(null);
   const [tab, setTab] = useState<Tab>('canvas');
 
   return (

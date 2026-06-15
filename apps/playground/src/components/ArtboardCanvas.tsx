@@ -1,6 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
 import { artboard } from '@komeilm76/km-geoboard';
-import type { Artboard } from '@komeilm76/km-geoboard';
 
 interface DragState {
   startX: number;
@@ -10,12 +9,12 @@ interface DragState {
 }
 
 interface ArtboardCanvasProps {
-  onArtboardsChange: (boards: Artboard[]) => void;
+  onArtboardsChange: (boards: artboard.Artboard[]) => void;
 }
 
 export function ArtboardCanvas({ onArtboardsChange }: ArtboardCanvasProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [boards, setBoards] = useState<Artboard[]>([]);
+  const [boards, setBoards] = useState<artboard.Artboard[]>([]);
   const [drag, setDrag] = useState<DragState | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -112,7 +111,7 @@ export function ArtboardCanvas({ onArtboardsChange }: ArtboardCanvasProps) {
         {boards.map(b => (
           <g key={b.id} onClick={e => { e.stopPropagation(); setSelected(b.id); }}>
             <rect
-              x={b.position.x} y={b.position.y}
+              x={b.origin.x} y={b.origin.y}
               width={b.size.width} height={b.size.height}
               fill="rgba(99,102,241,0.1)"
               stroke={selected === b.id ? '#818cf8' : '#6366f1'}
@@ -121,11 +120,11 @@ export function ArtboardCanvas({ onArtboardsChange }: ArtboardCanvasProps) {
               style={{ cursor: 'pointer' }}
             />
             <text
-              x={b.position.x + 6} y={b.position.y + 16}
+              x={b.origin.x + 6} y={b.origin.y + 16}
               fill="#a5b4fc" fontSize={11} style={{ pointerEvents: 'none' }}
             >{b.name}</text>
             <text
-              x={b.position.x + 6} y={b.position.y + 28}
+              x={b.origin.x + 6} y={b.origin.y + 28}
               fill="#64748b" fontSize={10} style={{ pointerEvents: 'none' }}
             >{b.size.width}×{b.size.height}</text>
           </g>

@@ -1,7 +1,7 @@
-import type { GeoJsonFeatureCollection } from '@komeilm76/km-geoboard';
+import type { geojson as Geo } from '@komeilm76/km-geoboard';
 
 interface GeoJsonViewerProps {
-  data: GeoJsonFeatureCollection | null;
+  data: Geo.GeoJsonFeatureCollection | null;
 }
 
 export function GeoJsonViewer({ data }: GeoJsonViewerProps) {
