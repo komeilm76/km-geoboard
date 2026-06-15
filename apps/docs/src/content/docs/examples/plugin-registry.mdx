@@ -1,11 +1,11 @@
 ---
 title: Plugin registry
-description: Register, resolve dependencies, and compose plugins with km-plugins.
+description: Register, resolve dependencies, and activate plugins with km-plugins.
 ---
 
 import { LiveExample } from '../../../components/LiveExample';
 
-`@komeilm76/km-plugins` is a typed plugin registry with dependency resolution, conflict detection, and semver-aware lifecycle management. Each plugin exposes a typed API returned from its `setup` function.
+`@komeilm76/km-plugins` is a typed plugin registry with dependency resolution, conflict detection, and semver-aware lifecycle management. Use it to make any km-geoboard extension point pluggable.
 
 ## Live example
 
@@ -15,87 +15,75 @@ import { LiveExample } from '../../../components/LiveExample';
   code={`import { plugins } from '@komeilm76/km-geoboard';
 
 // ── 1. Create a fresh registry ────────────────────────────────────────────
-const registry = plugins.createPluginRegistry();
+const registry = plugins.createRegistry();
 
-// ── 2. Define plugins — each has id, version, and a setup() function ─────
+// ── 2. Define and register plugins ───────────────────────────────────────
 const corePlugin = {
-  id: 'com.example.core',
-  name: 'Core utilities',
+  id: 'core',
   version: '1.0.0',
-  setup(_deps) {
-    return { greet: (name) => 'Hello, ' + name + '!' };
-  },
+  name: 'Core utilities',
+  dependencies: [],
 };
 
 const wktPlugin = {
-  id: 'com.example.wkt',
-  name: 'WKT importer',
+  id: 'wkt-importer',
   version: '0.2.0',
-  // Declare that this plugin requires core >= 1.0.0
-  dependencies: [{ pluginId: 'com.example.core', minVersion: '>=1.0.0' }],
-  setup(deps) {
-    const core = deps.get('com.example.core');
-    return { parseWkt: (wkt) => core.greet('WKT: ' + wkt) };
-  },
+  name: 'WKT importer',
+  dependencies: [{ id: 'core', range: '>=1.0.0' }],
 };
 
-// ── 3. Register plugins ───────────────────────────────────────────────────
-// Dependency check: wkt requires core — register core first
-const r1 = registry.register(corePlugin);
-const r2 = registry.register(wktPlugin);
-console.log('core registered:', r1.success);
-console.log('wkt registered:', r2.success);
-if (!r2.success) console.log('Error:', r2.error.message);
+const gpxPlugin = {
+  id: 'gpx-importer',
+  version: '0.1.0',
+  name: 'GPX importer',
+  dependencies: [{ id: 'core', range: '>=1.0.0' }],
+};
 
-// ── 4. Call the plugin APIs ───────────────────────────────────────────────
-const coreApi = registry.getApi('com.example.core');
-console.log('core.greet:', coreApi ? coreApi.greet('world') : 'not found');
+const r1 = plugins.registerPlugin(registry, corePlugin);
+const r2 = plugins.registerPlugin(registry, wktPlugin);
+const r3 = plugins.registerPlugin(registry, gpxPlugin);
+console.log('Registered:', [r1, r2, r3].map(r => r.success ? r.plugin.id : r.reason).join(', '));
 
-const wktApi = registry.getApi('com.example.wkt');
-console.log('wkt.parseWkt:', wktApi ? wktApi.parseWkt('POINT(1 2)') : 'not found');
-
-// ── 5. List all registered plugins ────────────────────────────────────────
-const all = registry.list();
-all.forEach(reg =>
-  console.log(' ' + (reg.status === 'active' ? '✓' : '✗') + ' ' + reg.plugin.id + '@' + reg.plugin.version)
-);
-
-// ── 6. Topological dependency sort ───────────────────────────────────────
-// Pass an array of Plugin definitions to get an activation order
-const order = plugins.resolveDependencyOrder([corePlugin, wktPlugin]);
+// ── 3. Resolve activation order ───────────────────────────────────────────
+const order = plugins.resolveOrder(registry, ['wkt-importer', 'gpx-importer']);
 if (order.success) {
-  console.log('Activation order:', order.data.map(p => p.id).join(' → '));
+  console.log('Activation order:', order.ids.join(' → '));
 }
 
-// ── 7. Unregister (reverse dependency order) ─────────────────────────────
-// Must unregister wkt before core (core has a dependent)
-const u1 = registry.unregister('com.example.wkt');
-console.log('Unregister wkt:', u1.success ? 'OK' : u1.error.code);
-const u2 = registry.unregister('com.example.core');
-console.log('Unregister core:', u2.success ? 'OK' : u2.error.code);
-console.log('Plugins remaining:', registry.list().length);
+// ── 4. Activate plugins ───────────────────────────────────────────────────
+for (const id of (order.success ? order.ids : [])) {
+  const act = plugins.activatePlugin(registry, id);
+  console.log('Activate ' + id + ':', act.success ? 'OK' : act.reason);
+}
+
+// ── 5. List registry state ────────────────────────────────────────────────
+const all = plugins.listPlugins(registry);
+all.forEach(p => console.log(' ' + (p.active ? '✓' : '○') + ' ' + p.id + '@' + p.version));
+
+// ── 6. Deactivate ─────────────────────────────────────────────────────────
+const deact = plugins.deactivatePlugin(registry, 'wkt-importer');
+console.log('Deactivate wkt-importer:', deact.success ? 'OK' : deact.reason);
 `}
 />
 
 ## Concepts
 
-**Plugin definition** — a plain object with `id`, `name`, `version`, optional `dependencies` / `conflicts`, and a `setup(deps)` function. `setup` receives a `Map` of resolved dependency APIs and must return the plugin's own API object.
+**Registry** — an immutable-style value created by `createRegistry()`. Every mutation function takes the registry and returns a new registry (plus a result). The original is never mutated.
 
-**Registration** — `registry.register(plugin)` validates conflicts and dependencies, then calls `setup`. Returns `Result<PluginRegistration>`.
+**Dependency resolution** — `resolveOrder` produces a topologically sorted list. It fails (with the cycle members named) if circular dependencies are detected.
 
-**Dependency resolution** — `resolveDependencyOrder(plugins)` produces a topologically sorted list. Fails with the cycle members named if circular dependencies are detected.
+**Conflict detection** — `registerPlugin` fails with `'conflict'` if a plugin with the same `id` but an incompatible semver range is already registered.
 
-**Unregistration order** — always unregister dependents before their dependencies.
+**Lifecycle** — plugins start `inactive`. `activatePlugin` transitions them to `active` after checking their dependencies are also active.
 
 ## API summary
 
-| Symbol | Kind | Notes |
+| Function | Returns | Notes |
 |---|---|---|
-| `createPluginRegistry()` | Function | Returns a new `PluginRegistry` instance |
-| `registry.register(plugin)` | Method | Validates + calls `setup`; returns `Result<PluginRegistration>` |
-| `registry.unregister(id)` | Method | Calls `teardown`; fails if dependents still active |
-| `registry.getApi<API>(id)` | Method | Returns the plugin's API, or `null` |
-| `registry.has(id)` | Method | `true` if the plugin is registered |
-| `registry.list()` | Method | All `PluginRegistration[]` in insertion order |
-| `registry.reset()` | Method | Tears down all plugins in reverse order |
-| `resolveDependencyOrder(plugins)` | Function | Topological sort; returns `Result<Plugin[]>` |
+| `createRegistry()` | `PluginRegistry` | Empty registry |
+| `registerPlugin(registry, def)` | `RegisterResult` | Validates id, version, deps |
+| `activatePlugin(registry, id)` | `ActivateResult` | Checks deps are active |
+| `deactivatePlugin(registry, id)` | `DeactivateResult` | Checks no dependents are active |
+| `resolveOrder(registry, ids)` | `ResolveOrderResult` | Topological sort; detects cycles |
+| `listPlugins(registry)` | `PluginState[]` | All plugins with status |
+| `getPlugin(registry, id)` | `PluginState \| undefined` | Single lookup |
