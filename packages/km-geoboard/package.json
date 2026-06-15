@@ -1,6 +1,6 @@
 {
   "name": "@komeilm76/km-geoboard",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "description": "Umbrella package for the km-geoboard suite — artboard, GeoJSON, SVG, map, import/export pipelines, and plugin registry under one entry point.",
   "license": "MIT",
