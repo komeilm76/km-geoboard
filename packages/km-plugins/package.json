@@ -1,6 +1,6 @@
 {
   "name": "@komeilm76/km-plugins",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "description": "Typed plugin registry for km-packages — dependency resolution, conflict detection, semver checking, and lifecycle management.",
   "license": "MIT",
