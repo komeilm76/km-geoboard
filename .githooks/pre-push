@@ -1,0 +1,13 @@
+#!/bin/sh
+# Pre-push guard: ensure pnpm-lock.yaml is in sync with every package.json.
+# Catches ERR_PNPM_OUTDATED_LOCKFILE locally instead of after CI goes red (see I-003).
+# Activated by the root "prepare" script: git config core.hooksPath .githooks
+echo "[pre-push] verifying pnpm lockfile is in sync with package.json..."
+if ! pnpm install --frozen-lockfile --prefer-offline --ignore-scripts >/dev/null 2>&1; then
+  echo "[pre-push] FAILED: pnpm-lock.yaml is out of date with package.json."
+  echo "          Fix: run 'pnpm install', commit the updated pnpm-lock.yaml, then push again."
+  echo "          (To bypass once: git push --no-verify)"
+  exit 1
+fi
+echo "[pre-push] OK: lockfile in sync."
+exit 0
