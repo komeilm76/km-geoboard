@@ -15,52 +15,50 @@ import { LiveExample } from '../../../components/LiveExample';
   code={`import { map } from '@komeilm76/km-geoboard';
 
 // ── 1. Lat/lng → tile coordinates (zoom 10) ───────────────────────────────
-// Note: functions use { lat, lng } objects, not (lng, lat, zoom)
-const tile = map.latLngToTile({ lat: 52.52, lng: 13.405 }, 10); // Berlin
-console.log('Berlin tile z10:', tile); // { x, y, z }
+const tile = map.lngLatToTile(13.405, 52.52, 10); // Berlin
+console.log('Berlin tile z10:', tile);
 
-// ── 2. Tile → bounding box ────────────────────────────────────────────────
-const bounds = map.tileToBounds(tile); // [west, south, east, north]
-console.log('Tile bounds:', bounds.map(n => n.toFixed(4)).join(', '));
+// ── 2. Tile → centre lat/lng ──────────────────────────────────────────────
+const centre = map.tileToLngLat(tile.x, tile.y, 10);
+console.log('Tile centre:', centre);
 
-// ── 3. Lat/lng → global pixel (256 px tiles) ─────────────────────────────
-const px = map.latLngToPixel({ lat: 52.52, lng: 13.405 }, 10);
-console.log('Pixel (global):', Math.round(px.x), Math.round(px.y));
+// ── 3. Lat/lng → pixel within tile ───────────────────────────────────────
+const px = map.lngLatToPixel(13.405, 52.52, 10);
+console.log('Pixel (global):', px);
 
 // ── 4. Haversine distance ─────────────────────────────────────────────────
 const dist = map.haversineDistance(
-  { lat: 52.52, lng: 13.405 },   // Berlin
-  { lat: 48.864, lng: 2.349 },   // Paris
+  { lng: 13.405, lat: 52.52 },   // Berlin
+  { lng: 2.349, lat: 48.864 },   // Paris
 );
 console.log('Berlin → Paris (km):', (dist / 1000).toFixed(1));
 
 // ── 5. Tiles in bounding box ──────────────────────────────────────────────
-// BoundingBox is a tuple: [west, south, east, north]
-const bbox = [13.3, 52.4, 13.6, 52.6];
-const tiles = map.tilesForBounds(bbox, 12);
+const bbox = { west: 13.3, south: 52.4, east: 13.6, north: 52.6 };
+const tiles = map.tilesInBounds(bbox, 12);
 console.log('Tiles in Berlin bbox z12:', tiles.length);
 
 // ── 6. Bounds containment ────────────────────────────────────────────────
-const inside  = map.boundsContains(bbox, { lat: 52.52, lng: 13.405 });
-const outside = map.boundsContains(bbox, { lat: 48.864, lng: 2.349 });
+const inside = map.boundsContains(bbox, { lng: 13.405, lat: 52.52 });
+const outside = map.boundsContains(bbox, { lng: 2.349, lat: 48.864 });
 console.log('Berlin in bbox:', inside, '| Paris in bbox:', outside);
 `}
 />
 
 ## Coordinate systems
 
-All functions work in **WGS84 / EPSG:4326** degrees using `{ lat, lng }` objects. Tile XY follows the [OSM / Google Maps convention](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames) (origin top-left, Y increases downward). `BoundingBox` is a `[west, south, east, north]` tuple — the GeoJSON convention.
+All functions work in **WGS84 / EPSG:4326** degrees. Tile XY follows the [OSM / Google Maps convention](https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames) (origin top-left, Y increases downward).
 
 ## API summary
 
 | Function | Returns | Notes |
 |---|---|---|
-| `latLngToTile(latLng, zoom)` | `TileCoord` | Integer `{ x, y, z }` |
-| `tileToBounds(tile)` | `BoundingBox` | `[west, south, east, north]` |
-| `latLngToPixel(latLng, zoom)` | `PixelPoint` | Global pixel (256 px tiles) |
-| `pixelToLatLng(pixel, zoom)` | `LatLng` | Inverse of above |
-| `haversineDistance(from, to)` | `number` | Metres, WGS84 sphere |
-| `tilesForBounds(bounds, zoom)` | `TileCoord[]` | All tiles intersecting bbox |
+| `lngLatToTile(lngLat, zoom)` | `TileXY` | Floor to integer tile indices |
+| `tileToLngLat(tile, zoom)` | `LngLat` | Top-left corner of tile |
+| `lngLatToPixel(lngLat, zoom)` | `Point` | Global pixel (256 px tiles) |
+| `pixelToLngLat(pixel, zoom)` | `LngLat` | Inverse of above |
+| `haversineDistance(a, b)` | `number` | Metres, WGS84 sphere |
+| `tilesInBounds(bounds, zoom)` | `TileXY[]` | All tiles intersecting bbox |
 | `boundsContains(bounds, point)` | `boolean` | Inclusive containment |
-| `latLngToMercator(latLng)` | `MercatorPoint` | Web Mercator (EPSG:3857) metres |
-| `mercatorToLatLng(point)` | `LatLng` | Inverse Mercator |
+| `projectMercator(lngLat)` | `Point` | Web Mercator (EPSG:3857) metres |
+| `unprojectMercator(point)` | `LngLat` | Inverse Mercator |

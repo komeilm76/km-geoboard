@@ -17,56 +17,47 @@ Edit the code below and the output panel updates instantly.
   code={`import { artboard } from '@komeilm76/km-geoboard';
 
 // ── 1. Create an artboard ─────────────────────────────────────────────────
-// createArtboard returns a discriminated union — check .success first
-const r1 = artboard.createArtboard({
+const board = artboard.createArtboard({
   startPoint: { x: 0, y: 0 },
   endPoint: { x: 800, y: 600 },
   name: 'Main canvas',
 });
-if (!r1.success) throw new Error(r1.reason);
-const board = r1.artboard;
-console.log('Created:', board.name, board.size.width + 'x' + board.size.height);
+console.log('Created:', board.name, board.width + 'x' + board.height);
 
 // ── 2. Move it ────────────────────────────────────────────────────────────
-// moveArtboard is infallible — returns Artboard directly
-const moved = artboard.moveArtboard({ artboard: board, delta: { x: 50, y: 50 } });
-console.log('Moved origin:', moved.origin.x, moved.origin.y);
+const moved = artboard.moveArtboard(board, { x: 50, y: 50 });
+console.log('Moved to:', moved.startPoint.x, moved.startPoint.y);
 
 // ── 3. Resize it ──────────────────────────────────────────────────────────
-const r3 = artboard.resizeArtboard({ artboard: moved, size: { width: 1200, height: 900 } });
-if (!r3.success) throw new Error(r3.reason);
-const resized = r3.artboard;
-console.log('Resized to:', resized.size.width + 'x' + resized.size.height);
+const resized = artboard.resizeArtboard(moved, 1200, 900);
+console.log('Resized to:', resized.width + 'x' + resized.height);
 
 // ── 4. Snap to grid ───────────────────────────────────────────────────────
-// snapArtboardToGrid is infallible — returns Artboard directly
-const snapped = artboard.snapArtboardToGrid({ artboard: resized, gridSize: 100 });
-console.log('Snapped origin:', snapped.origin.x, snapped.origin.y);
+const snapped = artboard.snapArtboardToGrid(resized, 100);
+console.log('Snapped start:', snapped.startPoint.x, snapped.startPoint.y);
 
 // ── 5. Point containment ──────────────────────────────────────────────────
-const inside  = artboard.artboardContainsPoint(snapped, { x: 400, y: 300 });
+const inside = artboard.artboardContainsPoint(snapped, { x: 400, y: 300 });
 const outside = artboard.artboardContainsPoint(snapped, { x: 5, y: 5 });
-console.log('(400,300) inside:', inside);
-console.log('(5,5) inside:', outside);
+console.log('Point (400,300) inside:', inside);
+console.log('Point (5,5) inside:', outside);
 
 // ── 6. Overlap detection ─────────────────────────────────────────────────
-const r6 = artboard.createArtboard({
+const other = artboard.createArtboard({
   startPoint: { x: 700, y: 500 },
-  endPoint:   { x: 1400, y: 1000 },
+  endPoint: { x: 1400, y: 1000 },
   name: 'Overlay',
 });
-const overlap = r6.success
-  ? artboard.artboardsOverlap(snapped, r6.artboard)
-  : false;
+const overlap = artboard.artboardsOverlap(snapped, other);
 console.log('Boards overlap:', overlap);
 `}
 />
 
 ## Key concepts
 
-**Normalization** — `createArtboard` always produces a canonical artboard: `origin` is the top-left corner and `size` values are always positive. You can pass drag points in any order.
+**Normalization** — `createArtboard` always produces a canonical artboard: `origin` is the top-left corner, `size` is always positive. You can pass drag points in any order.
 
-**Discriminated results** — fallible functions (`createArtboard`, `resizeArtboard`) return `{ success: true, artboard }` or `{ success: false, reason }`. Infallible functions like `moveArtboard` and `snapArtboardToGrid` return `Artboard` directly.
+**Discriminated results** — fallible functions return `{ success: true, artboard }` or `{ success: false, reason }`. Infallible functions like `moveArtboard` return `Artboard` directly.
 
 **Immutability** — no function mutates its input. Each call returns a new object.
 
@@ -78,6 +69,6 @@ console.log('Boards overlap:', overlap);
 | `resizeArtboard(input)` | `CreateArtboardResult` | Partial overrides for origin/size |
 | `moveArtboard(input)` | `Artboard` | Translates by delta; infallible |
 | `snapArtboardToGrid(input)` | `Artboard` | floor / round / ceil modes |
-| `artboardContainsPoint(artboard, point)` | `boolean` | Inclusive bounds |
-| `artboardsOverlap(a, b)` | `boolean` | True if any overlap exists |
+| `artboardContainsPoint(input)` | `boolean` | Inclusive bounds |
+| `artboardsOverlap(input)` | `boolean` | True if any overlap exists |
 | `artboardToRect / artboardFromRect` | `Rect / Artboard` | Convert to/from DOMRect-style |
